@@ -1,0 +1,129 @@
+.tickets
+  background: #0060cf
+  padding: 42px 0 53px 0
+  margin-bottom: 67px
+  & .section-header
+      color: #ffffff
+      margin-bottom: 60px
+  &-wrapper
+    //display: flex
+    //align-items: flex-start
+    //justify-content: space-between
+    max-width: 980px
+    margin: 0 auto 52px
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-gap: 80px
+  &-item
+    background: linear-gradient(180deg, #0060cf 0%,  #1b82ea 100%)
+    padding-bottom: 49px
+
+    &__bottom
+      padding: 0 50px
+      max-width: 414px
+      margin: 0 auto
+
+    &__wrapper
+      flex-basis: 450px
+      padding: 28px 0 28px 100px
+
+    &__days
+      color: #ffffff
+      font-size: 22px
+      font-weight: 700
+      margin-bottom: 22px
+    &__list
+      margin-bottom: 9px
+      &--item
+        position: relative
+        color: #ffffff
+
+        &:last-child
+          margin-bottom: 0
+        &::before
+          position: absolute
+          content: url(../images/not_c.png)
+          left: -20px
+        &.checked
+          &::before
+            content: url(../images/check.png)
+    &__price
+      position: relative
+      color: #ffffff
+      text-align: center
+      font-size: 22px
+      font-weight: 700
+      margin-bottom: 25px
+      &::before
+        position: absolute
+        content: ''
+        width: 80px
+        height: 2px
+        background: #ffffff
+        left: 0
+        top: 50%
+        transform: translateY(-50%)
+      &::after
+        position: absolute
+        content: ''
+        width: 80px
+        height: 2px
+        background: #ffffff
+        right: 0
+        top: 50%
+        transform: translateY(-50%)
+
+    &__button
+      display: inline-block
+      font-size: 27px
+      line-height: 26px
+      color: #ffffff
+      font-weight: 700
+      text-transform: uppercase
+      background: $color-yellow
+      border-radius: 8px
+      padding: 19px
+      text-align: center
+
+      box-shadow: 0 5px 20px 6px #ffffff61
+  &-form
+    text-align: center
+    form
+      position: relative
+      display: inline-block
+    p
+
+      font-size: 22px
+      font-weight: 700
+      margin-bottom: 12px
+      color: #ffffff
+      text-transform: uppercase
+    input
+      border: none
+      padding: 15px 10px
+      font-style: italic
+      color: #b3b3b3
+      border-radius: 4px
+      width: 486px
+      &:focus
+        outline: none
+      &:active
+        outline: none
+    button
+      position: absolute
+      border: none
+      background: #319eff
+      color: #ffffff
+      text-transform: uppercase
+      top: 0
+      bottom: 0
+      border-radius: 4px
+      right: -10px
+      cursor: pointer
+      width: 170px
+      &:focus
+        outline: none
+      &:active
+        outline: none
+
+

@@ -1,0 +1,355 @@
+<template>
+<div class="">
+  <section class="offer">
+        <video  class="offer-video" loop="loop" autoplay="" muted="">
+            <source src="https://streamfest.ru/wp-content/uploads/2020/03/Стримфест-2019.-20-секунд-на-сайт_new.mp4" type="video/mp4">
+        </video>
+        <div class="container offer-wrapper">
+            <h3 class="offer__title">СТРИМФЕСТ 2021</h3>
+            <p class="offer__subtitle">Главный фестиваль весны!</p>
+            <p class="offer__subtitle subtitle-last">17–18 апреля<br>Москва, Сколково</p>
+            <a class="offer__button" href="#">купить билет</a>
+            <p class="offer__22px">до начала</p>
+            <p class="offer__36px">30 часов</p>
+
+
+
+        </div>
+    </section>
+    <section class="video-block">
+        <div class="video-block__online">
+            <p>Стрим онлайн</p>
+        </div>
+        <div class="container">
+            <h3 class="section-header mb-20">ВСЕ ЗВЁЗДЫ И ЖАНРЫ СТРИМИНГА</h3>
+            <p class="section-subheader">Стримфест — это крупнейший фестиваль в СНГ фестиваль стрим-культуры.
+                Здесь известные стримеры и подкастеры встречаются со своими зрителями. Балдёж-кутёж,
+                живое общение, море развлечений, мастер-классы — без сомнения, лучшие выходные года!</p>
+            <video class="video-video" controls >
+
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Your browser does not support HTML video.
+            </video>
+            <div class="video-wrapper">
+                <div class="video-item">
+                    <img src="http://placehold.it/130x80" alt="">
+                    <p class="video-item__title">Встречи со звездами</p>
+                    <p>Топы всех платформ: Twitch.tv, YouTube, TikTok, WASD, Goodgame,</p>
+                </div>
+                <div class="video-item">
+                    <img src="http://placehold.it/130x80" alt="">
+                    <p class="video-item__title">Встречи со звездами</p>
+                    <p>Топы всех платформ: Twitch.tv, YouTube, TikTok, WASD, Goodgame,</p>
+                </div>
+                <div class="video-item">
+                    <img src="http://placehold.it/130x80" alt="">
+                    <p class="video-item__title">Встречи со звездами</p>
+                    <p>Топы всех платформ: Twitch.tv, YouTube, TikTok, WASD, Goodgame,</p>
+                </div>
+                <div class="video-item">
+                    <img src="http://placehold.it/130x80" alt="">
+                    <p class="video-item__title">Встречи со звездами</p>
+                    <p>Топы всех платформ: Twitch.tv, YouTube, TikTok, WASD, Goodgame,</p>
+                </div>
+                <div class="video-item">
+                    <img src="http://placehold.it/130x80" alt="">
+                    <p class="video-item__title">Встречи со звездами</p>
+                    <p>Топы всех платформ: Twitch.tv, YouTube, TikTok, WASD, Goodgame,</p>
+                </div>
+                <div class="video-item">
+                    <img src="http://placehold.it/130x80" alt="">
+                    <p class="video-item__title">Встречи со звездами</p>
+                    <p>Топы всех платформ: Twitch.tv, YouTube, TikTok, WASD, Goodgame,</p>
+                </div>
+            </div>
+            <div class="video-buttons">
+                <a class="btn" href="#">РАСПИСАНИЕ</a>
+                <a class="btn btn-w-icon" href="#">И ДРУГИЕ АКТИВНОСТИ</a>
+                <a class="btn" href="#">КАРТА ФЕСТИВАЛЯ</a>
+            </div>
+        </div>
+    </section>
+    <div class="separator star"></div>
+    <section class="streamers">
+
+        <div class="container">
+            <h3 class="section-header">ОЧЕНЬ ПРОСТО ПОВСТРЕЧАТЬ</h3>
+            <div class="streamers-wrapper">
+                <StreamerCard v-for="streamer in streamers" :key="streamer.id"
+                              :image="streamer.photo"
+                              :name="streamer.name"
+                              :name_slug="streamer.nickNameSlug"
+                              :nickname="streamer.nickName" />
+            </div>
+            <div class="streamers-btn">
+                <a href="#" class="btn btn-w-icon">
+                    КТО ТОЛЬКО НЕ ПРИДЕТ
+                    <img  src="http://placehold.it/30" alt="">
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="tickets">
+        <h3 class="section-header">ЦЕНЫ ВЫРАСТУТ — БЕРИ БИЛЕТ СЕЙЧАС!</h3>
+        <div class="tickets-wrapper">
+            <div class="tickets-item">
+                <div class="tickets-item__wrapper">
+                    <p class="tickets-item__days">Билет на один из дней<br>17 или 18 апреля</p>
+                    <ul class="tickets-item__list">
+                        <li class="tickets-item__list--item checked">Хайп, веселье, конкурсы</li>
+                        <li class="tickets-item__list--item checked">Все стенды и развлечения</li>
+                        <li class="tickets-item__list--item ">Все стримеры и подкастеры</li>
+                        <li class="tickets-item__list--item ">Все лекции и мастер-классы</li>
+                        <li class="tickets-item__list--item ">Два дня праздника</li>
+                    </ul>
+                </div>
+
+                <div class="tickets-item__bottom">
+                    <p class="tickets-item__price">1300 ₽</p>
+                    <a href="#" class="tickets-item__button">КУПИТЬ БИЛЕТ  НА 1 ДЕНЬ</a>
+                </div>
+
+
+
+            </div>
+            <div class="tickets-item">
+                <div class="tickets-item__wrapper">
+                    <p class="tickets-item__days">Билет на оба дня<br>17 и 18 апреля</p>
+                    <ul class="tickets-item__list">
+                        <li class="tickets-item__list--item checked">Хайп, веселье, конкурсы</li>
+                        <li class="tickets-item__list--item checked">Все стенды и развлечения</li>
+                        <li class="tickets-item__list--item checked">Все стримеры и подкастеры</li>
+                        <li class="tickets-item__list--item checked">Все лекции и мастер-классы</li>
+                        <li class="tickets-item__list--item checked">Два дня праздника</li>
+                    </ul>
+                </div>
+                <div class="tickets-item__bottom">
+                    <p class="tickets-item__price">2100 ₽</p>
+                    <a href="#" class="tickets-item__button">КУПИТЬ БИЛЕТ  НА 2 ДНЯ</a>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="tickets-form">
+            <p>Новости и плюшки Стримфеста</p>
+            <form action="">
+                <input type="text" placeholder="Ваш Email">
+                <button type="submit">подписаться</button>
+            </form>
+        </div>
+    </section>
+    <section class="how-it-was">
+        <div class="container">
+            <h3 class="section-header">КАК ЭТО БЫЛО В 2019</h3>
+            <p class="section-subheader">Два дня в Сколково, 170 топовых стримеров, 7000 посетителей<br> и больше 2 млн зрителей онлайн — это было легендарно!</p>
+            <video class="video-video" controls >
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Your browser does not support HTML video.
+            </video>
+
+            <div class="separator gamepad"></div>
+            <div class="how-it-was-photos">
+                <div class="how-it-was-photo">
+                    <img src="http://placehold.it/390x225" alt="">
+                </div>
+                <div class="how-it-was-photo">
+                    <img src="http://placehold.it/390x225" alt="">
+                </div>
+                <div class="how-it-was-photo">
+                    <img src="http://placehold.it/390x225" alt="">
+                </div>
+                <div class="how-it-was-photo">
+                    <img src="http://placehold.it/390x225" alt="">
+                </div>
+                <div class="how-it-was-photo">
+                    <img src="http://placehold.it/390x225" alt="">
+                </div>
+                <div class="how-it-was-photo">
+                    <img src="http://placehold.it/390x225" alt="">
+                </div>
+            </div>
+            <div class="streamers-btn">
+                <a href="#" class="btn btn-w-icon">
+                    больше фото
+                </a>
+            </div>
+        </div>
+
+    </section>
+    <section class="feedbacks">
+        <div class="container">
+          <client-only>
+        <swiper class="slider-streams__wrapper"  :options="swiperOption">
+          <div class="swiper-pagination" slot="pagination"></div>
+          <swiper-slide >
+             <div class="feedback-item">
+                                <div class="feedback-item__inner">
+                                    <p class="feedback-item__text">“Стримфест — это прекрасная возможность
+                                        познакомиться с культурой стриминга,
+                                        популярными кастерами и научиться новому.
+                                        Я рад, что мы можем делиться опытом и
+                                        развиваться.”</p>
+                                    <p class="feedback-item__from">Денис Welovegames Коробков,</p>
+                                    <p class="feedback-item__who">стример</p>
+                                </div>
+                                <div class="feedback-item__image">
+                                    <img src="http://placehold.it/170" alt="">
+                                </div>
+
+                            </div>
+          </swiper-slide>
+          <swiper-slide >
+             <div class="feedback-item">
+                                <div class="feedback-item__inner">
+                                    <p class="feedback-item__text">“Стримфест — это прекрасная возможность
+                                        познакомиться с культурой стриминга,
+                                        популярными кастерами и научиться новому.
+                                        Я рад, что мы можем делиться опытом и
+                                        развиваться.”</p>
+                                    <p class="feedback-item__from">Денис Welovegames Коробков,</p>
+                                    <p class="feedback-item__who">стример</p>
+                                </div>
+                                <div class="feedback-item__image">
+                                    <img src="http://placehold.it/170" alt="">
+                                </div>
+
+                            </div>
+          </swiper-slide>
+          <swiper-slide >
+             <div class="feedback-item">
+                                <div class="feedback-item__inner">
+                                    <p class="feedback-item__text">“Стримфест — это прекрасная возможность
+                                        познакомиться с культурой стриминга,
+                                        популярными кастерами и научиться новому.
+                                        Я рад, что мы можем делиться опытом и
+                                        развиваться.”</p>
+                                    <p class="feedback-item__from">Денис Welovegames Коробков,</p>
+                                    <p class="feedback-item__who">стример</p>
+                                </div>
+                                <div class="feedback-item__image">
+                                    <img src="http://placehold.it/170" alt="">
+                                </div>
+
+                            </div>
+          </swiper-slide>
+        </swiper>
+
+      </client-only>
+
+
+        </div>
+    </section>
+    <section class="awards">
+        <div class="container">
+            <h3 class="section-header">STREAMFEST AWARDS</h3>
+            <p class="section-subheader">Яркое эфирное шоу, где популярные стримеры, эксперты рынка<br>
+                и журналисты развлекательных медиа выбрали лучших из лучших в 13 номинациях. <span>Вот как это было.</span></p>
+            <div class="awards-img">
+                <img src="http://placehold.it/1200x400" alt="">
+            </div>
+
+        </div>
+    </section>
+    <div class="separator crown"></div>
+    <section class="partners">
+        <div class="container">
+            <h3 class="section-header">ГЕНЕРАЛЬНЫЙ ПАРТНЕР</h3>
+            <div class="partners-img general">
+                <img src="http://placehold.it/400x200" alt="">
+            </div>
+            <h3 class="section-header">СТРАТЕГИЧЕСКИЕ ПАРТНЕРЫ</h3>
+            <div class="partners-img strategy">
+                <img src="http://placehold.it/400x200" alt="">
+                <img src="http://placehold.it/400x200" alt="">
+                <img src="http://placehold.it/400x200" alt="">
+            </div>
+            <h3 class="section-header">ОФИЦИАЛЬНЫЕ ПАРТНЕРЫ</h3>
+            <div class="partners-img official">
+                <img src="http://placehold.it/400x200" alt="">
+                <img src="http://placehold.it/400x200" alt="">
+                <img src="http://placehold.it/400x200" alt="">
+                <img src="http://placehold.it/400x200" alt="">
+                <img src="http://placehold.it/400x200" alt="">
+                <img src="http://placehold.it/400x200" alt="">
+            </div>
+            <h3 class="section-header">ПАРТНЕРЫ ТЕМАТИЧЕСКИХ ЗОН</h3>
+            <div class="partners-img tematic">
+                <img src="http://placehold.it/400x200" alt="">
+                <img src="http://placehold.it/400x200" alt="">
+                <img src="http://placehold.it/400x200" alt="">
+                <img src="http://placehold.it/400x200" alt="">
+                <img src="http://placehold.it/400x200" alt="">
+
+            </div>
+            <h3 class="section-header">ТЕХНИЧЕСКАЯ ПОДДЕРЖКА</h3>
+            <div class="partners-img tematic">
+                <img src="http://placehold.it/400x200" alt="">
+                <img src="http://placehold.it/400x200" alt="">
+                <img src="http://placehold.it/400x200" alt="">
+                <img src="http://placehold.it/400x200" alt="">
+                <img src="http://placehold.it/400x200" alt="">
+
+            </div>
+            <h3 class="section-header">ИНФОРМАЦИОННАЯ ПОДДЕРЖКА</h3>
+            <div class="partners-img tematic information">
+                <img src="http://placehold.it/400x200" alt="">
+                <img src="http://placehold.it/400x200" alt="">
+                <img src="http://placehold.it/400x200" alt="">
+            </div>
+            <div class="partners-btn">
+                <a href="" class="btn red">ХОЧУ СТАТЬ ПАРТНЕРОМ</a>
+            </div>
+        </div>
+    </section>
+</div>
+</template>
+
+<script>
+import StreamerCard from '@/components/StreamerCard'
+export default {
+  components:{
+    StreamerCard
+  },
+  async asyncData({$axios}){
+    const get_streamers = await $axios.get(`/api/get_streamers?at_home=show`)
+    const streamers = get_streamers.data
+    return {streamers}
+  },
+  data() {
+    return {
+        swiperOption: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+        //centeredSlides: true,
+
+        // breakpoints: {
+        //   // when window width is >= 320px
+        //   320: {
+        //     centeredSlides: true,
+        //     slidesPerView: 1,
+        //     spaceBetween: 20
+        //   },
+        //   // when window width is >= 480px
+        //   480: {
+        //     slidesPerView: 1,
+        //     spaceBetween: 30
+        //   },
+        //   // when window width is >= 640px
+        //   640: {
+        //     slidesPerView: 5,
+        //     spaceBetween: 40
+        //   }
+        // }
+      },
+    }
+  },
+  mounted() {
+
+  },
+  methods: {
+
+
+  }
+}
+</script>

@@ -1,0 +1,45 @@
+.feedbacks
+  margin-bottom: 77px
+.feedback
+  &-item
+    position: relative
+    &__inner
+      position: relative
+      border: 1px solid #bac8cf
+      border-radius: 8px
+      padding: 20px
+      overflow: hidden
+      &::after
+        position: absolute
+        content: ''
+        width: 80px
+        height: 80px
+        background: #ffffff
+        border-radius: 100%
+        border: 1px solid #bac8cf
+        left: 50%
+        transform: translateX(-50%)
+        bottom: -45px
+    &__text
+      font-size: 16px
+      font-style: italic
+      line-height: 24px
+      margin-bottom: 30px
+    &__from
+      font-size: 16px
+      font-weight: 600
+    &__who
+      font-size: 16px
+    &__image
+      position: absolute
+      left: 50%
+      transform: translateX(-50%)
+      bottom: -44px
+      border: 5px solid #ffffff
+      box-sizing: border-box
+      border-radius: 100%
+      img
+        border-radius: 100%
+        height: 70px
+        width: 70px
+        object-fit: cover

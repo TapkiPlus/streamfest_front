@@ -1,0 +1,65 @@
+.header
+  background: rgb(0,89,201)
+  background: linear-gradient(90deg, rgba(0,89,201,1) 0%, rgba(43,181,255,1) 18%, rgba(0,89,201,1) 100%)
+  padding: 15px 0
+  top: -90px
+  transition: top .2s linear
+  &.header-no-bg
+    background: none
+    margin-bottom: 64px //normal
+    //margin-bottom: 58px faq
+    //margin-bottom: 37px streamer
+    & .header-nav
+      a
+        color: #0060cf
+  &.header-sticky
+    position: fixed
+    top: 0
+    width: 100%
+    background: #333333
+    z-index: 100
+  &-wrapper
+    display: flex
+    align-items: center
+    justify-content: space-between
+  &-logo
+    flex-grow: 1
+  &-nav
+    flex-grow: 3
+    ul
+      display: flex
+      align-items: center
+      justify-content: space-between
+      li
+        position: relative
+        &.navItemActive
+          &::before
+            position: absolute
+            content: url(../images/star.png)
+            left: 50%
+            transform: translateX(-50%)
+            top: -20px
+          &::after
+            position: absolute
+            content: ''
+            background: $color-yellow
+            left: 0
+            right: 0
+            height: 2px
+            bottom: -5px
+
+        a
+          color: #FFFFFF
+          font-size: 18px
+  &-button
+    flex-grow: 1
+    text-align: right
+    a
+      display: inline-block
+      font-size: 14px
+      color: #333333
+      font-weight: 800
+      text-transform: uppercase
+      background: $color-yellow
+      border-radius: 2px
+      padding: 8px

@@ -1,0 +1,167 @@
+$color-yellow: #ffc133
+$color-text: #333333
+$color-blue: #0060cf
+
+body
+  font-family: 'Open Sans', sans-serif
+  font-weight: 400
+  font-size: 18px
+  color: $color-text
+  background: #f5f5f5
+  //background: url(../images/bg_faq.png)
+
+section
+  margin-bottom: 30px
+
+
+.container
+  max-width: 1200px
+  margin: 0 auto
+  //padding: 0 10px
+
+.section-header
+  font-weight: 700
+  font-size: 36px
+  text-align: center
+
+
+.section-subheader
+  font-size: 18px
+  max-width: 820px
+  margin: 0 auto
+  text-align: center
+  word-break: break-word
+
+.video
+  &-video
+    width: 100%
+    margin-bottom: 52px
+    height: 700px
+
+  &-wrapper
+    max-width: 1000px
+    margin: 0 auto 50px
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-column-gap: 317px
+    grid-row-gap: 29px
+  &-block
+    position: relative
+    & .section-subheader
+      margin-bottom: 5px
+    &__online
+      position: absolute
+      right: 133px
+      top: 481px
+      border: 2px solid #ff4633
+      padding: 12px 0px 10px 48px
+      width: 179px
+      height: 89px
+      border-radius: 4px
+      p
+        position: relative
+        color: #ff4633
+        font-size: 22px
+        font-weight: 700
+        max-width: 100px
+        text-align: left
+        line-height: 27px
+        &::before
+          position: absolute
+          content: ''
+          width: 18px
+          height: 18px
+          background: #ff4633
+          border-radius: 100%
+          left: -32px
+          top: 21px
+  &-item
+    img
+      width: 130px
+      height: 80px
+      object-fit: cover
+
+    &__title
+      font-weight: 700
+      font-size: 22px
+      margin-bottom: 10px
+  &-buttons
+
+    max-width: 1000px
+    margin: 0 auto 79px
+    display: flex
+    align-items: center
+    justify-content: space-around
+
+.separator
+  position: relative
+  max-width: 1200px
+  margin: 0 auto 46px
+  width: 100%
+  height: 2px
+  background: #bac8cf
+  &::before
+    position: absolute
+    content: url(../images/star_ico.png)
+    left: 50%
+    transform: translateX(-50%)
+    background: #f5f5f5
+    width: 50px
+    height: 8px
+    display: flex
+    justify-content: center
+    align-items: center
+  &.star
+    &::before
+       content: url(../images/star_ico.png)
+  &.gamepad
+    &::before
+       content: url(../images/gamepad.png)
+  &.crown
+    &::before
+       content: url(../images/crown_ico.png)
+
+.btn
+  display: inline-flex
+  padding: 27px 0px
+  //padding: 27px 60px
+  align-items: center
+  justify-content: center
+  width: 300px
+
+  color: #ffffff
+  background: #d6e0e4
+  transition: all .2s linear
+  text-transform: uppercase
+
+  user-select: none
+  border-radius: 40px
+  font-weight: 700
+  &:hover
+    background: linear-gradient(90deg, rgba(0,89,201,1) 0%, rgba(43,181,255,1) 35%, rgba(0,89,201,1) 100%)
+  &.btn-w-icon
+    width: 340px
+    background: linear-gradient(90deg, rgba(0,89,201,1) 0%, rgba(43,181,255,1) 35%, rgba(0,89,201,1) 100%)
+    img
+      pointer-events: none
+      margin-left: 30px
+  &.red
+    background: linear-gradient(135deg, #d61e15 0%, #f99999 35%, #d61e15 100%)
+
+.splide
+  height: 290px
+  &__track
+    height: 290px
+.splide__arrow
+  background: #ffffff
+  svg
+    fill: #bac8cf
+    width: 10em
+    height: 10em
+  &--next
+    right: -50px
+  &--prev
+    left: -50px
+
+.mb-20
+  margin-bottom: 20px

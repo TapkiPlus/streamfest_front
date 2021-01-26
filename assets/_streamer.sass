@@ -1,0 +1,62 @@
+.streamer
+  margin-bottom: 72px
+  &-container
+    max-width: 1000px
+    margin: 0 auto
+  &-top
+    display: grid
+    grid-template-columns: 1fr 4fr
+    grid-gap: 30px
+    margin-bottom: 44px
+    &__avatar
+      height: 290px
+      background-size: cover !important
+    &__big
+       height: 290px
+       background-size: cover !important
+  &-info
+    display: flex
+    align-items: center
+    justify-content: space-between
+    margin-bottom: 30px
+    &__name
+      p
+        &:first-child
+          font-size: 37px
+          font-weight: 700
+
+        &:last-child
+  &-text
+    margin-bottom: 50px
+    p
+      margin-bottom: 30px
+      &:last-child
+        margin-bottom: 0
+
+  &-bottom
+    &__buttons
+      display: flex
+      justify-content: space-evenly
+      margin-bottom: 51px
+    &__button
+      display: inline-block
+      border-radius: 8px
+      padding: 11px 55px
+      color: #ffffff
+      text-transform: uppercase
+      text-align: center
+      cursor: pointer
+      p
+        &:first-child
+          font-size: 27px
+          font-weight: 700
+
+      &.streamer-bottom__button--red
+        background: linear-gradient(135deg, #d61e15 0%, #f99999 35%, #d61e15 100%)
+      &.streamer-bottom__button--yellow
+        background: $color-yellow
+    &__text
+      text-align: center
+      margin: 0 auto 60px
+      font-style: italic
+      max-width: 480px
