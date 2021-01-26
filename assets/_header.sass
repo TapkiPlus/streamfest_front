@@ -12,8 +12,12 @@
     & .header-nav
       a
         color: #0060cf
+    &.header-sticky
+      & .header-nav
+        a
+          color: #FFFFFF
   &.header-sticky
-    position: fixed
+    position: sticky
     top: 0
     width: 100%
     background: #333333
@@ -24,6 +28,7 @@
     justify-content: space-between
   &-logo
     flex-grow: 1
+    cursor: pointer
   &-nav
     flex-grow: 3
     ul
@@ -31,23 +36,6 @@
       align-items: center
       justify-content: space-between
       li
-        position: relative
-        &.navItemActive
-          &::before
-            position: absolute
-            content: url(../images/star.png)
-            left: 50%
-            transform: translateX(-50%)
-            top: -20px
-          &::after
-            position: absolute
-            content: ''
-            background: $color-yellow
-            left: 0
-            right: 0
-            height: 2px
-            bottom: -5px
-
         a
           color: #FFFFFF
           font-size: 18px
@@ -63,3 +51,20 @@
       background: $color-yellow
       border-radius: 2px
       padding: 8px
+
+.nuxt-link-exact-active
+  position: relative
+  &::before
+    position: absolute
+    content: url(/star.png)
+    left: 50%
+    transform: translateX(-50%)
+    top: -20px
+  &::after
+    position: absolute
+    content: ''
+    background: $color-yellow
+    left: 0
+    right: 0
+    height: 2px
+    bottom: -5px
