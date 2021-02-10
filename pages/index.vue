@@ -92,30 +92,18 @@
     <section class="tickets">
         <h3 class="section-header">ЦЕНЫ ВЫРАСТУТ — БЕРИ БИЛЕТ СЕЙЧАС!</h3>
         <div class="tickets-wrapper">
-            <div class="tickets-item">
+            <div class="tickets-item" v-for="ticket in tickets" :key="ticket.id">
                 <div class="tickets-item__wrapper">
-                    <p class="tickets-item__days">Билет на один из дней<br>17 или 18 апреля</p>
-                    <ul class="tickets-item__list">
+                    <p v-if="ticket.is_one_day" class="tickets-item__days">Билет на один из дней<br>17 или 18 апреля</p>
+                    <p v-else class="tickets-item__days">Билет на оба дня<br>17 и 18 апреля</p>
+                    <ul v-if="ticket.is_one_day" class="tickets-item__list">
                         <li class="tickets-item__list--item checked">Хайп, веселье, конкурсы</li>
                         <li class="tickets-item__list--item checked">Все стенды и развлечения</li>
                         <li class="tickets-item__list--item ">Все стримеры и подкастеры</li>
                         <li class="tickets-item__list--item ">Все лекции и мастер-классы</li>
                         <li class="tickets-item__list--item ">Два дня праздника</li>
                     </ul>
-                </div>
-
-                <div class="tickets-item__bottom">
-                    <p class="tickets-item__price">1300 ₽</p>
-                    <a href="#" class="tickets-item__button">КУПИТЬ БИЛЕТ  НА 1 ДЕНЬ</a>
-                </div>
-
-
-
-            </div>
-            <div class="tickets-item">
-                <div class="tickets-item__wrapper">
-                    <p class="tickets-item__days">Билет на оба дня<br>17 и 18 апреля</p>
-                    <ul class="tickets-item__list">
+                    <ul v-else class="tickets-item__list">
                         <li class="tickets-item__list--item checked">Хайп, веселье, конкурсы</li>
                         <li class="tickets-item__list--item checked">Все стенды и развлечения</li>
                         <li class="tickets-item__list--item checked">Все стримеры и подкастеры</li>
@@ -124,11 +112,10 @@
                     </ul>
                 </div>
                 <div class="tickets-item__bottom">
-                    <p class="tickets-item__price">2100 ₽</p>
-                    <a href="#" class="tickets-item__button">КУПИТЬ БИЛЕТ  НА 2 ДНЯ</a>
+                    <p class="tickets-item__price">{{ticket.price}} ₽</p>
+                    <a v-if="ticket.is_one_day" href="#" class="tickets-item__button">КУПИТЬ БИЛЕТ НА 1 ДЕНЬ</a>
+                    <a v-else href="#" class="tickets-item__button">КУПИТЬ БИЛЕТ  НА 2 ДНЯ</a>
                 </div>
-
-
             </div>
         </div>
         <div class="tickets-form">
@@ -313,8 +300,10 @@ export default {
   },
   async asyncData({$axios}){
     const get_streamers = await $axios.get(`/api/get_streamers?at_home=show`)
+    const get_tickets = await $axios.get(`/api/get_tickets`)
     const streamers = get_streamers.data
-    return {streamers}
+    const tickets = get_tickets.data
+    return {streamers,tickets}
   },
   data() {
     return {

@@ -37,6 +37,7 @@ export default {
   plugins: [
     '@/plugins/element-ui',
     { src: '@/plugins/swiper', mode: 'client' },
+    '@/plugins/cookie'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
