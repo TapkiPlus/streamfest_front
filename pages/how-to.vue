@@ -4,7 +4,7 @@
             <div class="faq-banner">
                 <img src="http://placehold.it/1000x290" alt="">
             </div>
-            <div class="section-header">ВОПРОСЫ И ОТВЕТЫ</div>
+            <div class="section-header">СТАТЬ УЧАСТНИКОМ</div>
             <div class="faq-items">
               <div v-for="how_to_item in how_to_items" :key="how_to_item.id">
                  <button class="faq-item">

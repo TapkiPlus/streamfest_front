@@ -8,7 +8,7 @@
             <h3 class="offer__title">СТРИМФЕСТ 2021</h3>
             <p class="offer__subtitle">Главный фестиваль весны!</p>
             <p class="offer__subtitle subtitle-last">17–18 апреля<br>Москва, Сколково</p>
-            <a class="offer__button" href="#">купить билет</a>
+            <a class="offer__button" href="#" v-scroll-to="'#tickets'">купить билет</a>
             <p class="offer__22px">до начала</p>
             <p class="offer__36px">30 часов</p>
 
@@ -32,34 +32,34 @@
             </video>
             <div class="video-wrapper">
                 <div class="video-item">
-                    <img src="http://placehold.it/130x80" alt="">
+                    <img src="/cats/img_1.png" alt="">
                     <p class="video-item__title">Встречи со звездами</p>
-                    <p>Топы всех платформ: Twitch.tv, YouTube, TikTok, WASD, Goodgame,</p>
+                    <p>Топы всех платформ: Twitch.tv, YouTube, TikTok, WASD, Goodgame, VK и OK</p>
                 </div>
                 <div class="video-item">
-                    <img src="http://placehold.it/130x80" alt="">
-                    <p class="video-item__title">Встречи со звездами</p>
-                    <p>Топы всех платформ: Twitch.tv, YouTube, TikTok, WASD, Goodgame,</p>
+                    <img src="/cats/img_4.png" alt="">
+                    <p class="video-item__title">Игровые зоны и конкурсы</p>
+                    <p>Развлечения по полной: видеоигры, роботы, танцы, фотозоны и призы</p>
                 </div>
                 <div class="video-item">
-                    <img src="http://placehold.it/130x80" alt="">
-                    <p class="video-item__title">Встречи со звездами</p>
-                    <p>Топы всех платформ: Twitch.tv, YouTube, TikTok, WASD, Goodgame,</p>
+                    <img src="/cats/img_2.png" alt="">
+                    <p class="video-item__title">Турниры и шоу-матчи</p>
+                    <p>MOBA, шутеры и батл рояли — участвуй сам и смотри, как жарят киберкотлеты!</p>
                 </div>
                 <div class="video-item">
-                    <img src="http://placehold.it/130x80" alt="">
-                    <p class="video-item__title">Встречи со звездами</p>
-                    <p>Топы всех платформ: Twitch.tv, YouTube, TikTok, WASD, Goodgame,</p>
+                    <img src="/cats/img_5.png" alt="">
+                    <p class="video-item__title">Настолки и застолья</p>
+                    <p>Тащи друзей в партию или в кафешки, там всё вкусно и по карману</p>
                 </div>
                 <div class="video-item">
-                    <img src="http://placehold.it/130x80" alt="">
-                    <p class="video-item__title">Встречи со звездами</p>
-                    <p>Топы всех платформ: Twitch.tv, YouTube, TikTok, WASD, Goodgame,</p>
+                    <img src="/cats/img_3.png" alt="">
+                    <p class="video-item__title">Дефиле косплееров</p>
+                    <p>Самый демократичный конкурс фанатского костюма — портал открывается!</p>
                 </div>
                 <div class="video-item">
-                    <img src="http://placehold.it/130x80" alt="">
-                    <p class="video-item__title">Встречи со звездами</p>
-                    <p>Топы всех платформ: Twitch.tv, YouTube, TikTok, WASD, Goodgame,</p>
+                    <img src="/cats/img_6.png" alt="">
+                    <p class="video-item__title">Лекции и мастер-классы</p>
+                    <p>Два дня интенсива: прокачаем скиллы, научим зарабатывать на стримах.</p>
                 </div>
             </div>
             <div class="video-buttons">
@@ -82,16 +82,15 @@
                               :nickname="streamer.nickName" />
             </div>
             <div class="streamers-btn">
-                <a href="#" class="btn btn-w-icon">
-                    КТО ТОЛЬКО НЕ ПРИДЕТ
-                    <img  src="http://placehold.it/30" alt="">
-                </a>
+              <nuxt-link class="btn btn-w-icon w-img" to="/streamers">КТО ТОЛЬКО НЕ ПРИДЕТ
+                    <img  src="/btn-img.png" alt=""></nuxt-link>
+
             </div>
         </div>
     </section>
-    <section class="tickets">
-        <h3 class="section-header">ЦЕНЫ ВЫРАСТУТ — БЕРИ БИЛЕТ СЕЙЧАС!</h3>
-        <div class="tickets-wrapper">
+    <section id="tickets" class="tickets">
+        <h3  class="section-header">ЦЕНЫ ВЫРАСТУТ — БЕРИ БИЛЕТ СЕЙЧАС!</h3>
+        <div  class="tickets-wrapper">
             <div class="tickets-item" v-for="ticket in tickets" :key="ticket.id">
                 <div class="tickets-item__wrapper">
                     <p v-if="ticket.is_one_day" class="tickets-item__days">Билет на один из дней<br>17 или 18 апреля</p>
@@ -113,8 +112,8 @@
                 </div>
                 <div class="tickets-item__bottom">
                     <p class="tickets-item__price">{{ticket.price}} ₽</p>
-                    <a v-if="ticket.is_one_day" href="#" class="tickets-item__button">КУПИТЬ БИЛЕТ НА 1 ДЕНЬ</a>
-                    <a v-else href="#" class="tickets-item__button">КУПИТЬ БИЛЕТ  НА 2 ДНЯ</a>
+                    <a v-if="ticket.is_one_day" href="#" @click.prevent="addItem(ticket.id)" class="tickets-item__button">КУПИТЬ БИЛЕТ НА 1 ДЕНЬ</a>
+                    <a v-else href="#" @click.prevent="addItem(ticket.id)" class="tickets-item__button">КУПИТЬ БИЛЕТ  НА 2 ДНЯ</a>
                 </div>
             </div>
         </div>
@@ -138,22 +137,23 @@
             <div class="separator gamepad"></div>
             <div class="how-it-was-photos">
                 <div class="how-it-was-photo">
-                    <img src="http://placehold.it/390x225" alt="">
+                  <el-image src="/home_gall/1_s.png" lazy></el-image>
+
                 </div>
                 <div class="how-it-was-photo">
-                    <img src="http://placehold.it/390x225" alt="">
+                    <el-image src="/home_gall/2_s.png" lazy></el-image>
                 </div>
                 <div class="how-it-was-photo">
-                    <img src="http://placehold.it/390x225" alt="">
+                     <el-image src="/home_gall/3_s.png" lazy></el-image>
                 </div>
                 <div class="how-it-was-photo">
-                    <img src="http://placehold.it/390x225" alt="">
+                     <el-image src="/home_gall/4_s.png" lazy></el-image>
                 </div>
                 <div class="how-it-was-photo">
-                    <img src="http://placehold.it/390x225" alt="">
+                    <el-image src="/home_gall/5_s.png" lazy></el-image>
                 </div>
                 <div class="how-it-was-photo">
-                    <img src="http://placehold.it/390x225" alt="">
+                   <el-image src="/home_gall/6_s.png" lazy></el-image>
                 </div>
             </div>
             <div class="streamers-btn">
@@ -233,7 +233,7 @@
             <p class="section-subheader">Яркое эфирное шоу, где популярные стримеры, эксперты рынка<br>
                 и журналисты развлекательных медиа выбрали лучших из лучших в 13 номинациях. <span>Вот как это было.</span></p>
             <div class="awards-img">
-                <img src="http://placehold.it/1200x400" alt="">
+                <el-image src="/awards.png" lazy></el-image>
             </div>
 
         </div>
@@ -295,6 +295,9 @@
 <script>
 import StreamerCard from '@/components/StreamerCard'
 export default {
+  // async fetch({store}){
+  //   await store.dispatch('cart/fetchCart')
+  // },
   components:{
     StreamerCard
   },
@@ -337,6 +340,21 @@ export default {
 
   },
   methods: {
+    notify(title,message,type){
+      this.$notify({
+        title: title,
+        message: message,
+        type: type
+      });
+    },
+   async addItem(id){
+     await this.$axios.post('/api/add_item',{
+       session_id:this.$auth.$storage.getCookie('session_id'),
+       item_id:id,
+       streamer_id:0
+     })
+     this.notify('Успешно','Билет добавлен в корзину', 'success')
+   }
 
 
   }

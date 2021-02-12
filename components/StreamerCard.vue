@@ -1,6 +1,6 @@
 <template>
   <div @click="$router.push(`/streamers/${name_slug}`)" class="streamers-item">
-    <img :src="image" alt="">
+    <el-image :src="image" lazy></el-image>
     <p class="streamers-item__nick" >{{nickname}}</p>
     <p class="streamers-item__fio">{{name}}</p>
   </div>

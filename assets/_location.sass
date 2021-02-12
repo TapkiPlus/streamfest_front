@@ -1,0 +1,125 @@
+.location
+  & .tickets-form
+    margin-bottom: 76px
+    p
+      color: inherit
+
+  & .section-header
+    margin-bottom: 19px
+  &-banner
+    margin-bottom: 33px
+  &-title
+    font-size: 22px
+    font-weight: bold
+    margin-bottom: 27px
+  &-vk-btn
+    display: flex
+    align-items: center
+    justify-content: space-between
+    background: #5181b8
+    max-width: 350px
+    padding: 3px 10px
+    border-radius: 4px
+    cursor: pointer
+    margin-bottom: 26px
+    span
+      font-size: 13px
+      color: #ffffff
+
+  &-subtitle
+    max-width: 418px
+    margin: 0 auto 54px
+    text-align: center
+  &-tabs
+    position: relative
+    margin-bottom: 85px
+    &__top
+      display: flex
+      align-items: flex-start
+      justify-content: space-between
+      margin-bottom: 57px
+    &__item
+      position: relative
+      text-align: center
+      flex-basis: 20%
+      min-height: 105px
+      cursor: pointer
+      svg
+        fill: #bac8cf
+        min-height: 45px
+        transition: color .2s linear
+      p
+        max-width: 130px
+        margin: 0 auto
+        transition: color .2s linear
+      &::after
+        position: absolute
+        content: ''
+        top: 0px
+        bottom: 0px
+        right: -9px
+        width: 2px
+        background: #bac8cf
+      &:last-child
+        &::after
+          content: none
+      &.tabItemActive
+        svg
+          fill: $color-blue
+        p
+          color: $color-blue
+    &__content
+      display: none
+      padding-left: 36px
+      padding-bottom: 34px
+      border-bottom: 2px solid #bac8cf
+      &.tabContentActive
+        display: block
+
+      ul
+        li
+          list-style: disc
+          margin-left: 20px
+  &-bottom
+    display: grid
+    grid-template-columns: 2fr 3fr
+    grid-gap: 30px
+    margin-bottom: 70px
+    &__left
+      h3
+        font-weight: bold
+        font-size: 22px
+        margin-bottom: 12px
+      h4
+        font-weight: bold
+        font-size: 22px
+        margin-bottom: 7px
+      p
+        margin-bottom: 23px
+
+    &__form
+      display: flex
+      flex-direction: column
+
+      textarea, input
+        font-style: italic
+        resize: none
+        border: 0px
+        background: #dcdee0
+        color: #333333
+        opacity: .4
+        padding: 10px 30px
+        &:focus
+          outline: none
+        &:active
+          outline: none
+      textarea
+        margin-bottom: 20px
+        height: 160px
+      input
+        margin-bottom: 18px
+    &__right
+      background: url(http://placehold.it/760x600) no-repeat center
+      background-size: cover !important
+
+

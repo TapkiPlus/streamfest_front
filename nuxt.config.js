@@ -36,8 +36,8 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/element-ui',
+    '@/plugins/scroll',
     { src: '@/plugins/swiper', mode: 'client' },
-    '@/plugins/cookie'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -51,6 +51,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -62,5 +63,21 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^element-ui/],
+  },
+  auth: {
+
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/', method: 'post', propertyName: 'auth_token' },
+          logout: { url: '/', method: 'post' },
+          user: { url: '/', method: 'get', propertyName: false }
+        },
+        // tokenRequired: true,
+        tokenType: 'Token',
+        // globalToken: true,
+        //autoFetchUser: false
+      }
+    }
   }
 }

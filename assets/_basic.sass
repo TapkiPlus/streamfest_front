@@ -8,10 +8,28 @@ body
   font-size: 18px
   color: $color-text
   background: #f5f5f5
-  //background: url(/bg_faq.png)
+  //background: url(/loc.png)
+  //background: url(/p2.png)
+  position: relative
 
 section
   margin-bottom: 30px
+.text-center
+  text-align: center
+
+.blue-btn
+  border: none
+  background: #319eff
+  border-radius: 6px
+  color: #ffffff
+  text-transform: uppercase
+  font-weight: bold
+  font-size: 18px
+  padding: 14px 0
+  &:focus
+    outline: none
+  &:active
+    outline: none
 
 
 .container
@@ -19,12 +37,20 @@ section
   margin: 0 auto
   //padding: 0 10px
 
+.container-1000
+  max-width: 1000px
+  margin: 0 auto
+  //padding: 0 10px
+
 .section-header
   font-weight: 700
   font-size: 36px
   text-align: center
-
-
+.mb-35
+  margin-bottom: 35px
+.link
+  text-decoration: underline
+  color: $color-blue
 .section-subheader
   font-size: 18px
   max-width: 820px
@@ -102,7 +128,7 @@ section
   background: #bac8cf
   &::before
     position: absolute
-    content: url(/star_ico.png)
+
     left: 50%
     transform: translateX(-50%)
     background: #f5f5f5
@@ -120,6 +146,9 @@ section
   &.crown
     &::before
        content: url(/crown_ico.png)
+  &.rocket
+    &::before
+       content: url(/rocket.png)
 
 .btn
   display: inline-flex
@@ -140,11 +169,18 @@ section
   &:hover
     background: linear-gradient(90deg, rgba(0,89,201,1) 0%, rgba(43,181,255,1) 35%, rgba(0,89,201,1) 100%)
   &.btn-w-icon
+    position: relative
     width: 340px
     background: linear-gradient(90deg, rgba(0,89,201,1) 0%, rgba(43,181,255,1) 35%, rgba(0,89,201,1) 100%)
+
+    padding-left: 20px
     img
+      position: absolute
       pointer-events: none
-      margin-left: 30px
+      right: 30px
+  &.w-img
+    justify-content: flex-start
+    padding-left: 30px
   &.red
     background: linear-gradient(135deg, #d61e15 0%, #f99999 35%, #d61e15 100%)
 
@@ -165,3 +201,8 @@ section
 
 .mb-20
   margin-bottom: 20px
+
+.mb-45
+  margin-bottom: 45px
+.slider-streams__wrapper
+  height: 290px

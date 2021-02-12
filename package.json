@@ -10,12 +10,13 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.5",
+    "@nuxtjs/auth": "^4.9.1",
     "core-js": "^3.8.2",
     "element-ui": "^2.15.0",
     "nuxt": "^2.14.12",
     "swiper": "^5.3.6",
     "vue-awesome-swiper": "^4.1.1",
-    "vue-cookie": "^1.1.4"
+    "vue-scrollto": "^2.20.0"
   },
   "devDependencies": {
     "node-sass": "^5.0.0",
