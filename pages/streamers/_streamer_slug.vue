@@ -49,7 +49,7 @@
         </div>
         <div class="streamer-bottom">
           <div class="streamer-bottom__buttons">
-            <div v-for="ticket in tickets" :key="ticket.id" class="streamer-bottom__button "
+            <div @click.prevent="addItem(ticket.id,streamer.id)" v-for="ticket in tickets" :key="ticket.id" class="streamer-bottom__button "
                  :class="[ticket.is_one_day ? 'streamer-bottom__button--yellow' : 'streamer-bottom__button--red']">
               <p>{{ticket.is_one_day ? 'билет на 1 день' : 'билет на 2 дня'}}</p>
               <p>от {{streamer.nickName}}</p>
@@ -85,6 +85,22 @@ export default {
   mounted() {
   },
   methods: {
+    notify(title,message,type){
+      this.$notify({
+        title: title,
+        message: message,
+        type: type
+      });
+    },
+    async addItem(t_id,s_id){
+     await this.$axios.post('/api/add_item',{
+       session_id:this.$auth.$storage.getCookie('session_id'),
+       item_id:t_id,
+       streamer_id:s_id
+     })
+     this.notify('Успешно','Билет добавлен в корзину', 'success')
+     await this.$store.dispatch('cart/fetchCart')
+   }
   }
 }
 </script>

@@ -18,7 +18,7 @@
                 </div>
                 <div class="header-button">
                   <div v-if="items_in_cart.tickets.length>0">
-                      <nuxt-link class="header-button__cart" to="/cart">корзина</nuxt-link>
+                      <nuxt-link :data-num="items_in_cart.tickets.length" class="header-button__cart" to="/cart">корзина</nuxt-link>
                   </div>
                   <div v-else>
                    <a v-if="isHomePage" href="#" v-scroll-to="'#tickets'">купить билет</a>

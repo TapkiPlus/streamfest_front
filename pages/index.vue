@@ -354,6 +354,7 @@ export default {
        streamer_id:0
      })
      this.notify('Успешно','Билет добавлен в корзину', 'success')
+     await this.$store.dispatch('cart/fetchCart')
    }
 
 

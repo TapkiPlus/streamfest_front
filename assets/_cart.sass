@@ -76,6 +76,7 @@
       align-items: center
       justify-content: space-between
       padding: 0 19px 0 13px
+      user-select: none
       svg
         cursor: pointer
     &__total
@@ -149,7 +150,9 @@
 
     max-width: 530px
     margin: 0 auto 66px
-    span
+    button
+      border: none
+      cursor: pointer
       display: inline-block
       width: 480px
       padding: 23px 0
@@ -161,6 +164,10 @@
       text-align: center
       border-radius: 8px
       margin-bottom: 31px
+      &:focus
+        outline: none
+      &:active
+        outline: none
 
 
 
