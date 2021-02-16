@@ -94,3 +94,22 @@
       background: $color-yellow
       border-radius: 2px
       padding: 8px
+    &__cart
+      position: relative
+
+      &::after
+        position: absolute
+        content: attr(data-num)
+        width: 15px
+        height: 15px
+        background: red
+        border-radius: 100%
+        color: #FFFFFF
+        font-size: 10px
+        display: flex
+        align-items: center
+        justify-content: center
+        right: -8px
+        top: -5px
+
+

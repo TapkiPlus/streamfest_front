@@ -17,123 +17,53 @@
 
             </div>
             <div class="cart-container">
-                <div class="cart-row">
-                    <div class="cart-row__delete">
+             <div v-if="items_in_cart.tickets.length>0">
+                <div  class="cart-row" v-for="item in items_in_cart.tickets">
+                    <div @click="delItem(item.id)" class="cart-row__delete">
                         <img draggable="false" src="/trash_ico.svg" alt="">
                     </div>
-                    <div class="cart-row__name">
+
+                    <div v-if="!item.streamer" class="cart-row__name">
                         <img src="/oneday.png" alt="">
-                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>{{item.ticket.is_one_day ? 'Билет на один день' : 'Билет на два дня'}}</p>
+                    </div>
+                  <div v-else class="cart-row__name">
+                        <img src="/oneday.png" alt="">
+                        <p>{{item.ticket.is_one_day ? `Билет на один день от ${item.streamer.name}` : `Билет на два дня от ${item.streamer.name}`}}</p>
                     </div>
                     <div class="cart-row__price">
-                        <p>6500 руб.</p>
+                        <p>{{item.ticket.price}} руб.</p>
                     </div>
                     <div class="cart-row__quantity">
-                        <svg  width="20px" height="20px">
+                        <svg @click="delItemQ(item.id)"  width="20px" height="20px">
                             <path fill-rule="evenodd"  fill="rgb(186, 200, 207)"
                                   d="M10.000,-0.000 C4.477,-0.000 -0.000,4.477 -0.000,10.000 C-0.000,15.523 4.477,20.000 10.000,20.000 C15.523,20.000 20.000,15.523 20.000,10.000 C20.000,4.477 15.523,-0.000 10.000,-0.000 ZM13.999,10.975 L5.999,10.975 C5.447,10.975 4.999,10.527 4.999,9.975 C4.999,9.423 5.447,8.975 5.999,8.975 L13.999,8.975 C14.552,8.975 14.999,9.423 14.999,9.975 C14.999,10.527 14.552,10.975 13.999,10.975 Z"/>
                         </svg>
-                        <p>5</p>
-                        <svg
+                        <p>{{item.quantity}}</p>
+                        <svg @click="addItemQ(item.id)"
                                 width="20px" height="20px">
                             <path fill-rule="evenodd"  fill="rgb(186, 200, 207)"
                                   d="M10.000,-0.000 C4.477,-0.000 -0.000,4.477 -0.000,10.000 C-0.000,15.523 4.477,20.000 10.000,20.000 C15.523,20.000 20.000,15.523 20.000,10.000 C20.000,4.477 15.523,-0.000 10.000,-0.000 ZM14.000,10.975 L11.000,10.975 L11.000,13.975 C11.000,14.527 10.553,14.975 10.000,14.975 C9.448,14.975 9.000,14.527 9.000,13.975 L9.000,10.975 L6.000,10.975 C5.448,10.975 5.000,10.527 5.000,9.975 C5.000,9.423 5.448,8.975 6.000,8.975 L9.000,8.975 L9.000,5.975 C9.000,5.423 9.448,4.975 10.000,4.975 C10.553,4.975 11.000,5.423 11.000,5.975 L11.000,8.975 L14.000,8.975 C14.553,8.975 15.000,9.423 15.000,9.975 C15.000,10.527 14.553,10.975 14.000,10.975 Z"/>
                         </svg>
                     </div>
                     <div class="cart-row__total">
-                        <p>6500 руб.</p>
+                        <p>{{item.ticket.price * item.quantity}} руб.</p>
                     </div>
                 </div>
-                <div class="cart-row">
-                    <div class="cart-row__delete">
-                        <img draggable="false" src="/trash_ico.svg" alt="">
-                    </div>
-                    <div class="cart-row__name">
-                        <img src="/oneday.png" alt="">
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </div>
-                    <div class="cart-row__price">
-                        <p>6500 руб.</p>
-                    </div>
-                    <div class="cart-row__quantity">
-                        <svg  width="20px" height="20px">
-                            <path fill-rule="evenodd"  fill="rgb(186, 200, 207)"
-                                  d="M10.000,-0.000 C4.477,-0.000 -0.000,4.477 -0.000,10.000 C-0.000,15.523 4.477,20.000 10.000,20.000 C15.523,20.000 20.000,15.523 20.000,10.000 C20.000,4.477 15.523,-0.000 10.000,-0.000 ZM13.999,10.975 L5.999,10.975 C5.447,10.975 4.999,10.527 4.999,9.975 C4.999,9.423 5.447,8.975 5.999,8.975 L13.999,8.975 C14.552,8.975 14.999,9.423 14.999,9.975 C14.999,10.527 14.552,10.975 13.999,10.975 Z"/>
-                        </svg>
-                        <p>5</p>
-                        <svg
-                                width="20px" height="20px">
-                            <path fill-rule="evenodd"  fill="rgb(186, 200, 207)"
-                                  d="M10.000,-0.000 C4.477,-0.000 -0.000,4.477 -0.000,10.000 C-0.000,15.523 4.477,20.000 10.000,20.000 C15.523,20.000 20.000,15.523 20.000,10.000 C20.000,4.477 15.523,-0.000 10.000,-0.000 ZM14.000,10.975 L11.000,10.975 L11.000,13.975 C11.000,14.527 10.553,14.975 10.000,14.975 C9.448,14.975 9.000,14.527 9.000,13.975 L9.000,10.975 L6.000,10.975 C5.448,10.975 5.000,10.527 5.000,9.975 C5.000,9.423 5.448,8.975 6.000,8.975 L9.000,8.975 L9.000,5.975 C9.000,5.423 9.448,4.975 10.000,4.975 C10.553,4.975 11.000,5.423 11.000,5.975 L11.000,8.975 L14.000,8.975 C14.553,8.975 15.000,9.423 15.000,9.975 C15.000,10.527 14.553,10.975 14.000,10.975 Z"/>
-                        </svg>
-                    </div>
-                    <div class="cart-row__total">
-                        <p>6500 руб.</p>
-                    </div>
+              </div>
+                <div v-else>
+                   <p  class="cart-row ">Ваша корзина пока что пуста</p>
                 </div>
-                <div class="cart-row">
-                    <div class="cart-row__delete">
-                        <img draggable="false" src="/trash_ico.svg" alt="">
-                    </div>
-                    <div class="cart-row__name">
-                        <img src="/oneday.png" alt="">
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </div>
-                    <div class="cart-row__price">
-                        <p>6500 руб.</p>
-                    </div>
-                    <div class="cart-row__quantity">
-                        <svg  width="20px" height="20px">
-                            <path fill-rule="evenodd"  fill="rgb(186, 200, 207)"
-                                  d="M10.000,-0.000 C4.477,-0.000 -0.000,4.477 -0.000,10.000 C-0.000,15.523 4.477,20.000 10.000,20.000 C15.523,20.000 20.000,15.523 20.000,10.000 C20.000,4.477 15.523,-0.000 10.000,-0.000 ZM13.999,10.975 L5.999,10.975 C5.447,10.975 4.999,10.527 4.999,9.975 C4.999,9.423 5.447,8.975 5.999,8.975 L13.999,8.975 C14.552,8.975 14.999,9.423 14.999,9.975 C14.999,10.527 14.552,10.975 13.999,10.975 Z"/>
-                        </svg>
-                        <p>5</p>
-                        <svg
-                                width="20px" height="20px">
-                            <path fill-rule="evenodd"  fill="rgb(186, 200, 207)"
-                                  d="M10.000,-0.000 C4.477,-0.000 -0.000,4.477 -0.000,10.000 C-0.000,15.523 4.477,20.000 10.000,20.000 C15.523,20.000 20.000,15.523 20.000,10.000 C20.000,4.477 15.523,-0.000 10.000,-0.000 ZM14.000,10.975 L11.000,10.975 L11.000,13.975 C11.000,14.527 10.553,14.975 10.000,14.975 C9.448,14.975 9.000,14.527 9.000,13.975 L9.000,10.975 L6.000,10.975 C5.448,10.975 5.000,10.527 5.000,9.975 C5.000,9.423 5.448,8.975 6.000,8.975 L9.000,8.975 L9.000,5.975 C9.000,5.423 9.448,4.975 10.000,4.975 C10.553,4.975 11.000,5.423 11.000,5.975 L11.000,8.975 L14.000,8.975 C14.553,8.975 15.000,9.423 15.000,9.975 C15.000,10.527 14.553,10.975 14.000,10.975 Z"/>
-                        </svg>
-                    </div>
-                    <div class="cart-row__total">
-                        <p>6500 руб.</p>
-                    </div>
-                </div>
-                <div class="cart-row">
-                    <div class="cart-row__delete">
-                        <img draggable="false" src="/trash_ico.svg" alt="">
-                    </div>
-                    <div class="cart-row__name">
-                        <img src="/oneday.png" alt="">
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </div>
-                    <div class="cart-row__price">
-                        <p>6500 руб.</p>
-                    </div>
-                    <div class="cart-row__quantity">
-                        <svg  width="20px" height="20px">
-                            <path fill-rule="evenodd"  fill="rgb(186, 200, 207)"
-                                  d="M10.000,-0.000 C4.477,-0.000 -0.000,4.477 -0.000,10.000 C-0.000,15.523 4.477,20.000 10.000,20.000 C15.523,20.000 20.000,15.523 20.000,10.000 C20.000,4.477 15.523,-0.000 10.000,-0.000 ZM13.999,10.975 L5.999,10.975 C5.447,10.975 4.999,10.527 4.999,9.975 C4.999,9.423 5.447,8.975 5.999,8.975 L13.999,8.975 C14.552,8.975 14.999,9.423 14.999,9.975 C14.999,10.527 14.552,10.975 13.999,10.975 Z"/>
-                        </svg>
-                        <p>5</p>
-                        <svg
-                                width="20px" height="20px">
-                            <path fill-rule="evenodd"  fill="rgb(186, 200, 207)"
-                                  d="M10.000,-0.000 C4.477,-0.000 -0.000,4.477 -0.000,10.000 C-0.000,15.523 4.477,20.000 10.000,20.000 C15.523,20.000 20.000,15.523 20.000,10.000 C20.000,4.477 15.523,-0.000 10.000,-0.000 ZM14.000,10.975 L11.000,10.975 L11.000,13.975 C11.000,14.527 10.553,14.975 10.000,14.975 C9.448,14.975 9.000,14.527 9.000,13.975 L9.000,10.975 L6.000,10.975 C5.448,10.975 5.000,10.527 5.000,9.975 C5.000,9.423 5.448,8.975 6.000,8.975 L9.000,8.975 L9.000,5.975 C9.000,5.423 9.448,4.975 10.000,4.975 C10.553,4.975 11.000,5.423 11.000,5.975 L11.000,8.975 L14.000,8.975 C14.553,8.975 15.000,9.423 15.000,9.975 C15.000,10.527 14.553,10.975 14.000,10.975 Z"/>
-                        </svg>
-                    </div>
-                    <div class="cart-row__total">
-                        <p>6500 руб.</p>
-                    </div>
-                </div>
-                <p class="cart-row ">Ваша корзина пока что пуста</p>
+
+
             </div>
             <div class="separator"></div>
             <div class="cart-container">
                 <div class="cart-button">
-                    <button>перейти к оформлению</button>
+                    <button :disabled="items_in_cart.tickets.length===0" @click="$router.push('/checkout')">перейти к оформлению</button>
                     <div class="cart-button__total">
                         <p>Общая стоимость: </p>
-                        <p>20000р</p>
+                        <p>{{items_in_cart.total_price}}р</p>
                     </div>
                 </div>
 
@@ -173,6 +103,32 @@ export default {
 
   },
   methods: {
+    async addItemQ(id){
+     await this.$axios.post('/api/add_item_quantity',{
+       session_id:this.$auth.$storage.getCookie('session_id'),
+       item_id:id
+     })
+     await this.$store.dispatch('cart/fetchCart')
+   },
+    async delItemQ(id){
+     await this.$axios.post('/api/delete_item_quantity',{
+       session_id:this.$auth.$storage.getCookie('session_id'),
+       item_id:id
+     })
+     await this.$store.dispatch('cart/fetchCart')
+   },
+    async delItem(id){
+     await this.$axios.post('/api/delete_item',{
+       session_id:this.$auth.$storage.getCookie('session_id'),
+       item_id:id
+     })
+     await this.$store.dispatch('cart/fetchCart')
+   }
+  },
+  computed:{
+    items_in_cart(){
+      return this.$store.getters['cart/getCart']
+    }
   }
 }
 </script>

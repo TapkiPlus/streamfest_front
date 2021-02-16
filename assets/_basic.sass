@@ -150,7 +150,7 @@ section
     &::before
        content: url(/rocket.png)
 
-.btn
+.btn 
   display: inline-flex
   padding: 27px 0px
   //padding: 27px 60px
@@ -167,22 +167,38 @@ section
   border-radius: 40px
   font-weight: 700
   &:hover
-    background: linear-gradient(90deg, rgba(0,89,201,1) 0%, rgba(43,181,255,1) 35%, rgba(0,89,201,1) 100%)
+    background: #FFC133
+    //background: linear-gradient(90deg, rgba(0,89,201,1) 0%, rgba(43,181,255,1) 35%, rgba(0,89,201,1) 100%)
   &.btn-w-icon
     position: relative
     width: 340px
     background: linear-gradient(90deg, rgba(0,89,201,1) 0%, rgba(43,181,255,1) 35%, rgba(0,89,201,1) 100%)
-
     padding-left: 20px
     img
       position: absolute
       pointer-events: none
       right: 30px
+    &:hover
+      background: #FFC133
   &.w-img
     justify-content: flex-start
     padding-left: 30px
   &.red
     background: linear-gradient(135deg, #d61e15 0%, #f99999 35%, #d61e15 100%)
+    &:hover
+      background: #FFC133
+  &.btn-disable
+    background: #808080
+    cursor: default
+    &:hover
+      background: #d3d3d3
+.swiper-button
+  &-next::after
+    content: ">" !important
+    color: #1483E2
+  &-prev::after
+    content: "<" !important
+    color: #1483E2
 
 .splide
   height: 290px
