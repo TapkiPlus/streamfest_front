@@ -1,4 +1,7 @@
 [
-  { "from": "/profile", "to": "/" },
-  { "from": "/profile/", "to": "/" }
+  { "from": "/star", "to": "/streamers/" },
+  { "from": "/stars", "to": "/streamers/" },
+  { "from": "/speaker", "to": "/streamers/" },
+  { "from": "/speakers", "to": "/streamers/" },
+  { "from": "/streamer", "to": "/streamers/" }
 ]
