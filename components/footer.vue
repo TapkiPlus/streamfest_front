@@ -106,24 +106,28 @@
     <div class="footer-bottom">
       <div class="container footer-bottom-wrapper">
         <p>© 2015 – 2020, Стримфест</p>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          width="31px"
-          height="24px"
-        >
-          <path
-            fill-rule="evenodd"
-            fill="rgb(0, 96, 207)"
-            d="M29.962,14.508 L25.450,0.927 C25.196,0.164 24.297,-0.085 23.726,0.451 L19.662,4.269 C18.157,3.111 12.590,3.111 11.085,4.269 L7.021,0.451 C6.450,-0.085 5.550,0.164 5.297,0.927 L0.785,14.508 C-0.138,17.287 1.042,20.385 3.552,21.635 C6.723,23.214 10.732,23.951 15.374,23.951 C20.015,23.951 24.024,23.214 27.195,21.635 C29.705,20.385 30.885,17.287 29.962,14.508 Z"
-          />
-        </svg>
+        <a class="footer-cat" @click="scrollToTop">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="31px"
+            height="24px"
+          >
+            <path
+              fill-rule="evenodd"
+              fill="rgb(0, 96, 207)"
+              d="M29.962,14.508 L25.450,0.927 C25.196,0.164 24.297,-0.085 23.726,0.451 L19.662,4.269 C18.157,3.111 12.590,3.111 11.085,4.269 L7.021,0.451 C6.450,-0.085 5.550,0.164 5.297,0.927 L0.785,14.508 C-0.138,17.287 1.042,20.385 3.552,21.635 C6.723,23.214 10.732,23.951 15.374,23.951 C20.015,23.951 24.024,23.214 27.195,21.635 C29.705,20.385 30.885,17.287 29.962,14.508 Z"
+            />
+          </svg>
+        </a>
         <p>
-          <a href="http://185.119.57.46/location">Контакты</a> |
-          <a href="#how-it-was">О фестивале</a>
+          <a class="link" href="http://185.119.57.46/location">Контакты</a> |
+          <a class="link" href="#subscribe">О фестивале</a>
         </p>
       </div>
     </div>
+    <!-- VK Widget -->
+    <div id="vk_community_messages"></div>
   </footer>
 </template>
 
@@ -131,14 +135,23 @@
 export default {
   mounted() {
     const script = document.createElement("script");
-    script.onload = () =>
+    script.onload = () => {
+      VK.Widgets.CommunityMessages("vk_community_messages", 122887579, {
+        tooltipButtonText: "Я отвечалка на вопросы, ткни меня!",
+      });
       VK.Widgets.Group(
         "vk_groups",
         { mode: 3, width: "auto", no_cover: 1 },
         122887579
       );
+    };
     script.src = "https://vk.com/js/api/openapi.js?168";
-    document.head.appendChild(script);
+    document.body.appendChild(script);
+  },
+  methods: {
+    scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    },
   },
 };
 </script>

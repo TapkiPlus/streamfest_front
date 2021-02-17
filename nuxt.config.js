@@ -37,7 +37,7 @@ export default {
     "@/plugins/element-ui",
     "@/plugins/scroll",
     { src: "@/plugins/swiper", mode: "client" },
-    { src: "@/plugins/lightbox", mode: "client" },
+    { src: "@/plugins/silentbox", mode: "client" },
   ],
   components: true,
   buildModules: [],

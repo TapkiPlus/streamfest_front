@@ -1,19 +1,23 @@
 .how-it-was
+  position: relative
   margin-bottom: 80px
   & .btn
+    width: 320px
     padding: 27px 90px
   & .section-header
     margin-bottom: 20px
   & .section-subheader
-    margin-bottom: 8px
+    margin-bottom: 28px
   & .separator
     margin-bottom: 61px
   &-photos 
-    display: grid
-    grid-template-columns: repeat(auto-fill,minmax(370px,1fr))
-    grid-gap: 10px
-    justify-items: center
     margin-bottom: 52px
+    section
+      display: grid
+      grid-template-columns: repeat(auto-fill,minmax(370px,1fr))
+      grid-gap: 10px
+      justify-items: center
+      
   &-photo
     cursor: pointer
     width: 390px
