@@ -1,5 +1,5 @@
 .tickets
-  background: url(/ticket_bg.png)
+  background: url(/ticket_bg.png) no-repeat center / cover
   padding: 42px 0 53px 0
   margin-bottom: 67px
   & .section-header
@@ -15,7 +15,7 @@
     grid-template-columns: 1fr 1fr
     grid-gap: 80px
   &-item
-    background: linear-gradient(180deg, #0060cf 0%,  #1b82ea 100%)
+    background: #2259d3
     padding-bottom: 49px
 
     &__bottom
@@ -78,19 +78,27 @@
       font-size: 27px
       line-height: 26px
       color: #ffffff
-      font-weight: 700
+      width: 100%
+      font-weight: 700 
       text-transform: uppercase
-      background: $color-yellow
+      background: $color-yellow 
       border-radius: 8px
       padding: 19px
       text-align: center
       cursor: default
       box-shadow: 0 5px 20px 6px #ffffff61
+      &_red
+       background: linear-gradient(90deg, #ec463e 0%, #d01a14 50%, #ff4d35 100%)
   &-form
     text-align: center
     form
+      background: #fff
+      width: 486px
       position: relative
-      display: inline-block
+      display: flex
+      border-radius: 4px
+      overflow: hidden
+      margin: 0 auto
     p
 
       font-size: 22px
@@ -99,31 +107,31 @@
       color: #ffffff
       text-transform: uppercase
     input
+      flex-grow: 1
       border: none
-      padding: 15px 10px
+      padding: 14px 10px
       font-style: italic
       color: #b3b3b3
-      border-radius: 4px
-      width: 486px
       &:focus
         outline: none
       &:active
         outline: none
     button
-      position: absolute
       border: none
       background: #319eff
       color: #ffffff
+      font-size: 18px
       text-transform: uppercase
-      top: 0
-      bottom: 0
-      border-radius: 4px
-      right: -10px
+      border-top-left-radius: 4px
+      border-bottom-left-radius: 4px
       cursor: pointer
       width: 170px
+
       &:focus
         outline: none
       &:active
         outline: none
+      &:hover
+        background: $color-yellow
 
 

@@ -11,31 +11,33 @@
         <h3 class="offer__title">СТРИМФЕСТ 2021</h3>
         <p class="offer__subtitle">Главный фестиваль весны!</p>
         <p class="offer__subtitle subtitle-last">
-          17–18 апреля<br />Москва, Сколково
+          17–18 июля<br />Москва, Сколково
         </p>
-        <p class="offer__22px">до начала</p>
-        <p class="offer__36px">{{ currentTime }}</p>
+        <p class="offer__22px">до фестиваля</p>
+        <p class="offer__36px">{{ lastDay }}</p>
       </div>
     </section>
     <section class="video-block">
       <div class="container">
         <h3 class="section-header mb-20">ВСЕ ЗВЁЗДЫ И ЖАНРЫ СТРИМИНГА</h3>
         <p class="section-subheader">
-          Стримфест — это крупнейший фестиваль в СНГ фестиваль стрим-культуры.
-          Здесь известные стримеры и подкастеры встречаются со своими зрителями.
-          Балдёж-кутёж, живое общение, море развлечений, мастер-классы — без
-          сомнения, лучшие выходные года!
+          Стримфест — это крупнейший фестиваль в СНГ фестиваль
+          стрим-культуры.<br />Здесь известные стримеры и подкастеры встречаются
+          со своими зрителями. Балдёж-кутёж,<br />живое общение, море
+          развлечений, мастер-классы — без сомнения, лучшие выходные года!
         </p>
-        <video class="video-video" controls>
-          <source
-            src="https://www.w3schools.com/html/mov_bbb.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support HTML video.
-        </video>
+        <div style="padding:56.25% 0 0 0;position:relative;">
+          <iframe
+            src="https://player.vimeo.com/video/348364566?title=0&byline=0&portrait=0"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
         <div class="video-wrapper">
           <div class="video-item">
-            <img src="/cats/img_1.png" alt="" />
+            <img src="/cats/s_1.png" alt="" />
             <p class="video-item__title">Встречи со звездами</p>
             <p>
               Топы всех платформ: Twitch.tv, YouTube, TikTok, WASD, Goodgame, VK
@@ -43,14 +45,14 @@
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/img_4.png" alt="" />
+            <img src="/cats/s_4.png" alt="" />
             <p class="video-item__title">Игровые зоны и конкурсы</p>
             <p>
               Развлечения по полной: видеоигры, роботы, танцы, фотозоны и призы
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/img_2.png" alt="" />
+            <img src="/cats/s_2.png" alt="" />
             <p class="video-item__title">Турниры и шоу-матчи</p>
             <p>
               MOBA, шутеры и батл рояли — участвуй сам и смотри, как жарят
@@ -58,14 +60,14 @@
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/img_5.png" alt="" />
+            <img src="/cats/s_5.png" alt="" />
             <p class="video-item__title">Настолки и застолья</p>
             <p>
               Тащи друзей в партию или в кафешки, там всё вкусно и по карману
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/img_3.png" alt="" />
+            <img src="/cats/s_3.png" alt="" />
             <p class="video-item__title">Дефиле косплееров</p>
             <p>
               Самый демократичный конкурс фанатского костюма — портал
@@ -73,7 +75,7 @@
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/img_6.png" alt="" />
+            <img src="/cats/s_6.png" alt="" />
             <p class="video-item__title">Лекции и мастер-классы</p>
             <p>
               Два дня интенсива: прокачаем скиллы, научим зарабатывать на
@@ -82,10 +84,16 @@
           </div>
         </div>
         <div class="video-buttons">
-          <a class="btn-disable btn">РАСПИСАНИЕ</a>
-          <a class="btn-disable btn">И ДРУГИЕ АКТИВНОСТИ</a>
-          <a class="btn-disable btn">КАРТА ФЕСТИВАЛЯ</a>
+          <a class="video-button btn-disable btn">РАСПИСАНИЕ</a>
+          <a class="video-button video-button-long btn-disable btn"
+            >И ДРУГИЕ АКТИВНОСТИ</a
+          >
+          <a class="video-button btn-disable btn">КАРТА ФЕСТИВАЛЯ</a>
         </div>
+      </div>
+      <div class="side-parts">
+        <el-image src="/side-parts_1.png"></el-image>
+        <el-image src="/side-parts_2.png"></el-image>
       </div>
     </section>
     <div class="separator star"></div>
@@ -104,7 +112,7 @@
         </div>
         <div class="streamers-btn">
           <nuxt-link class="btn btn-w-icon w-img" to="/streamers"
-            >КТО ТОЛЬКО НЕ ПРИДЕТ <img src="/btn-img.png" alt=""
+            >КТО ТОЛЬКО НЕ ПРИДЕТ <img src="/smile.png" alt=""
           /></nuxt-link>
         </div>
       </div>
@@ -115,10 +123,10 @@
         <div class="tickets-item" v-for="ticket in tickets" :key="ticket.id">
           <div class="tickets-item__wrapper">
             <p v-if="ticket.is_one_day" class="tickets-item__days">
-              Билет на один из дней<br />17 или 18 апреля
+              Билет на один из дней<br />17 или 18 июля
             </p>
             <p v-else class="tickets-item__days">
-              Билет на оба дня<br />17 и 18 апреля
+              Билет на оба дня<br />17 и 18 июля
             </p>
             <ul v-if="ticket.is_one_day" class="tickets-item__list">
               <li class="tickets-item__list--item checked">
@@ -156,53 +164,43 @@
           <div class="tickets-item__bottom">
             <p class="tickets-item__price">{{ ticket.price }} ₽</p>
             <a v-if="ticket.is_one_day" class="tickets-item__button"
-              >СКОРО - БИЛЕТ НА 1 ДЕНЬ</a
+              >СКОРО — БИЛЕТ<br />НА 1 ДЕНЬ</a
             >
-            <a v-else class="tickets-item__button">СКОРО - БИЛЕТ НА 2 ДНЯ</a>
+            <a v-else class="tickets-item__button tickets-item__button_red"
+              >СКОРО — БИЛЕТ<br />НА 2 ДНЯ</a
+            >
           </div>
         </div>
       </div>
       <div class="tickets-form">
         <p>Новости и плюшки Стримфеста</p>
-        <form @submit="subscribe" action="">
-          <input v-model="subscribeEmail" type="text" placeholder="Ваш Email" />
+        <form @submit="subscribe" id="subscribe">
+          <input v-model="subscribeEmail" type="text" placeholder="Ваш email" />
           <button type="submit">подписаться</button>
         </form>
       </div>
     </section>
-    <section class="how-it-was" id="how-it-was">
+    <section class="how-it-was">
       <div class="container">
         <h3 class="section-header">КАК ЭТО БЫЛО В 2019</h3>
         <p class="section-subheader">
           Два дня в Сколково, 170 топовых стримеров, 7000 посетителей<br />
           и больше 2 млн зрителей онлайн — это было легендарно!
         </p>
-        <video class="video-video" controls>
-          <source
-            src="https://www.w3schools.com/html/mov_bbb.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support HTML video.
-        </video>
-
+        <div style="padding:56.25% 0 0 0;position:relative;">
+          <iframe
+            src="https://player.vimeo.com/video/348364566?title=0&byline=0&portrait=0"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
         <div class="separator gamepad"></div>
         <div class="how-it-was-photos">
           <client-only>
-            <CoolLightBox
-              :items="lightbox.images"
-              :index="lightbox.index"
-              @close="lightbox.index = null"
-            >
-            </CoolLightBox>
+            <silent-box :gallery="silentbox"></silent-box>
           </client-only>
-          <el-image
-            class="how-it-was-photo"
-            v-for="(image, index) in lightbox.images"
-            :key="index"
-            @click="lightbox.index = index"
-            :src="image"
-            lazy
-          ></el-image>
         </div>
         <div class="streamers-btn">
           <a class="btn btn-w-icon btn-disable">
@@ -210,21 +208,22 @@
           </a>
         </div>
       </div>
+      <div class="side-parts">
+        <el-image src="/side-parts_3.png"></el-image>
+        <el-image src="/side-parts_4.png"></el-image>
+      </div>
     </section>
     <section class="feedbacks">
       <div class="container">
         <client-only>
-          <swiper class="slider-streams__wrapper" :options="swiperOption">
-            <div class="swiper-button-next" slot="button-next"></div>
-            <div class="swiper-button-prev" slot="button-prev"></div>
-            <div class="swiper-pagination" slot="pagination"></div>
+          <swiper class="slider-streams__wrapper" :options="swiperOptions">
             <swiper-slide>
               <div class="feedback-item">
                 <div class="feedback-item__inner">
                   <p class="feedback-item__text">
-                    “Стримфест — это прекрасная возможность познакомиться с
+                    Стримфест — это прекрасная возможность познакомиться с
                     культурой стриминга, популярными кастерами и научиться
-                    новому. Я рад, что мы можем делиться опытом и развиваться.”
+                    новому. Я рад, что мы можем делиться опытом и развиваться.
                   </p>
                   <p class="feedback-item__from">Денис Welovegames Коробков</p>
                   <p class="feedback-item__who">Стример</p>
@@ -238,12 +237,12 @@
               <div class="feedback-item">
                 <div class="feedback-item__inner">
                   <p class="feedback-item__text">
-                    “Это невероятно круто — вживую видеть свое комьюнити, такие
+                    Это невероятно круто — вживую видеть свое комьюнити, такие
                     встречи всегда делают вас ближе. Стримфест — отличный повод
-                    встретится со своей аудиторией из разных уголков планеты.”
+                    встретиться со своей аудиторией из разных уголков планеты.
                   </p>
                   <p class="feedback-item__from">Вика Картер</p>
-                  <p class="feedback-item__who">Стример и видеоблогер</p>
+                  <p class="feedback-item__who">Видеоблогер</p>
                 </div>
                 <div class="feedback-item__image">
                   <el-image src="/reviews/2_s.jpg"></el-image>
@@ -254,14 +253,14 @@
               <div class="feedback-item">
                 <div class="feedback-item__inner">
                   <p class="feedback-item__text">
-                    “Подкастинг, в плане фидбека, это как подводная лодка.
-                    Плывешь по приборам, ничего не видишь. По этому возможность
-                    встретится с подписчиками, записать подкаст у них на глазах
-                    это потрясающе.”
+                    Подкастинг в плане фидбека — как подводная лодка. Идешь по
+                    приборам, ничего не видишь. Поэтому возможность встретиться
+                    с подписчиками, записать подкаст у них на глазах — это
+                    потрясающе.
                   </p>
                   <p class="feedback-item__from">Павел Пивоваров</p>
                   <p class="feedback-item__who">
-                    Соведущий подкаста «Не занесли»
+                    Подкастер
                   </p>
                 </div>
                 <div class="feedback-item__image">
@@ -273,9 +272,9 @@
               <div class="feedback-item">
                 <div class="feedback-item__inner">
                   <p class="feedback-item__text">
-                    “Я вообще боюсь большого скопления людей, но в этот раз я не
-                    чувствовала дискомфорта. Мы были на таком мероприятии в
-                    первый раз, но нам безумно понравилось.”
+                    Я вообще боюсь большого скопления людей, но в этот раз я не
+                    чувствовала дискомфорта. Мы были на таком мероприятии
+                    впервые, но нам безумно понравилось.
                   </p>
                   <p class="feedback-item__from">Людмила Морозова</p>
                   <p class="feedback-item__who">
@@ -291,9 +290,9 @@
               <div class="feedback-item">
                 <div class="feedback-item__inner">
                   <p class="feedback-item__text">
-                    “Невероятно эмоциональное событие, которое с нетерпением
+                    Невероятно эмоциональное событие, которое с нетерпением
                     ждешь каждый год. Беспрерывный поток совместного творчества,
-                    который дает тебе уникальный буст. Это нужно пережить.”
+                    который дает тебе уникальный буст. Это нужно пережить.
                   </p>
                   <p class="feedback-item__from">Дмитрий dayzru Нардов</p>
                   <p class="feedback-item__who">
@@ -309,14 +308,14 @@
               <div class="feedback-item">
                 <div class="feedback-item__inner">
                   <p class="feedback-item__text">
-                    “Посетитель Стримфеста, начинающий стример Лекторий
-                    несомненно интересная задумка. У стримеров есть возможность
-                    доносить свои знания не только с виртуальной трибуны, но и с
-                    реальной. Я остался доволен, что тут говорить :-)”
+                    Лекторий, несомненно, интересная задумка. У стримеров есть
+                    возможность доносить свои знания не только с виртуальной
+                    трибуны, но и с реальной. Я остался доволен, что тут
+                    говорить!
                   </p>
                   <p class="feedback-item__from">Евгений Мелёхин</p>
                   <p class="feedback-item__who">
-                    Стример
+                    Посетитель
                   </p>
                 </div>
                 <div class="feedback-item__image">
@@ -328,9 +327,9 @@
               <div class="feedback-item">
                 <div class="feedback-item__inner">
                   <p class="feedback-item__text">
-                    “Фестиваль очень помог в развитии канала, и новые знакомства
-                    приобрести. К тому же еще и партнерку одобрили, и все
-                    благодаря ВАААМ 🙂”
+                    Фестиваль очень помог и в развитии канала, и новые
+                    знакомства приобрести. К тому же еще и партнерку одобрили, и
+                    все благодаря ВАААМ!<br /><br />
                   </p>
                   <p class="feedback-item__from">Лилия Lily_Mint Аюпова</p>
                   <p class="feedback-item__who">
@@ -346,9 +345,9 @@
               <div class="feedback-item">
                 <div class="feedback-item__inner">
                   <p class="feedback-item__text">
-                    “Приходя на Стримфест, понимаешь, что хейтеров на самом деле
+                    Приходя на Стримфест, понимаешь, что хейтеров на самом деле
                     не существует. В жизни все зрители доброжелательные. Просят
-                    тебя расписаться, сфоткаться с ними.”
+                    тебя расписаться, сфоткаться с ними.
                   </p>
                   <p class="feedback-item__from">Алексей Stery_RJV Рыженков</p>
                   <p class="feedback-item__who">
@@ -362,6 +361,8 @@
             </swiper-slide>
           </swiper>
         </client-only>
+        <div class="swiper-button-next" slot="button-next"></div>
+        <div class="swiper-button-prev" slot="button-prev"></div>
       </div>
     </section>
     <section class="awards">
@@ -371,7 +372,7 @@
           Яркое эфирное шоу, где популярные стримеры, эксперты рынка<br />
           и журналисты развлекательных медиа выбрали лучших из лучших в 13
           номинациях.
-          <a href="https://streamscharts.com/streamfestawards2020"
+          <a class="link" href="https://streamscharts.com/streamfestawards2020"
             >Вот как это было.</a
           >
         </p>
@@ -385,69 +386,153 @@
       <div class="container">
         <h3 class="section-header">ГЕНЕРАЛЬНЫЙ ПАРТНЕР</h3>
         <div class="partners-img general">
-          <el-image src="/partners/lisetskiy.png" lazy></el-image>
+          <el-image src="/partners/lisetskiy.jpg" lazy></el-image>
         </div>
         <h3 class="section-header">СТРАТЕГИЧЕСКИЕ ПАРТНЕРЫ</h3>
         <div class="partners-img strategy">
-          <el-image src="/partners/lg.png" lazy></el-image>
-          <el-image src="/partners/wasd.png" lazy></el-image>
-          <el-image src="/partners/asus.png" lazy></el-image>
+          <a href="http://www.lg.com/ru/monitors/lg-34UC79G-B" target="_blank">
+            <el-image src="/partners/lg.jpg" lazy></el-image>
+          </a>
+          <a href="https://wasd.tv/" target="_blank">
+            <el-image src="/partners/wasd.jpg" lazy></el-image>
+          </a>
+          <a
+            href="https://www.asus.com/Microsite/powered-by-asus/RU/"
+            target="_blank"
+          >
+            <el-image src="/partners/asus.jpg" lazy></el-image>
+          </a>
         </div>
         <h3 class="section-header">ОФИЦИАЛЬНЫЕ ПАРТНЕРЫ</h3>
         <div class="partners-img official">
-          <el-image src="/partners/logitech.png" lazy></el-image>
-          <el-image src="/partners/red-square.png" lazy></el-image>
-          <el-image src="/partners/amd.png" lazy></el-image>
-          <el-image src="/partners/vk.jpg" lazy></el-image>
-          <el-image src="/partners/qiwi.png" lazy></el-image>
-          <el-image src="/partners/good-game.png" lazy></el-image>
-          <el-image src="/partners/cyberbuild.png" lazy></el-image>
-          <el-image src="/partners/red-bull.png" lazy></el-image>
-          <el-image src="/partners/t-force.png" lazy></el-image>
+          <a
+            href="https://www.logitech.com/ru-ru/product/c922-pro-stream-webcam"
+            target="_blank"
+          >
+            <el-image src="/partners/logitech.jpg" lazy></el-image>
+          </a>
+          <a href="http://red-square.org/" target="_blank">
+            <el-image src="/partners/red_square.jpg" lazy></el-image>
+          </a>
+          <a href="https://www.amd.com/ru" target="_blank">
+            <el-image src="/partners/amd.jpg" lazy></el-image>
+          </a>
+          <a href="https://vk.com/" target="_blank">
+            <el-image src="/partners/vk.jpg" lazy></el-image>
+          </a>
+          <a href="https://donate.qiwi.com/" target="_blank">
+            <el-image src="/partners/qiwi.jpg" lazy></el-image>
+          </a>
+          <a href="http://goodgame.ru/" target="_blank">
+            <el-image src="/partners/gg.jpg" lazy></el-image>
+          </a>
+          <a
+            href="https://ru.siberianhealth.com/ru/shop/catalog/category/406/"
+            target="_blank"
+          >
+            <el-image src="/partners/cyber_build.jpg" lazy></el-image>
+          </a>
+          <a href="https://flick.redbull.com/" target="_blank">
+            <el-image src="/partners/redbull.jpg" lazy></el-image>
+          </a>
+          <a
+            href="https://www.teamgroupinc.com/ru/products/t-force"
+            target="_blank"
+          >
+            <el-image src="/partners/teamgroup.jpg" lazy></el-image>
+          </a>
         </div>
         <h3 class="section-header">ПАРТНЕРЫ ТЕМАТИЧЕСКИХ ЗОН</h3>
         <div class="partners-img tematic">
-          <el-image src="/partners/restream.png" lazy></el-image>
-          <el-image src="/partners/mega-drive.png" lazy></el-image>
-          <el-image src="/partners/ss.png" lazy></el-image>
-          <el-image src="/partners/gift-life.jpg" lazy></el-image>
-          <el-image src="/partners/aver-media.png" lazy></el-image>
+          <a href="http://restream.io" target="_blank">
+            <el-image src="/partners/restream_io.jpg" lazy></el-image>
+          </a>
+          <a
+            href="https://www.uniconf.ru/about/news/2018/7027/"
+            target="_blank"
+          >
+            <el-image src="/partners/mega_drive.jpg" lazy></el-image>
+          </a>
+          <a href="http://schoolskills.ru/" target="_blank">
+            <el-image src="/partners/school_skills.jpg" lazy></el-image>
+          </a>
+          <a href="https://podari-zhizn.ru/main" target="_blank">
+            <el-image src="/partners/podari_jizn.jpg" lazy></el-image>
+          </a>
+          <a href="https://store.avermedia.com/ru" target="_blank">
+            <el-image src="/partners/avermedia.jpg" lazy></el-image>
+          </a>
         </div>
         <h3 class="section-header">ТЕХНИЧЕСКАЯ ПОДДЕРЖКА</h3>
         <div class="partners-img tematic">
-          <el-image src="/partners/warp.jpg" lazy></el-image>
-          <el-image src="/partners/razer.png" lazy></el-image>
-          <el-image src="/partners/hyper-pc.png" lazy></el-image>
-          <el-image src="/partners/blue.png" lazy></el-image>
-          <el-image src="/partners/wd.png" lazy></el-image>
-          <el-image src="/partners/dmitry-live.png" lazy></el-image>
+          <a href="http://warp.wtf/" target="_blank">
+            <el-image src="/partners/warp.jpg" lazy></el-image>
+          </a>
+          <a href="https://www.razerzone.ru/" target="_blank">
+            <el-image src="/partners/razer.jpg" lazy></el-image>
+          </a>
+          <a href="https://hyperpc.ru/" target="_blank">
+            <el-image src="/partners/hyper_pc.jpg" lazy></el-image>
+          </a>
+          <a href="https://www.bluemics.ru/" target="_blank">
+            <el-image src="/partners/blue.jpg" lazy></el-image>
+          </a>
+          <a href="https://www.wd.com/ru-ru/" target="_blank">
+            <el-image src="/partners/western_digital.jpg" lazy></el-image>
+          </a>
+          <a href="https://www.dmitrylive.com/" target="_blank">
+            <el-image src="/partners/dmitry_live.jpg" lazy></el-image>
+          </a>
         </div>
         <h3 class="section-header">ИНФОРМАЦИОННАЯ ПОДДЕРЖКА</h3>
         <div class="partners-img tematic information">
-          <el-image src="/partners/igromania.jpg" lazy></el-image>
-          <el-image src="/partners/moskva24.png" lazy></el-image>
-          <el-image src="/partners/afisha.png" lazy></el-image>
-          <el-image src="/partners/cybersport.png" lazy></el-image>
-          <el-image src="/partners/mirf.png" lazy></el-image>
+          <a href="https://www.igromania.ru/" target="_blank">
+            <el-image src="/partners/mania.jpg" lazy></el-image>
+          </a>
+          <a href="https://tv.m24.ru/" target="_blank">
+            <el-image src="/partners/moskva_24.jpg" lazy></el-image>
+          </a>
+          <a href="https://daily.afisha.ru/" target="_blank">
+            <el-image src="/partners/afisha.jpg" lazy></el-image>
+          </a>
+          <a href="https://www.cybersport.ru/" target="_blank">
+            <el-image src="/partners/cybersport.jpg" lazy></el-image>
+          </a>
+          <a href="https://www.mirf.ru/" target="_blank">
+            <el-image src="/partners/mir_fntsk.jpg" lazy></el-image>
+          </a>
         </div>
         <div class="partners-btn">
-          <button @click="partnersIframe = true" class="btn red">
+          <button @click="openPartnersModal" class="btn red">
+            ХОЧУ СТАТЬ ПАРТНЕРОМ
+          </button>
+          <button
+            @click="openPartnersModal"
+            class="btn red"
+            style="transition: none"
+          >
             ХОЧУ СТАТЬ ПАРТНЕРОМ
           </button>
         </div>
-        <iframe
-          class="partners-iframe"
-          v-if="partnersIframe"
-          src="https://docs.google.com/forms/d/e/1FAIpQLSeMR_dy_vI2fTg89_Qf8ssprOwOFiwIaPRdzIrm9-MPr8yUdA/viewform?embedded=true"
-          width="640"
-          height="860"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
-          >Loading…</iframe
-        >
+      </div>
+      <div class="side-parts">
+        <el-image src="/side-parts_5.png"></el-image>
+        <el-image src="/side-parts_6.png"></el-image>
       </div>
     </section>
+    <div :class="{ visible: partnersIframe }" class="partners-modal">
+      <button @click="closePartnersModal" class="partners-modal__close">
+        ✖
+      </button>
+      <iframe
+        class="partners-modal__iframe"
+        src="https://docs.google.com/forms/d/e/1FAIpQLSeMR_dy_vI2fTg89_Qf8ssprOwOFiwIaPRdzIrm9-MPr8yUdA/viewform?embedded=true"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        >Loading…</iframe
+      >
+    </div>
   </div>
 </template>
 
@@ -473,9 +558,8 @@ export default {
   },
   data() {
     return {
-      currentTime: null,
-      timer: null,
-      swiperOption: {
+      lastDay: null,
+      swiperOptions: {
         slidesPerView: 3,
         spaceBetween: 20,
         loop: true,
@@ -508,38 +592,61 @@ export default {
         //   }
         // }
       },
-      lightbox: {
-        images: [
-          "/home_gall/1_s.png",
-          "/home_gall/2_s.png",
-          "/home_gall/3_s.png",
-          "/home_gall/4_s.png",
-          "/home_gall/5_s.png",
-          "/home_gall/6_s.png",
-        ],
-        index: null,
-      },
+      silentbox: [
+        {
+          src: "/home_gall/1.png",
+          thumbnail: "/home_gall/1_s.png",
+        },
+        {
+          src: "/home_gall/2.png",
+          thumbnail: "/home_gall/2_s.png",
+        },
+        {
+          src: "/home_gall/3.png",
+          thumbnail: "/home_gall/3_s.png",
+        },
+        {
+          src: "/home_gall/4.png",
+          thumbnail: "/home_gall/4_s.png",
+        },
+        {
+          src: "/home_gall/5.png",
+          thumbnail: "/home_gall/5_s.png",
+        },
+        {
+          src: "/home_gall/6.png",
+          thumbnail: "/home_gall/6_s.png",
+        },
+      ],
       partnersIframe: false,
       subscribeEmail: null,
     };
   },
   mounted() {
     this.starTimer();
-  },
-  destroyed() {
-    clearInterval(this.timer);
+    const script = document.createElement("script");
+    script.src = "https://player.vimeo.com/api/player.js";
+    document.body.appendChild(script);
   },
   methods: {
     starTimer() {
-      const countDownDate = new Date("Jul 17, 2021 11:00:00").getTime();
-      this.timer = setInterval(() => {
-        const distance = countDownDate - new Date().getTime();
-        const days = Math.floor(distance / 86400000);
-        const hours = Math.floor((distance % 86400000) / 3600000);
-        const minutes = Math.floor((distance % 3600000) / 60000);
-        this.currentTime = `${days} дней ${hours} часов ${minutes} минут`;
-        distance < 1 && clearInterval(this.timer);
-      }, 1000);
+      let days = Math.floor(
+        (new Date("Jul 17, 2021 11:00:00").getTime() - new Date().getTime()) /
+          86400000
+      ).toString();
+      switch (days.substr(-1)) {
+        case 1:
+          days += " день";
+          break;
+        case 2:
+        case 3:
+        case 4:
+          days += " дня";
+          break;
+        default:
+          days += " дней";
+      }
+      this.lastDay = days;
     },
     notify(title, message, type) {
       this.$notify({
@@ -561,7 +668,7 @@ export default {
       e.preventDefault();
       if (this.subscribeEmail.trim())
         try {
-          await this.$axios.post("http://127.0.0.1:8000/api/subscribe_email", {
+          await this.$axios.post("/api/subscribe_email", {
             email: this.subscribeEmail,
           });
           this.notify(
@@ -578,6 +685,14 @@ export default {
           "Поле ввода email не должно быть пустым",
           "error"
         );
+    },
+    openPartnersModal() {
+      document.querySelector("body").style.overflow = "hidden";
+      this.partnersIframe = true;
+    },
+    closePartnersModal() {
+      this.partnersIframe = false;
+      document.querySelector("body").style.overflow = "visible";
     },
   },
 };

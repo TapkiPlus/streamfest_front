@@ -16,8 +16,8 @@
     "nuxt": "^2.14.12",
     "swiper": "^5.3.6",
     "vue-awesome-swiper": "^4.1.1",
-    "vue-cool-lightbox": "^2.7.1",
-    "vue-scrollto": "^2.20.0"
+    "vue-scrollto": "^2.20.0",
+    "vue-silentbox": "^2.4.0"
   },
   "devDependencies": {
     "node-sass": "^5.0.0",

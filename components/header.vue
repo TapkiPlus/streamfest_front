@@ -1,6 +1,7 @@
 <template>
   <header
     class="header"
+    id="header"
     :class="[
       scrollPosition > 100 ? 'header-prepare-sticky' : '',
       scrollPosition > 150 ? 'header-sticky' : '',
@@ -11,7 +12,6 @@
       <div class="header-wrapper">
         <div @click="$router.push('/')" class="header-logo">
           <img class="logo_w" src="/logo.png" alt="" />
-          <img class="logo_b" src="/logo_b.png" alt="" />
         </div>
         <div class="header-nav">
           <!--                  navItemActive-->

@@ -12,19 +12,13 @@
   height: 90px
   z-index: 100
   &.header-no-bg
-    background: none
+    // background: none
+    background: rgb(0,89,201)
+    background: linear-gradient(90deg, rgba(0,89,201,1) 0%, rgba(43,181,255,1) 18%, rgba(0,89,201,1) 100%)
     margin-bottom: 64px //normal
     //margin-bottom: 58px faq
     //margin-bottom: 37px streamer
     position: unset
-    & .header-nav
-      a
-        color: #0060cf
-    & .header-logo
-      & .logo_b
-        display: block
-      & .logo_w
-        display: none
   &.header-prepare-sticky
     top: -90px
     transition: all .2s linear
@@ -40,8 +34,6 @@
       a
         color: #ffffff
     & .header-logo
-      & .logo_b
-        display: none
       & .logo_w
         display: block
 
@@ -51,8 +43,7 @@
     justify-content: space-between
   &-logo
     flex-grow: 1
-    & .logo_b
-      display: none
+    cursor: pointer
   &-nav
     flex-grow: 3
     ul
