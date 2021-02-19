@@ -8,12 +8,11 @@
   position: absolute
   left: 0
 
-  right: 0
+  right: 0 
   height: 90px
   z-index: 100
-  &.header-no-bg
+  &.header-bg
     // background: none
-    background: rgb(0,89,201)
     background: linear-gradient(90deg, rgba(0,89,201,1) 0%, rgba(43,181,255,1) 18%, rgba(0,89,201,1) 100%)
     margin-bottom: 64px //normal
     //margin-bottom: 58px faq
@@ -23,11 +22,10 @@
     top: -90px
     transition: all .2s linear
   &.header-sticky
-    position: fixed
+    position: sticky
     transition: all .2s linear
     top: 0
     width: 100%
-    background: rgb(0,89,201)
     background: linear-gradient(90deg, rgba(0,89,201,1) 0%, rgba(43,181,255,1) 18%, rgba(0,89,201,1) 100%)
     z-index: 100
     & .header-nav

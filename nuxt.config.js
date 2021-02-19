@@ -8,7 +8,9 @@ export default {
   // env: {
   //       img_url: 'http://185.119.57.46:8000',
   //   },
-
+  loading: {
+    color: "rgba(255,255,255,0.8)",
+  },
   env: {
     img_url: "http://localhost:8000",
   },

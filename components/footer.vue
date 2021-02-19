@@ -10,8 +10,8 @@
           </p>
           <p>
             Российская аудитория стримов растет в два раза быстрее мировой — на
-            20% в год. Стримфест — это точка входа в новую реальность. Ждем вас
-            17–18 апреля в Технопарке Сколково!
+            20% в год.<br />Стримфест — это точка входа в новую реальность.<br />Ждем
+            вас 17–18 апреля в Технопарке Сколково!
           </p>
 
           <div class="footer-top-social">
@@ -122,7 +122,7 @@
         </a>
         <p>
           <a class="link" href="http://185.119.57.46/location">Контакты</a> |
-          <a class="link" href="#subscribe">О фестивале</a>
+          <a class="link" href="/#subscribe">О фестивале</a>
         </p>
       </div>
     </div>
@@ -137,7 +137,7 @@ export default {
     const script = document.createElement("script");
     script.onload = () => {
       VK.Widgets.CommunityMessages("vk_community_messages", 122887579, {
-        tooltipButtonText: "Я отвечалка на вопросы, ткни меня!",
+        disableButtonTooltip: "1",
       });
       VK.Widgets.Group(
         "vk_groups",
