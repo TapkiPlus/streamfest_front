@@ -3,9 +3,9 @@
     class="header"
     id="header"
     :class="[
-      scrollPosition > 100 ? 'header-prepare-sticky' : '',
-      scrollPosition > 150 ? 'header-sticky' : '',
-      !isHomePage ? 'header-no-bg' : '',
+      isHomePage && scrollPosition > 100 ? 'header-prepare-sticky' : '',
+      isHomePage && scrollPosition > 150 ? 'header-sticky' : '',
+      !isHomePage ? 'header-bg' : '',
     ]"
   >
     <div class="container">

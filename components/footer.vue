@@ -10,8 +10,8 @@
           </p>
           <p>
             Российская аудитория стримов растет в два раза быстрее мировой — на
-            20% в год. Стримфест — это точка входа в новую реальность. Ждем вас
-            17–18 апреля в Технопарке Сколково!
+            20% в год.<br />Стримфест — это точка входа в новую реальность.<br />Ждем
+            вас 17–18 июля в Технопарке Сколково!
           </p>
 
           <div class="footer-top-social">
@@ -105,7 +105,7 @@
 
     <div class="footer-bottom">
       <div class="container footer-bottom-wrapper">
-        <p>© 2015 – 2020, Стримфест</p>
+        <p>© 2015 – 2021, Стримфест</p>
         <a class="footer-cat" @click="scrollToTop">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +122,7 @@
         </a>
         <p>
           <a class="link" href="http://185.119.57.46/location">Контакты</a> |
-          <a class="link" href="#subscribe">О фестивале</a>
+          <a class="link" href="/#subscribe">О фестивале</a>
         </p>
       </div>
     </div>
