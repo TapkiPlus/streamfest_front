@@ -41,14 +41,14 @@
             <p class="video-item__title">Встречи со звездами</p>
             <p>
               Топы всех платформ: Twitch.tv, YouTube, TikTok, WASD, Goodgame, VK
-              и OK
+              и OK.
             </p>
           </div>
           <div class="video-item">
             <img src="/cats/s_4.png" alt="" />
             <p class="video-item__title">Игровые зоны и конкурсы</p>
             <p>
-              Развлечения по полной: видеоигры, роботы, танцы, фотозоны и призы
+              Развлечения по полной: видеоигры, роботы, танцы, фотозоны и призы.
             </p>
           </div>
           <div class="video-item">
@@ -64,7 +64,7 @@
             <p class="video-item__title">Настолки и застолья</p>
             <p>
               Тащи друзей в партию или в кафешки,<br />там всё вкусно и по
-              карману
+              карману.
             </p>
           </div>
           <div class="video-item">
@@ -227,7 +227,7 @@
                     кастерами и&nbsp;научиться новому. Я&nbsp;рад, что
                     мы&nbsp;можем делиться опытом и&nbsp;развиваться.
                   </p>
-                  <p class="feedback-item__from">Денис Welovegames Коробков</p>
+                  <p class="feedback-item__from">Денис WELOVEGAMES Коробков</p>
                   <p class="feedback-item__who">Стример</p>
                 </div>
                 <div class="feedback-item__image">

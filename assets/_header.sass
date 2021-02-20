@@ -7,7 +7,6 @@
   transition: all .2s linear
   position: absolute
   left: 0
-
   right: 0 
   height: 90px
   z-index: 100
@@ -17,12 +16,13 @@
     margin-bottom: 64px //normal
     //margin-bottom: 58px faq
     //margin-bottom: 37px streamer
-    position: unset
+    position: sticky
+    top: 0
   &.header-prepare-sticky
     top: -90px
     transition: all .2s linear
-  &.header-sticky
-    position: sticky
+  &.header-sticky 
+    position: fixed
     transition: all .2s linear
     top: 0
     width: 100%
