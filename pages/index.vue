@@ -173,13 +173,7 @@
           </div>
         </div>
       </div>
-      <div class="tickets-form">
-        <p>Новости и плюшки Стримфеста</p>
-        <form @submit="subscribe" id="subscribe">
-          <input v-model="subscribeEmail" type="text" placeholder="Ваш email" />
-          <button type="submit">подписаться</button>
-        </form>
-      </div>
+      <Subscribe />
     </section>
     <section class="how-it-was">
       <div class="container">
@@ -537,12 +531,14 @@
 
 <script>
 import StreamerCard from "@/components/StreamerCard";
+import Subscribe from "@/components/Subscribe"; 
 export default {
   // async fetch({store}){
   //   await store.dispatch('cart/fetchCart')
   // },
   components: {
     StreamerCard,
+    Subscribe,
   },
   async asyncData({ $axios }) {
     const get_streamers = await $axios.get(
@@ -618,7 +614,6 @@ export default {
         },
       ],
       partnersIframe: false,
-      subscribeEmail: null,
     };
   },
   mounted() {
@@ -649,9 +644,9 @@ export default {
     },
     notify(title, message, type) {
       this.$notify({
-        title: title,
-        message: message,
-        type: type,
+        title,
+        message,
+        type,
       });
     },
     async addItem(id) {
@@ -662,28 +657,6 @@ export default {
       });
       this.notify("Успешно", "Билет добавлен в корзину", "success");
       await this.$store.dispatch("cart/fetchCart");
-    },
-    async subscribe(e) {
-      e.preventDefault();
-      if (this.subscribeEmail.trim())
-        try {
-          await this.$axios.post("/api/subscribe_email", {
-            email: this.subscribeEmail,
-          });
-          this.notify(
-            "Успешно",
-            "Вы подписаны на рассылку!",
-            "success"
-          );
-        } catch (e) {
-          this.notify("Ошибка", "Введенный email не валидный", "error");
-        }
-      else
-        this.notify(
-          "Ошибка",
-          "Поле ввода email не должно быть пустым",
-          "error"
-        );
     },
     openPartnersModal() {
       document.querySelector("body").style.overflow = "hidden";
