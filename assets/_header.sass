@@ -1,0 +1,104 @@
+.header
+  //background: rgb(0,89,201)
+  //background: linear-gradient(90deg, rgba(0,89,201,1) 0%, rgba(43,181,255,1) 18%, rgba(0,89,201,1) 100%)
+  background: transparent
+  padding: 15px 0
+
+  transition: all .2s linear
+  position: absolute
+  left: 0
+  right: 0 
+  height: 90px
+  z-index: 100
+  &.header-bg
+    // background: none
+    background: linear-gradient(90deg, rgba(0,89,201,1) 0%, rgba(43,181,255,1) 18%, rgba(0,89,201,1) 100%)
+    margin-bottom: 64px //normal
+    //margin-bottom: 58px faq
+    //margin-bottom: 37px streamer
+    position: sticky
+    top: 0
+  &.header-prepare-sticky
+    top: -90px
+    transition: all .2s linear
+  &.header-sticky 
+    position: fixed
+    transition: all .2s linear
+    top: 0
+    width: 100%
+    background: linear-gradient(90deg, rgba(0,89,201,1) 0%, rgba(43,181,255,1) 18%, rgba(0,89,201,1) 100%)
+    z-index: 100
+    & .header-nav
+      a
+        color: #ffffff
+    & .header-logo
+      & .logo_w
+        display: block
+
+  &-wrapper
+    display: flex
+    align-items: center
+    justify-content: space-between
+  &-logo
+    flex-grow: 1
+    cursor: pointer
+  &-nav
+    flex-grow: 3
+    ul
+      display: flex
+      align-items: center
+      justify-content: space-between
+      li
+        position: relative
+        &.navItemActive
+
+          &::after
+            position: absolute
+            content: ''
+            background: $color-yellow
+            left: 0
+            right: 0
+            height: 2px
+            bottom: -5px
+        &.with-star
+          &::before
+            position: absolute
+            content: url(/star.png)
+            left: 50%
+            transform: translateX(-50%)
+            top: -20px
+
+        a
+          color: #FFFFFF
+          font-size: 18px
+  &-button
+    flex-grow: 1
+    text-align: right
+    a
+      display: inline-block
+      font-size: 14px
+      color: #333333
+      font-weight: 800
+      text-transform: uppercase
+      background: $color-yellow
+      border-radius: 2px
+      padding: 8px
+    &__cart
+      position: relative
+
+      &::after
+        position: absolute
+        content: attr(data-num)
+        width: 15px
+        height: 15px
+        background: red
+        border-radius: 100%
+        color: #FFFFFF
+        font-size: 10px
+        display: flex
+        align-items: center
+        justify-content: center
+        right: -8px
+        top: -5px
+
+

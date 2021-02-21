@@ -1,0 +1,302 @@
+$color-yellow: #ffc133
+$color-text: #333333
+$color-blue: #0060cf
+
+body
+  font-family: 'Open Sans', sans-serif
+  font-weight: 400
+  font-size: 18px
+  color: $color-text
+  background: #f5f5f5
+  //background: url(/loc.png)
+  //background: url(/p2.png)
+  position: relative
+
+section
+  margin-bottom: 30px
+.text-center
+  text-align: center
+
+.blue-btn
+  border: none
+  background: #319eff
+  border-radius: 6px
+  color: #ffffff
+  text-transform: uppercase
+  font-weight: bold
+  font-size: 18px
+  padding: 14px 0
+  &:focus
+    outline: none
+  &:active
+    outline: none
+
+.container
+  max-width: 1200px
+  margin: 0 auto
+  //padding: 0 10px
+
+.container-1000
+  max-width: 1000px
+  margin: 0 auto
+  //padding: 0 10px
+
+.section-header
+  font-weight: 700
+  font-size: 36px
+  text-align: center
+.mb-35
+  margin-bottom: 35px 
+.link
+  text-decoration: underline
+  color: $color-blue
+.section-subheader
+  font-size: 18px
+  max-width: 822px
+  margin: 0 auto
+  text-align: center
+  word-break: break-word
+
+.side-parts
+  width: 100%
+  height: 100%
+  display: flex
+  justify-content: space-between
+  align-items: flex-start
+  position: absolute
+  top: 0
+  left: 0
+  z-index: -1
+
+.subscribe
+  text-align: center
+  form
+    background: #fff
+    width: 486px
+    position: relative
+    display: flex
+    border-radius: 4px
+    overflow: hidden
+    margin: 0 auto
+  p
+    font-size: 22px
+    font-weight: 700
+    margin-bottom: 12px
+    color: #ffffff
+    text-transform: uppercase
+  input
+    flex-grow: 1
+    border: none
+    padding: 14px 10px
+    font-style: italic
+    color: #b3b3b3
+    &::placeholder
+      color: #b3b3b3
+    &:focus
+      outline: none
+    &:active
+      outline: none
+  button
+    border: none
+    background: #319eff
+    color: #ffffff
+    font-size: 18px
+    text-transform: uppercase
+    border-top-left-radius: 4px
+    border-bottom-left-radius: 4px
+    cursor: pointer
+    width: 170px
+    &:focus
+      outline: none
+    &:active
+      outline: none
+    &:hover
+      background: $color-yellow
+
+.separator
+  position: relative
+  max-width: 1200px
+  margin: 0 auto 46px
+  width: 100%
+  height: 2px
+  background: #bac8cf
+  &::before
+    position: absolute
+
+    left: 50%
+    transform: translateX(-50%)
+    background: #f5f5f5
+    width: 50px
+    height: 8px
+    display: flex
+    justify-content: center
+    align-items: center
+  &.star
+    &::before
+       content: url(/star_ico.png)
+  &.gamepad
+    &::before
+       content: url(/gamepad.png)
+  &.crown
+    &::before
+       content: url(/crown_ico.png)
+  &.rocket
+    &::before
+       content: url(/rocket.png)
+
+.btn 
+  display: inline-flex
+  padding: 27px 0px
+  //padding: 27px 60px
+  align-items: center 
+  justify-content: center
+  width: 300px
+
+  color: #ffffff
+  background: #d6e0e4
+  text-transform: uppercase
+  outline: none
+  user-select: none
+  border-radius: 40px
+  font-weight: 700
+  &:hover
+    background: #FFC133
+    //background: linear-gradient(90deg, rgba(0,89,201,1) 0%, rgba(43,181,255,1) 35%, rgba(0,89,201,1) 100%)
+  &.btn-w-icon 
+    position: relative
+    width: 360px 
+    background: linear-gradient(90deg, rgba(0,89,201,1) 0%, rgba(43,181,255,1) 35%, rgba(0,89,201,1) 100%)
+    padding-left: 20px
+    img
+      position: absolute
+      pointer-events: none
+      right: 19px
+    &:hover
+      background: #3febcd
+  &.w-img
+    justify-content: flex-start
+    padding-left: 45px
+  &.red
+    background: linear-gradient(90deg, #ec463e 0%, #d01a14 50%, #ff4d35 100%)
+    width: 380px 
+    font-size: 18px
+    border: none
+    cursor: pointer
+    padding: 30px 0
+    &:hover
+      background: #FFC133
+  &.btn-disable
+    background: #808080
+    cursor: default
+    &:hover
+      background: #d3d3d3
+
+.video
+  &-video
+    width: 100%
+    margin-bottom: 52px
+    height: 700px
+
+  &-wrapper
+    // max-width: 1000px
+    // margin: 0 auto 50px
+    // display: grid
+    // grid-template-columns: 1fr 1fr
+    // grid-column-gap: 317px
+    // grid-row-gap: 29px
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-column-gap: 226px
+    grid-row-gap: 36px
+    margin: 60px 96px 54px
+  &-block
+    position: relative
+    & .section-subheader
+      margin: 14px auto 36px
+    // &__online
+    //   position: absolute
+    //   right: 133px
+    //   top: 481px
+    //   border: 2px solid #ff4633
+    //   padding: 12px 0px 10px 48px
+    //   width: 179px
+    //   height: 89px
+    //   border-radius: 4px
+    //   p
+    //     position: relative
+    //     color: #ff4633
+    //     font-size: 22px
+    //     font-weight: 700
+    //     max-width: 100px
+    //     text-align: left
+    //     line-height: 27px
+    //     &::before
+    //       position: absolute
+    //       content: ''
+    //       width: 18px
+    //       height: 18px
+    //       background: #ff4633
+    //       border-radius: 100%
+    //       left: -32px
+    //       top: 21px
+  &-item
+    img
+      width: 130px
+      height: 80px
+      object-fit: cover
+    &__title
+      font-weight: 700
+      font-size: 22px
+      margin-bottom: 10px
+  &-buttons
+
+    // max-width: 1000px
+    margin: 0 -30px 79px
+    display: flex
+    align-items: center
+    justify-content: center
+    // justify-content: space-around
+  &-button
+    width: 260px
+    margin: 0 30px
+    &-long
+      width: 320px
+  
+.swiper-button
+  &-next,
+  &-prev
+    width: auto !important
+    height: auto !important
+    transform: translateY(-50%)
+    outline: none
+  &-next
+    right: -70px !important
+    &::after
+    content: url(/arrow_r.png) !important
+  &-prev
+    left: -70px !important
+    &::after
+    content: url(/arrow_l.png) !important
+
+.splide
+  height: 290px
+  &__track
+    height: 290px
+.splide__arrow
+  background: #ffffff
+  svg
+    fill: #bac8cf
+    width: 10em
+    height: 10em
+  &--next
+    right: -50px
+  &--prev
+    left: -50px
+
+.mb-20
+  margin-bottom: 20px
+
+.mb-45
+  margin-bottom: 45px
+.slider-streams__wrapper
+  height: 290px

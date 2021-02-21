@@ -1,0 +1,91 @@
+.tickets
+  background: url(/ticket_bg.png) no-repeat center / cover
+  padding: 42px 0 53px 0
+  margin-bottom: 67px
+  & .section-header
+      color: #ffffff
+      margin-bottom: 60px
+  &-wrapper
+    //display: flex
+    //align-items: flex-start
+    //justify-content: space-between
+    max-width: 980px
+    margin: 0 auto 52px
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-gap: 80px
+  &-item
+    background: #2259d3
+    padding-bottom: 49px
+
+    &__bottom
+      padding: 0 50px
+      max-width: 414px
+      margin: 0 auto
+
+    &__wrapper
+      flex-basis: 450px
+      padding: 28px 0 28px 100px
+
+    &__days
+      color: #ffffff
+      font-size: 22px
+      font-weight: 700
+      margin-bottom: 22px
+    &__list
+      margin-bottom: 9px
+      &--item
+        position: relative
+        color: #ffffff
+
+        &:last-child
+          margin-bottom: 0
+        &::before
+          position: absolute
+          content: url(/not_c.png)
+          left: -20px
+        &.checked
+          &::before
+            content: url(/check.png)
+    &__price
+      position: relative
+      color: #ffffff
+      text-align: center
+      font-size: 22px
+      font-weight: 700
+      margin-bottom: 25px
+      &::before
+        position: absolute
+        content: ''
+        width: 80px
+        height: 2px
+        background: #ffffff
+        left: 0
+        top: 50%
+        transform: translateY(-50%)
+      &::after
+        position: absolute
+        content: ''
+        width: 80px
+        height: 2px
+        background: #ffffff
+        right: 0
+        top: 50%
+        transform: translateY(-50%)
+
+    &__button
+      display: inline-block
+      font-size: 27px
+      line-height: 26px
+      color: #ffffff
+      width: 100%
+      font-weight: 700 
+      text-transform: uppercase
+      background: $color-yellow 
+      border-radius: 8px
+      padding: 19px
+      text-align: center
+      cursor: default
+      &_red
+       background: linear-gradient(90deg, #ec463e 0%, #d01a14 50%, #ff4d35 100%)
+

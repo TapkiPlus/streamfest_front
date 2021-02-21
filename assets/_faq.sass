@@ -1,0 +1,89 @@
+.faq
+  & .container
+    max-width: 1000px
+  &-banner
+    margin-bottom: 39px
+  & .subscribe
+    p
+      color: $color-text
+  & .section-header
+    margin-bottom: 21px
+.faq-items
+  margin-bottom: 63px
+.faq-item
+  background: transparent
+  cursor: pointer
+  padding: 20px 8px
+  width: 100%
+  border: none
+  text-align: left
+  outline: none
+  font-size: 22px
+  font-weight: 700
+  color: $color-text
+  position: relative
+  display: flex
+  align-items: center
+  //border-bottom: 2px solid #bac8cf
+  svg
+    margin-right: 20px
+
+  &:hover
+    //background-color: #ccc
+  &.faq-item-active
+    //background-color: #ccc
+    border-bottom: none
+    &::after
+      content: "\2212"
+
+
+  &__inner
+    padding-left: 50px
+    max-height: 0
+    overflow: hidden
+    transition: max-height 0.2s ease-out
+    border-bottom: 2px solid #bac8cf
+    p
+      line-height: 27px
+      margin-bottom: 40px
+    span
+      color: $color-blue
+    a
+      color: $color-blue
+      text-decoration: underline
+    ul
+      li
+        position: relative
+        padding-left: 20px
+        margin-bottom: 40px
+        &::before
+          position: absolute
+          content: ''
+          background: $color-text
+          width: 6px
+          height: 6px
+          border-radius: 100%
+          left: 0
+          top: 10px
+  &::after
+    position: absolute
+    content: '\002B'
+    color: #bac8cf
+    font-weight: bold
+    right: 0
+  &-last
+    & .faq-item
+      padding-left: 37px
+      cursor: default
+      margin-bottom: -15px
+
+      &::after
+        content: none
+    p
+      padding-left: 34px
+      a
+        color: $color-blue
+
+
+
+
