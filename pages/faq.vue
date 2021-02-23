@@ -28,8 +28,8 @@
           </p>
         </div>
       </div>
-      <Subscribe />
     </div>
+    <Subscribe />
   </section>
 </template>
 

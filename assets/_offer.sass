@@ -1,9 +1,7 @@
 .offer
   position: relative
-  height: 910px
   overflow: hidden
   margin-bottom: 57px
-
   &-video
     position: absolute
     z-index: -1
@@ -11,12 +9,11 @@
     width: 100%
     object-fit: cover
   &-wrapper
-    //height: 100%
-    padding-top: 215px
     display: flex
     flex-direction: column
     align-items: center
     justify-content: center
+    padding: 215px 0 223px
   &__title
     font-weight: 800
     color: #ffffff
@@ -50,3 +47,35 @@
     font-size: 36px
     font-weight: 700
 
+@media screen and (max-width: 760px)
+  .offer
+    &-wrapper
+      padding: 173px 0 180px
+    &__title
+      font-size: 60px
+      text-align: center
+    &__subtitle
+      font-size: 25px
+      margin-bottom: 50px
+      &.subtitle-last
+        margin-bottom: 61px
+    &__22px
+      font-size: 15px
+    &__36px
+      font-size: 25px
+
+@media screen and (max-width: 650px)
+  .offer
+    &-wrapper
+      padding: 121px 0 125px
+    &__title
+      font-size: 45px
+    &__subtitle
+      font-size: 20px
+      margin-bottom: 38px
+      &.subtitle-last
+        margin-bottom: 46px
+    &__22px
+      font-size: 12px
+    &__36px
+      font-size: 20px

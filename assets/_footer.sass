@@ -2,7 +2,6 @@
   &-top
     background: #0060cf
     padding: 51px 0
-
     & .container
       max-width: 1000px
     &-wrapper
@@ -16,14 +15,16 @@
       padding-top: 17px
       max-width: 411px
     &-left
-      flex-basis: 504px
+      max-width: 504px
+      margin-right: 20px
       p
         color: #ffffff
         margin-bottom: 26px
         &:last-child
           margin-bottom: 0
     &-right
-      flex-basis: 380px
+      width: 100%
+      max-width: 380px
       p
         color: #ffffff
         margin-bottom: 20px
@@ -34,11 +35,48 @@
       max-width: 1000px
     &-wrapper
       display: flex
-      align-items: flex-start
+      align-items: center
       justify-content: space-between
       p
         color: #0060cf
       a
         color: #0060cf
-  &-cat 
+  &-cat
+    display: inline-flex
     cursor: pointer
+
+
+@media screen and (max-width: 767px)
+  .footer
+    &-top
+      .container
+        max-width: 420px
+      &-wrapper
+        flex-direction: column
+      &-left 
+        margin-bottom: 60px
+
+
+@media screen and (max-width: 600px)
+  .footer
+    &-bottom
+      &-wrapper
+        font-size: 16px
+
+@media screen and (max-width: 480px)
+  .footer
+    &-bottom
+      &-wrapper
+        font-size: 13px
+
+@media screen and (max-width: 430px)
+  .footer
+    &-bottom
+      &-wrapper
+        font-size: 11px
+
+@media screen and (max-width: 370px)
+  .footer
+    &-bottom
+      &-wrapper
+        font-size: 10px

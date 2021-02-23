@@ -63,8 +63,7 @@
             <img src="/cats/s_5.png" alt="" />
             <p class="video-item__title">Настолки и застолья</p>
             <p>
-              Тащи друзей в партию или в кафешки,<br />там всё вкусно и по
-              карману.
+              Тащи друзей в партию или в кафешки, там всё вкусно и по карману.
             </p>
           </div>
           <div class="video-item">
@@ -111,6 +110,7 @@
             :nickname="streamer.nickName"
           />
         </div>
+        <StreamersSwiper :streamers="streamers" />
         <div class="streamers-btn">
           <nuxt-link class="btn btn-w-icon w-img" to="/streamers"
             >КТО ТОЛЬКО НЕ ПРИДЕТ <img src="/smile.png" alt=""
@@ -210,159 +210,174 @@
     </section>
     <section class="feedbacks">
       <div class="container">
-        <client-only>
-          <swiper class="slider-streams__wrapper" :options="swiperOptions">
-            <swiper-slide>
-              <div class="feedback-item">
-                <div class="feedback-item__inner">
-                  <p class="feedback-item__text">
-                    Стримфест&nbsp;&mdash; это прекрасная возможность
-                    познакомиться с&nbsp;культурой стриминга, популярными
-                    кастерами и&nbsp;научиться новому. Я&nbsp;рад, что
-                    мы&nbsp;можем делиться опытом и&nbsp;развиваться.
-                  </p>
-                  <p class="feedback-item__from">Денис WELOVEGAMES Коробков</p>
-                  <p class="feedback-item__who">Стример</p>
+        <div class="feedbacks__slider-wrap">
+          <client-only>
+            <swiper :options="feedbacksOptions">
+              <swiper-slide>
+                <div class="feedback-item">
+                  <div class="feedback-item__inner">
+                    <p class="feedback-item__text">
+                      Стримфест&nbsp;&mdash; это прекрасная возможность
+                      познакомиться с&nbsp;культурой стриминга, популярными
+                      кастерами и&nbsp;научиться новому. Я&nbsp;рад, что
+                      мы&nbsp;можем делиться опытом и&nbsp;развиваться.
+                    </p>
+                    <p class="feedback-item__from">
+                      Денис WELOVEGAMES Коробков
+                    </p>
+                    <p class="feedback-item__who">Стример</p>
+                  </div>
+                  <div class="feedback-item__image">
+                    <img src="/reviews/1_s.jpg" />
+                  </div>
                 </div>
-                <div class="feedback-item__image">
-                  <img src="/reviews/1_s.jpg" />
+              </swiper-slide>
+              <swiper-slide>
+                <div class="feedback-item">
+                  <div class="feedback-item__inner">
+                    <p class="feedback-item__text">
+                      Это невероятно круто&nbsp;&mdash; вживую видеть свое
+                      комьюнити, такие встречи всегда делают вас ближе.
+                      Стримфест&nbsp;&mdash; отличный повод встретиться
+                      со&nbsp;своей аудиторией из&nbsp;разных уголков планеты.
+                    </p>
+                    <p class="feedback-item__from">Вика Картер</p>
+                    <p class="feedback-item__who">Видеоблогер</p>
+                  </div>
+                  <div class="feedback-item__image">
+                    <img src="/reviews/2_s.jpg" />
+                  </div>
                 </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-              <div class="feedback-item">
-                <div class="feedback-item__inner">
-                  <p class="feedback-item__text">
-                    Это невероятно круто&nbsp;&mdash; вживую видеть свое
-                    комьюнити, такие встречи всегда делают вас ближе.
-                    Стримфест&nbsp;&mdash; отличный повод встретиться
-                    со&nbsp;своей аудиторией из&nbsp;разных уголков планеты.
-                  </p>
-                  <p class="feedback-item__from">Вика Картер</p>
-                  <p class="feedback-item__who">Видеоблогер</p>
+              </swiper-slide>
+              <swiper-slide>
+                <div class="feedback-item">
+                  <div class="feedback-item__inner">
+                    <p class="feedback-item__text">
+                      Подкастинг в&nbsp;плане фидбека&nbsp;&mdash; как подводная
+                      лодка. Идешь по&nbsp;приборам, ничего не&nbsp;видишь.
+                      Поэтому возможность встретиться с&nbsp;подписчиками,
+                      записать подкаст у&nbsp;них на&nbsp;глазах&nbsp;&mdash;
+                      это потрясающе.
+                    </p>
+                    <p class="feedback-item__from">Павел Пивоваров</p>
+                    <p class="feedback-item__who">
+                      Подкастер
+                    </p>
+                  </div>
+                  <div class="feedback-item__image">
+                    <img src="/reviews/3_s.jpg" />
+                  </div>
                 </div>
-                <div class="feedback-item__image">
-                  <img src="/reviews/2_s.jpg" />
+              </swiper-slide>
+              <swiper-slide>
+                <div class="feedback-item">
+                  <div class="feedback-item__inner">
+                    <p class="feedback-item__text">
+                      Я&nbsp;вообще боюсь большого скопления людей,
+                      но&nbsp;в&nbsp;этот раз я&nbsp;не&nbsp;чувствовала
+                      дискомфорта. Мы&nbsp;были на&nbsp;таком мероприятии
+                      впервые, но&nbsp;нам безумно понравилось.
+                    </p>
+                    <p class="feedback-item__from">Людмила Морозова</p>
+                    <p class="feedback-item__who">
+                      Посетитель
+                    </p>
+                  </div>
+                  <div class="feedback-item__image">
+                    <img src="/reviews/4_s.jpg" />
+                  </div>
                 </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-              <div class="feedback-item">
-                <div class="feedback-item__inner">
-                  <p class="feedback-item__text">
-                    Подкастинг в&nbsp;плане фидбека&nbsp;&mdash; как подводная
-                    лодка. Идешь по&nbsp;приборам, ничего не&nbsp;видишь.
-                    Поэтому возможность встретиться с&nbsp;подписчиками,
-                    записать подкаст у&nbsp;них на&nbsp;глазах&nbsp;&mdash; это
-                    потрясающе.
-                  </p>
-                  <p class="feedback-item__from">Павел Пивоваров</p>
-                  <p class="feedback-item__who">
-                    Подкастер
-                  </p>
+              </swiper-slide>
+              <swiper-slide>
+                <div class="feedback-item">
+                  <div class="feedback-item__inner">
+                    <p class="feedback-item__text">
+                      Невероятно эмоциональное событие, которое
+                      с&nbsp;нетерпением ждешь каждый год. Беспрерывный поток
+                      совместного творчества, который дает тебе уникальный буст.
+                      Это нужно пережить.
+                    </p>
+                    <p class="feedback-item__from">Дмитрий dayzru Нардов</p>
+                    <p class="feedback-item__who">
+                      Стример
+                    </p>
+                  </div>
+                  <div class="feedback-item__image">
+                    <img src="/reviews/5_s.jpg" />
+                  </div>
                 </div>
-                <div class="feedback-item__image">
-                  <img src="/reviews/3_s.jpg" />
+              </swiper-slide>
+              <swiper-slide>
+                <div class="feedback-item">
+                  <div class="feedback-item__inner">
+                    <p class="feedback-item__text">
+                      Лекторий, несомненно, интересная задумка. У&nbsp;стримеров
+                      есть возможность доносить свои знания не&nbsp;только
+                      с&nbsp;виртуальной трибуны,
+                      но&nbsp;и&nbsp;с&nbsp;реальной. Я&nbsp;остался доволен,
+                      что тут говорить!
+                    </p>
+                    <p class="feedback-item__from">Евгений Мелёхин</p>
+                    <p class="feedback-item__who">
+                      Посетитель
+                    </p>
+                  </div>
+                  <div class="feedback-item__image">
+                    <img src="/reviews/6_s.jpg" />
+                  </div>
                 </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-              <div class="feedback-item">
-                <div class="feedback-item__inner">
-                  <p class="feedback-item__text">
-                    Я&nbsp;вообще боюсь большого скопления людей,
-                    но&nbsp;в&nbsp;этот раз я&nbsp;не&nbsp;чувствовала
-                    дискомфорта. Мы&nbsp;были на&nbsp;таком мероприятии впервые,
-                    но&nbsp;нам безумно понравилось.
-                  </p>
-                  <p class="feedback-item__from">Людмила Морозова</p>
-                  <p class="feedback-item__who">
-                    Посетитель
-                  </p>
+              </swiper-slide>
+              <swiper-slide>
+                <div class="feedback-item">
+                  <div class="feedback-item__inner">
+                    <p class="feedback-item__text">
+                      Фестиваль очень помог и&nbsp;в&nbsp;развитии канала,
+                      и&nbsp;новые знакомства приобрести. К&nbsp;тому&nbsp;же
+                      еще и&nbsp;партнерку одобрили, и&nbsp;все благодаря
+                      ВАААМ!<br /><br />
+                    </p>
+                    <p class="feedback-item__from">Лилия Lily_Mint Аюпова</p>
+                    <p class="feedback-item__who">
+                      Стример
+                    </p>
+                  </div>
+                  <div class="feedback-item__image">
+                    <img src="/reviews/7_s.jpg" />
+                  </div>
                 </div>
-                <div class="feedback-item__image">
-                  <img src="/reviews/4_s.jpg" />
+              </swiper-slide>
+              <swiper-slide>
+                <div class="feedback-item">
+                  <div class="feedback-item__inner">
+                    <p class="feedback-item__text">
+                      Приходя на&nbsp;Стримфест, понимаешь, что хейтеров
+                      на&nbsp;самом деле не&nbsp;существует. В&nbsp;жизни все
+                      зрители доброжелательные. Просят тебя расписаться,
+                      сфоткаться с&nbsp;ними.
+                    </p>
+                    <p class="feedback-item__from">
+                      Алексей Stery_RJV Рыженков
+                    </p>
+                    <p class="feedback-item__who">
+                      Стример
+                    </p>
+                  </div>
+                  <div class="feedback-item__image">
+                    <img src="/reviews/8_s.jpg" />
+                  </div>
                 </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-              <div class="feedback-item">
-                <div class="feedback-item__inner">
-                  <p class="feedback-item__text">
-                    Невероятно эмоциональное событие, которое с&nbsp;нетерпением
-                    ждешь каждый год. Беспрерывный поток совместного творчества,
-                    который дает тебе уникальный буст. Это нужно пережить.
-                  </p>
-                  <p class="feedback-item__from">Дмитрий dayzru Нардов</p>
-                  <p class="feedback-item__who">
-                    Стример
-                  </p>
-                </div>
-                <div class="feedback-item__image">
-                  <img src="/reviews/5_s.jpg" />
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-              <div class="feedback-item">
-                <div class="feedback-item__inner">
-                  <p class="feedback-item__text">
-                    Лекторий, несомненно, интересная задумка. У&nbsp;стримеров
-                    есть возможность доносить свои знания не&nbsp;только
-                    с&nbsp;виртуальной трибуны, но&nbsp;и&nbsp;с&nbsp;реальной.
-                    Я&nbsp;остался доволен, что тут говорить!
-                  </p>
-                  <p class="feedback-item__from">Евгений Мелёхин</p>
-                  <p class="feedback-item__who">
-                    Посетитель
-                  </p>
-                </div>
-                <div class="feedback-item__image">
-                  <img src="/reviews/6_s.jpg" />
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-              <div class="feedback-item">
-                <div class="feedback-item__inner">
-                  <p class="feedback-item__text">
-                    Фестиваль очень помог и&nbsp;в&nbsp;развитии канала,
-                    и&nbsp;новые знакомства приобрести. К&nbsp;тому&nbsp;же еще
-                    и&nbsp;партнерку одобрили, и&nbsp;все благодаря ВАААМ!<br /><br />
-                  </p>
-                  <p class="feedback-item__from">Лилия Lily_Mint Аюпова</p>
-                  <p class="feedback-item__who">
-                    Стример
-                  </p>
-                </div>
-                <div class="feedback-item__image">
-                  <img src="/reviews/7_s.jpg" />
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-              <div class="feedback-item">
-                <div class="feedback-item__inner">
-                  <p class="feedback-item__text">
-                    Приходя на&nbsp;Стримфест, понимаешь, что хейтеров
-                    на&nbsp;самом деле не&nbsp;существует. В&nbsp;жизни все
-                    зрители доброжелательные. Просят тебя расписаться,
-                    сфоткаться с&nbsp;ними.
-                  </p>
-                  <p class="feedback-item__from">Алексей Stery_RJV Рыженков</p>
-                  <p class="feedback-item__who">
-                    Стример
-                  </p>
-                </div>
-                <div class="feedback-item__image">
-                  <img src="/reviews/8_s.jpg" />
-                </div>
-              </div>
-            </swiper-slide>
-          </swiper>
-        </client-only>
-        <div class="swiper-button-next" slot="button-next"></div>
-        <div class="swiper-button-prev" slot="button-prev"></div>
+              </swiper-slide>
+            </swiper>
+          </client-only>
+          <div
+            class="feedbacks-button-next swiper-button-next"
+            slot="button-next"
+          ></div>
+          <div
+            class="feedbacks-button-prev swiper-button-prev"
+            slot="button-prev"
+          ></div>
+        </div>
       </div>
     </section>
     <section class="awards">
@@ -531,13 +546,15 @@
 
 <script>
 import StreamerCard from "@/components/StreamerCard";
-import Subscribe from "@/components/Subscribe"; 
+import StreamersSwiper from "@/components/StreamersSwiper";
+import Subscribe from "@/components/Subscribe";
 export default {
   // async fetch({store}){
   //   await store.dispatch('cart/fetchCart')
   // },
   components: {
     StreamerCard,
+    StreamersSwiper,
     Subscribe,
   },
   async asyncData({ $axios }) {
@@ -554,8 +571,7 @@ export default {
   data() {
     return {
       lastDay: null,
-      swiperOptions: {
-        slidesPerView: 3,
+      feedbacksOptions: {
         spaceBetween: 20,
         loop: true,
         autoplay: {
@@ -563,29 +579,20 @@ export default {
           disableOnInteraction: false,
         },
         navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
+          nextEl: ".feedbacks-button-next",
+          prevEl: ".feedbacks-button-prev",
         },
-        //centeredSlides: true,
-
-        // breakpoints: {
-        //   // when window width is >= 320px
-        //   320: {
-        //     centeredSlides: true,
-        //     slidesPerView: 1,
-        //     spaceBetween: 20
-        //   },
-        //   // when window width is >= 480px
-        //   480: {
-        //     slidesPerView: 1,
-        //     spaceBetween: 30
-        //   },
-        //   // when window width is >= 640px
-        //   640: {
-        //     slidesPerView: 5,
-        //     spaceBetween: 40
-        //   }
-        // }
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+          },
+          992: {
+            slidesPerView: 2,
+          },
+          1400: {
+            slidesPerView: 3,
+          },
+        },
       },
       silentbox: [
         {

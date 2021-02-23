@@ -13,6 +13,16 @@
         <div @click="$router.push('/')" class="header-logo">
           <img class="logo_w" src="/logo.png" alt="" />
         </div>
+        <div
+          @click="hamburgerActive = !hamburgerActive"
+          class="hamburger"
+          :class="{ active: hamburgerActive }"
+        >
+          <div class="bar bar-1"></div>
+          <div class="bar bar-2"></div>
+          <div class="bar bar-3"></div>
+          <div class="bar bar-4"></div>
+        </div>
         <div class="header-nav">
           <!--                  navItemActive-->
           <ul>
@@ -31,7 +41,7 @@
             </li>
           </ul>
         </div>
-        <div class="header-button">
+        <!-- <div class="header-button">
           <div v-if="items_in_cart.tickets.length > 0">
             <nuxt-link
               :data-num="items_in_cart.tickets.length"
@@ -40,7 +50,7 @@
               >корзина</nuxt-link
             >
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </header>
@@ -60,6 +70,7 @@ export default {
         { id: 3, name: "Стать участником", url: "/how-to", star: false },
         { id: 4, name: "Как добраться", url: "/location", star: false },
       ],
+      hamburgerActive: false,
     };
   },
   watch: {

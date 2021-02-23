@@ -1,8 +1,8 @@
 .awards
   background: url(/bg_awards.jpg) no-repeat center
   background-size: cover
-  height: 661px
-  padding-top: 46px
+  // height: 661px
+  padding: 46px 0 53px
   margin-bottom: 78px
   & .section-header
     position: relative
@@ -32,3 +32,16 @@
       content: url(/a_star3.png)
       left: -50px
       bottom: -50px
+
+@media screen and (max-width: 1300px)
+  .awards
+    &-img
+      &::before,
+      &::after
+        content: none
+
+@media screen and (max-width: 450px)
+  .awards
+    & .section-header
+      &::before
+        content: none
