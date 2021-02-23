@@ -547,6 +547,7 @@
 <script>
 import StreamerCard from "@/components/StreamerCard";
 import StreamersSwiper from "@/components/StreamersSwiper";
+
 import Subscribe from "@/components/Subscribe";
 export default {
   // async fetch({store}){
@@ -559,10 +560,10 @@ export default {
   },
   async asyncData({ $axios }) {
     const get_streamers = await $axios.get(
-      `http://185.119.57.46:8000/api/get_streamers?at_home=show`
+      `/api/get_streamers?at_home=show`
     );
     const get_tickets = await $axios.get(
-      `http://185.119.57.46:8000/api/get_tickets`
+      `/api/get_tickets`
     );
     const streamers = get_streamers.data;
     const tickets = get_tickets.data;

@@ -14,7 +14,7 @@ export default {
   env: {
     img_url: "http://localhost:8000",
   },
-  serverMiddleware: ["~/middleware/seo.js"],
+  serverMiddleware: ["~/middleware/redirects.js"],
   head: {
     title: "streamfest_front",
     htmlAttrs: {
@@ -26,7 +26,7 @@ export default {
       { hid: "description", name: "description", content: "" },
     ],
     link: [
-      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: "icon", type: "image/x-icon", href: "/favicon.png" },
       {
         rel: "stylesheet",
         href:
