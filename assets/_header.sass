@@ -28,9 +28,6 @@
     width: 100%
     background: linear-gradient(90deg, rgba(0,89,201,1) 0%, rgba(43,181,255,1) 18%, rgba(0,89,201,1) 100%)
     z-index: 100
-    & .header-nav
-      a
-        color: #ffffff
     & .header-logo
       & .logo_w
         display: block
@@ -101,4 +98,84 @@
         right: -8px
         top: -5px
 
+.hamburger
+  width: 14px
+  height: 12px
+  position: relative
+  display: none
+  cursor: pointer
+  overflow: hidden
+  margin: 0 7px 0 2px
+  &.active
+    .bar
+      &-1,
+      &-4
+        top: 18px
+        width: 0
+        left: 50%
+      &-2
+        transform: rotate(45deg)
+      &-3
+        transform: rotate(-45deg)
+    + .header-nav
+        visibility: visible
+        opacity: 1
 
+.bar
+  position: absolute
+  height: 2px
+  width: 100%
+  background: #fff
+  opacity: .9
+  left: 0
+  transition: .2s ease-in-out
+  border-radius: 1px
+  &-1 
+    top: 0
+  &-2,
+  &-3
+    top: 5px
+  &-4
+    top: 10px
+
+@media screen and (max-width: 768px)
+  .header
+    &-logo
+      flex-grow: 0
+    &-nav
+      transition: opacity .2s linear,top .2s linear,visibility .2s linear
+      visibility: hidden
+      opacity: 0
+      border: 1px solid rgba(169,198,204,.41)
+      box-shadow: 0 1px 5px rgba(0,0,0,.14)
+      display: block
+      right: 6px
+      top: 80px
+      color: #878787
+      z-index: 100
+      position: absolute
+      background-color: #fff
+      width: 155px
+      padding: 7px 0
+      border-radius: 3px
+      &::before
+        bottom: 100%
+        right: 16px
+        border: 7px solid transparent
+        content: " "
+        height: 0
+        width: 0
+        position: absolute
+        border-bottom-color: #fff
+      ul
+        align-items: flex-start
+        flex-direction: column
+        li a
+          color: #878787
+          padding: 9px 23px
+          border: none
+          font-size: 13px
+          width: 100%
+          display: block
+  .hamburger
+    display: block

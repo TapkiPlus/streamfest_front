@@ -37,12 +37,13 @@
       display: flex
       align-items: flex-start
       justify-content: space-between
-      margin-bottom: 57px
     &__item
       position: relative
       text-align: center
       flex-basis: 20%
+      min-width: 160px
       min-height: 105px
+      margin-bottom: 57px
       cursor: pointer
       svg
         fill: #bac8cf
@@ -121,5 +122,22 @@
     &__right
       background: url(http://placehold.it/760x600) no-repeat center
       background-size: cover !important
+      padding-top: 56.25%
 
 
+@media screen and (max-width: 920px)
+  .location
+    &-bottom
+      grid-template-columns: 1fr
+
+@media screen and (max-width: 820px)
+  .location
+    &-tabs__top
+      flex-wrap: wrap
+    &-tabs__content
+      padding-left: 0
+
+@media screen and (max-width: 379px)
+  .location
+    &-tabs__item
+      min-width: 124px

@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="separator rocket"></div>
-    <div class="container-1000">
+    <div class="container container-1000">
       <h3 class="location-title text-center">
         Как и на чем приехать на Стримфест
       </h3>
@@ -307,8 +307,8 @@
         </div>
         <div class="location-bottom__right"></div>
       </div>
-      <Subscribe />
     </div>
+    <Subscribe />
   </section>
 </template>
 

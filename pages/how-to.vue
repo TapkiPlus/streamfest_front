@@ -230,6 +230,7 @@
              <Subscribe/>
 
         </div>
+      <Subscribe />
     </section>
 </template>
 

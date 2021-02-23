@@ -199,6 +199,7 @@
             </div>
             <Subscribe/>
         </div>
+      <Subscribe />
     </section>
 </template>
 
