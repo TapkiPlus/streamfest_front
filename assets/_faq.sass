@@ -27,7 +27,19 @@
   //border-bottom: 2px solid #bac8cf
   svg
     margin-right: 20px
-
+  &__img
+    &-1
+      padding-right: 20px
+    &-2
+      padding-right: 15px
+    &-3
+      padding-right: 19px
+    &-4
+      padding-right: 13px
+    &-5
+      padding-right: 21px
+    &-6
+      padding-right: 9px
   &:hover
     //background-color: #ccc
   &.faq-item-active
@@ -39,8 +51,7 @@
 
   &__inner
     padding-left: 50px
-    max-height: 0
-    overflow: hidden
+    display: none
     transition: max-height 0.2s ease-out
     border-bottom: 2px solid #bac8cf
     p
@@ -65,6 +76,8 @@
           border-radius: 100%
           left: 0
           top: 10px
+    &.visible
+      display: block
   &::after
     position: absolute
     content: '\002B'
@@ -85,10 +98,15 @@
         color: $color-blue
 
 
+@media screen and (max-width: 900px)
+  .faq
+    &-item
+      font-size: 19px
+
 @media screen and (max-width: 400px)
   .faq
     &-item
-      font-size: 16px
+      font-size: 17px
       padding-left: 0px
       &-last
         text-align: center
