@@ -17,11 +17,14 @@
       </div>
       <div class="cart-container">
         <div v-if="items_in_cart.tickets.length > 0">
-          <div class="cart-row" v-for="item in items_in_cart.tickets">
+          <div
+            class="cart-row"
+            v-for="item in items_in_cart.tickets"
+            :key="item.id"
+          >
             <div @click="delItem(item.id)" class="cart-row__delete">
               <img draggable="false" src="/trash_ico.svg" alt="" />
             </div>
-
             <div v-if="!item.streamer" class="cart-row__name">
               <img src="/oneday.png" alt="" />
               <p>
@@ -77,7 +80,7 @@
           <button
             :disabled="items_in_cart.tickets.length === 0"
             @click="$router.push('/checkout')"
-          >
+          > 
             перейти к оформлению
           </button>
           <div class="cart-button__total">
@@ -125,29 +128,29 @@ export default {
     async addItemQ(id) {
       await this.$axios.post("/api/add_item_quantity", {
         session_id: this.$auth.$storage.getCookie("session_id"),
-        item_id: id,
+        item_id: id
       });
       await this.$store.dispatch("cart/fetchCart");
     },
     async delItemQ(id) {
       await this.$axios.post("/api/delete_item_quantity", {
         session_id: this.$auth.$storage.getCookie("session_id"),
-        item_id: id,
+        item_id: id
       });
       await this.$store.dispatch("cart/fetchCart");
     },
     async delItem(id) {
       await this.$axios.post("/api/delete_item", {
         session_id: this.$auth.$storage.getCookie("session_id"),
-        item_id: id,
+        item_id: id
       });
       await this.$store.dispatch("cart/fetchCart");
-    },
+    }
   },
   computed: {
     items_in_cart() {
       return this.$store.getters["cart/getCart"];
-    },
-  },
+    }
+  }
 };
 </script>
