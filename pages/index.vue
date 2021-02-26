@@ -19,12 +19,14 @@
     </section>
     <section class="video-block">
       <div class="container">
-        <h3 class="section-header mb-20">ВСЕ ЗВЁЗДЫ И ЖАНРЫ СТРИМИНГА</h3>
+        <h3 class="section-header mb-20">
+          ВСЕ ЗВЁЗДЫ И&nbsp;ЖАНРЫ&nbsp;СТРИМИНГА
+        </h3>
         <p class="section-subheader">
-          Стримфест — это крупнейший фестиваль в СНГ фестиваль
-          стрим-культуры.<br />Здесь известные стримеры и подкастеры встречаются
-          со своими зрителями. Балдёж-кутёж,<br />живое общение, море
-          развлечений, мастер-классы — без сомнения, лучшие выходные года!
+          Стримфест — это крупнейший в СНГ фестиваль стрим-культуры.
+          Здесь&nbsp;известные&nbsp;стримеры&nbsp;и подкастеры встречаются со
+          своими зрителями. Балдёж-кутёж, живое общение, море развлечений,
+          мастер-классы — без сомнения, лучшие выходные года!
         </p>
         <div style="padding:56.25% 0 0 0;position:relative;">
           <iframe
@@ -96,7 +98,9 @@
         <img src="/side-parts_2.png" />
       </div>
     </section>
-    <div class="separator star"></div>
+    <div class="container">
+      <div class="separator star"></div>
+    </div>
     <section class="streamers">
       <div class="container">
         <h3 class="section-header">ОЧЕНЬ ПРОСТО ПОВСТРЕЧАТЬ</h3>
@@ -121,56 +125,125 @@
     <section id="tickets" class="tickets">
       <h3 class="section-header">ЦЕНЫ ВЫРАСТУТ — БЕРИ БИЛЕТ СЕЙЧАС!</h3>
       <div class="tickets-wrapper">
-        <div class="tickets-item" v-for="ticket in tickets" :key="ticket.id">
-          <div class="tickets-item__wrapper">
-            <p v-if="ticket.is_one_day" class="tickets-item__days">
-              Билет на один из дней<br />17 или 18 июля
-            </p>
-            <p v-else class="tickets-item__days">
-              Билет на оба дня<br />17 и 18 июля
-            </p>
-            <ul v-if="ticket.is_one_day" class="tickets-item__list">
-              <li class="tickets-item__list--item checked">
-                Хайп, веселье, конкурсы
-              </li>
-              <li class="tickets-item__list--item checked">
-                Все стенды и развлечения
-              </li>
-              <li class="tickets-item__list--item ">
-                Все стримеры и подкастеры
-              </li>
-              <li class="tickets-item__list--item ">
-                Все лекции и мастер-классы
-              </li>
-              <li class="tickets-item__list--item ">Два дня праздника</li>
-            </ul>
-            <ul v-else class="tickets-item__list">
-              <li class="tickets-item__list--item checked">
-                Хайп, веселье, конкурсы
-              </li>
-              <li class="tickets-item__list--item checked">
-                Все стенды и развлечения
-              </li>
-              <li class="tickets-item__list--item checked">
-                Все стримеры и подкастеры
-              </li>
-              <li class="tickets-item__list--item checked">
-                Все лекции и мастер-классы
-              </li>
-              <li class="tickets-item__list--item checked">
-                Два дня праздника
-              </li>
-            </ul>
+        <div class="tickets-desktop">
+          <div class="tickets-item" v-for="ticket in tickets" :key="ticket.id">
+            <div class="tickets-item__wrapper">
+              <p v-if="ticket.is_one_day" class="tickets-item__days">
+                Билет на один из дней<br />17 или 18 июля
+              </p>
+              <p v-else class="tickets-item__days">
+                Билет на оба дня<br />17 и 18 июля
+              </p>
+              <ul v-if="ticket.is_one_day" class="tickets-item__list">
+                <li class="tickets-item__list--item checked">
+                  Хайп, веселье, конкурсы
+                </li>
+                <li class="tickets-item__list--item checked">
+                  Все стенды и развлечения
+                </li>
+                <li class="tickets-item__list--item ">
+                  Все стримеры и подкастеры
+                </li>
+                <li class="tickets-item__list--item ">
+                  Все лекции и мастер-классы
+                </li>
+                <li class="tickets-item__list--item ">Два дня праздника</li>
+              </ul>
+              <ul v-else class="tickets-item__list">
+                <li class="tickets-item__list--item checked">
+                  Хайп, веселье, конкурсы
+                </li>
+                <li class="tickets-item__list--item checked">
+                  Все стенды и развлечения
+                </li>
+                <li class="tickets-item__list--item checked">
+                  Все стримеры и подкастеры
+                </li>
+                <li class="tickets-item__list--item checked">
+                  Все лекции и мастер-классы
+                </li>
+                <li class="tickets-item__list--item checked">
+                  Два дня праздника
+                </li>
+              </ul>
+            </div>
+            <div class="tickets-item__bottom">
+              <p class="tickets-item__price">{{ ticket.price }} ₽</p>
+              <a v-if="ticket.is_one_day" class="tickets-item__button"
+                >СКОРО — БИЛЕТ<br />НА 1 ДЕНЬ</a
+              >
+              <a v-else class="tickets-item__button tickets-item__button_red"
+                >СКОРО — БИЛЕТ<br />НА 2 ДНЯ</a
+              >
+            </div>
           </div>
-          <div class="tickets-item__bottom">
-            <p class="tickets-item__price">{{ ticket.price }} ₽</p>
-            <a v-if="ticket.is_one_day" class="tickets-item__button"
-              >СКОРО — БИЛЕТ<br />НА 1 ДЕНЬ</a
-            >
-            <a v-else class="tickets-item__button tickets-item__button_red"
-              >СКОРО — БИЛЕТ<br />НА 2 ДНЯ</a
-            >
-          </div>
+        </div>
+        <div class="tickets-mobile">
+          <client-only>
+            <swiper :options="ticketsOptions">
+              <swiper-slide v-for="ticket in tickets" :key="ticket.id">
+                <div class="tickets-item">
+                  <div class="tickets-item__wrapper">
+                    <p v-if="ticket.is_one_day" class="tickets-item__days">
+                      Билет на один из дней<br />17 или 18 июля
+                    </p>
+                    <p v-else class="tickets-item__days">
+                      Билет на оба дня<br />17 и 18 июля
+                    </p>
+                    <ul v-if="ticket.is_one_day" class="tickets-item__list">
+                      <li class="tickets-item__list--item checked">
+                        Хайп, веселье, конкурсы
+                      </li>
+                      <li class="tickets-item__list--item checked">
+                        Все стенды и развлечения
+                      </li>
+                      <li class="tickets-item__list--item ">
+                        Все стримеры и подкастеры
+                      </li>
+                      <li class="tickets-item__list--item ">
+                        Все лекции и мастер-классы
+                      </li>
+                      <li class="tickets-item__list--item ">
+                        Два дня праздника
+                      </li>
+                    </ul>
+                    <ul v-else class="tickets-item__list">
+                      <li class="tickets-item__list--item checked">
+                        Хайп, веселье, конкурсы
+                      </li>
+                      <li class="tickets-item__list--item checked">
+                        Все стенды и развлечения
+                      </li>
+                      <li class="tickets-item__list--item checked">
+                        Все стримеры и подкастеры
+                      </li>
+                      <li class="tickets-item__list--item checked">
+                        Все лекции и мастер-классы
+                      </li>
+                      <li class="tickets-item__list--item checked">
+                        Два дня праздника
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="tickets-item__bottom">
+                    <p class="tickets-item__price">{{ ticket.price }} ₽</p>
+                    <a v-if="ticket.is_one_day" class="tickets-item__button"
+                      >СКОРО — БИЛЕТ<br />НА 1 ДЕНЬ</a
+                    >
+                    <a
+                      v-else
+                      class="tickets-item__button tickets-item__button_red"
+                      >СКОРО — БИЛЕТ<br />НА 2 ДНЯ</a
+                    >
+                  </div>
+                </div>
+              </swiper-slide>
+            </swiper>
+          </client-only>
+          <div
+            class="tickets-pagination swiper-pagination"
+            slot="pagination"
+          ></div>
         </div>
       </div>
       <Subscribe />
@@ -179,8 +252,8 @@
       <div class="container">
         <h3 class="section-header">КАК ЭТО БЫЛО В 2019</h3>
         <p class="section-subheader">
-          Два дня в Сколково, 170 топовых стримеров, 7000 посетителей<br />
-          и больше 2 млн зрителей онлайн — это было легендарно!
+          Два дня в Сколково, 170 топовых стримеров, 7000 посетителей и больше 2
+          млн зрителей онлайн — это было легендарно!
         </p>
         <div style="padding:56.25% 0 0 0;position:relative;">
           <iframe
@@ -377,6 +450,10 @@
             class="feedbacks-button-prev swiper-button-prev"
             slot="button-prev"
           ></div>
+          <div
+            class="feedbacks-pagination swiper-pagination"
+            slot="pagination"
+          ></div>
         </div>
       </div>
     </section>
@@ -384,11 +461,11 @@
       <div class="container">
         <h3 class="section-header">STREAMFEST AWARDS</h3>
         <p class="section-subheader">
-          Яркое эфирное шоу, где популярные стримеры, эксперты рынка<br />
-          и журналисты развлекательных медиа выбрали лучших из лучших в 13
-          номинациях.
+          Яркое эфирное шоу, где популярные стримеры, эксперты рынка
+          и&nbsp;журналисты&nbsp;развлекательных&nbsp;медиа&nbsp;выбрали лучших
+          из лучших в 13 номинациях.
           <a class="link" href="https://streamscharts.com/streamfestawards2020"
-            >Вот как это было.</a
+            >Вот&nbsp;как&nbsp;это&nbsp;было.</a
           >
         </p>
         <div class="awards-img">
@@ -396,13 +473,15 @@
         </div>
       </div>
     </section>
-    <div class="separator crown"></div>
+    <div class="container">
+      <div class="separator crown"></div>
+    </div>
     <section class="partners">
       <div class="container">
-        <h3 class="section-header">ГЕНЕРАЛЬНЫЙ ПАРТНЕР</h3>
+        <!-- <h3 class="section-header">ГЕНЕРАЛЬНЫЙ ПАРТНЕР</h3>
         <div class="partners-img general">
           <el-image src="/partners/lisetskiy.jpg" lazy></el-image>
-        </div>
+        </div> -->
         <h3 class="section-header">СТРАТЕГИЧЕСКИЕ ПАРТНЕРЫ</h3>
         <div class="partners-img strategy">
           <a href="http://www.lg.com/ru/monitors/lg-34UC79G-B" target="_blank">
@@ -556,15 +635,11 @@ export default {
   components: {
     StreamerCard,
     StreamersSwiper,
-    Subscribe,
+    Subscribe
   },
   async asyncData({ $axios }) {
-    const get_streamers = await $axios.get(
-      `/api/get_streamers?at_home=show`
-    );
-    const get_tickets = await $axios.get(
-      `/api/get_tickets`
-    );
+    const get_streamers = await $axios.get(`/api/get_streamers?at_home=show`);
+    const get_tickets = await $axios.get(`/api/get_tickets`);
     const streamers = get_streamers.data;
     const tickets = get_tickets.data;
     return { streamers, tickets };
@@ -572,56 +647,72 @@ export default {
   data() {
     return {
       lastDay: null,
+      ticketsOptions: {
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+          delay: 8000,
+          disableOnInteraction: false
+        },
+        pagination: {
+          el: ".tickets-pagination",
+          clickable: true
+        }
+      },
+      silentbox: [
+        {
+          src: "/home_gall/1.png",
+          thumbnail: "/home_gall/1_s.png"
+        },
+        {
+          src: "/home_gall/2.png",
+          thumbnail: "/home_gall/2_s.png"
+        },
+        {
+          src: "/home_gall/3.png",
+          thumbnail: "/home_gall/3_s.png"
+        },
+        {
+          src: "/home_gall/4.png",
+          thumbnail: "/home_gall/4_s.png"
+        },
+        {
+          src: "/home_gall/5.png",
+          thumbnail: "/home_gall/5_s.png"
+        },
+        {
+          src: "/home_gall/6.png",
+          thumbnail: "/home_gall/6_s.png"
+        }
+      ],
       feedbacksOptions: {
         spaceBetween: 20,
         loop: true,
         autoplay: {
           delay: 8000,
-          disableOnInteraction: false,
+          disableOnInteraction: false
         },
         navigation: {
           nextEl: ".feedbacks-button-next",
-          prevEl: ".feedbacks-button-prev",
+          prevEl: ".feedbacks-button-prev"
+        },
+        pagination: {
+          el: ".feedbacks-pagination",
+          clickable: true
         },
         breakpoints: {
           0: {
-            slidesPerView: 1,
+            slidesPerView: 1
           },
           992: {
-            slidesPerView: 2,
+            slidesPerView: 2
           },
           1400: {
-            slidesPerView: 3,
-          },
-        },
+            slidesPerView: 3
+          }
+        }
       },
-      silentbox: [
-        {
-          src: "/home_gall/1.png",
-          thumbnail: "/home_gall/1_s.png",
-        },
-        {
-          src: "/home_gall/2.png",
-          thumbnail: "/home_gall/2_s.png",
-        },
-        {
-          src: "/home_gall/3.png",
-          thumbnail: "/home_gall/3_s.png",
-        },
-        {
-          src: "/home_gall/4.png",
-          thumbnail: "/home_gall/4_s.png",
-        },
-        {
-          src: "/home_gall/5.png",
-          thumbnail: "/home_gall/5_s.png",
-        },
-        {
-          src: "/home_gall/6.png",
-          thumbnail: "/home_gall/6_s.png",
-        },
-      ],
-      partnersIframe: false,
+      partnersIframe: false
     };
   },
   mounted() {
@@ -636,32 +727,24 @@ export default {
         (new Date("Jul 17, 2021 11:00:00").getTime() - new Date().getTime()) /
           86400000
       ).toString();
-      switch (days.substr(-1)) {
-        case 1:
-          days += " день";
-          break;
-        case 2:
-        case 3:
-        case 4:
-          days += " дня";
-          break;
-        default:
-          days += " дней";
-      }
+      const lastNum = days.substr(-1);
+      if (lastNum == 1) days += " день";
+      else if (lastNum == 2 || lastNum == 3 || lastNum == 4) days += " дня";
+      else days += " дней";
       this.lastDay = days;
     },
     notify(title, message, type) {
       this.$notify({
         title,
         message,
-        type,
+        type
       });
     },
     async addItem(id) {
       await this.$axios.post("/api/add_item", {
         session_id: this.$auth.$storage.getCookie("session_id"),
         item_id: id,
-        streamer_id: 0,
+        streamer_id: 0
       });
       this.notify("Успешно", "Билет добавлен в корзину", "success");
       await this.$store.dispatch("cart/fetchCart");
@@ -673,7 +756,7 @@ export default {
     closePartnersModal() {
       this.partnersIframe = false;
       document.querySelector("body").style.overflow = "visible";
-    },
-  },
+    }
+  }
 };
 </script>

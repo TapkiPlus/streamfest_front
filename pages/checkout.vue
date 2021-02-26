@@ -62,7 +62,7 @@
         </div>
 
         <div class="">
-          <img :src="base_url + i.qr" alt="" v-for="i in temp" />
+          <img :src="base_url + i.qr" alt="" v-for="i in temp" :key="i.id" />
         </div>
         <p class="mb-35">
           После успешной оплаты вам на email придет два письма: одно с чеком,
@@ -98,8 +98,8 @@ export default {
         family: "",
         email1: "",
         email2: "",
-        phone: "",
-      },
+        phone: ""
+      }
     };
   },
   watch: {},
@@ -111,12 +111,12 @@ export default {
         name: this.userData.name,
         family: this.userData.family,
         email: this.userData.email2,
-        phone: this.userData.phone,
+        phone: this.userData.phone
       });
       console.log(responce.data);
       this.temp = responce.data.tickets;
       await this.$store.dispatch("cart/fetchCart");
-    },
+    }
   },
   computed: {
     nameError() {
@@ -149,7 +149,7 @@ export default {
         this.userData.email2 &&
         this.userData.phone
       );
-    },
-  },
+    }
+  }
 };
 </script>

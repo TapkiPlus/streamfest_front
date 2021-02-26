@@ -1,6 +1,6 @@
 .faq
   & .container
-    max-width: 1000px
+    max-width: 1060px
   &-banner
     margin-bottom: 39px
   & .subscribe
@@ -13,9 +13,10 @@
 .faq-item
   background: transparent
   cursor: pointer
-  padding: 20px 8px
+  padding: 20px 10px 20px 0
   width: 100%
   border: none
+  line-height: 1.5
   text-align: left
   outline: none
   font-size: 22px
@@ -29,17 +30,19 @@
     margin-right: 20px
   &__img
     &-1
-      padding-right: 20px
-    &-2
-      padding-right: 15px
+      width: 12px
+      height: 11px
+      margin-right: 20px
+    &-2 
+      margin-right: 15px
     &-3
-      padding-right: 19px
+      margin-right: 19px
     &-4
-      padding-right: 13px
+      margin-right: 13px
     &-5
-      padding-right: 21px
+      margin-right: 21px
     &-6
-      padding-right: 9px
+      margin-right: 9px
   &:hover
     //background-color: #ccc
   &.faq-item-active
@@ -50,13 +53,13 @@
 
 
   &__inner
-    padding-left: 50px
+    padding-left: 33px
     display: none
     transition: max-height 0.2s ease-out
     border-bottom: 2px solid #bac8cf
     p
       line-height: 27px
-      margin-bottom: 40px
+      margin-bottom: 36px
     span
       color: $color-blue
     a
