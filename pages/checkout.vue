@@ -62,7 +62,7 @@
         </div>
 
         <div class="">
-          <img :src="base_url + i.qr" alt="" v-for="i in temp" :key="i.id" />
+          <img :src="base_url + i.qr" alt="" v-for="i in temp" />
         </div>
         <p class="mb-35">
           После успешной оплаты вам на email придет два письма: одно с чеком,
