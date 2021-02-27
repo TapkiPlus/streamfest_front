@@ -182,7 +182,7 @@
           <client-only>
             <swiper :options="ticketsOptions">
               <swiper-slide
-                v-for="ticket in tickets.reverse()"
+                v-for="ticket in tickets.slice().reverse()"
                 :key="ticket.id"
               >
                 <div class="tickets-item">
