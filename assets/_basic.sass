@@ -346,18 +346,10 @@ section
     &-subheader
       font-size: 15px
 
-@media screen and (max-width: 680px)
+@media screen and (max-width: 768px)
   .video
     &-buttons
-      margin-left: -10px
-      margin-right: -10px
-    &-button
-      font-size: 15px
-      width: 220px
-      margin-left: 10px
-      margin-right: 10px
-      &-long
-        width: 280px
+      display: none
 
 @media screen and (max-width: 610px)
   body
@@ -376,16 +368,13 @@ section
 @media screen and (max-width: 576px)
   .side-parts
     display: none
-  .swiper
-    &:no-button
+  .feedbacks
+    &-button
       &-prev,
       &-next
         display: none !important
     &-pagination
       display: block
-  .video
-    &-buttons
-      display: none
 
 @media screen and (max-width: 480px)
   body

@@ -129,10 +129,10 @@
           <div class="tickets-item" v-for="ticket in tickets" :key="ticket.id">
             <div class="tickets-item__wrapper">
               <p v-if="ticket.is_one_day" class="tickets-item__days">
-                Билет на один из дней<br />17 или 18 июля
+                Билет на один из дней 17&nbsp;или&nbsp;18&nbsp;июля
               </p>
               <p v-else class="tickets-item__days">
-                Билет на оба дня<br />17 и 18 июля
+                Билет на оба дня 17&nbsp;и&nbsp;18&nbsp;июля
               </p>
               <ul v-if="ticket.is_one_day" class="tickets-item__list">
                 <li class="tickets-item__list--item checked">
@@ -181,14 +181,17 @@
         <div class="tickets-mobile">
           <client-only>
             <swiper :options="ticketsOptions">
-              <swiper-slide v-for="ticket in tickets" :key="ticket.id">
+              <swiper-slide
+                v-for="ticket in tickets.slice().reverse()"
+                :key="ticket.id"
+              >
                 <div class="tickets-item">
                   <div class="tickets-item__wrapper">
                     <p v-if="ticket.is_one_day" class="tickets-item__days">
-                      Билет на один из дней<br />17 или 18 июля
+                      Билет на один из дней 17&nbsp;или&nbsp;18&nbsp;июля
                     </p>
                     <p v-else class="tickets-item__days">
-                      Билет на оба дня<br />17 и 18 июля
+                      Билет на оба дня 17&nbsp;и&nbsp;18&nbsp;июля
                     </p>
                     <ul v-if="ticket.is_one_day" class="tickets-item__list">
                       <li class="tickets-item__list--item checked">
