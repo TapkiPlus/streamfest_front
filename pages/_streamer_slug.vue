@@ -48,7 +48,7 @@
               :key="ticket.id"
               class="streamer-bottom__button "
               :class="[
-                ticket.is_one_day
+                ticket.is_one_day 
                   ? 'streamer-bottom__button--yellow'
                   : 'streamer-bottom__button--red'
               ]"

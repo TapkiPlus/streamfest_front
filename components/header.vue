@@ -5,7 +5,7 @@
     :class="[
       isHomePage && scrollPosition > 100 ? 'header-prepare-sticky' : '',
       isHomePage && scrollPosition > 150 ? 'header-sticky' : '',
-      !isHomePage ? 'header-bg' : '',
+      !isHomePage ? 'header-bg' : ''
     ]"
   >
     <div class="container">
@@ -34,7 +34,7 @@
                   ? nav_item.star
                     ? 'navItemActive with-star'
                     : 'navItemActive'
-                  : '',
+                  : ''
               ]"
             >
               <nuxt-link :to="nav_item.url">{{ nav_item.name }}</nuxt-link>
@@ -68,9 +68,9 @@ export default {
         { id: 1, name: "Участники", url: "/streamers", star: true },
         { id: 2, name: "FAQ", url: "/faq", star: false },
         { id: 3, name: "Стать участником", url: "/how-to", star: false },
-        { id: 4, name: "Как добраться", url: "/location", star: false },
+        { id: 4, name: "Как добраться", url: "/contact", star: false }
       ],
-      hamburgerActive: false,
+      hamburgerActive: false
     };
   },
   watch: {
@@ -79,7 +79,7 @@ export default {
         ? (this.isHomePage = true)
         : (this.isHomePage = false);
       this.$store.dispatch("cart/fetchCart");
-    },
+    }
   },
   mounted() {
     window.addEventListener("scroll", this.updateScroll);
@@ -106,13 +106,13 @@ export default {
           v = c == "x" ? r : (r & 0x3) | 0x8;
         return v.toString(16);
       });
-    },
+    }
   },
   computed: {
     items_in_cart() {
       return this.$store.getters["cart/getCart"];
-    },
-  },
+    }
+  }
 };
 </script>
 

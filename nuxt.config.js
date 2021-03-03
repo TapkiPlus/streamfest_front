@@ -45,8 +45,8 @@ export default {
   buildModules: [],
   modules: ["@nuxtjs/axios", "@nuxtjs/auth"],
   axios: {
-    baseURL: "http://185.119.57.46:8000"
-    // baseURL: "http://localhost:8000"
+    // baseURL: "http://185.119.57.46:8000"
+    baseURL: "http://localhost:8000"
   },
   build: {
     transpile: [/^element-ui/]
