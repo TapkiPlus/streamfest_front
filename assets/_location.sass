@@ -77,10 +77,11 @@
           margin-left: 20px
   &-bottom
     display: grid
-    grid-template-columns: 1.77fr 3fr
+    grid-template-columns: 1.78fr 3fr
     grid-gap: 40px
     margin-bottom: 70px
     &__left
+      min-width: 360px
       h3
         font-weight: bold
         font-size: 22px
@@ -101,7 +102,7 @@
         resize: none
         border: 0px
         background: #dcdee0
-        color: #333
+        color: #b3b3b3
         padding: 9px 30px
         &::placeholder
           color: #b3b3b3
@@ -122,17 +123,21 @@
     min-height: 250px
 
 
-@media screen and (max-width: 920px)
-  .location
-    &-bottom
-      grid-template-columns: 1fr
-
 @media screen and (max-width: 820px)
   .location
     &-tabs__top
       flex-wrap: wrap
     &-tabs__content
       padding-left: 0
+
+@media screen and (max-width: 768px)
+  .location
+    &-bottom
+      grid-template-columns: 1fr
+      &__left
+        min-width: auto
+        p
+          font-size: 14px
 
 @media screen and (max-width: 379px)
   .location

@@ -19,9 +19,9 @@
       </div>
       <StreamersSwiper :streamers="streamers" />
       <div class="streamers-btn">
-        <a href="#" class="btn btn-w-icon">
-          СТАТЬ УЧАСТНИКОМ
-        </a>
+        <nuxt-link to="/how-to" class="btn btn-w-icon"
+          >СТАТЬ УЧАСТНИКОМ</nuxt-link
+        >
       </div>
     </div>
   </section>
@@ -35,7 +35,7 @@ export default {
   // auth: true,
   components: {
     StreamerCard,
-    StreamersSwiper,
+    StreamersSwiper
   },
   async asyncData({ $axios }) {
     const get_streamers = await $axios.get(
@@ -49,6 +49,6 @@ export default {
   },
   watch: {},
   mounted() {},
-  methods: {},
+  methods: {}
 };
 </script>

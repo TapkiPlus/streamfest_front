@@ -26,16 +26,20 @@
         >
           <p>
             Стримфест 2021 пройдет в
-            <a href="https://sk.ru/technopark/">Технопарке «Сколково»</a> 17 и
-            18 июля с 11:00 до 19:00.
+            <a href="https://sk.ru/technopark/" class="link"
+              >Технопарке «Сколково»</a
+            >
+            17 и 18 июля с 11:00 до 19:00.
           </p>
 
           <p>
             К нам можно легко доехать на метро направления
-            <a href="https://www.mos.ru/city/projects/diametry/">МЦД-1</a>
+            <a href="https://www.mos.ru/city/projects/diametry/" class="link"
+              >МЦД-1</a
+            >
             (станция «Сколково»), а также на
-            <a href="https://streamfest.ru/contact"
-              >такси, общественным и личным транспортом</a
+            <nuxt-link to="/contact" class="link"
+              >такси, общественным и личным транспортом</nuxt-link
             >.
           </p>
         </div>
@@ -59,9 +63,15 @@
         >
           <p>
             Проверьте, соответствуете ли вы критериям на странице
-            <a href="/how-to">Стать участником</a>, и напишите
-            <a href="https://vk.com/mikhail_lisetskiy">организаторам в VK</a>
-            или на <a href="mailto:mike@streamfest.ru">mike@streamfest.ru</a>.
+            <nuxt-link to="/how-to" class="link">Стать участником</nuxt-link>, и
+            напишите
+            <a href="https://vk.com/mikhail_lisetskiy" class="link"
+              >организаторам в VK</a
+            >
+            или на
+            <a href="mailto:mike@streamfest.ru" class="link"
+              >mike@streamfest.ru</a
+            >.
           </p>
         </div>
         <button
@@ -97,10 +107,10 @@
 
           <p>
             Только проверим, что на канале нет накруток. Чтобы получить билет,
-            <a href="https://vk.com/mikhail_lisetskiy"
+            <a href="https://vk.com/mikhail_lisetskiy" class="link"
               >напишите организаторам в VK</a
             >
-            или на&nbsp;<a href="mailto:info@streamfest.ru"
+            или на&nbsp;<a href="mailto:info@streamfest.ru" class="link"
               >info@streamfest.ru</a
             >.
           </p>
@@ -151,7 +161,7 @@
             встречи с руководителями стрим-платформ и не только. Мы подробнее
             расскажем о всех деталях программы ближе к Стримфесту. В марте на
             сайте появится подробное расписание лектория, а пока
-            <a href="https://vk.com/streamfest"
+            <a href="https://vk.com/streamfest" class="link"
               >следите за новостями в группе VK</a
             >.
           </p>
@@ -186,11 +196,9 @@
           </p>
 
           <p>
-            Билеты можно
-            <a href="https://streamfest.ru/tickets/">купить здесь</a> или через
-            страницу
-            <a href="https://streamfest.ru/stars/"
-              >любимого стримера или подкастера</a
+            Билеты можно купить здесь или через страницу
+            <nuxt-link to="/streamers" class="link"
+              >любимого стримера или подкастера</nuxt-link
             >
             — тогда он получит часть стоимости билета. Неважно, через кого
             покупать билет, увидеться можно будет со всеми участниками
@@ -229,7 +237,7 @@
             Это форма поддержки участника фестиваля. Часть стоимости билета
             пойдет стримеру/подкастеру, по ссылке которого вы купили билет. В
             целом билет от участника ничем не отличается от билета, купленного с
-            кнопки <a href="https://streamfest.ru/tickets/">«Купить билет»</a>.
+            кнопки «Купить билет».
           </p>
 
           <p>
@@ -265,10 +273,11 @@
 
           <p>
             Если вы покупаете билет от конкретного
-            <a href="https://streamfest.ru/stars/">участника фестиваля</a>, то
-            этот участник получает ваши имя (но&nbsp;не&nbsp;фамилию) и email —
-            так участник сможет узнать, кто именно купил от него билет(ы), и
-            взаимодействовать с вами, если захочет.
+            <nuxt-link to="/streamers" class="link"
+              >участника фестиваля</nuxt-link
+            >, то этот участник получает ваши имя (но&nbsp;не&nbsp;фамилию) и
+            email — так участник сможет узнать, кто именно купил от него
+            билет(ы), и взаимодействовать с вами, если захочет.
           </p>
         </div>
         <button
@@ -356,6 +365,7 @@
             любые предметы, которыми можно нанести урон жизни и здоровью.
             <a
               href="https://docs.google.com/document/d/1UiAIfANWzYRYZuGIW1sj3tAQ20-_AUEnvvgt8-xdPKQ/edit?ts=5e528e2f"
+              class="link"
               >Полные правила Технопарка «Сколково»</a
             >.
           </p>
@@ -381,7 +391,9 @@
           <p>
             Прямо на фестивале работает столовая, где цены не кусаются. А также
             несколько кофеен, ресторан, продуктовый магазин.
-            <a href="https://vk.com/wall-122887579_7265">Подробности</a>.
+            <a href="https://vk.com/wall-122887579_7265" class="link"
+              >Подробности</a
+            >.
           </p>
         </div>
         <button
@@ -406,14 +418,16 @@
             Если вы хотите поучаствовать в работе лектория, выступить с
             интересным докладом или присоединиться к дискуссионным панелям,
             напишите на
-            <a href="mailto:mike@streamfest.ru">mike@streamfest.ru</a>.
+            <a href="mailto:mike@streamfest.ru" class="link"
+              >mike@streamfest.ru</a
+            >.
           </p>
         </div>
         <div class="faq-item-last">
           <h3 class="faq-item">У меня остались вопросы!</h3>
           <p>
             Прекрасно, задайте их личным сообщением в нашей
-            <a href="https://vk.com/streamfest">группе VK</a>.
+            <a href="https://vk.com/streamfest" class="link">группе VK</a>.
           </p>
         </div>
       </div>

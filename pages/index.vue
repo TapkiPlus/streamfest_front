@@ -1,12 +1,7 @@
 <template>
   <div class="">
     <section class="offer">
-      <video class="offer-video" loop="loop" autoplay="" muted="">
-        <source
-          src="https://streamfest.ru/wp-content/uploads/2020/03/Стримфест-2019.-20-секунд-на-сайт_new.mp4"
-          type="video/mp4"
-        />
-      </video>
+      <video class="offer-video" src="/videos/home.mp4" loop autoplay muted />
       <div class="container offer-wrapper">
         <h3 class="offer__title">СТРИМФЕСТ 2021</h3>
         <p class="offer__subtitle">Главный фестиваль стримеров!</p>

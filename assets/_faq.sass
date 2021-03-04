@@ -54,7 +54,8 @@
 
   &__inner
     padding-left: 33px
-    display: none
+    max-height: 0
+    overflow: hidden
     transition: max-height 0.2s ease-out
     border-bottom: 2px solid #bac8cf
     p
@@ -62,9 +63,6 @@
       margin-bottom: 28px
     span
       color: $color-blue
-    a
-      color: $color-blue
-      text-decoration: underline
     ul
       li
         position: relative
@@ -80,7 +78,7 @@
           left: 0
           top: 10px
     &.visible
-      display: block
+     max-height: 9999px
   &::after
     position: absolute
     content: '\002B'
