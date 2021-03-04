@@ -1,5 +1,5 @@
 <template>
-  <div class="subscribe">
+  <div class="subscribe" id="subscribe">
     <p>Новости и плюшки Стримфеста</p>
     <form @submit="subscribe">
       <input v-model="email" type="text" placeholder="Ваш email" />
@@ -12,7 +12,7 @@
 export default {
   data() {
     return {
-      email: "",
+      email: ""
     };
   },
   methods: {
@@ -20,7 +20,7 @@ export default {
       this.$notify({
         title,
         message,
-        type,
+        type
       });
     },
     async subscribe(e) {
@@ -28,13 +28,9 @@ export default {
       if (this.email.trim())
         try {
           await this.$axios.post("/api/subscribe_email", {
-            email: this.email,
+            email: this.email
           });
-          this.notify(
-            "Успешно",
-            "Вы подписаны на рассылку!",
-            "success"
-          );
+          this.notify("Успешно", "Вы подписаны на рассылку!", "success");
         } catch (e) {
           this.notify("Ошибка", "Введенный email не валидный", "error");
         }
@@ -44,7 +40,7 @@ export default {
           "Поле ввода email не должно быть пустым",
           "error"
         );
-    },
-  },
+    }
+  }
 };
 </script>

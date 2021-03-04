@@ -25,6 +25,7 @@
                   : `https://${social_link.link}`
               "
               target="_blank"
+              rel="noopener noreferrer"
               v-for="social_link in streamer.links.slice().reverse()"
               :key="social_link.id"
             >
