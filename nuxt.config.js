@@ -1,18 +1,15 @@
 import serveStatic from "serve-static";
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
-  //  server: {
-  //     port: 80, // default: 3000
-  //      host: '185.119.57.46' // default: localhost
-  //    },
-  // env: {
-  //       img_url: 'http://185.119.57.46:8000',
-  //   },
-  loading: {
-    color: "rgba(255,255,255,0.8)"
+  server: {
+    port: 3000,
+    host: 'localhost'
   },
   env: {
-    img_url: "http://localhost:8000"
+    img_url: 'https://streamfest.ru'
+  },
+  loading: {
+    color: "rgba(255,255,255,0.8)"
   },
   serverMiddleware: ["~/middleware/redirects.js"],
   head: {
@@ -45,8 +42,7 @@ export default {
   buildModules: [],
   modules: ["@nuxtjs/axios", "@nuxtjs/auth"],
   axios: {
-    baseURL: "http://185.119.57.46:8000"
-    // baseURL: "http://localhost:8000"
+    baseURL: "https://streamfest.ru"
   },
   build: {
     transpile: [/^element-ui/]
