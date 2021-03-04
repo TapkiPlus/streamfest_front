@@ -1,9 +1,9 @@
 <template>
-  <section class="contact">
+  <section class="location">
     <div class="container-1000">
-      <img class="contact-banner" src="/contact.jpg" alt="" />
+      <img class="location-banner" src="/location.jpg" alt="" />
       <h1 class="section-header">Стримфест — в Технопарке Сколково</h1>
-      <div class="contact-subtitle">
+      <div class="location-subtitle">
         <p>
           <b>Москва, Большой бульвар, д. 42, стр. 1</b> Станция «Сколково»
           направления МЦД-1 Адрес для такси: парковка Технопарк Сколково
@@ -14,7 +14,7 @@
       <div class="separator rocket"></div>
     </div>
     <div class="container container-1000">
-      <h3 class="contact-title text-center">
+      <h3 class="location-title text-center">
         Как и на чем приехать на Стримфест
       </h3>
       <p class="mb-45">
@@ -25,12 +25,12 @@
         Каждый транспорт едет по-своему. Обязательно посмотрите, как проехать на
         вашем виде транспорта!
       </p>
-      <div class="contact-tabs">
-        <div class="contact-tabs__top">
+      <div class="location-tabs">
+        <div class="location-tabs__top">
           <div
             :class="{ tabItemActive: activeTab === 1 }"
             @click="activeTab = 1"
-            class="contact-tabs__item "
+            class="location-tabs__item "
           >
             <svg width="53px" height="37px">
               <path
@@ -42,7 +42,7 @@
           <div
             :class="{ tabItemActive: activeTab === 2 }"
             @click="activeTab = 2"
-            class="contact-tabs__item"
+            class="location-tabs__item"
           >
             <svg width="56px" height="31px">
               <path
@@ -54,7 +54,7 @@
           <div
             :class="{ tabItemActive: activeTab === 3 }"
             @click="activeTab = 3"
-            class="contact-tabs__item"
+            class="location-tabs__item"
           >
             <svg width="53px" height="34px">
               <path
@@ -66,7 +66,7 @@
           <div
             :class="{ tabItemActive: activeTab === 4 }"
             @click="activeTab = 4"
-            class="contact-tabs__item"
+            class="location-tabs__item"
           >
             <svg width="68px" height="24px">
               <path
@@ -78,7 +78,7 @@
           <div
             :class="{ tabItemActive: activeTab === 5 }"
             @click="activeTab = 5"
-            class="contact-tabs__item"
+            class="location-tabs__item"
           >
             <svg width="41px" height="31px">
               <path
@@ -90,7 +90,7 @@
         </div>
         <div
           :class="{ tabContentActive: activeTab === 1 }"
-          class="contact-tabs__content "
+          class="location-tabs__content "
         >
           <p>
             С 2020 года до Сколково ходит легкое метро. Электрички отправляются
@@ -142,7 +142,7 @@
         <!--metro-->
         <div
           :class="{ tabContentActive: activeTab === 2 }"
-          class="contact-tabs__content"
+          class="location-tabs__content"
         >
           <p>
             Вызывайте Яндекс.Такси или Uber — они могут проехать в Сколково без
@@ -175,7 +175,7 @@
         <!--taxi-->
         <div
           :class="{ tabContentActive: activeTab === 3 }"
-          class="contact-tabs__content"
+          class="location-tabs__content"
         >
           Поскольку в Сколково провели легкое метро МЦД-1, Стримфест больше не
           организует дополнительные автобусы до Сколково.<br /><br />
@@ -216,7 +216,7 @@
         <!--bus-->
         <div
           :class="{ tabContentActive: activeTab === 4 }"
-          class="contact-tabs__content"
+          class="location-tabs__content"
         >
           <p>
             До Сколково можно доехать по Минскому, Можайскому и Сколковскому
@@ -253,7 +253,7 @@
         <!--car-->
         <div
           :class="{ tabContentActive: activeTab === 5 }"
-          class="contact-tabs__content"
+          class="location-tabs__content"
         >
           <p>
             <b>Делимобиль</b>, <b>Belkacar</b> и <b>YouDrive Lab</b>: на
@@ -288,10 +288,10 @@
         </div>
         <!--carshare-->
       </div>
-      <div class="contact-bottom">
-        <div class="contact-bottom__left">
+      <div class="location-bottom">
+        <div class="location-bottom__left">
           <h3>Задай вопрос в ВК</h3>
-          <div class="contact-vk-btn">
+          <div class="location-vk-btn">
             <!-- VK Widget -->
             <div id="vk_contact_us"></div>
           </div>
@@ -321,14 +321,14 @@
               >tickets@streamfest.ru</a
             >
           </p>
-          <div class="contact-bottom__form">
+          <div class="location-bottom__form">
             <textarea name="" placeholder="Ваше сообщение"></textarea>
             <input type="text" placeholder="Ваш email  — сюда отправим ответ" />
             <button class="blue-btn">отправить</button>
           </div>
         </div>
         <iframe
-          class="contact-map"
+          class="location-map"
           src="https://yandex.ru/map-widget/v1/?um=constructor%3A15e64542e1689e2633da3538b21d98d149db69f9930100184879460ad72747f7&amp;source=constructor"
           frameborder="0"
         ></iframe>
