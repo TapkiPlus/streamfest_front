@@ -3,10 +3,10 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   server: {
     port: 3000,
-    host: 'localhost'
+    host: "localhost"
   },
   env: {
-    img_url: 'https://streamfest.ru'
+    img_url: "https://streamfest.ru"
   },
   loading: {
     color: "rgba(255,255,255,0.8)"
