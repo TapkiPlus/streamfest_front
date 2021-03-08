@@ -26,7 +26,7 @@
               "
               target="_blank"
               rel="noopener noreferrer"
-              v-for="social_link in streamer.links.slice().reverse()"
+              v-for="social_link in streamer.links"
               :key="social_link.id"
             >
               <img
@@ -49,7 +49,7 @@
               :key="ticket.id"
               class="streamer-bottom__button "
               :class="[
-                ticket.is_one_day 
+                ticket.is_one_day
                   ? 'streamer-bottom__button--yellow'
                   : 'streamer-bottom__button--red'
               ]"
