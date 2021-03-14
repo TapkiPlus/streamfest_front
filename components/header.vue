@@ -65,7 +65,7 @@ export default {
       scrollPosition: null,
       cart: null,
       nav_items: [
-        { id: 1, name: "Участники", url: "/streamers", star: true },
+        { id: 1, name: "Участники", url: "/stars", star: true },
         { id: 2, name: "FAQ", url: "/faq", star: false },
         { id: 3, name: "Стать участником", url: "/how-to", star: false },
         { id: 4, name: "Как добраться", url: "/contact", star: false }

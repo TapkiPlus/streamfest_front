@@ -20,8 +20,8 @@
         <p class="section-subheader">
           Стримфест — это крупнейший в СНГ фестиваль стрим-культуры.
           Здесь&nbsp;известные&nbsp;стримеры&nbsp;и подкастеры встречаются со
-          своими зрителями. Балдёж-кутёж, живое общение, море развлечений,
-          мастер-классы — без сомнения, лучшие выходные года!
+          своими зрителями. Живое общение, море развлечений, мастер-классы — без
+          сомнения, лучшие выходные года!
         </p>
         <div style="padding:56.25% 0 0 0;position:relative;">
           <iframe
@@ -111,7 +111,7 @@
         </div>
         <StreamersSwiper :streamers="streamers" />
         <div class="streamers-btn">
-          <nuxt-link class="btn btn-w-icon w-img" to="/streamers"
+          <nuxt-link class="btn btn-w-icon w-img" to="/stars"
             >КТО ТОЛЬКО НЕ ПРИДЕТ <img src="/smile.png" alt=""
           /></nuxt-link>
         </div>
@@ -462,7 +462,11 @@
           Яркое эфирное шоу, где популярные стримеры, эксперты рынка
           и&nbsp;журналисты&nbsp;развлекательных&nbsp;медиа&nbsp;выбрали лучших
           из лучших в 13 номинациях.
-          <a class="link" href="https://streamscharts.com/streamfestawards2020"
+          <a
+            class="link"
+            href="https://streamscharts.com/streamfestawards2020"
+            target="_blank"
+            rel="noopener noreferrer"
             >Вот&nbsp;как&nbsp;это&nbsp;было.</a
           >
         </p>
@@ -476,13 +480,13 @@
     </div>
     <section class="partners">
       <div class="container">
-        <!-- <h3 class="section-header">ГЕНЕРАЛЬНЫЙ ПАРТНЕР</h3>
-        <div class="partners-img general">
-          <el-image src="/partners/lisetskiy.jpg" lazy></el-image>
-        </div> -->
         <h3 class="section-header">СТРАТЕГИЧЕСКИЕ ПАРТНЕРЫ</h3>
         <div class="partners-img strategy">
-          <a href="http://www.lg.com/ru/monitors/lg-34UC79G-B" target="_blank" rel="noopener noreferrer">
+          <a
+            href="http://www.lg.com/ru/monitors/lg-34UC79G-B"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <el-image src="/partners/lg.jpg" lazy></el-image>
           </a>
           <a href="https://wasd.tv/" target="_blank" rel="noopener noreferrer">
@@ -490,7 +494,8 @@
           </a>
           <a
             href="https://www.asus.com/Microsite/powered-by-asus/RU/"
-            target="_blank" rel="noopener noreferrer"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <el-image src="/partners/asus.jpg" lazy></el-image>
           </a>
@@ -499,59 +504,99 @@
         <div class="partners-img official">
           <a
             href="https://www.logitech.com/ru-ru/product/c922-pro-stream-webcam"
-            target="_blank" rel="noopener noreferrer"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <el-image src="/partners/logitech.jpg" lazy></el-image>
           </a>
-          <a href="http://red-square.org/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="http://red-square.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <el-image src="/partners/red_square.jpg" lazy></el-image>
           </a>
-          <a href="https://www.amd.com/ru" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.amd.com/ru"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <el-image src="/partners/amd.jpg" lazy></el-image>
           </a>
           <a href="https://vk.com/" target="_blank" rel="noopener noreferrer">
             <el-image src="/partners/vk.jpg" lazy></el-image>
           </a>
-          <a href="https://donate.qiwi.com/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://donate.qiwi.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <el-image src="/partners/qiwi.jpg" lazy></el-image>
           </a>
-          <a href="http://goodgame.ru/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="http://goodgame.ru/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <el-image src="/partners/gg.jpg" lazy></el-image>
           </a>
           <a
             href="https://ru.siberianhealth.com/ru/shop/catalog/category/406/"
-            target="_blank" rel="noopener noreferrer"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <el-image src="/partners/cyber_build.jpg" lazy></el-image>
           </a>
-          <a href="https://flick.redbull.com/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://flick.redbull.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <el-image src="/partners/redbull.jpg" lazy></el-image>
           </a>
           <a
             href="https://www.teamgroupinc.com/ru/products/t-force"
-            target="_blank" rel="noopener noreferrer"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <el-image src="/partners/teamgroup.jpg" lazy></el-image>
           </a>
         </div>
         <h3 class="section-header">ПАРТНЕРЫ ТЕМАТИЧЕСКИХ ЗОН</h3>
         <div class="partners-img tematic">
-          <a href="http://restream.io" target="_blank" rel="noopener noreferrer">
+          <a
+            href="http://restream.io"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <el-image src="/partners/restream_io.jpg" lazy></el-image>
           </a>
           <a
             href="https://www.uniconf.ru/about/news/2018/7027/"
-            target="_blank" rel="noopener noreferrer"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <el-image src="/partners/mega_drive.jpg" lazy></el-image>
           </a>
-          <a href="http://schoolskills.ru/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="http://schoolskills.ru/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <el-image src="/partners/school_skills.jpg" lazy></el-image>
           </a>
-          <a href="https://podari-zhizn.ru/main" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://podari-zhizn.ru/main"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <el-image src="/partners/podari_jizn.jpg" lazy></el-image>
           </a>
-          <a href="https://store.avermedia.com/ru" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://store.avermedia.com/ru"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <el-image src="/partners/avermedia.jpg" lazy></el-image>
           </a>
         </div>
@@ -560,37 +605,77 @@
           <a href="http://warp.wtf/" target="_blank" rel="noopener noreferrer">
             <el-image src="/partners/warp.jpg" lazy></el-image>
           </a>
-          <a href="https://www.razerzone.ru/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.razerzone.ru/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <el-image src="/partners/razer.jpg" lazy></el-image>
           </a>
-          <a href="https://hyperpc.ru/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://hyperpc.ru/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <el-image src="/partners/hyper_pc.jpg" lazy></el-image>
           </a>
-          <a href="https://www.bluemics.ru/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.bluemics.ru/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <el-image src="/partners/blue.jpg" lazy></el-image>
           </a>
-          <a href="https://www.wd.com/ru-ru/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.wd.com/ru-ru/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <el-image src="/partners/western_digital.jpg" lazy></el-image>
           </a>
-          <a href="https://www.dmitrylive.com/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.dmitrylive.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <el-image src="/partners/dmitry_live.jpg" lazy></el-image>
           </a>
         </div>
         <h3 class="section-header">ИНФОРМАЦИОННАЯ ПОДДЕРЖКА</h3>
         <div class="partners-img tematic information">
-          <a href="https://www.igromania.ru/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.igromania.ru/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <el-image src="/partners/mania.jpg" lazy></el-image>
           </a>
-          <a href="https://tv.m24.ru/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://tv.m24.ru/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <el-image src="/partners/moskva_24.jpg" lazy></el-image>
           </a>
-          <a href="https://daily.afisha.ru/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://daily.afisha.ru/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <el-image src="/partners/afisha.jpg" lazy></el-image>
           </a>
-          <a href="https://www.cybersport.ru/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.cybersport.ru/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <el-image src="/partners/cybersport.jpg" lazy></el-image>
           </a>
-          <a href="https://www.mirf.ru/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.mirf.ru/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <el-image src="/partners/mir_fntsk.jpg" lazy></el-image>
           </a>
         </div>

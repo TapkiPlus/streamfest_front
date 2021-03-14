@@ -58,9 +58,7 @@
                 скоро
                 {{ ticket.is_one_day ? "билет на 1 день" : "билет на 2 дня" }}
               </p>
-              <p>
-                от <span>{{ streamer.nickName }}</span>
-              </p>
+              <p>от {{ streamer.nickName }}</p>
             </div>
           </div>
           <p class="streamer-bottom__text">
