@@ -96,14 +96,24 @@
             С 2020 года до Сколково ходит легкое метро. Электрички отправляются
             каждые 5-15 минут. <br />
             Вам нужна станция Сколково на направлении
-            <a href="https://mcd.mosmetro.ru/mcd-1/" class="link">МЦД-1</a>
+            <a
+              href="https://mcd.mosmetro.ru/mcd-1/"
+              class="link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >МЦД-1</a
+            >
             (Одинцово — Лобня).<br /><br />
 
             Дорога от центра Москвы до Стримфеста занимает 40-50 минут. <br />
             Вся поездка на метро и МЦД-1 по карте Тройка стоит 50 рублей.<br /><br />
 
             Линии МЦД-1 есть на схеме движения в каждом вагоне метро.<br />
-            <a href="https://yandex.ru/metro/moscow" class="link"
+            <a
+              href="https://yandex.ru/metro/moscow"
+              class="link"
+              target="_blank"
+              rel="noopener noreferrer"
               >Интерактивная карта</a
             >. <br /><br />
             <b>Самая удобная пересадка на МЦД-1</b> — из метро
@@ -152,6 +162,8 @@
             <a
               href="https://yandex.ru/maps/org/parkovka_tekhnopark_skolkovo/230526680326/?ll=37.344594%2C55.689138&z=18"
               class="link"
+              target="_blank"
+              rel="noopener noreferrer"
               >парковка Технопарк Сколково</a
             >.<br />
             Это ближайшая точка, куда подъезжает такси, — оттуда 3 минуты до
@@ -186,6 +198,8 @@
               <a
                 href="https://yandex.ru/maps/213/moscow/routes/bus_867/796d617073626d313a2f2f7472616e7369742f6c696e653f69643d3231335f3836375f6275735f6d6f73676f727472616e73266c6c3d33372e33383333343025324335352e373133353835266e616d653d38363726723d3335383926747970653d627573/?l=masstransit&ll=37.372259%2C55.692361&rtext=~55.690209%2C37.348950&rtt=auto&ruri=~ymapsbm1%3A%2F%2Ftransit%2Fstop%3Fid%3Dstop__10205968&z=14"
                 class="link"
+                target="_blank"
+                rel="noopener noreferrer"
                 >автобус 867</a
               >, <img src="/m-d-b.png" alt="" /> Молодёжная — Технопарк;
             </li>
@@ -193,6 +207,8 @@
               <a
                 href="https://yandex.ru/maps/213/moscow/routes/bus_1147/796d617073626d313a2f2f7472616e7369742f6c696e653f69643d32303336393235303132266c6c3d33372e34313034333925324335352e363730333939266e616d653d3131343726723d3438333726747970653d627573/?l=masstransit&ll=37.358259%2C55.691819&rtext=~55.690209%2C37.348950&rtt=auto&ruri=~ymapsbm1%3A%2F%2Ftransit%2Fstop%3Fid%3Dstop__10205968&z=16"
                 class="link"
+                target="_blank"
+                rel="noopener noreferrer"
                 >автобус 1147</a
               >, <img src="/m-r.png" alt="" /> Тропарево — Сколтех.
             </li>
@@ -202,11 +218,15 @@
           Яндекс.Карты (<a
             href="https://play.google.com/store/apps/details?id=ru.yandex.yandexmaps"
             class="link"
+            target="_blank"
+            rel="noopener noreferrer"
             >Android</a
           >,
           <a
             href="https://apps.apple.com/ru/app/yandex-maps/id313877526?ign-mpt=uo%3D4"
             class="link"
+            target="_blank"
+            rel="noopener noreferrer"
             >iOS</a
           >).<br /><br />
 
@@ -228,6 +248,8 @@
             <a
               href="https://yandex.ru/maps/org/parkovka_tekhnopark_skolkovo/230526680326/?ll=37.344594%2C55.689138&z=18"
               class="link"
+              target="_blank"
+              rel="noopener noreferrer"
               >парковка Технопарк Сколково</a
             >. Это ближайшая точка, куда можно приехать на&nbsp;машине, — оттуда
             3 минуты до входа на фестиваль.<br /><br />
@@ -236,7 +258,8 @@
             Сколково, на Большой бульвар 42с1 и другие адреса. В Сколково восемь
             въездов, и куда вас приведет навигатор — дело случая.<br /><br />
 
-            <a href="/pdfs/roadmap.pdf" class="link">Схема проезда и парковки</a
+            <a href="/pdfs/roadmap.pdf" class="link" target="_blank"
+            rel="noopener noreferrer">Схема проезда и парковки</a
             >. Удобнее ехать по Минскому или Можайскому шоссе на парковку
             Технопарк.<br /><br />
 
@@ -267,7 +290,8 @@
             <b>Адрес для навигатора:</b>
             <a
               href="https://yandex.ru/maps/org/parkovka_tekhnopark_skolkovo/230526680326/?ll=37.344594%2C55.689138&z=18"
-              class="link"
+              class="link" target="_blank"
+            rel="noopener noreferrer"
               >парковка Технопарк Сколково</a
             >. Это ближайшая точка, куда можно приехать на&nbsp;машине, — оттуда
             3 минуты до входа на фестиваль.<br /><br />
@@ -275,7 +299,8 @@
             <b>НЕ пишите</b> в навигаторе Инновационный центр, Технопарк
             Сколково, на Большой бульвар 42с1 и другие адреса. В Сколково восемь
             въездов, и куда вас приведет навигатор — дело случая.<br /><br />
-            <a href="/pdfs/roadmap.pdf" class="link">Схема проезда и парковки</a
+            <a href="/pdfs/roadmap.pdf" class="link" target="_blank"
+            rel="noopener noreferrer">Схема проезда и парковки</a
             >. Удобнее ехать по Минскому или Можайскому шоссе на парковку
             Технопарк.<br /><br />
 

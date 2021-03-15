@@ -12,13 +12,10 @@ export default function(req, res, next) {
     if (url[2]) {
       res.writeHead(301, { Location: `/${url[2]}` });
       res.end();
-    } else if (url[1] == "streamers") {
-      next();
-    } else {
+    } else if (url[1] == "stars") next();
+    else {
       res.writeHead(404);
       res.end();
     }
-  } else {
-    next();
-  }
+  } else next();
 }

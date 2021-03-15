@@ -50,10 +50,16 @@
           <p>
             Проверьте, соответствуете ли вы критериям участия (о них ниже), и
             напишите
-            <a href="https://vk.com/mikhail_lisetskiy" class="link"
+            <a
+              href="https://vk.com/mikhail_lisetskiy"
+              class="link"
+              target="_blank"
+              rel="noopener noreferrer"
               >организаторам в VK</a
             >
-            или на&nbsp;<a href="mailto:mike@streamfest.ru" class="link"
+            или на&nbsp;<a
+              href="mailto:mike@streamfest.ru"
+              class="link"
               >mike@streamfest.ru</a
             >.
           </p>
@@ -105,7 +111,8 @@
                 помощью различных web-сервисов и ручного контент-анализа, а
                 также оцениваем спорных кандидатов совместно с менеджерами
                 стрим-платформ и аналитиками сервиса
-                <a href="https://streamscharts.com/" class="link"
+                <a href="https://streamscharts.com/" class="link" target="_blank"
+            rel="noopener noreferrer"
                   >Streams Charts</a
                 >. Если участник использует ботов и это доказано, это может
                 стать основанием для исключения из списка уже
@@ -153,7 +160,8 @@
                 На вашем канале больше 20 000 фолловеров, а средний онлайн ваших
                 стримов за последний год превышает 100 человек (по данным
                 независимого сервиса
-                <a href="https://sullygnome.com/" class="link">SullyGnome</a>).
+                <a href="https://sullygnome.com/" class="link" target="_blank"
+            rel="noopener noreferrer">SullyGnome</a>).
               </p>
             </li>
             <li>
@@ -161,7 +169,8 @@
                 На вашем канале больше 12 000 фолловеров, а средний онлайн ваших
                 стримов за последний год превышает 250 человек (по данным
                 независимого сервиса
-                <a href="https://sullygnome.com/" class="link">SullyGnome</a>).
+                <a href="https://sullygnome.com/" class="link" target="_blank"
+            rel="noopener noreferrer">SullyGnome</a>).
               </p>
             </li>
           </ul>
@@ -175,7 +184,8 @@
                 На вашем канале больше 12 000 фолловеров, а средний онлайн ваших
                 стримов за последний год превышает 80 человек (по данным
                 независимого сервиса
-                <a href="https://sullygnome.com/" class="link">SullyGnome</a>).
+                <a href="https://sullygnome.com/" class="link" target="_blank"
+            rel="noopener noreferrer">SullyGnome</a>).
               </p>
             </li>
             <li>
@@ -183,7 +193,8 @@
                 На вашем канале больше 8000 фолловеров, а средний онлайн ваших
                 стримов за последний год превышает 200 человек (по данным
                 независимого сервиса
-                <a href="https://sullygnome.com/" class="link">SullyGnome</a>).
+                <a href="https://sullygnome.com/" class="link" target="_blank"
+            rel="noopener noreferrer">SullyGnome</a>).
               </p>
             </li>
           </ul>
@@ -197,7 +208,8 @@
                 На вашем канале больше 3000 фолловеров, а средний онлайн ваших
                 стримов за последний год превышает 30 человек (по данным
                 независимого сервиса
-                <a href="https://sullygnome.com/" class="link">SullyGnome</a>).
+                <a href="https://sullygnome.com/" class="link" target="_blank"
+            rel="noopener noreferrer">SullyGnome</a>).
               </p>
             </li>
           </ul>
@@ -232,7 +244,8 @@
                 На вашем канале больше 50 000 подписчиков, а среднее количество
                 просмотров канала за последний месяц — от 1700 человек в эфирный
                 день (по данным независимого сервиса
-                <a href="https://socialblade.com/" class="link">Socialblade</a>)
+                <a href="https://socialblade.com/" class="link" target="_blank"
+            rel="noopener noreferrer">Socialblade</a>)
               </p>
             </li>
           </ul>
@@ -246,7 +259,8 @@
                 На вашем канале больше 35 000 подписчиков, а среднее количество
                 просмотров канала за последний месяц — от 1200 человек в эфирный
                 день (по данным независимого сервиса
-                <a href="https://socialblade.com/" class="link">Socialblade</a
+                <a href="https://socialblade.com/" class="link" target="_blank"
+            rel="noopener noreferrer">Socialblade</a
                 >).
               </p>
             </li>
@@ -261,7 +275,8 @@
                 На вашем канале больше 20 000 подписчиков, а среднее количество
                 просмотров канала за последний месяц — от 600 человек в эфирный
                 день (по данным независимого сервиса
-                <a href="https://socialblade.com/" class="link">Socialblade</a
+                <a href="https://socialblade.com/" class="link" target="_blank"
+            rel="noopener noreferrer">Socialblade</a
                 >).
               </p>
             </li>
@@ -281,7 +296,8 @@
         >
           <p>
             Регистрация происходит по согласованию с менеджерами платформы
-            <a href="https://www.tiktok.com/ru-RU/" class="link">TikTok</a>.
+            <a href="https://www.tiktok.com/ru-RU/" class="link" target="_blank"
+            rel="noopener noreferrer">TikTok</a>.
           </p>
 
           <p>
@@ -303,7 +319,8 @@
         >
           <p>
             Регистрация происходит по согласованию с менеджерами платформы
-            <a href="https://vk.com/" class="link">VK</a>.
+            <a href="https://vk.com/" class="link" target="_blank"
+            rel="noopener noreferrer">VK</a>.
           </p>
           <p>
             Организаторы Стримфеста совместно с VK отберут из числа заявителей
@@ -324,7 +341,8 @@
         >
           <p>
             Регистрация происходит по согласованию с менеджерами платформы
-            <a href="https://ok.ru/" class="link">OK</a>.
+            <a href="https://ok.ru/" class="link" target="_blank"
+            rel="noopener noreferrer">OK</a>.
           </p>
           <p>
             Организаторы Стримфеста совместно с OK отберут из числа заявителей
@@ -345,7 +363,8 @@
         >
           <p>
             Регистрация происходит по согласованию с менеджерами платформы
-            <a href="https://wasd.tv/" class="link">WASD</a>.
+            <a href="https://wasd.tv/" class="link" target="_blank"
+            rel="noopener noreferrer">WASD</a>.
           </p>
           <p>
             Организаторы Стримфеста совместно с WASD отберут из числа заявителей
@@ -366,7 +385,8 @@
         >
           <p>
             Регистрация происходит на основе внутреннего
-            <a href="https://goodgame.ru/channels/rating/premiums" class="link"
+            <a href="https://goodgame.ru/channels/rating/premiums" class="link" target="_blank"
+            rel="noopener noreferrer"
               >рейтинга популярности Goodgame.ru</a
             >.
           </p>
@@ -450,7 +470,8 @@
           <h3 class="faq-item">У меня остались вопросы!</h3>
           <p>
             Прекрасно, задайте их личным сообщением в нашей
-            <a href="https://vk.com/streamfest" class="link">группе VK.</a>
+            <a href="https://vk.com/streamfest" class="link" target="_blank"
+            rel="noopener noreferrer">группе VK.</a>
           </p>
         </div>
       </div>

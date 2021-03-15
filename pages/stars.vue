@@ -5,7 +5,11 @@
       <p class="section-subheader">
         Дай пять, возьми автограф, задай вопрос, угости вкусняшкой, брось
         челлендж — приходи с друзьями!
+        <br />
+        <br />
+        Заглядывай сюда почаще. Список участников пополняется каждый день!
       </p>
+
       <div class="separator star"></div>
       <div class="streamers-wrapper">
         <StreamerCard
@@ -19,9 +23,8 @@
       </div>
       <StreamersSwiper :streamers="streamers" />
       <div class="streamers-btn">
-        <nuxt-link to="/how-to" class="btn btn-w-icon"
-          >СТАТЬ УЧАСТНИКОМ</nuxt-link
-        >
+        <a href="/how-to" class="btn btn-w-icon" target="_blank"
+            rel="noopener noreferrer">СТАТЬ УЧАСТНИКОМ</a>
       </div>
     </div>
   </section>
