@@ -28,3 +28,8 @@ jobs:
     - run: npm ci
     - run: npm run generate --if-present
     - run: npm test
+    - run: tar -cvzf dist.tar.gz dist/
+    - uses: actions/upload-artifact@v2
+      with:
+        name: streamfest-front
+        path: dist.tar.gz
