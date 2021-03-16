@@ -118,7 +118,7 @@
       </div>
     </section>
     <section id="tickets" class="tickets">
-      <h3 class="section-header">ЦЕНЫ ВЫРАСТУТ — БЕРИ БИЛЕТ СЕЙЧАС!</h3>
+      <h3 class="section-header">БИЛЕТЫ СКОРО В ПРОДАЖЕ — STAY TUNED!</h3>
       <div class="tickets-wrapper">
         <div class="tickets-desktop">
           <div class="tickets-item" v-for="ticket in tickets" :key="ticket.id">
