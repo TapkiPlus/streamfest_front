@@ -1,48 +1,58 @@
-export const state = () => ({
-  items:{ "id": 4,
-    "tickets": [],
-    "session": "d2e33ea5-55c6-4346-8c7c-f5910b4d7baf",
-    "total_price": 0  },
-  bonuses:0,
-  promo:0
-
-
-})
-
-export const mutations = {
-  setBonuses(state,data){
-    state.bonuses = data
+export default {
+  state() {
+    return {
+      cart: []
+    };
   },
-  setPromo(state,data){
-    state.promo = data
-  },
-  setCart(state,data){
-    state.items = data
-    console.log(state)
-  }
-}
-
-export const actions = {
-  async fetchCart({commit,state,dispatch}){
-     let session_id = this.$auth.$storage.getCookie('session_id')
-    console.log('session_id', session_id)
-    if(session_id) {
-      const responce = await this.$axios.get(`/api/get_cart?session_id=${session_id}`)
-      commit('setCart', responce.data)
-      //commit('setCategories', cats.filter((v, i, a) => a.findIndex(t => (t.id === v.id)) === i))
+  mutations: {
+    SET_CART(state, cart) {
+      state.cart = cart ?? [];
     }
-
   },
-  eraseCart({commit,state}, data) {
-    commit('setCart', { })
+  actions: {
+    addToCart({ commit }, { ticketId, starId = null }) {
+      let cart = JSON.parse(localStorage.getItem("cart")),
+        ticketObj = { ticketId, count: 1, starId };
+      if (cart) {
+        cart.find(item => item.ticketId === ticketId && item.starId === starId)
+          ? cart.forEach(item => {
+              if (item.ticketId === ticketId && item.starId === starId) {
+                ++item.count;
+                return item;
+              }
+            })
+          : cart.push(ticketObj);
+      } else cart = [ticketObj];
+      commit("SET_CART", cart);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      this.$router.push("cart");
+    },
+    changeCount({ state, commit }, { ticketId, starId, count }) {
+      const cart = state.cart.map(item => {
+        if (item.ticketId === ticketId && item.starId === starId) {
+          item.count = count;
+          return item;
+        }
+      });
+      commit("SET_CART", cart);
+      localStorage.setItem("cart", JSON.stringify(cart));
+    },
+    delete({ state, commit }, { ticketId, starId }) {
+      const cart = state.cart.filter(
+        item => item.ticketId !== ticketId && item.starId !== starId
+      );
+      commit("SET_CART", cart);
+      cart.length
+        ? localStorage.setItem("cart", JSON.stringify(cart))
+        : localStorage.removeItem("cart");
+    }
   },
-
-
-}
-
-export const getters = {
-  getCart: (state) => state.items,
-
-
-}
-
+  getters: {
+    cart({ cart }) {
+      return cart;
+    },
+    cartCount({ cart }) {
+      return cart.reduce((acc, { count }) => acc + count, 0);
+    }
+  }
+};

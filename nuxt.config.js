@@ -47,7 +47,8 @@ export default {
   buildModules: [],
   modules: ["@nuxtjs/axios", "@nuxtjs/auth"],
   axios: {
-    baseURL: "https://streamfest.ru"
+    baseURL: "http://127.0.0.1:8000"
+    // baseURL: "https://streamfest.ru"
   },
   build: {
     transpile: [/^element-ui/]

@@ -41,25 +41,25 @@
           <div class="streamer-text__block" v-html="streamer.about"></div>
           <div class="streamer-text__block" v-html="streamer.streaming"></div>
         </div>
-        <div class="streamer-bottom">
+        <div v-if="streamer.sells" class="streamer-bottom">
           <div class="streamer-bottom__buttons">
-            <!--            @click.prevent="addItem(ticket.id,streamer.id)" -->
-            <div
-              v-for="ticket in tickets"
-              :key="ticket.id"
+            <button
+              v-for="{ id, is_one_day } in tickets"
+              :key="id"
+              @click="addToCart({ ticketId: id, starId: streamer.id })"
               class="streamer-bottom__button "
               :class="[
-                ticket.is_one_day
+                is_one_day
                   ? 'streamer-bottom__button--yellow'
                   : 'streamer-bottom__button--red'
               ]"
             >
               <p>
                 скоро
-                {{ ticket.is_one_day ? "билет на 1 день" : "билет на 2 дня" }}
+                {{ is_one_day ? "билет на 1 день" : "билет на 2 дня" }}
               </p>
               <p>от {{ streamer.nickName }}</p>
-            </div>
+            </button>
           </div>
           <p class="streamer-bottom__text">
             Покупая билет от участника, ты его поддерживаешь. Часть стоимости
@@ -72,9 +72,9 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   scrollToTop: true,
-  // auth: true,
   async asyncData({ $axios, params }) {
     try {
       const get_streamer = await $axios.get(
@@ -88,28 +88,26 @@ export default {
       throw { statusCode: 404, message: "Streamer not found" };
     }
   },
-  data() {
-    return {};
-  },
-  watch: {},
-  mounted() {},
   methods: {
+    ...mapMutations({
+      addToCart: "cart/ADD_TO_CART"
+    }),
     notify(title, message, type) {
       this.$notify({
         title: title,
         message: message,
         type: type
       });
-    },
-    async addItem(t_id, s_id) {
-      await this.$axios.post("/api/add_item", {
-        session_id: this.$auth.$storage.getCookie("session_id"),
-        item_id: t_id,
-        streamer_id: s_id
-      });
-      this.notify("Успешно", "Билет добавлен в корзину", "success");
-      await this.$store.dispatch("cart/fetchCart");
     }
+    // async addItem(t_id, s_id) {
+    //   await this.$axios.post("/api/add_item", {
+    //     session_id: this.$auth.$storage.getCookie("session_id"),
+    //     item_id: t_id,
+    //     streamer_id: s_id
+    //   });
+    //   this.notify("Успешно", "Билет добавлен в корзину", "success");
+    //   await this.$store.dispatch("cart/fetchCart");
+    // }
   }
 };
 </script>

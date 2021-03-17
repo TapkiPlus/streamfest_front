@@ -23,8 +23,13 @@
       </div>
       <StreamersSwiper :streamers="streamers" />
       <div class="streamers-btn">
-        <a href="/how-to" class="btn btn-w-icon" target="_blank"
-            rel="noopener noreferrer">СТАТЬ УЧАСТНИКОМ</a>
+        <a
+          href="/how-to"
+          class="btn btn-w-icon"
+          target="_blank"
+          rel="noopener noreferrer"
+          >СТАТЬ УЧАСТНИКОМ</a
+        >
       </div>
     </div>
   </section>

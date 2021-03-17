@@ -101,12 +101,12 @@
         <h3 class="section-header">ОЧЕНЬ ПРОСТО ПОВСТРЕЧАТЬ</h3>
         <div class="streamers-wrapper">
           <StreamerCard
-            v-for="streamer in streamers"
-            :key="streamer.id"
-            :image="streamer.photo"
-            :name="streamer.name"
-            :name_slug="streamer.nickNameSlug"
-            :nickname="streamer.nickName"
+            v-for="{ id, photo, name, nickNameSlug, nickName } in streamers"
+            :key="id"
+            :image="photo"
+            :name="name"
+            :name_slug="nickNameSlug"
+            :nickname="nickName"
           />
         </div>
         <StreamersSwiper :streamers="streamers" />
@@ -121,15 +121,19 @@
       <h3 class="section-header">ЦЕНЫ ВЫРАСТУТ — БЕРИ БИЛЕТ СЕЙЧАС!</h3>
       <div class="tickets-wrapper">
         <div class="tickets-desktop">
-          <div class="tickets-item" v-for="ticket in tickets" :key="ticket.id">
+          <div
+            class="tickets-item"
+            v-for="{ id, is_one_day, price } in tickets"
+            :key="id"
+          >
             <div class="tickets-item__wrapper">
-              <p v-if="ticket.is_one_day" class="tickets-item__days">
+              <p v-if="is_one_day" class="tickets-item__days">
                 Билет на один из дней 17&nbsp;или&nbsp;18&nbsp;июля
               </p>
               <p v-else class="tickets-item__days">
                 Билет на оба дня 17&nbsp;и&nbsp;18&nbsp;июля
               </p>
-              <ul v-if="ticket.is_one_day" class="tickets-item__list">
+              <ul v-if="is_one_day" class="tickets-item__list">
                 <li class="tickets-item__list--item checked">
                   Хайп, веселье, конкурсы
                 </li>
@@ -163,13 +167,21 @@
               </ul>
             </div>
             <div class="tickets-item__bottom">
-              <p class="tickets-item__price">{{ ticket.price }} ₽</p>
-              <a v-if="ticket.is_one_day" class="tickets-item__button"
-                >СКОРО — БИЛЕТ<br />НА 1 ДЕНЬ</a
+              <p class="tickets-item__price">{{ price }} ₽</p>
+              <button
+                v-if="is_one_day"
+                @click="addToCart({ ticketId: id })"
+                class="tickets-item__button"
               >
-              <a v-else class="tickets-item__button tickets-item__button_red"
-                >СКОРО — БИЛЕТ<br />НА 2 ДНЯ</a
+                СКОРО — БИЛЕТ<br />НА 1 ДЕНЬ
+              </button>
+              <button
+                v-else
+                @click="addToCart({ ticketId: id })"
+                class="tickets-item__button tickets-item__button_red"
               >
+                СКОРО — БИЛЕТ<br />НА 2 ДНЯ
+              </button>
             </div>
           </div>
         </div>
@@ -177,18 +189,18 @@
           <client-only>
             <swiper :options="ticketsOptions">
               <swiper-slide
-                v-for="ticket in tickets.slice().reverse()"
-                :key="ticket.id"
+                v-for="{ id, is_one_day, price } in tickets"
+                :key="id"
               >
                 <div class="tickets-item">
                   <div class="tickets-item__wrapper">
-                    <p v-if="ticket.is_one_day" class="tickets-item__days">
+                    <p v-if="is_one_day" class="tickets-item__days">
                       Билет на один из дней 17&nbsp;или&nbsp;18&nbsp;июля
                     </p>
                     <p v-else class="tickets-item__days">
                       Билет на оба дня 17&nbsp;и&nbsp;18&nbsp;июля
                     </p>
-                    <ul v-if="ticket.is_one_day" class="tickets-item__list">
+                    <ul v-if="is_one_day" class="tickets-item__list">
                       <li class="tickets-item__list--item checked">
                         Хайп, веселье, конкурсы
                       </li>
@@ -224,15 +236,21 @@
                     </ul>
                   </div>
                   <div class="tickets-item__bottom">
-                    <p class="tickets-item__price">{{ ticket.price }} ₽</p>
-                    <a v-if="ticket.is_one_day" class="tickets-item__button"
-                      >СКОРО — БИЛЕТ<br />НА 1 ДЕНЬ</a
+                    <p class="tickets-item__price">{{ price }} ₽</p>
+                    <button
+                      v-if="is_one_day"
+                      @click="addToCart({ ticketId: id })"
+                      class="tickets-item__button"
                     >
-                    <a
+                      СКОРО — БИЛЕТ<br />НА 1 ДЕНЬ
+                    </button>
+                    <button
                       v-else
+                      @click="addToCart({ ticketId: id })"
                       class="tickets-item__button tickets-item__button_red"
-                      >СКОРО — БИЛЕТ<br />НА 2 ДНЯ</a
                     >
+                      СКОРО — БИЛЕТ<br />НА 2 ДНЯ
+                    </button>
                   </div>
                 </div>
               </swiper-slide>
@@ -707,22 +725,19 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 import StreamerCard from "@/components/StreamerCard";
 import StreamersSwiper from "@/components/StreamersSwiper";
-
 import Subscribe from "@/components/Subscribe";
 export default {
-  // async fetch({store}){
-  //   await store.dispatch('cart/fetchCart')
-  // },
   components: {
     StreamerCard,
     StreamersSwiper,
     Subscribe
   },
   async asyncData({ $axios }) {
-    const get_streamers = await $axios.get(`/api/get_streamers?at_home=show`);
-    const get_tickets = await $axios.get(`/api/get_tickets`);
+    const get_streamers = await $axios.get("/api/get_streamers?at_home=show");
+    const get_tickets = await $axios.get("/api/get_tickets");
     const streamers = get_streamers.data;
     const tickets = get_tickets.data;
     return { streamers, tickets };
@@ -805,6 +820,9 @@ export default {
     document.body.appendChild(script);
   },
   methods: {
+    ...mapMutations({
+      addToCart: "cart/ADD_TO_CART"
+    }),
     starTimer() {
       let days = Math.floor(
         (new Date("Jul 17, 2021 11:00:00").getTime() - new Date().getTime()) /

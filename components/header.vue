@@ -41,22 +41,21 @@
             </li>
           </ul>
         </div>
-        <!-- <div class="header-button">
-          <div v-if="items_in_cart.tickets.length > 0">
-            <nuxt-link
-              :data-num="items_in_cart.tickets.length"
-              class="header-button__cart"
-              to="/cart"
-              >корзина</nuxt-link
-            >
-          </div>
-        </div> -->
+        <div v-if="getCartCount > 0" class="header-button">
+          <nuxt-link
+            :data-num="getCartCount"
+            class="header-button__cart"
+            to="/cart"
+            >корзина</nuxt-link
+          >
+        </div>
       </div>
     </div>
   </header>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   transition: "home",
   data() {
@@ -73,26 +72,15 @@ export default {
       hamburgerActive: false
     };
   },
-  watch: {
-    "$route.path": function(val) {
-      this.$route.path === "/"
-        ? (this.isHomePage = true)
-        : (this.isHomePage = false);
-      this.$store.dispatch("cart/fetchCart");
-    }
+  computed: {
+    ...mapGetters("cart", ["getCartCount"])
   },
   mounted() {
+    this.$store.commit(
+      "cart/SET_CART",
+      JSON.parse(localStorage.getItem("cart"))
+    );
     window.addEventListener("scroll", this.updateScroll);
-    this.$route.path === "/"
-      ? (this.isHomePage = true)
-      : (this.isHomePage = false);
-    if (!this.$auth.$storage.getCookie("session_id")) {
-      this.$auth.$storage.setCookie("session_id", this.uuidv4());
-      console.log("create session_id");
-    } else {
-      console.log("session_id exists");
-    }
-    this.$store.dispatch("cart/fetchCart");
   },
   methods: {
     updateScroll() {
@@ -106,11 +94,6 @@ export default {
           v = c == "x" ? r : (r & 0x3) | 0x8;
         return v.toString(16);
       });
-    }
-  },
-  computed: {
-    items_in_cart() {
-      return this.$store.getters["cart/getCart"];
     }
   }
 };
