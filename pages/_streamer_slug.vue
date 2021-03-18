@@ -46,7 +46,12 @@
             <button
               v-for="{ id, is_one_day } in tickets"
               :key="id"
-              @click="addToCart({ ticketId: id, starId: streamer.id })"
+              @click="
+                $store.dispatch('cart/addToCart', {
+                  t_id: id,
+                  s_id: streamer.id
+                })
+              "
               class="streamer-bottom__button "
               :class="[
                 is_one_day
@@ -72,7 +77,6 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
 export default {
   scrollToTop: true,
   async asyncData({ $axios, params }) {
@@ -89,9 +93,6 @@ export default {
     }
   },
   methods: {
-    ...mapMutations({
-      addToCart: "cart/ADD_TO_CART"
-    }),
     notify(title, message, type) {
       this.$notify({
         title: title,
@@ -99,15 +100,6 @@ export default {
         type: type
       });
     }
-    // async addItem(t_id, s_id) {
-    //   await this.$axios.post("/api/add_item", {
-    //     session_id: this.$auth.$storage.getCookie("session_id"),
-    //     item_id: t_id,
-    //     streamer_id: s_id
-    //   });
-    //   this.notify("Успешно", "Билет добавлен в корзину", "success");
-    //   await this.$store.dispatch("cart/fetchCart");
-    // }
   }
 };
 </script>

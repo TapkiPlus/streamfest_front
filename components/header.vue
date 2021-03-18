@@ -41,9 +41,9 @@
             </li>
           </ul>
         </div>
-        <div v-if="getCartCount > 0" class="header-button">
+        <div class="header-button">
           <nuxt-link
-            :data-num="getCartCount"
+            :data-num="cartCount"
             class="header-button__cart"
             to="/cart"
             >корзина</nuxt-link
@@ -72,27 +72,29 @@ export default {
       hamburgerActive: false
     };
   },
+  watch: {
+    "$route.path": function() {
+      this.isHomePage = this.$route.path === "/";
+    }
+  },
   computed: {
-    ...mapGetters("cart", ["getCartCount"])
+    ...mapGetters("cart", ["cartCount"])
   },
   mounted() {
-    this.$store.commit(
-      "cart/SET_CART",
-      JSON.parse(localStorage.getItem("cart"))
-    );
     window.addEventListener("scroll", this.updateScroll);
+    this.isHomePage = this.$route.path === "/";
+    this.$auth.$storage.getCookie("session_id")
+      ? this.$store.dispatch("cart/fetchCart")
+      : this.$auth.$storage.setCookie("session_id", this.uuidv4());
   },
   methods: {
     updateScroll() {
       this.scrollPosition = window.scrollY;
     },
     uuidv4() {
-      return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(
-        c
-      ) {
-        let r = (Math.random() * 16) | 0,
-          v = c == "x" ? r : (r & 0x3) | 0x8;
-        return v.toString(16);
+      return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, c => {
+        const r = (Math.random() * 16) | 0;
+        return (c === "x" ? r : (r & 0x3) | 0x8).toString(16);
       });
     }
   }

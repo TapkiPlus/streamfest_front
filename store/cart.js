@@ -1,58 +1,96 @@
 export default {
   state() {
     return {
-      cart: []
+      data: {}
     };
   },
   mutations: {
-    SET_CART(state, cart) {
-      state.cart = cart ?? [];
+    SET_DATA(state, data) {
+      state.data = data;
     }
   },
   actions: {
-    addToCart({ commit }, { ticketId, starId = null }) {
-      let cart = JSON.parse(localStorage.getItem("cart")),
-        ticketObj = { ticketId, count: 1, starId };
-      if (cart) {
-        cart.find(item => item.ticketId === ticketId && item.starId === starId)
-          ? cart.forEach(item => {
-              if (item.ticketId === ticketId && item.starId === starId) {
-                ++item.count;
-                return item;
-              }
-            })
-          : cart.push(ticketObj);
-      } else cart = [ticketObj];
-      commit("SET_CART", cart);
-      localStorage.setItem("cart", JSON.stringify(cart));
-      this.$router.push("cart");
+    async fetchCart({ commit }) {
+      const session_id = this.$auth.$storage.getCookie("session_id");
+      session_id &&
+        commit(
+          "SET_DATA",
+          (await this.$axios.get(`/api/get_cart?session_id=${session_id}`)).data
+        );
     },
-    changeCount({ state, commit }, { ticketId, starId, count }) {
-      const cart = state.cart.map(item => {
-        if (item.ticketId === ticketId && item.starId === starId) {
-          item.count = count;
-          return item;
-        }
+    async addToCart({ dispatch }, { t_id, s_id = 0 }) {
+      await this.$axios.post("/api/add_item", {
+        session_id: this.$auth.$storage.getCookie("session_id"),
+        item_id: t_id,
+        streamer_id: s_id
       });
-      commit("SET_CART", cart);
-      localStorage.setItem("cart", JSON.stringify(cart));
+      // this.$notify({
+      //   title: "Успешно",
+      //   message: "Билет добавлен в корзину",
+      //   type: "success"
+      // });
+      dispatch("fetchCart");
     },
-    delete({ state, commit }, { ticketId, starId }) {
-      const cart = state.cart.filter(
-        item => item.ticketId !== ticketId && item.starId !== starId
-      );
-      commit("SET_CART", cart);
-      cart.length
-        ? localStorage.setItem("cart", JSON.stringify(cart))
-        : localStorage.removeItem("cart");
+    async changeQuantity({ dispatch }, { t_id, quantity }) {
+      await this.$axios.post("/api/add_item_quantity", {
+        session_id: this.$auth.$storage.getCookie("session_id"),
+        item_id: t_id,
+        quantity
+      });
+      dispatch("fetchCart");
+    },
+    async delete({ dispatch }, { t_id }) {
+      await this.$axios.post("/api/delete_item", {
+        session_id: this.$auth.$storage.getCookie("session_id"),
+        item_id: t_id
+      });
+      dispatch("fetchCart");
     }
+    //  addToCart({ dispatch }, { t_id, s_id = 0 }) {
+    // let cart = JSON.parse(localStorage.getItem("cart")),
+    //   ticketObj = { ticketId, count: 1, starId };
+    // if (cart) {
+    //   cart.find(item => item.ticketId === ticketId && item.starId === starId)
+    //     ? cart.forEach(item => {
+    //         if (item.ticketId === ticketId && item.starId === starId) {
+    //           ++item.count;
+    //           return item;
+    //         }
+    //       })
+    //     : cart.push(ticketObj);
+    // } else cart = [ticketObj];
+    // commit("SET_CART", cart);
+    // localStorage.setItem("cart", JSON.stringify(cart));
+    // this.$router.push("cart");
+    // },
+    // changeCount({ state, commit }, { ticketId, starId, count }) {
+    //   const cart = state.cart.map(item => {
+    //     if (item.ticketId === ticketId && item.starId === starId) {
+    //       item.count = count;
+    //       return item;
+    //     }
+    //   });
+    //   commit("SET_CART", cart);
+    //   localStorage.setItem("cart", JSON.stringify(cart));
+    // },
+    // delete({ state, commit }, { ticketId, starId }) {
+    //   const cart = state.cart.filter(
+    //     item => item.ticketId !== ticketId && item.starId !== starId
+    //   );
+    //   commit("SET_CART", cart);
+    //   cart.length
+    //     ? localStorage.setItem("cart", JSON.stringify(cart))
+    //     : localStorage.removeItem("cart");
+    // }
   },
   getters: {
-    cart({ cart }) {
-      return cart;
+    cart({ data }) {
+      return data;
     },
-    cartCount({ cart }) {
-      return cart.reduce((acc, { count }) => acc + count, 0);
+    cartCount({ data: { tickets } }) {
+      return tickets
+        ? tickets.reduce((acc, { quantity }) => acc + quantity, 0)
+        : 0;
     }
   }
 };

@@ -170,14 +170,14 @@
               <p class="tickets-item__price">{{ price }} ₽</p>
               <button
                 v-if="is_one_day"
-                @click="addToCart({ ticketId: id })"
+                @click="$store.dispatch('cart/addToCart', { t_id: id })"
                 class="tickets-item__button"
               >
                 СКОРО — БИЛЕТ<br />НА 1 ДЕНЬ
               </button>
               <button
                 v-else
-                @click="addToCart({ ticketId: id })"
+                @click="$store.dispatch('cart/addToCart', { t_id: id })"
                 class="tickets-item__button tickets-item__button_red"
               >
                 СКОРО — БИЛЕТ<br />НА 2 ДНЯ
@@ -239,14 +239,14 @@
                     <p class="tickets-item__price">{{ price }} ₽</p>
                     <button
                       v-if="is_one_day"
-                      @click="addToCart({ ticketId: id })"
+                      @click="$store.dispatch('addToCart', { t_id: id })"
                       class="tickets-item__button"
                     >
                       СКОРО — БИЛЕТ<br />НА 1 ДЕНЬ
                     </button>
                     <button
                       v-else
-                      @click="addToCart({ ticketId: id })"
+                      @click="$store.dispatch('addToCart', { t_id: id })"
                       class="tickets-item__button tickets-item__button_red"
                     >
                       СКОРО — БИЛЕТ<br />НА 2 ДНЯ
@@ -725,7 +725,6 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
 import StreamerCard from "@/components/StreamerCard";
 import StreamersSwiper from "@/components/StreamersSwiper";
 import Subscribe from "@/components/Subscribe";
@@ -820,9 +819,6 @@ export default {
     document.body.appendChild(script);
   },
   methods: {
-    ...mapMutations({
-      addToCart: "cart/ADD_TO_CART"
-    }),
     starTimer() {
       let days = Math.floor(
         (new Date("Jul 17, 2021 11:00:00").getTime() - new Date().getTime()) /
@@ -833,22 +829,6 @@ export default {
       else if (lastNum == 2 || lastNum == 3 || lastNum == 4) days += " дня";
       else days += " дней";
       this.lastDay = days;
-    },
-    notify(title, message, type) {
-      this.$notify({
-        title,
-        message,
-        type
-      });
-    },
-    async addItem(id) {
-      await this.$axios.post("/api/add_item", {
-        session_id: this.$auth.$storage.getCookie("session_id"),
-        item_id: id,
-        streamer_id: 0
-      });
-      this.notify("Успешно", "Билет добавлен в корзину", "success");
-      await this.$store.dispatch("cart/fetchCart");
     },
     openPartnersModal() {
       document.querySelector("body").style.overflow = "hidden";

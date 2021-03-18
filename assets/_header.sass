@@ -80,9 +80,8 @@
       background: $color-yellow
       border-radius: 2px
       padding: 8px
-    &__cart
+    &__cart:not([data-num="0"])
       position: relative
-
       &::after
         position: absolute
         content: attr(data-num)
