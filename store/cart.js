@@ -17,29 +17,25 @@ export default {
           "SET_DATA",
           (await this.$axios.get(`/api/get_cart?session_id=${session_id}`)).data
         );
+        console.log((await this.$axios.get(`/api/get_cart?session_id=${session_id}`)).data);
     },
-    async addToCart({ dispatch }, { t_id, s_id = 0 }) {
+    async addItem({ state, dispatch }, { t_id, s_id = 0 }) {
       await this.$axios.post("/api/add_item", {
         session_id: this.$auth.$storage.getCookie("session_id"),
         item_id: t_id,
         streamer_id: s_id
       });
-      // this.$notify({
-      //   title: "Успешно",
-      //   message: "Билет добавлен в корзину",
-      //   type: "success"
-      // });
       dispatch("fetchCart");
     },
-    async changeQuantity({ dispatch }, { t_id, quantity }) {
-      await this.$axios.post("/api/add_item_quantity", {
+    async changeQuantity({ state, dispatch }, { t_id, quantity }) {
+      await this.$axios.post("/api/change_item_quantity", {
         session_id: this.$auth.$storage.getCookie("session_id"),
         item_id: t_id,
         quantity
       });
       dispatch("fetchCart");
     },
-    async delete({ dispatch }, { t_id }) {
+    async deleteItem({ state, dispatch }, { t_id }) {
       await this.$axios.post("/api/delete_item", {
         session_id: this.$auth.$storage.getCookie("session_id"),
         item_id: t_id
@@ -87,9 +83,9 @@ export default {
     cart({ data }) {
       return data;
     },
-    cartCount({ data: { tickets } }) {
-      return tickets
-        ? tickets.reduce((acc, { quantity }) => acc + quantity, 0)
+    cartCount({ data: { cartitem_set } }) {
+      return cartitem_set
+        ? cartitem_set.reduce((acc, { quantity }) => acc + quantity, 0)
         : 0;
     }
   }

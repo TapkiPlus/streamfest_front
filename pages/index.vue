@@ -123,17 +123,17 @@
         <div class="tickets-desktop">
           <div
             class="tickets-item"
-            v-for="{ id, is_one_day, price } in tickets"
+            v-for="{ id, days_qty, price } in tickets"
             :key="id"
           >
             <div class="tickets-item__wrapper">
-              <p v-if="is_one_day" class="tickets-item__days">
+              <p v-if="days_qty === 1" class="tickets-item__days">
                 Билет на один из дней 17&nbsp;или&nbsp;18&nbsp;июля
               </p>
               <p v-else class="tickets-item__days">
                 Билет на оба дня 17&nbsp;и&nbsp;18&nbsp;июля
               </p>
-              <ul v-if="is_one_day" class="tickets-item__list">
+              <ul v-if="days_qty === 1" class="tickets-item__list">
                 <li class="tickets-item__list--item checked">
                   Хайп, веселье, конкурсы
                 </li>
@@ -169,15 +169,15 @@
             <div class="tickets-item__bottom">
               <p class="tickets-item__price">{{ price }} ₽</p>
               <button
-                v-if="is_one_day"
-                @click="$store.dispatch('cart/addToCart', { t_id: id })"
+                v-if="days_qty === 1"
+                @click="addItem(id)"
                 class="tickets-item__button"
               >
                 СКОРО — БИЛЕТ<br />НА 1 ДЕНЬ
               </button>
               <button
                 v-else
-                @click="$store.dispatch('cart/addToCart', { t_id: id })"
+                @click="addItem(id)"
                 class="tickets-item__button tickets-item__button_red"
               >
                 СКОРО — БИЛЕТ<br />НА 2 ДНЯ
@@ -189,18 +189,18 @@
           <client-only>
             <swiper :options="ticketsOptions">
               <swiper-slide
-                v-for="{ id, is_one_day, price } in tickets"
+                v-for="{ id, days_qty, price } in tickets"
                 :key="id"
               >
                 <div class="tickets-item">
                   <div class="tickets-item__wrapper">
-                    <p v-if="is_one_day" class="tickets-item__days">
+                    <p v-if="days_qty === 1" class="tickets-item__days">
                       Билет на один из дней 17&nbsp;или&nbsp;18&nbsp;июля
                     </p>
                     <p v-else class="tickets-item__days">
                       Билет на оба дня 17&nbsp;и&nbsp;18&nbsp;июля
                     </p>
-                    <ul v-if="is_one_day" class="tickets-item__list">
+                    <ul v-if="days_qty === 1" class="tickets-item__list">
                       <li class="tickets-item__list--item checked">
                         Хайп, веселье, конкурсы
                       </li>
@@ -238,15 +238,15 @@
                   <div class="tickets-item__bottom">
                     <p class="tickets-item__price">{{ price }} ₽</p>
                     <button
-                      v-if="is_one_day"
-                      @click="$store.dispatch('addToCart', { t_id: id })"
+                      v-if="days_qty === 1"
+                      @click="addItem(id)"
                       class="tickets-item__button"
                     >
                       СКОРО — БИЛЕТ<br />НА 1 ДЕНЬ
                     </button>
                     <button
                       v-else
-                      @click="$store.dispatch('addToCart', { t_id: id })"
+                      @click="addItem(id)"
                       class="tickets-item__button tickets-item__button_red"
                     >
                       СКОРО — БИЛЕТ<br />НА 2 ДНЯ
@@ -735,11 +735,11 @@ export default {
     Subscribe
   },
   async asyncData({ $axios }) {
-    const get_streamers = await $axios.get("/api/get_streamers?at_home=show");
-    const get_tickets = await $axios.get("/api/get_tickets");
-    const streamers = get_streamers.data;
+    // const get_streamers = await $axios.get("/api/get_streamers?at_home=show");
+    const get_tickets = await $axios.get("/api/get_ticket_types");
+    // const streamers = get_streamers.data;
     const tickets = get_tickets.data;
-    return { streamers, tickets };
+    return { tickets };
   },
   data() {
     return {
@@ -819,6 +819,13 @@ export default {
     document.body.appendChild(script);
   },
   methods: {
+    notify(title, message, type) {
+      this.$notify({
+        title: title,
+        message: message,
+        type: type
+      });
+    },
     starTimer() {
       let days = Math.floor(
         (new Date("Jul 17, 2021 11:00:00").getTime() - new Date().getTime()) /
@@ -829,6 +836,12 @@ export default {
       else if (lastNum == 2 || lastNum == 3 || lastNum == 4) days += " дня";
       else days += " дней";
       this.lastDay = days;
+    },
+    async addItem(t_id) {
+      await this.$store.dispatch("cart/addItem", {
+        t_id
+      });
+     this.notify("Успешно", "Билет добавлен в корзину", "success");
     },
     openPartnersModal() {
       document.querySelector("body").style.overflow = "hidden";

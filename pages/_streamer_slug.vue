@@ -46,12 +46,7 @@
             <button
               v-for="{ id, is_one_day } in tickets"
               :key="id"
-              @click="
-                $store.dispatch('cart/addToCart', {
-                  t_id: id,
-                  s_id: streamer.id
-                })
-              "
+              @click="addItem(id, streamer.id)"
               class="streamer-bottom__button "
               :class="[
                 is_one_day
@@ -85,7 +80,7 @@ export default {
         `/api/get_streamer?name_slug=${params.streamer_slug}`
       );
       const streamer = get_streamer.data;
-      const get_tickets = await $axios.get(`/api/get_tickets`);
+      const get_tickets = await $axios.get(`/api/get_ticket_types`);
       const tickets = get_tickets.data;
       return { streamer, tickets };
     } catch (error) {
@@ -99,6 +94,13 @@ export default {
         message: message,
         type: type
       });
+    },
+    async addItem(t_id, s_id) {
+      await this.$store.dispatch("cart/addItem", {
+        t_id,
+        s_id
+      });
+       this.notify("Успешно", "Билет добавлен в корзину", "success");
     }
   }
 };

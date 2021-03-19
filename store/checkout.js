@@ -5,35 +5,45 @@ export default {
     };
   },
   mutations: {
+    INIT_FORM(state, payload) {
+      state.form = payload;
+    },
     SET_FORM(state, { key, value }) {
       state.form[key] = value;
     }
   },
   actions: {
-    saveInput({ commit }, input) {
-      commit("SET_FORM", input);
-      let storage = JSON.parse(localStorage.getItem("checkoutForm"));
-      storage = storage
-        ? [...storage.filter(item => item.key !== key), input]
-        : input;
-      localStorage.setItem("checkoutForm", JSON.stringify(storage));
+    async getFormValues({ commit }) {
+      commit(
+        "INIT_FORM",
+        await this.$axios.get(
+          `/api/get_user_data?session_id=${this.$auth.$storage.getCookie(
+            "session_id"
+          )}`
+        )
+      );
+    },
+    saveInput({ commit }, { key, value }) {
+      this.$axios.post("/api/save_user_data", {
+        session_id: this.$auth.$storage.getCookie("session_id"),
+        [key]: value
+      });
+      commit("SET_FORM", { key, value });
     },
     async getPayLink({ state: { form } }) {
       const { firstname, lastname, email, phone } = form;
-      if (Object.entries(form).length === 0) return false;
-      return (
-        await $axios.post("", {
+      if (!firstname || !lastname || !email || !phone) return false;
+      const url = (
+        await $axios.post("/api/create_order", {
           firstname,
           lastname,
           email,
           phone
         })
       ).data;
+      if (url) window.location.href = url;
+      else return false;
     }
   },
-  getters: {
-    formValues() {
-      return JSON.parse(localStorage.getItem("checkoutForm"));
-    }
-  }
+  getters: {}
 };

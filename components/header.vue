@@ -83,7 +83,7 @@ export default {
   mounted() {
     window.addEventListener("scroll", this.updateScroll);
     this.isHomePage = this.$route.path === "/";
-    this.$auth.$storage.getCookie("session_id")
+    this.$auth.$storage.getCookie("session_id") 
       ? this.$store.dispatch("cart/fetchCart")
       : this.$auth.$storage.setCookie("session_id", this.uuidv4());
   },

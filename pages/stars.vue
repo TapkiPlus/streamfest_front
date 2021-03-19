@@ -48,15 +48,10 @@ export default {
   async asyncData({ $axios }) {
     const get_streamers = await $axios.get(
       `/api/get_streamers?at_home=not_show`
-    );
+    ); 
+    console.log(get_streamers);
     const streamers = get_streamers.data;
     return { streamers };
   },
-  data() {
-    return {};
-  },
-  watch: {},
-  mounted() {},
-  methods: {}
 };
 </script>
