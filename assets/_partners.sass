@@ -93,7 +93,7 @@
       img
         margin-left: 0
         margin-right: 0
-        margin-bottom: 13px
+        margin-bottom: 25px
       &.general,
       &.official,
       &.tematic
@@ -140,3 +140,16 @@
           max-width: 160px
           width: 100%
           height: auto
+@media screen and (max-width: 360px)
+  .partners
+    &-img
+      &.general,
+      &.official,
+      &.tematic
+        a
+          margin: 0 !important
+          width: 50%
+          display: flex
+          justify-content: center
+          align-items: center
+

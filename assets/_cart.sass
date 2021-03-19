@@ -107,7 +107,7 @@
       cursor: pointer
       width: 360px
       font-weight: bold
-      padding: 15px 0px
+      padding: 15px 0
       font-size: 18px
       &:focus
         outline: 0
@@ -273,6 +273,11 @@
         .total
           color: #0D6DD8
           +h2
+      &--bottom
+        border-top: none
+        margin-top: 0
+        margin-bottom: 25px
+
     &__empty
       min-height: 50vh
       display: flex
@@ -359,7 +364,11 @@
           +h5-bold
         svg
           filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.12))
+          &._disabled
+            rect:last-child
+              fill: #BAC8CF
     &__item
+
       padding: 25px 0
       position: relative
       border-bottom: 1px solid $gray

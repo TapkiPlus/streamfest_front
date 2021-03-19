@@ -119,7 +119,7 @@ export default {
     const script = document.createElement("script");
     script.onload = () => {
       VK.Widgets.CommunityMessages("vk_community_messages", 122887579, {
-        tooltipButtonText: "Я отвечалка, ткни меня"
+        tooltipButtonText: "Я отвечалка, ткни меня!"
       });
       VK.Widgets.Group(
         "vk_groups",

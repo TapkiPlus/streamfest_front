@@ -455,9 +455,6 @@ export default {
         { text: "ПРЯМАЯ ЛИНИЯ: напиши Стримфесту в личку!" },
         -122887579
       );
-      VK.Widgets.CommunityMessages("vk_community_messages", 122887579, {
-        tooltipButtonText: "Ткни меня!"
-      });
     };
     script.src = "https://vk.com/js/api/openapi.js?168";
     document.body.appendChild(script);
