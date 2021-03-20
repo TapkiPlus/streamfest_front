@@ -35,6 +35,7 @@ export default {
       if (!firstname || !lastname || !email || !phone) return false;
       const url = (
         await $axios.post("/api/create_order", {
+          session_id: this.$auth.$storage.getCookie("session_id"),
           firstname,
           lastname,
           email,
