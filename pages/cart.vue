@@ -16,10 +16,10 @@
         </div>
       </div>
       <div class="cart-container">
-        <div v-if="items_in_cart.tickets.length > 0">
+        <div v-if="items_in_cart.cartitem_set.length > 0">
           <div
             class="cart-row"
-            v-for="item in items_in_cart.tickets"
+            v-for="item in items_in_cart.cartitem_set"
             :key="item.id"
           >
             <div @click="delItem(item.id)" class="cart-row__delete">
@@ -29,7 +29,7 @@
               <img src="/oneday.png" alt="" />
               <p>
                 {{
-                  item.ticket.is_one_day
+                  item.ticket_type.days_qty === 1
                     ? "Билет на один день"
                     : "Билет на два дня"
                 }}
@@ -39,14 +39,14 @@
               <img src="/oneday.png" alt="" />
               <p>
                 {{
-                  item.ticket.is_one_day
-                    ? `Билет на один день от ${item.streamer.name}`
-                    : `Билет на два дня от ${item.streamer.name}`
+                  item.ticket_type.days_qty === 1
+                    ? `Билет на один день от ${item.streamer}`
+                    : `Билет на два дня от ${item.streamer}`
                 }}
               </p>
             </div>
             <div class="cart-row__price">
-              <p>{{ item.ticket.price }} руб.</p>
+              <p>{{ item.ticket_type.price }} руб.</p>
             </div>
             <div class="cart-row__quantity">
               <svg @click="delItemQ(item.id)" width="20px" height="20px">
@@ -66,7 +66,7 @@
               </svg>
             </div>
             <div class="cart-row__total">
-              <p>{{ item.ticket.price * item.quantity }} руб.</p>
+              <p>{{ item.ticket_type.price * item.quantity }} руб.</p>
             </div>
           </div>
         </div>
@@ -78,9 +78,9 @@
       <div class="cart-container">
         <div class="cart-button">
           <button
-            :disabled="items_in_cart.tickets.length === 0"
+            :disabled="items_in_cart.cartitem_set.length === 0"
             @click="$router.push('/checkout')"
-          > 
+          >
             перейти к оформлению
           </button>
           <div class="cart-button__total">
@@ -118,38 +118,11 @@
 export default {
   scrollToTop: true,
   // auth: true,
-
-  data() {
-    return {};
-  },
-  watch: {},
-  mounted() {},
-  methods: {
-    async addItemQ(id) {
-      await this.$axios.post("/api/add_item_quantity", {
-        session_id: this.$auth.$storage.getCookie("session_id"),
-        item_id: id
-      });
-      await this.$store.dispatch("cart/fetchCart");
-    },
-    async delItemQ(id) {
-      await this.$axios.post("/api/delete_item_quantity", {
-        session_id: this.$auth.$storage.getCookie("session_id"),
-        item_id: id
-      });
-      await this.$store.dispatch("cart/fetchCart");
-    },
-    async delItem(id) {
-      await this.$axios.post("/api/delete_item", {
-        session_id: this.$auth.$storage.getCookie("session_id"),
-        item_id: id
-      });
-      await this.$store.dispatch("cart/fetchCart");
-    }
-  },
+  methods: {},
   computed: {
     items_in_cart() {
-      return this.$store.getters["cart/getCart"];
+      console.log(this.$store.getters["cart/cart"]);
+      return this.$store.getters["cart/cart"];
     }
   }
 };

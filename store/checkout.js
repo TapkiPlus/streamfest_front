@@ -23,7 +23,7 @@ export default {
         )
       );
     },
-    saveInput({ commit }, { key, value }) {
+    saveData({ commit }, { key, value }) {
       this.$axios.post("/api/save_user_data", {
         session_id: this.$auth.$storage.getCookie("session_id"),
         [key]: value
