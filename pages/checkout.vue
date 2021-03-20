@@ -114,7 +114,8 @@ export default {
         phone: this.userData.phone
       });
       console.log(responce.data);
-      this.temp = responce.data.tickets;
+      // this.temp = responce.data.tickets;
+      window.location.href = responce.data;
       await this.$store.dispatch("cart/fetchCart");
     }
   },
