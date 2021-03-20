@@ -42,7 +42,7 @@
           margin-bottom: 0
         &::before
           position: absolute
-          content: url(/not_c.png)
+          content: url(/not-c.png)
           left: -20px
         &.checked
           &::before
@@ -79,9 +79,9 @@
       line-height: 26px
       color: #ffffff
       width: 100%
-      font-weight: 700 
+      font-weight: 700
       text-transform: uppercase
-      background: $color-yellow 
+      background: $color-yellow
       border-radius: 8px
       padding: 19px
       text-align: center
@@ -90,33 +90,138 @@
        background: linear-gradient(90deg, #ec463e 0%, #d01a14 50%, #ff4d35 100%)
 
 @media screen and (max-width: 935px)
-  .tickets  
+  .tickets
     &-desktop
       grid-gap: 50px
-    &-item 
+    &-item
       padding-left: 50px
       padding-right: 50px
 
 @media screen and (max-width: 800px)
-  .tickets  
+  .tickets
     &-desktop
       grid-gap: 40px
-    &-item 
+    &-item
       padding-left: 40px
       padding-right: 40px
 
 @media screen and (max-width: 730px)
-  .tickets  
+  .tickets
+    background: url(/bg-tickets.png) no-repeat 0 0 / cover
+    margin-bottom: 0
+    .section-header
+      padding: 0 20px
+      margin-bottom: 25px
     &-wrapper
       display: block
+      padding-bottom: 0
+      margin-bottom: 25px
     &-desktop
       display: none
     &-mobile
-      max-width: 450px
+      max-width: 100%
       display: block
       margin: 0 auto
-    &-item 
+    .swiper-slide
+      min-width: 310px
+      padding: 77px 5px 0 15px
+      position: static
+      &:nth-child(even)
+        .tickets-item
+          background: linear-gradient(160.42deg, #FFC133 0%, #FF9900 47.49%, #FF9900 97.78%)
+          &:before
+            position: absolute
+            content: url("/cats/cat_ticket_2.svg")
+
+    &-item
+      filter: drop-shadow(6px 6px 12px rgba(0, 0, 0, 0.12))
       padding-left: 27px
       padding-right: 27px
+      -webkit-border-radius: 10px
+      -moz-border-radius: 10px
+      border-radius: 10px
+      position: relative
+      background: linear-gradient(158.58deg, #35A3FF 1.75%, rgba(13, 109, 216, 0.73) 34.58%, rgba(13, 109, 216, 0.83) 67.94%, #33A0FD 98.95%), #3C78FE
+      &:before
+        position: absolute
+        top: -77px
+        left: 50%
+        transform: translateX(-50%)
+        content: url("/cats/cat_ticket_1.svg")
+      &__days
+        text-align: center
+        +h2
+        line-height: 1.65
+      &__list
+        margin-bottom: 0
+        &--item
+          padding-left: 10px
+          margin-bottom: 25px
+          +h5
+          &::before
+            top: 50%
+            transform: translateY(-50%)
+            content: ''
+            background: url(/not-c.svg) 0 0 no-repeat
+            width: 20px
+            height: 20px
+          &.checked
+            &::before
+              content: ''
+              background: url(/check.svg) 0 0 no-repeat
+      &__button
+        +h3
+        color: #a7a7a7
+        border-radius: 25px
+        height: 50px
+        padding: 0
+        display: flex
+        align-items: center
+        justify-content: center
+        background: linear-gradient(90deg, #E94139 0%, #D01A14 50.2%, #FA4731 100%), linear-gradient(90deg, #FFC133 0%, #FFB800 50.2%, #FAFF00 100%), linear-gradient(90deg, #FFC133 0%, #DA9D00 32.62%, #DA9D00 61.58%, #FAFF00 98.31%), #FFC133
+        &.btn-disable
+          background: transparent
+          border: 1px solid #fff
+          color: #ffffff
+          opacity: .66
+      &__price
+        margin-bottom: 5px
+
+        font-size: 32px
+        line-height: 1.65
+        &:before, &:after
+          width: 68px
+      &__soon
+        color: #ffffff
+        +h5
+        text-align: center
+        margin-bottom: 10px
     &-pagination
       display: block
+      margin-top: 25px
+      .swiper-pagination-bullet
+        width: 20px
+        height: 20px
+        background: transparent
+        border: 1px solid #166FE0
+        opacity: 1
+        position: relative
+        margin: 0 20px 0 0
+        &-active
+          &:after
+            content: ''
+            position: absolute
+            top: 2px
+            right: 2px
+            display: block
+            bottom: 2px
+            left: 2px
+            -webkit-border-radius: 50%
+            -moz-border-radius: 50%
+            border-radius: 50%
+            background: radial-gradient(50% 50% at 50% 50%, #2A92F3 0%, #166FE0 100%)
+
+@media screen and (max-width: 374px)
+  .tickets
+    .swiper-slide
+      padding: 77px 5px 0

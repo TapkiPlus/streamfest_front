@@ -1,11 +1,12 @@
 <template>
   <section class="cart">
+    <h4 class="cart__title">Корзина</h4>
     <div class="container">
       <div class="cart-logo ">
         <img src="/logo_b.png" alt="" />
       </div>
       <div class="cart-container ">
-        <p class="cart-status success">Строка состояния на случай ошибки</p>
+        <p class="cart-status success _active">Строка состояния на случай ошибки</p>
       </div>
       <div class="cart-header">
         <div class="cart-container cart-header__inner">
@@ -16,7 +17,187 @@
         </div>
       </div>
       <div class="cart-container">
-        <div v-if="items_in_cart.tickets.length > 0">
+
+        <div class="cart__full">
+          <div class="cart__item">
+            <div class="cart-row">
+              <div @click="delItem(item.id)" class="cart-row__delete">
+                <img draggable="false" src="/delete.svg" alt="" />
+              </div>
+              <div class="cart-row__icon">
+                <img src="/oneday.svg" alt="" />
+              </div>
+              <div class="cart__body">
+
+                <div class="cart-row__name">
+                  <p>
+                    Билет на Стримфест 2021 на 1 день
+                  </p>
+                </div>
+                <div class="cart-row__price">
+                  <p>1300 руб.</p>
+                </div>
+              </div>
+
+              <!--            <div v-else class="cart-row__name">-->
+              <!--              <img src="/oneday.png" alt="" />-->
+              <!--              <p>-->
+
+              <!--                ? "Билет на один день"-->
+              <!--                : "Билет на два дня"-->
+              <!--              </p>-->
+              <!--            </div>-->
+
+              <div class="cart-row__quantity">
+                <svg @click="delItemQ(item.id)" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="24" height="24" rx="2" fill="white"/>
+                  <rect x="5" y="11" width="14" height="2" rx="1" fill="#C4C4C4"/>
+                  <rect x="5" y="11" width="14" height="2" rx="1" fill="#676767"/>
+                </svg>
+                <p>1</p>
+                <svg @click="addItemQ(item.id)" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="24" height="24" rx="2" fill="white"/>
+                  <rect x="5" y="11" width="14" height="2" rx="1" fill="#676767"/>
+                  <rect x="13" y="5" width="14" height="2" rx="1" transform="rotate(90 13 5)" fill="#676767"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="cart__item">
+            <div class="cart-row">
+              <div @click="delItem(item.id)" class="cart-row__delete">
+                <img draggable="false" src="/delete.svg" alt="" />
+              </div>
+              <div class="cart-row__icon">
+                <img src="/twoday.svg" alt="" />
+              </div>
+              <div class="cart__body">
+
+                <div class="cart-row__name">
+                  <p>
+                    Билет на Стримфест&nbsp;2021 на 2&nbsp;дня
+                  </p>
+                </div>
+                <div class="cart-row__price">
+                  <p>1300&nbsp;руб.</p>
+                </div>
+              </div>
+
+              <!--            <div v-else class="cart-row__name">-->
+              <!--              <img src="/oneday.png" alt="" />-->
+              <!--              <p>-->
+
+              <!--                ? "Билет на один день"-->
+              <!--                : "Билет на два дня"-->
+              <!--              </p>-->
+              <!--            </div>-->
+
+              <div class="cart-row__quantity">
+                <svg @click="delItemQ(item.id)" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="24" height="24" rx="2" fill="white"/>
+                  <rect x="5" y="11" width="14" height="2" rx="1" fill="#C4C4C4"/>
+                  <rect x="5" y="11" width="14" height="2" rx="1" fill="#676767"/>
+                </svg>
+                <p>1</p>
+                <svg @click="addItemQ(item.id)" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="24" height="24" rx="2" fill="white"/>
+                  <rect x="5" y="11" width="14" height="2" rx="1" fill="#676767"/>
+                  <rect x="13" y="5" width="14" height="2" rx="1" transform="rotate(90 13 5)" fill="#676767"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="cart__item">
+            <div class="cart-row">
+              <div @click="delItem(item.id)" class="cart-row__delete">
+                <img draggable="false" src="/delete.svg" alt="" />
+              </div>
+              <div class="cart-row__icon">
+                <img src="/oneday-star.svg" alt="" />
+              </div>
+              <div class="cart__body">
+
+                <div class="cart-row__name">
+                  <p>
+                    Красный пропуск на Стримфест 2021 на 1&nbsp;день от Hard Play and someone
+                  </p>
+                </div>
+                <div class="cart-row__price">
+                  <p>1300 руб.</p>
+                </div>
+              </div>
+
+              <!--            <div v-else class="cart-row__name">-->
+              <!--              <img src="/oneday.png" alt="" />-->
+              <!--              <p>-->
+
+              <!--                ? "Билет на один день"-->
+              <!--                : "Билет на два дня"-->
+              <!--              </p>-->
+              <!--            </div>-->
+
+              <div class="cart-row__quantity">
+                <svg @click="delItemQ(item.id)" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="24" height="24" rx="2" fill="white"/>
+                  <rect x="5" y="11" width="14" height="2" rx="1" fill="#C4C4C4"/>
+                  <rect x="5" y="11" width="14" height="2" rx="1" fill="#676767"/>
+                </svg>
+                <p>1</p>
+                <svg @click="addItemQ(item.id)" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="24" height="24" rx="2" fill="white"/>
+                  <rect x="5" y="11" width="14" height="2" rx="1" fill="#676767"/>
+                  <rect x="13" y="5" width="14" height="2" rx="1" transform="rotate(90 13 5)" fill="#676767"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="cart__item">
+            <div class="cart-row">
+              <div @click="delItem(item.id)" class="cart-row__delete">
+                <img draggable="false" src="/delete.svg" alt="" />
+              </div>
+              <div class="cart-row__icon">
+                <img src="/twoday-star.svg" alt="" />
+              </div>
+              <div class="cart__body">
+
+                <div class="cart-row__name">
+                  <p>
+                    Красный пропуск на Стримфест 2021 на 2&nbsp;дня от Hard Play and someone
+                  </p>
+                </div>
+                <div class="cart-row__price">
+                  <p>1300 руб.</p>
+                </div>
+              </div>
+
+              <!--            <div v-else class="cart-row__name">-->
+              <!--              <img src="/oneday.png" alt="" />-->
+              <!--              <p>-->
+
+              <!--                ? "Билет на один день"-->
+              <!--                : "Билет на два дня"-->
+              <!--              </p>-->
+              <!--            </div>-->
+
+              <div class="cart-row__quantity">
+                <svg @click="delItemQ(item.id)" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="24" height="24" rx="2" fill="white"/>
+                  <rect x="5" y="11" width="14" height="2" rx="1" fill="#C4C4C4"/>
+                  <rect x="5" y="11" width="14" height="2" rx="1" fill="#676767"/>
+                </svg>
+                <p>1</p>
+                <svg @click="addItemQ(item.id)" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="24" height="24" rx="2" fill="white"/>
+                  <rect x="5" y="11" width="14" height="2" rx="1" fill="#676767"/>
+                  <rect x="13" y="5" width="14" height="2" rx="1" transform="rotate(90 13 5)" fill="#676767"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div v-if="items_in_cart.tickets.length < 0">
           <div
             class="cart-row"
             v-for="item in items_in_cart.tickets"
@@ -70,27 +251,33 @@
             </div>
           </div>
         </div>
-        <div v-else>
+
+
+
+        <div v-else class="cart__empty">
+          <img src="/cart-big.svg" alt="">
           <p class="cart-row ">Ваша корзина пока что пуста</p>
+          <a href="/#tickets" class="btn">Выбрать билет </a>
         </div>
       </div>
-      <div class="separator"></div>
-      <div class="cart-container">
-        <div class="cart-button">
+
+
+      <div class="cart-container ">
+        <div class="cart-button" >
           <button
             :disabled="items_in_cart.tickets.length === 0"
             @click="$router.push('/checkout')"
-          > 
-            перейти к оформлению
+          >
+            Перейти к оформлению
           </button>
           <div class="cart-button__total">
             <p>Общая стоимость:</p>
-            <p>{{ items_in_cart.total_price }}р</p>
+            <p class="total">{{ items_in_cart.total_price }} ₽</p>
           </div>
         </div>
-
+        <div class="separator separator--thin"></div>
         <p>
-          <b>Количество билетов ограничено</b>, и чем ближе к Стримфесту, тем
+          <b>Количество билетов ограничено,</b> и чем ближе к Стримфесту, тем
           дороже они будут.<br /><br />
           <b>Билет — это QR-код</b>, который придет вам на email после оплаты.
           При входе на фестиваль билет считывается и гасится, а вы получаете
@@ -109,6 +296,16 @@
           <b>Баффы, полученные на фестивале</b>, действуют 8759 часов и множатся
           в зависимости от количества приведенных друзей ;)
         </p>
+        <div class="cart-button" >
+          <button
+            :disabled="items_in_cart.tickets.length === 0"
+            @click="$router.push('/checkout')"
+          >
+            Перейти к оформлению
+          </button>
+
+        </div>
+        <div class="separator separator--thin"></div>
       </div>
     </div>
   </section>
@@ -120,7 +317,9 @@ export default {
   // auth: true,
 
   data() {
-    return {};
+    return {
+      isCartPage: true,
+    };
   },
   watch: {},
   mounted() {},

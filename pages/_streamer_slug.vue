@@ -1,14 +1,15 @@
 <template>
   <section class="streamer">
+    <div class="pattern-bg"></div>
     <div class="container ">
       <div class="streamer-top">
         <div
           class="streamer-top__avatar"
-          :style="`background: url(${streamer.photo})`"
+          :style="`background-image: url(${streamer.photo})`"
         ></div>
         <div
           class="streamer-top__big"
-          :style="`background: url(${streamer.pageHeader})`"
+          :style="`background-image: url(${streamer.pageHeader})`"
         ></div>
       </div>
       <div class="streamer-container">
@@ -54,11 +55,12 @@
                   : 'streamer-bottom__button--red'
               ]"
             >
+
               <p>
-                скоро
-                {{ ticket.is_one_day ? "билет на 1 день" : "билет на 2 дня" }}
+                {{ ticket.is_one_day ? " купить билет на 1 день" : "купить билет на 2 дня" }}
               </p>
               <p>от {{ streamer.nickName }}</p>
+
             </div>
           </div>
           <p class="streamer-bottom__text">

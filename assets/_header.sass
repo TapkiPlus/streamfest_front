@@ -1,3 +1,4 @@
+@import "mixin"
 .header
   //background: rgb(0,89,201)
   //background: linear-gradient(90deg, rgba(0,89,201,1) 0%, rgba(43,181,255,1) 18%, rgba(0,89,201,1) 100%)
@@ -7,7 +8,7 @@
   transition: all .2s linear
   position: absolute
   left: 0
-  right: 0 
+  right: 0
   height: 90px
   z-index: 100
   &.header-bg
@@ -21,7 +22,7 @@
   &.header-prepare-sticky
     top: -90px
     transition: all .2s linear
-  &.header-sticky 
+  &.header-sticky
     position: fixed
     transition: all .2s linear
     top: 0
@@ -47,6 +48,8 @@
       justify-content: space-between
       li
         position: relative
+        &:first-child
+          display: none
         &.navItemActive
 
           &::after
@@ -68,9 +71,10 @@
         a
           color: #FFFFFF
           font-size: 18px
-  &-button
+  &__button
     flex-grow: 1
     text-align: right
+    display: none
     a
       display: inline-block
       font-size: 14px
@@ -80,7 +84,7 @@
       background: $color-yellow
       border-radius: 2px
       padding: 8px
-    &__cart
+    &--cart
       position: relative
 
       &::after
@@ -99,13 +103,14 @@
         top: -5px
 
 .hamburger
-  width: 14px
-  height: 12px
+  width: 35px
+  height: 26px
   position: relative
   display: none
   cursor: pointer
   overflow: hidden
   margin: 0 7px 0 2px
+  text-align: right
   &.active
     .bar
       &-1,
@@ -115,8 +120,10 @@
         left: 50%
       &-2
         transform: rotate(45deg)
+        width: 35px
       &-3
         transform: rotate(-45deg)
+        width: 35px
     + .header-nav
         visibility: visible
         opacity: 1
@@ -130,52 +137,105 @@
   left: 0
   transition: .2s ease-in-out
   border-radius: 1px
-  &-1 
+  &-1
     top: 0
   &-2,
   &-3
-    top: 5px
+    width: 25px
+    top: 12px
+    left: auto
+    right: 0
+
   &-4
-    top: 10px
+    top: 24px
 
 @media screen and (max-width: 768px)
   .header
+    padding: 18px 0 15px
+    height: auto
+    &.header-bg
+      position: fixed
+      margin-bottom: 0
+      background: linear-gradient(180deg, #0D6DD8 0%, rgba(13, 109, 216, 0.580271) 50.85%, rgba(13, 109, 216, 0) 100%)
+      + .cart.cart-checkout
+        padding-top: 115px
+      + section, + .cart, + .faq, + .location
+        padding-top: 70px
+
+    &__title
+
+      width: 100%
+      margin-top: 20px
+      +h4
+      color: #fff
+      text-align: center
+      text-transform: uppercase
     &-logo
       flex-grow: 0
+      display: inline
+      z-index: 2
+      img
+        max-width: 80px
     &-nav
+      position: fixed
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
       transition: opacity .2s linear,top .2s linear,visibility .2s linear
       visibility: hidden
       opacity: 0
-      border: 1px solid rgba(169,198,204,.41)
-      box-shadow: 0 1px 5px rgba(0,0,0,.14)
-      display: block
-      right: 6px
-      top: 80px
-      color: #878787
-      z-index: 100
-      position: absolute
-      background-color: #fff
-      width: 155px
-      padding: 7px 0
-      border-radius: 3px
-      &::before
-        bottom: 100%
-        right: 16px
-        border: 7px solid transparent
-        content: " "
-        height: 0
-        width: 0
-        position: absolute
-        border-bottom-color: #fff
+      display: flex
+      flex-wrap: wrap
+      align-items: center
+      justify-content: center
+      background: url(/bg-nav.png)
+      color: #ffffff
+      padding: 80px 20px 0
+      z-index: 1
       ul
-        align-items: flex-start
+        display: flex
         flex-direction: column
-        li a
-          color: #878787
-          padding: 9px 23px
-          border: none
-          font-size: 13px
-          width: 100%
-          display: block
+        align-items: center
+        width: 100%
+        li
+          margin-bottom: 30px
+          display: inline-block
+          text-align: center
+          &:first-child
+            display: inline-block
+          a
+            +h2
+            color: #ffffff
+            border: none
+            width: 100%
+            display: block
+            text-align: center
+    &.header-sticky
+      background: linear-gradient(180deg, #0D6DD8 0%, rgba(13, 109, 216, 0.580271) 50.85%, rgba(13, 109, 216, 0) 100%)
+    &__button
+      width: 100%
+      text-transform: uppercase
+      display: flex
+      justify-content: center
+      color: #fff
+      align-items: center
+      background: linear-gradient(0deg, #FFA800, #FFA800), #FFC133
+      border-radius: 50px
+      text-align: center
+      padding: 7px 35px 6px
+      max-width: 335px
+      +h3
+      height: 55px
+      &--cart
+        &:after
+          position: relative
+          right: auto
+          top: auto
+          width: 26px
+          height: 26px
+          margin-left: 10px
+          +h5-bold
   .hamburger
     display: block
+    z-index: 2

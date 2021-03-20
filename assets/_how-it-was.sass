@@ -11,7 +11,7 @@
     margin-bottom: 28px
   & .separator
     margin: 60px auto
-  &-photos 
+  &-photos
     margin-bottom: 52px
     section
       display: flex
@@ -23,7 +23,7 @@
       display: flex
       justify-content: center
       margin: 0 7.5px 15px
-      
+
   &-photo
     cursor: pointer
     width: 390px
@@ -32,15 +32,49 @@
 
 @media screen and (max-width: 900px)
   .how-it-was
-    &-photos 
+    &-photos
       .silentbox-item
         width: calc( 50% - 15px )
 
+@media screen and (max-width: 768px)
+  #silentbox-gallery
+    padding: 0
+  .how-it-was
+    position: relative
+    margin-bottom: 0
+    padding-bottom: 0
+    &:before, &:after
+      display: block
+      position: absolute
+    &:before
+      content: url(/bg-hiw-left.svg)
+      top: 0
+      left: 0
+    &:after
+      content: url(/bg-hiw-right.svg)
+      bottom: -295px
+      right: 0
+      z-index: -1
+    &-photos
+      .silentbox-item
+        margin-bottom: 25px
+      section
+        margin: 0
+    .btn
+      width: 100%
+      max-width: 360px
 @media screen and (max-width: 540px)
   .how-it-was
-      .btn
-        display: none
-
+    .section-header
+      margin-bottom: 25px
+    .btn
+      padding: 0
+      &.btn-w-icon
+        background: linear-gradient(90deg, #35A3FF 0%, #0D6DD8 68.1%, #33A0FD 100%), #C4C4C4
+    .section-subheader
+      margin: 0 0 25px 0
+    .separator
+      margin: 50px auto
 @media screen and (max-width: 500px)
   .how-it-was
     &-photos
@@ -50,3 +84,10 @@
         width: 100%
         margin-left: 0
         margin-right: 0
+  .how-it-was-photos .silentbox-item
+    img
+      min-height: 220px
+      object-fit: cover
+      display: block
+
+

@@ -1,8 +1,11 @@
 .cart
+  &__full
+    display: none
   & .separator
     margin-bottom: 39px
   &-container
-    width: 1000px
+    max-width: 1000px
+    width: 100%
     margin: 0 auto
   &-logo
     text-align: center
@@ -169,6 +172,256 @@
       &:active
         outline: none
 
+  &__empty
+    .btn, img
+      display: none
+  &__title
+    display: none
+.logo-pay--wrapper
+  display: flex
+  margin-bottom: 25px
+  width: 100%
+.logo-pay
+  margin-right: 50px
+  display: block
+
+@media screen and (max-width: 768px)
+  .cart
+    position: relative
+    padding: 0
+    margin-bottom: 0
+    overflow-y: hidden
+    &-checkout
+      padding-bottom: 50px
+    &:before, &:after
+      display: block
+      position: absolute
+      z-index: -1
+    &:before
+      content: url(/bg-cart-left.svg)
+      top: 113px
+      left: 0
+    &:after
+      content: url(/bg-cart-right.svg)
+      top: 295px
+      right: 0
+      z-index: -1
+    &__full
+      display: block
+    &__title
+      display: block
+      position: absolute
+      top: 0
+      text-transform: uppercase
+      padding-top: 70px
+      text-align: center
+      +h4
+      left: 0
+      right: 0
+      height: 113px
+    &-logo
+      display: none
+    &-status
+      height: 0
+      margin: 25px 0 25px
+      visibility: hidden
+      opacity: 0
+      text-align: center
+      display: flex
+      align-items: center
+      justify-content: center
+
+      +h6
+      &.success
+        padding: 0
+        background: #B7FF9B
+      &:before
+        display: none
+
+      &._active
+        height: auto
+        min-height: 30px
+        visibility: visible
+        opacity: 1
+        margin: 60px 0 10px
+
+    &-header
+      display: none
+    &-button
+      flex-direction: column
+      padding-top: 25px
+      border-top: 1px solid $gray
+      margin-top: 27px
+      margin-bottom: 0
+      button
+        order: 2
+        -webkit-border-radius: 25px
+        -moz-border-radius: 25px
+        border-radius: 25px
+        padding: 0
+        text-transform: none
+        height: 55px
+        width: 100%
+        background: linear-gradient(90deg, #35A3FF 0%, #0D6DD8 38.02%, #005DCE 64.58%, #33A0FD 100%), linear-gradient(90deg, #E94139 0%, #D01A14 50.2%, #FA4731 100%), linear-gradient(90deg, #FFC133 0%, #FFB800 50.2%, #FAFF00 100%), linear-gradient(90deg, #FFC133 0%, #DA9D00 32.62%, #DA9D00 61.58%, #FAFF00 98.31%), #FFC133
+      &__total
+        order: 1
+        flex-basis: auto
+        display: flex
+        justify-content: space-between
+        width: 100%
+        margin-bottom: 25px
+        .total
+          color: #0D6DD8
+          +h2
+    &__empty
+      min-height: 50vh
+      display: flex
+      justify-content: center
+      align-items: center
+      flex-direction: column
+      .cart-row
+        display: block
+        text-align: center
+        width: 100%
+        +h5-bold
+        margin-bottom: 25px
+      .btn
+        display: flex
+      img
+        display: block
+        margin: 25px 0
+    &-container
+      p
+        +h5
+        color: $color-text
+      b
+        +h5-bold
+    &-back
+      display: none
+    &-form
+      padding-top: 20px
+      margin-bottom: 25px
+      &__title
+        display: none
+      &-row
+        grid-template-columns: 1fr
+    .mb-35
+      margin-bottom: 25px
+    p>span
+      display: block
+      +h5-bold
+      margin-top: 25px
+
+    &-row
+      margin-bottom: 0
+      grid-template-columns: 76px 1fr
+      grid-template-areas: 'icon name' 'icon cost'
+      +h5
+      &__delete
+        top: 0
+        right: 0
+        left: auto
+      &__icon
+        min-width: 76px
+        img
+          width: 76px
+          height: auto
+          -webkit-border-radius: 3px
+          -moz-border-radius: 3px
+          border-radius: 3px
+          filter: drop-shadow(2px 2px 12px rgba(0, 0, 0, 0.25))
+      &__name
+        grid-area: name
+        padding-left: 14px
+        padding-right: 30px
+        align-items: flex-start
+        p
+          +h6
+      &__price
+        grid-area: cost
+        padding-left: 14px
+        text-align: left
+        margin-top: auto
+        p
+          +h5-bold
+      &__quantity
+        position: absolute
+        bottom: 0
+        right: 0
+        padding: 0
+        display: flex
+        min-width: 85px
+        align-items: center
+        justify-content: space-between
+        .quantity-btn
+          width: 24px
+        p
+          +h5-bold
+        svg
+          filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.12))
+    &__item
+      padding: 25px 0
+      position: relative
+      border-bottom: 1px solid $gray
+
+      .cart-row
+        display: flex
+      .cart__body
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+    .separator--thin
+      margin: 25px 0
+      &:before
+        height: 1px
+      &:after
+        display: none
+    + .footer
+      .footer-top
+        display: none
+      .footer-bottom
+        background: #0060cf
+      .footer-bottom-wrapper p
+        color: #ffffff
+  .cart-big-button
+    margin-bottom: 50px
+    button
+      width: 100%
+      -webkit-border-radius: 25px
+      -moz-border-radius: 25px
+      border-radius: 25px
+      height: 55px
+      +h3
+      padding: 0
+      margin-bottom: 25px
+      background: linear-gradient(90deg, #17D270 0%, #1CC16B 38.02%, #12B861 64.58%, #17D270 100%), linear-gradient(90deg, #E94139 0%, #D01A14 50.2%, #FA4731 100%), linear-gradient(90deg, #FFC133 0%, #FFB800 50.2%, #FAFF00 100%), linear-gradient(90deg, #FFC133 0%, #DA9D00 32.62%, #DA9D00 61.58%, #FAFF00 98.31%), #FFC133
+    p
+      +h6
 
 
+  .cart-form-row__item input
+    border: 1px solid #0D6DD8
+    padding: 10px 20px
+    font-style: normal
+    &::placeholder
+      font-style: normal
+      +h5
+      color: #808080
 
+  .logo-pay
+    max-width: 126px
+  .separator--thin
+    margin: 25px 0
+
+@media only screen and (max-width: 767px)
+  .logo-pay
+    margin-right: 20px
+    max-height: 30px
+
+@media only screen and (max-width: 340px)
+  .logo-pay--wrapper
+    flex-wrap: wrap
+  .logo-pay
+    width: 50%
+    margin-right: 0
+    margin-bottom: 15px

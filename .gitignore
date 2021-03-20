@@ -1,4 +1,8 @@
 node_modules
+<<<<<<< HEAD
+=======
+package-lock.json
+>>>>>>> 0d9ca8b (global fix mobile ver)
 .nuxt
 dist
 .idea

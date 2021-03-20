@@ -11,7 +11,8 @@
     <div class="container">
       <div class="header-wrapper">
         <div @click="$router.push('/')" class="header-logo">
-          <img class="logo_w" src="/logo.png" alt="" />
+          <img class="logo_w" src="/logo.svg" alt=""
+          @click="hamburgerActive = false"/>
         </div>
         <div
           @click="hamburgerActive = !hamburgerActive"
@@ -29,6 +30,7 @@
             <li
               v-for="nav_item in nav_items"
               :key="nav_item.id"
+              @click="hamburgerActive = false"
               :class="[
                 $route.path === nav_item.url
                   ? nav_item.star
@@ -37,20 +39,30 @@
                   : ''
               ]"
             >
-              <nuxt-link :to="nav_item.url">{{ nav_item.name }}</nuxt-link>
+              <nuxt-link :to="nav_item.url" >{{ nav_item.name }}
+
+              </nuxt-link>
             </li>
           </ul>
+          <nuxt-link
+            v-if="items_in_cart.tickets.length > 0"
+            :data-num="items_in_cart.tickets.length"
+            class="header__button header__button--cart "
+            to="/cart"
+            @click="hamburgerActive = false"
+          >корзина</nuxt-link>
+          <nuxt-link
+            v-else
+            @click="hamburgerActive = false"
+            class="header__button"
+            to="/cart">
+            Купить билет
+          </nuxt-link>
+
+
+
         </div>
-        <!-- <div class="header-button">
-          <div v-if="items_in_cart.tickets.length > 0">
-            <nuxt-link
-              :data-num="items_in_cart.tickets.length"
-              class="header-button__cart"
-              to="/cart"
-              >корзина</nuxt-link
-            >
-          </div>
-        </div> -->
+
       </div>
     </div>
   </header>
@@ -62,13 +74,15 @@ export default {
   data() {
     return {
       isHomePage: null,
+      isCartPage: null,
       scrollPosition: null,
       cart: null,
       nav_items: [
-        { id: 1, name: "Участники", url: "/stars", star: true },
-        { id: 2, name: "FAQ", url: "/faq", star: false },
-        { id: 3, name: "Стать участником", url: "/how-to", star: false },
-        { id: 4, name: "Как добраться", url: "/contact", star: false }
+        { id: 1, name: "Главная", url: "/", star: false },
+        { id: 2, name: "Участники", url: "/stars", star: true },
+        { id: 3, name: "FAQ", url: "/faq", star: false },
+        { id: 4, name: "Стать участником", url: "/how-to", star: false },
+        { id: 5, name: "Как добраться", url: "/contact", star: false }
       ],
       hamburgerActive: false
     };

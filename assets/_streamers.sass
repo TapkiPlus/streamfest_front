@@ -1,3 +1,4 @@
+@import "mixin"
 .streamers
   margin-bottom: 80px
   .section-header
@@ -16,10 +17,7 @@
     cursor: pointer
     text-align: center
     img
-      width: 230px
-      height: 290px
-      object-fit: cover
-      margin-bottom: 2px
+      width: 100%
     &__nick
       font-weight: 700
       margin-bottom: 10px
@@ -38,24 +36,144 @@
 
 @media screen and (max-width: 965px)
   .streamers
+    margin-bottom: 0
+    .separator
+      margin-bottom: 0
+    .container
+      padding: 0
+    .section-header
+      padding: 0 15px
+      margin-bottom: 25px
     &-wrapper
       display: none
+
     &-slider-wrap
       display: block
-      width: 732px
-      margin: 0 auto
+      width: 100%
+      margin: 0
+      padding-left: 15px
+      height: 540px
+    .swiper-wrapper
+      width: 100%
 
-@media screen and (max-width: 920px)
-  .streamers-slider-wrap
-    width: 508px
+    .swiper-container
+      width: 100%
+      height: 100%
+    .swiper-slide
+      height: calc((100% - 20px) / 2)
+      a
+        display: block
+      .streamers
+        &-item
+          img
+            width: 100%
+            height: auto
+            filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.12))
+            -webkit-border-radius: 5px
+            -moz-border-radius: 5px
+            border-radius: 5px
+          &__nick
+            color: #0D6DD8
+            +h3
+            margin-bottom: 5px
+          &__fio
+            +h5
+            height: auto
+    .btn
+      background: linear-gradient(90deg, #35A3FF 0%, #0D6DD8 68.1%, #33A0FD 100%), #C4C4C4
+      &-w-icon
+        img
+          top: -35px
+          right: 50%
+          transform: translate(-50%)
+          width: 51px
+  .header + .streamers
 
+    .separator
+      margin: 0 20px 38px
+      width: auto
+    .section-subheader
+      margin-bottom: 38px
+      padding: 0 20px
+    .streamers
+
+      &-wrapper
+        padding: 0 20px
+        display: grid
+        grid-gap: 20px
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr))
+      &-slider-wrap
+        display: none
+      &-item
+        &__fio
+          height: auto
+        .el-image
+          overflow: visible
+          img
+            -webkit-border-radius: 5px
+            -moz-border-radius: 5px
+            border-radius: 5px
+            filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.12))
+        &__nick
+          color: #0D6DD8
+          +h3
+          margin-top: 5px
+          margin-bottom: 0
+          &__fio
+            +h5
+            height: auto
+
+//@media screen and (max-width: 920px)
+//  .streamers-slider-wrap
+//    width: 508px
+
+@media screen and (max-width: 768px)
+  .streamers
+    position: relative
+    &:before, &:after
+      display: block
+      position: absolute
+      z-index: -1
+    &:before
+      content: url(/bg-streamers-left.svg)
+      top: 0
+      left: 0
+    .swiper-slide
+      .streamers
+        &-item
+          max-width: 150px
+  .header + .streamers
+    &:before, &:after
+      display: block
+      position: absolute
+      z-index: -1
+    &:before
+      top: 2000px
+    &:after
+      content: url(/bg-streamers-right.svg)
+      top: 0
+      right: 0
 @media screen and (max-width: 700px)
   .streamers
+
+
     &-button
       &-prev,
       &-next
         display: none !important
-
+//
 @media screen and (max-width: 570px)
-  .streamers-slider-wrap
-    width: 244px
+  .header + .streamers
+    .streamers-wrapper
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr))
+
+@media screen and (max-width: 340px)
+  .streamers
+    .swiper-slide
+      .streamers-item
+        &__nick
+          font-size: 16px
+        &__fio
+          font-size: 14px
+    &-slider-wrap
+      max-height: 480px

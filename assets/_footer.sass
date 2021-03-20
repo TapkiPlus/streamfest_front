@@ -53,15 +53,31 @@
         max-width: 420px
       &-wrapper
         flex-direction: column
-      &-left 
-        margin-bottom: 60px
+      &-left
 
-
+        margin-right: 0
+        order: 2
+        p
+          +h5
+          margin-bottom: 35px
+      &-right
+        order: 1
+        margin-bottom: 25px
+        p
+          +h4
+          margin-bottom: 25px
+    &-cat
+      display: none
 @media screen and (max-width: 600px)
   .footer
     &-bottom
+      padding: 25px 0
       &-wrapper
-        font-size: 16px
+        justify-content: center
+        p
+          +h5-bold
+          color: #000000
+          text-align: center
 
 @media screen and (max-width: 480px)
   .footer

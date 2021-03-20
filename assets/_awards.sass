@@ -7,7 +7,7 @@
   & .section-header
     position: relative
     color: $color-yellow
-    margin-bottom: 20px 
+    margin-bottom: 20px
     &::before
       position: absolute
       content: url(/a_star1.png)
@@ -32,6 +32,16 @@
       content: url(/a_star3.png)
       left: -50px
       bottom: -50px
+  .btn
+    margin-top: 25px
+    background: linear-gradient(91.65deg, #FAFF00 0%, #FFBD1F 28.22%, #FFB800 73.66%, #FAFF00 100%)
+    text-transform: none
+    span
+      background: linear-gradient(90.95deg, #5C2B7C 24.89%, #9341A7 48.3%, #5A2C98 75.22%)
+      color: transparent
+      -webkit-background-clip: text
+      -webkit-text-fill-color: transparent
+
 
 @media screen and (max-width: 1300px)
   .awards
@@ -40,8 +50,17 @@
       &::after
         content: none
 
+@media screen and (max-width: 768px)
+  .awards
+    background-image: url(/bg-awards.png)
+    margin-bottom: 0
+
+
 @media screen and (max-width: 450px)
   .awards
     & .section-header
+
       &::before
         content: none
+    .section-subheader
+      margin-bottom: 25px
