@@ -33,7 +33,7 @@
       width: 12px
       height: 11px
       margin-right: 20px
-    &-2 
+    &-2
       margin-right: 15px
     &-3
       margin-right: 19px
@@ -57,7 +57,7 @@
     max-height: 0
     overflow: hidden
     transition: max-height 0.2s ease-out
-    border-bottom: 2px solid #bac8cf
+    border-bottom: 2px solid $gray
     p
       line-height: 27px
       margin-bottom: 28px
@@ -71,7 +71,7 @@
         &::before
           position: absolute
           content: ''
-          background: $color-text
+          background: #BAC8CF
           width: 6px
           height: 6px
           border-radius: 100%
@@ -98,17 +98,99 @@
       a
         color: $color-blue
 
+  .btn--vk
+    display: none
 
 @media screen and (max-width: 900px)
   .faq
     &-item
       font-size: 19px
 
+@media screen and (max-width: 768px)
+  .faq
+    padding-top: 0
+    margin-bottom: 0
+    position: relative
+    &:before, &:after
+      display: block
+      position: absolute
+    &:before
+      content: url(/bg-faq-left.svg)
+      top: 330px
+      left: 0
+    &:after
+      content: url(/bg-faq-right.svg)
+      top: 652px
+      right: 0
+      z-index: -1
+    .pattern-bg
+      top: -132px
+      opacity: 1
+      height: 375px
+      background-image: url(/patterrn-faq.png)
+    &-banner
+      margin-bottom: 25px
+      img
+        min-height: 242px
+        object-fit: cover
+        object-position: center
+    &-items
+      margin-bottom: 0
+    &-item
+      +h5-bold
+      position: relative
+      padding-left: 40px
+      display: block
+      img
+        min-width: 19px
+        height: 16px
+        object-fit: contain
+      svg
+        min-width: 20px
+
+      span
+        color: #0D6DD8
+      .faq-icon
+        position: absolute
+        left: 0
+        top: 50%
+        transform: translateY(-50%)
+        path
+          fill: $gray
+      &:after
+        display: none
+      &__inner
+        padding-left: 40px
+        p
+          margin-bottom: 15px
+          +h6
+          color: $color-text
+      &-last
+        display: flex
+        flex-direction: column
+        align-items: center
+        .faq-item
+          display: flex
+          padding: 25px 0
+          +h4
+          justify-content: center
+          margin-bottom: 0
+    .btn--vk
+      display: flex
+  .btn--vk
+    +h3
+    padding: 0
+    background: linear-gradient(90deg, #35A3FF 0%, #0D6DD8 38.02%, #005DCE 64.58%, #33A0FD 100%), #C4C4C4
+    svg
+      display: block
+      margin-left: 10px
+  .faq--how-to
+    .faq-item .faq-icon path
+      fill: #0D6DD8
 @media screen and (max-width: 400px)
   .faq
     &-item
       font-size: 17px
-      padding-left: 0px
       &-last
         text-align: center
         p

@@ -1,0 +1,64 @@
+.info
+  &-page
+    min-height: 100vh
+    height: 100%
+    background: url(/bg-success.png) 0 0 no-repeat
+    -webkit-background-size: cover
+    background-size: cover
+    + footer
+      display: none
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    color: #ffffff
+    &--error
+      background: url(/bg-error.png) center no-repeat
+      -webkit-background-size: cover
+      background-size: cover
+
+    .btn
+      background: linear-gradient(101.27deg, #FFC133 6.32%, #FFC42C 46.15%, #FF9900 87.11%)
+
+    &__content
+
+      text-align: center
+      p
+        +h5
+        margin-bottom: 25px
+        a
+          color: #ffffff
+          +h5-bold
+          text-decoration: underline
+  &__title
+    +h1
+    margin-bottom: 20px
+  &__subtitle
+    +h4
+    margin-bottom: 15px
+
+  &__number
+    background: url(/moon.svg) center no-repeat
+    -webkit-background-size: 100%
+    background-size: 100%
+    width: 112px
+    height: 112px
+    display: flex
+    justify-content: center
+    align-items: center
+    margin: 0 auto 18px
+    +h1
+    span
+      background: linear-gradient(197.42deg, #08246C 10.16%, #0C58B9 87.88%), linear-gradient(0deg, #0D6DD8, #0D6DD8)
+      color: transparent
+      -webkit-background-clip: text
+      -webkit-text-fill-color: transparent
+      text-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25)
+
+@media screen and (max-height: 425px)
+  .info-page__content
+    padding: 50px 0
+@media screen and (max-width: 320px)
+  .info-page__content
+    padding-top: 115px
+    padding-bottom: 50px

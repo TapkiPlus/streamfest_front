@@ -48,3 +48,53 @@
         height: 70px
         width: 70px
         object-fit: cover
+
+@media screen and (max-width: 768px)
+  .feedbacks
+    margin-bottom: 0
+    padding-bottom: 0
+  .feedback-item
+    max-width: 310px
+    border: 2px solid #35A3FF
+    margin-top: 50px
+    margin-bottom: 0
+    //border-image-source: linear-gradient(90deg, #35A3FF 0%, #0D6DD8 68.1%, #33A0FD 100%)
+
+
+    //  background: linear-gradient(90deg, #35A3FF 0%, #0D6DD8 68.1%, #33A0FD 100%)
+
+    -webkit-border-radius: 20px
+    -moz-border-radius: 20px
+    border-radius: 20px
+    &__inner
+      border: none
+      background-color: #fff
+      border-radius: 20px
+      padding: 65px 5px 25px
+      display: flex
+      justify-content: center
+      flex-direction: column
+      align-items: center
+      &:after
+        display: none
+    &__text
+      +h6
+      font-style: normal
+      color: $color-text
+      text-align: center
+      margin-bottom: 35px
+    &__from
+      +h5-bold
+      text-align: center
+    &__who
+      +h6
+    &__image
+      bottom: auto
+      top: -50px
+      height: auto
+      border: none
+      img
+        width: 100px
+        height: 100px
+
+

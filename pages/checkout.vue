@@ -1,5 +1,6 @@
 <template>
-  <section class="cart">
+  <section class="cart cart-checkout">
+    <h4 class="cart__title">Данные покупателя</h4>
     <div class="container">
       <div class="cart-logo ">
         <img src="/logo_b.png" alt="" />
@@ -7,57 +8,64 @@
       <div class="cart-back">
         <nuxt-link class="link" to="/cart">Назад в корзину</nuxt-link>
       </div>
-      <div class="separator"></div>
+      <div class="separator mobile-hidden"></div>
       <div class="cart-container">
         <div class="cart-form">
           <p class="cart-form__title">Данные покупателя</p>
 
           <div class="cart-form-row">
             <div
-              class="cart-form-row__item"
+              class="cart-form-row__item input__field"
               :class="{ 'item-error': nameError }"
             >
-              <p>Имя <sup>*</sup></p>
-              <input v-model="userData.name" type="text" />
+              <label>Имя <sup>*</sup>
+                <input v-model="userData.name" type="text" class="input" placeholder="Андрей"
+                />
+              </label>
             </div>
 
             <div
-              class="cart-form-row__item "
+              class="cart-form-row__item input__field "
               :class="{ 'item-error': familyError }"
             >
-              <p>Фамилия <sup>*</sup></p>
-              <input v-model="userData.family" type="text" />
+              <label>Фамилия <sup>*</sup>
+                <input v-model="userData.family" type="text" class="input" placeholder="Иванов"/>
+              </label>
             </div>
             <div
-              class="cart-form-row__item"
+              class="cart-form-row__item input__field"
               :class="{ 'item-error': email1Error }"
             >
-              <p>Email — на него придут ваши билеты <sup>*</sup></p>
-              <input v-model="userData.email1" type="text" />
+              <label>Email — на него придут ваши билеты <sup>*</sup>
+                <input v-model="userData.email1" type="mail" class="input" placeholder="@email"/>
+              </label>
             </div>
             <div
-              class="cart-form-row__item"
+              class="cart-form-row__item input__field"
               :class="{ 'item-error': email2Error }"
             >
-              <p>Email — введите еще раз <sup>*</sup></p>
-              <input v-model="userData.email2" type="text" />
+              <label>Email — введите еще раз <sup>*</sup>
+                <input v-model="userData.email2" type="mail" class="input" placeholder="@email"/>
+              </label>
             </div>
             <div
-              class="cart-form-row__item"
+              class="cart-form-row__item input__field"
               :class="{ 'item-error': phoneError }"
             >
-              <p>Телефон — начиная с кода вашей страны <sup>*</sup></p>
-              <input v-model="userData.phone" type="text" />
+              <label>Телефон — начиная с кода +7, если вы из России, или кода вашей страны <sup>*</sup>
+               <input v-model="userData.phone" type="tel" class="input" placeholder="+7 123 456 78 90"/>
+              </label>
             </div>
           </div>
         </div>
-        <div class="cart-big-button">
+        <div class="cart-big-button ">
           <button :disabled="!is_ok" @click="pay">оплатить</button>
           <p>
             Переходя к оплате, вы соглашаетесь с
-            <a class="link" href="">договором оферты</a> ,
-            <a class="link" href="">условиями конфиденциальности</a> и
-            <a class="link" href="">правилами площадки</a>.
+            <a class="link" href="https://docs.google.com/document/d/1ZaexFifUQPt8RNLHgBg3aZToA8pKszJOOWLiQEkKB-s/edit?usp=sharing
+">договором оферты</a>,
+            <a class="link" href="https://docs.google.com/document/d/1LWNuBF596Wndtl4hiI2t12cOo_qHJsxMSD4qedX6HTA/edit?usp=sharing">условиями конфиденциальности</a> и
+            <a class="link" href="https://docs.google.com/document/d/1UiAIfANWzYRYZuGIW1sj3tAQ20-_AUEnvvgt8-xdPKQ/edit?usp=sharing">правилами площадки</a>.
           </p>
         </div>
 
@@ -67,14 +75,20 @@
         <p class="mb-35">
           После успешной оплаты вам на email придет два письма: одно с чеком,
           другое — с билетом в виде QR-кода. Распечатайте письмо с QR-кодом или
-          сохраните его на телефоне. <br /><br />
-          До встречи на Стримфесте 2021!
-        </p>
-        <img src="/platron_logo.png" alt="" />
+          сохраните его на телефоне. До встречи на Стримфесте 2021!</p>
+
+        <div class="logo-pay--wrapper">
+          <img src="/pay/platron.svg" alt="" class="logo-pay" />
+          <img src="/pay/maestro.svg" alt="" class="logo-pay" />
+          <img src="/pay/visa.svg" alt="" class="logo-pay" />
+          <img src="/pay/master.svg" alt="" class="logo-pay" />
+        </div>
+
         <p>
           Оплата производится через надежную платежную систему Platron по картам
-          VISA, Maestro и MasterCard. Не получается оплатить? Напишите нам в
-          <a class="link" href="">личку ВК</a> или на почту
+          VISA, Maestro и MasterCard.</p>
+        <p><span>Не получается оплатить? </span>Напишите нам в
+          <a class="link" href="https://vk.com/streamfest">личку ВК</a> или на почту
           <a class="link" href="mailto:tickets@streamfest.ru"
             >tickets@streamfest.ru</a
           >.

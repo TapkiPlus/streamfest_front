@@ -3,7 +3,8 @@
     <p>Новости и плюшки Стримфеста</p>
     <form @submit="subscribe">
       <input v-model="email" type="text" placeholder="Ваш email" />
-      <button type="submit">подписаться</button>
+      <button type="submit" class="mobile-hidden">Подписаться</button>
+      <button type="submit" class="btn">Подписаться</button>
     </form>
   </div>
 </template>
