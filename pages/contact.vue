@@ -156,7 +156,10 @@
             </p>
           <p>
             Самая удобная пересадка на МЦД-1 — из метро
-            <img src="/m-d-b.png" alt="" class="icon-station"/>
+            <svg class="icon-station m-blue--dark" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="15" cy="15" r="15" fill="#4AB960"/>
+              <path d="M21.5023 7L15.1121 16.0741L8.58454 7.21108L5 22.0512H9.85081L10.7395 17.305L15.0331 23.2727L19.3042 17.4358L20.1635 22.0775H25L21.5023 7Z" fill="white"/>
+            </svg>
             Славянский бульвар через новый
             подземный переход.</p>
           <p>
@@ -167,32 +170,107 @@
             <li>
               <span>здание вокзала:</span>
               <ul class="station__list">
-                <li class="station__item"><img src="/m-d-g.png" alt="" /> Белорусская</li>
-                <li class="station__item"><img src="/m-g.png" alt="" /> Савёловская</li>
+                <li class="station__item">
+                  <svg class="m-green" width="30" height="30"  viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="15" cy="15" r="15" fill="#4AB960"/>
+                  <path d="M21.5023 7L15.1121 16.0741L8.58454 7.21108L5 22.0512H9.85081L10.7395 17.305L15.0331 23.2727L19.3042 17.4358L20.1635 22.0775H25L21.5023 7Z" fill="white"/>
+                </svg>
+                  Белорусская</li>
+                <li class="station__item">
+                  <svg class="m-grey" width="30" height="30"  viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="15" cy="15" r="15" fill="#4AB960"/>
+                    <path d="M21.5023 7L15.1121 16.0741L8.58454 7.21108L5 22.0512H9.85081L10.7395 17.305L15.0331 23.2727L19.3042 17.4358L20.1635 22.0775H25L21.5023 7Z" fill="white"/>
+                  </svg>
+                  Савёловская</li>
               </ul>
             </li>
             <li>
               <span>крытый переход:</span>
               <ul class="station__list">
-                <li class="station__item"><img src="/m-p.png" alt="" /> Беговая</li>
-                <li class="station__item"><img src="/m-g.png" alt="" /> Тимирязевская</li>
+                <li class="station__item">
+                  <svg class="m-purple" width="30" height="30"  viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="15" cy="15" r="15" fill="#4AB960"/>
+                  <path d="M21.5023 7L15.1121 16.0741L8.58454 7.21108L5 22.0512H9.85081L10.7395 17.305L15.0331 23.2727L19.3042 17.4358L20.1635 22.0775H25L21.5023 7Z" fill="white"/>
+                </svg>
+                  Беговая</li>
+                <li class="station__item">
+                  <svg class="m-grey" width="30" height="30"  viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="15" cy="15" r="15" fill="#4AB960"/>
+                  <path d="M21.5023 7L15.1121 16.0741L8.58454 7.21108L5 22.0512H9.85081L10.7395 17.305L15.0331 23.2727L19.3042 17.4358L20.1635 22.0775H25L21.5023 7Z" fill="white"/>
+                </svg>
+                  Тимирязевская</li>
               </ul>
             </li>
             <li>
               <span>уличный переход:</span>
 
               <ul class="station__list">
-                <li class="station__item"><img src="/m-l-b.png" alt="" /> Фили</li>
-                <li class="station__item"><img src="/m-l-b.png" alt="" /> Выставочная</li>
-                <li class="station__item"><img src="/m-l-b.png" alt="" /> Международная</li>
-                <li class="station__item"><img src="/m-l-b.png" alt="" /> Кунцевская</li>
-                <li class="station__item"><img src="/m-d-b.png" alt="" /> Кунцевская</li>
-                <li class="station__item"><img src="/m-l-g.png" alt="" /> Окружная</li>
-                <li class="station__item"><img src="/m-o.png" alt="" /> Окружная</li>
-                <li class="station__item"><img src="/m-o.png" alt="" /> Деловой центр</li>
-                <li class="station__item"><img src="/m-o.png" alt="" /> Шелепиха</li>
-                <li class="station__item"><img src="/m-ll.png" alt="" /> Шелепиха</li>
-                <li class="station__item"><img src="/m-ll.png" alt="" /> Савеловская</li>
+                <li class="station__item">
+                  <svg class="m-blue" width="30" height="30"  viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="15" cy="15" r="15" fill="#4AB960"/>
+                    <path d="M21.5023 7L15.1121 16.0741L8.58454 7.21108L5 22.0512H9.85081L10.7395 17.305L15.0331 23.2727L19.3042 17.4358L20.1635 22.0775H25L21.5023 7Z" fill="white"/>
+                  </svg>
+                   Фили</li>
+                <li class="station__item">
+                  <svg class="m-blue" width="30" height="30"  viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="15" cy="15" r="15" fill="#4AB960"/>
+                    <path d="M21.5023 7L15.1121 16.0741L8.58454 7.21108L5 22.0512H9.85081L10.7395 17.305L15.0331 23.2727L19.3042 17.4358L20.1635 22.0775H25L21.5023 7Z" fill="white"/>
+                  </svg>
+                   Выставочная</li>
+                <li class="station__item">
+                  <svg class="m-blue" width="30" height="30"  viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="15" cy="15" r="15" fill="#4AB960"/>
+                    <path d="M21.5023 7L15.1121 16.0741L8.58454 7.21108L5 22.0512H9.85081L10.7395 17.305L15.0331 23.2727L19.3042 17.4358L20.1635 22.0775H25L21.5023 7Z" fill="white"/>
+                  </svg>
+                   Международная</li>
+                <li class="station__item">
+                  <svg class="m-blue" width="30" height="30"  viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="15" cy="15" r="15" fill="#4AB960"/>
+                    <path d="M21.5023 7L15.1121 16.0741L8.58454 7.21108L5 22.0512H9.85081L10.7395 17.305L15.0331 23.2727L19.3042 17.4358L20.1635 22.0775H25L21.5023 7Z" fill="white"/>
+                  </svg>
+                   Кунцевская</li>
+                <li class="station__item">
+                  <svg class="m-blue--dark" width="30" height="30"  viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="15" cy="15" r="15" fill="#4AB960"/>
+                    <path d="M21.5023 7L15.1121 16.0741L8.58454 7.21108L5 22.0512H9.85081L10.7395 17.305L15.0331 23.2727L19.3042 17.4358L20.1635 22.0775H25L21.5023 7Z" fill="white"/>
+                  </svg>
+                   Кунцевская</li>
+                <li class="station__item">
+                  <svg class="m-green--light" width="30" height="30"  viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="15" cy="15" r="15" fill="#4AB960"/>
+                    <path d="M21.5023 7L15.1121 16.0741L8.58454 7.21108L5 22.0512H9.85081L10.7395 17.305L15.0331 23.2727L19.3042 17.4358L20.1635 22.0775H25L21.5023 7Z" fill="white"/>
+                  </svg>
+                   Окружная</li>
+                <li class="station__item">
+                  <svg class="m-purple--light" width="30" height="30"  viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="15" cy="15" r="15" fill="#4AB960"/>
+                    <path d="M21.5023 7L15.1121 16.0741L8.58454 7.21108L5 22.0512H9.85081L10.7395 17.305L15.0331 23.2727L19.3042 17.4358L20.1635 22.0775H25L21.5023 7Z" fill="white"/>
+                  </svg>
+                   Окружная</li>
+                <li class="station__item">
+                  <svg class="m-purple--light" width="30" height="30"  viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="15" cy="15" r="15" fill="#4AB960"/>
+                    <path d="M21.5023 7L15.1121 16.0741L8.58454 7.21108L5 22.0512H9.85081L10.7395 17.305L15.0331 23.2727L19.3042 17.4358L20.1635 22.0775H25L21.5023 7Z" fill="white"/>
+                  </svg>
+                   Деловой центр</li>
+                <li class="station__item">
+                  <svg class="m-purple--light" width="30" height="30"  viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="15" cy="15" r="15" fill="#4AB960"/>
+                    <path d="M21.5023 7L15.1121 16.0741L8.58454 7.21108L5 22.0512H9.85081L10.7395 17.305L15.0331 23.2727L19.3042 17.4358L20.1635 22.0775H25L21.5023 7Z" fill="white"/>
+                  </svg>
+                   Шелепиха</li>
+                <li class="station__item">
+                  <svg class="m-blue--light" width="30" height="30"  viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="15" cy="15" r="15" fill="#4AB960"/>
+                    <path d="M21.5023 7L15.1121 16.0741L8.58454 7.21108L5 22.0512H9.85081L10.7395 17.305L15.0331 23.2727L19.3042 17.4358L20.1635 22.0775H25L21.5023 7Z" fill="white"/>
+                  </svg>
+                   Шелепиха</li>
+                <li class="station__item">
+                  <svg class="m-blue--light" width="30" height="30"  viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="15" cy="15" r="15" fill="#4AB960"/>
+                    <path d="M21.5023 7L15.1121 16.0741L8.58454 7.21108L5 22.0512H9.85081L10.7395 17.305L15.0331 23.2727L19.3042 17.4358L20.1635 22.0775H25L21.5023 7Z" fill="white"/>
+                  </svg>
+                   Савеловская</li>
               </ul>
 
             </li>
@@ -250,7 +328,12 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 >автобус 867</a
-              >, <img src="/m-d-b.png" alt="" class="icon-station"/> Молодёжная — Технопарк;
+              >,
+              <svg class="icon-station m-blue--dark" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="15" cy="15" r="15" fill="#4AB960"/>
+                <path d="M21.5023 7L15.1121 16.0741L8.58454 7.21108L5 22.0512H9.85081L10.7395 17.305L15.0331 23.2727L19.3042 17.4358L20.1635 22.0775H25L21.5023 7Z" fill="white"/>
+              </svg>
+              Молодёжная — Технопарк;
             </li>
             <li>
               <a
@@ -259,7 +342,12 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 >автобус&nbsp;1147</a
-              >, <img src="/m-r.png" alt="" class="icon-station"/> Тропарево — Сколтех.
+              >,
+              <svg class="icon-station m-red" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="15" cy="15" r="15" fill="#4AB960"/>
+                <path d="M21.5023 7L15.1121 16.0741L8.58454 7.21108L5 22.0512H9.85081L10.7395 17.305L15.0331 23.2727L19.3042 17.4358L20.1635 22.0775H25L21.5023 7Z" fill="white"/>
+              </svg>
+              Тропарево — Сколтех.
             </li>
           </ul>
           <br />
@@ -422,12 +510,7 @@
             <button class="blue-btn">Oтправить</button>
           </div>
         </div>
-        <iframe
-          class="location-map"
-          src="https://yandex.ru/map-widget/v1/?um=constructor%3A15e64542e1689e2633da3538b21d98d149db69f9930100184879460ad72747f7&amp;source=constructor"
-          frameborder="0"
-        ></iframe>
-      </div>
+        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A15e64542e1689e2633da3538b21d98d149db69f9930100184879460ad72747f7&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>      </div>
     </div>
 <!--    <Subscribe />-->
   </section>

@@ -1,6 +1,7 @@
 .info
   &-page
     min-height: 100vh
+    height: 100%
     background: url(/bg-success.png) 0 0 no-repeat
     -webkit-background-size: cover
     background-size: cover
@@ -54,6 +55,9 @@
       -webkit-text-fill-color: transparent
       text-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25)
 
+@media screen and (max-height: 425px)
+  .info-page__content
+    padding: 50px 0
 @media screen and (max-width: 320px)
   .info-page__content
     padding-top: 115px

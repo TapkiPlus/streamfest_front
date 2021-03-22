@@ -25,7 +25,7 @@
           Стримфест — это крупнейший в СНГ фестиваль стрим-культуры.
           Здесь&nbsp;известные&nbsp;стримеры&nbsp;и подкастеры встречаются со
           своими зрителями. Живое общение, море развлечений,
-          мастер-классы — без сомнения, лучшие выходные года!
+          мастер-классы&nbsp;— без сомнения, лучшие выходные года!
         </p>
         <div style="padding:56.25% 0 0 0;position:relative;">
           <iframe
@@ -212,7 +212,7 @@
             :nickname="streamer.nickName"
           />
         </div>
-        <StreamersSwiper :streamers="streamers" />
+        <StreamersSwiper :streamers="streamers" @resize=""/>
         <div class="streamers-btn">
           <nuxt-link class="btn btn-w-icon" to="/stars"
             >КТО ТОЛЬКО НЕ ПРИДЕТ <img src="/smile.png" class="btn--icon" alt=""
@@ -426,7 +426,7 @@
       <div class="container">
         <div class="feedbacks__slider-wrap">
           <client-only>
-            <swiper :options="feedbacksOptions">
+            <swiper :options="feedbacksOptions" >
               <swiper-slide>
                 <div class="feedback-item">
                   <div class="feedback-item__inner">
@@ -611,7 +611,7 @@
       <div class="container">
         <h3 class="section-header">STREAMFEST AWARDS</h3>
         <p class="section-subheader">
-          Яркое эфирное шоу, где популярные стримеры, эксперты&nbsp;рынка и&nbsp;журналисты&nbsp;развлекательных медиа&nbsp;выбрали лучших из лучших в 13 номинациях.
+          Яркое эфирное шоу, где популярные стримеры, эксперты&nbsp;рынка и&nbsp;журналисты&nbsp;развлекательных медиа&nbsp;выбрали лучших из лучших в 13&nbsp;номинациях.
           <a
             class=" btn btn--awards"
             href="https://streamscharts.com/streamfestawards2020"
@@ -739,7 +739,7 @@
             <el-image src="/partners/mania.png" lazy></el-image>
           </a>
           <a href="https://tv.m24.ru/" target="_blank" rel="noopener noreferrer">
-            <el-image src="/partners/moskva24.png" lazy></el-image>
+            <el-image src="/partners/moskva24.svg" lazy></el-image>
           </a>
           <a href="https://daily.afisha.ru/" target="_blank" rel="noopener noreferrer">
             <el-image src="/partners/afisha.png" lazy></el-image>
@@ -829,19 +829,19 @@ export default {
       },
       silentbox: [
         {
-          src: "/home_gall/1.png",
+          src: "/home_gall/1.jpg",
           thumbnail: "/home_gall/1_s.png"
         },
         {
-          src: "/home_gall/2.png",
+          src: "/home_gall/2.jpg",
           thumbnail: "/home_gall/2_s.png"
         },
         {
-          src: "/home_gall/3.png",
+          src: "/home_gall/3.jpg",
           thumbnail: "/home_gall/3_s.png"
         },
         {
-          src: "/home_gall/4.png",
+          src: "/home_gall/4.jpg",
           thumbnail: "/home_gall/4_s.png"
         },
       ],
@@ -871,6 +871,15 @@ export default {
           410: {
             slidesPerView: 1.2,
           },
+          560: {
+            slidesPerView: 1.7,
+          },
+          650: {
+            slidesPerView: 2,
+          },
+          700: {
+            slidesPerView: 2.1,
+          },
           768: {
             slidesPerView: 2.3,
             spaceBetween: 20,
@@ -889,6 +898,7 @@ export default {
     const script = document.createElement("script");
     script.src = "https://player.vimeo.com/api/player.js";
     document.body.appendChild(script);
+
   },
   methods: {
     starTimer() {
@@ -925,6 +935,9 @@ export default {
     closePartnersModal() {
       this.partnersIframe = false;
       document.querySelector("body").style.overflow = "visible";
+    },
+    resize() {
+
     }
   }
 };
