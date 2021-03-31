@@ -1,11 +1,11 @@
 @import "mixin"
 .streamers
-  margin-bottom: 80px
   .section-header
     margin-bottom: 20px
   .section-subheader
-    max-width: 547px
-    margin-bottom: 53px
+    max-width: 100%
+    &:first-child
+      margin-bottom: 0
   .separator
     margin-bottom: 60px
   &-wrapper
@@ -20,16 +20,22 @@
       width: 100%
     &__nick
       font-weight: 700
-      margin-bottom: 10px
-      color: $color-text
+      margin-bottom: 5px
+      color: $color-blue
     &__fio
-      font-size: 16px
+      font-size: 18px
       height: 48px
       word-break: break-word
       color: $color-text
   &-btn
     text-align: center
     margin-top: 53px
+    position: relative
+    .btn--icon
+      z-index: 3
+    .btn
+      margin: 60px auto 0
+      text-transform: none
   &-slider-wrap
     position: relative
     display: none
@@ -142,6 +148,9 @@
       .streamers
         &-item
           max-width: 150px
+    .section-subheader
+      p:first-child
+        margin-bottom: 25px
   .header + .streamers
     &:before, &:after
       display: block

@@ -33,10 +33,7 @@ export default {
         observer: true,
         observeParents: true,
         observeSlideChildren: true,
-        pagination: {
-          el: ".streamers-pagination",
-          clickable: true
-        },
+        pagination: false,
 
         breakpoints: {
           0: {

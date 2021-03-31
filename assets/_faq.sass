@@ -1,19 +1,42 @@
 .faq
+  padding-top: 0
+  position: relative
+  &:before, &:after
+    display: block
+    position: absolute
+    z-index: -1
+  &:before
+    content: url(/bg-faq-pc-left.svg)
+    top: 283px
+    left: 0
+  &:after
+    content: url(/bg-faq-pc-right.svg)
+    top: 578px
+    right: 0
+
   & .container
     max-width: 1060px
   &-banner
-    margin-bottom: 39px
+    margin-bottom: 50px
   & .subscribe
     p
       color: $color-text
   & .section-header
     margin-bottom: 21px
+  .subscribe
+    margin-bottom: 15px
+  &--how-to
+    .faq-icon
+      width: 25px
+      height: 24px
+    .faq-item__inner
+      padding-left: 50px
 .faq-items
-  margin-bottom: 63px
+  margin-bottom: 50px
 .faq-item
   background: transparent
   cursor: pointer
-  padding: 18px 10px 15px 0
+  padding: 30px 10px 30px 0
   width: 100%
   border: none
   line-height: 1.5
@@ -25,53 +48,49 @@
   position: relative
   display: flex
   align-items: center
-  //border-bottom: 2px solid #bac8cf
-  svg
-    margin-right: 20px
-  &__img
-    &-1
-      width: 12px
-      height: 11px
-      margin-right: 20px
-    &-2
-      margin-right: 15px
-    &-3
-      margin-right: 19px
-    &-4
-      margin-right: 13px
-    &-5
-      margin-right: 21px
-    &-6
-      margin-right: 9px
-  &:hover
-    //background-color: #ccc
+  span
+    color: #0D6DD8
+    margin-left: 5px
+  .faq-icon
+    margin-right: 25px
+
+  .faq-plus
+    position: absolute
+    right: 0
+    rect:first-child
+      transition: all 0.2s ease
+      transform-origin: center
   &.faq-item-active
     //background-color: #ccc
     border-bottom: none
-    &::after
-      content: "\2212"
-
+    .faq-plus
+      rect:first-child
+        transform: rotate(-90deg)
+        transform-origin: center
+        transition: all 0.2s ease
 
   &__inner
-    padding-left: 33px
+    padding-left: 45px
     max-height: 0
     overflow: hidden
     transition: max-height 0.2s ease-out
     border-bottom: 2px solid $gray
     p
       line-height: 27px
-      margin-bottom: 28px
+      margin-bottom: 20px
+      &:last-child
+        margin-bottom: 30px
     span
       color: $color-blue
     ul
       li
         position: relative
         padding-left: 20px
-        margin-bottom: 27px
+        margin-bottom: 25px
         &::before
           position: absolute
           content: ''
-          background: #BAC8CF
+          background: $color-text
           width: 6px
           height: 6px
           border-radius: 100%
@@ -79,27 +98,27 @@
           top: 10px
     &.visible
      max-height: 9999px
-  &::after
-    position: absolute
-    content: '\002B'
-    color: #bac8cf
-    font-weight: bold
-    right: 0
+
   &-last
     & .faq-item
-      padding-left: 37px
+      padding-left: 50px
       cursor: default
       margin-bottom: -15px
-
+      position: relative
+      z-index: 1
       &::after
         content: none
     p
-      padding-left: 34px
+      padding-left: 50px
+      position: relative
+      z-index: 2
       a
         color: $color-blue
 
   .btn--vk
     display: none
+
+
 
 @media screen and (max-width: 900px)
   .faq
@@ -108,21 +127,13 @@
 
 @media screen and (max-width: 768px)
   .faq
-    padding-top: 0
     margin-bottom: 0
-    position: relative
-    &:before, &:after
-      display: block
-      position: absolute
     &:before
       content: url(/bg-faq-left.svg)
       top: 330px
-      left: 0
     &:after
       content: url(/bg-faq-right.svg)
       top: 652px
-      right: 0
-      z-index: -1
     .pattern-bg
       top: -132px
       opacity: 1
@@ -130,10 +141,14 @@
       background-image: url(/patterrn-faq.png)
     &-banner
       margin-bottom: 25px
+      padding: 0 20px
+
       img
         min-height: 242px
         object-fit: cover
         object-position: center
+    &-plus
+      display: none
     &-items
       margin-bottom: 0
     &-item
@@ -147,9 +162,9 @@
         object-fit: contain
       svg
         min-width: 20px
-
       span
-        color: #0D6DD8
+        margin-left: 0
+
       .faq-icon
         position: absolute
         left: 0
@@ -177,6 +192,8 @@
           margin-bottom: 0
     .btn--vk
       display: flex
+    .subscribe
+      display: none
   .btn--vk
     +h3
     padding: 0

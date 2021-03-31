@@ -1,9 +1,7 @@
 .footer
   &-top
     background: #0060cf
-    padding: 51px 0
-    & .container
-      max-width: 1060px
+    padding: 50px 0
     &-wrapper
       display: flex
       align-items: flex-start
@@ -15,8 +13,8 @@
       padding-top: 17px
       max-width: 411px
     &-left
-      max-width: 504px
-      margin-right: 20px
+      max-width: 777px
+      margin-right: 53px
       p
         color: #ffffff
         margin-bottom: 26px
@@ -24,28 +22,66 @@
           margin-bottom: 0
     &-right
       width: 100%
-      max-width: 380px
+      max-width: 490px
       p
         color: #ffffff
         margin-bottom: 20px
+        font-size: 24px
+        font-weight: 700
 
   &-bottom
     padding: 35px 0
     & .container
-      max-width: 1060px
+      max-width: 100%
+      padding: 0 90px
     &-wrapper
       display: flex
       align-items: center
       justify-content: space-between
       p
-        color: #0060cf
+        color: #000000
+        margin-right: 14px
       a
-        color: #0060cf
+        color: #000000
+        transition: all .2s ease
+        text-decoration: none
+        &:not(:last-child)
+          margin-right: 50px
+        &:hover
+          color: $color-blue
+
   &-cat
     display: inline-flex
     cursor: pointer
-
-
+.cart-fix
+  position: fixed
+  left: 20px
+  bottom: 80px
+  width: 55px
+  height: 55px
+  -webkit-border-radius: 50%
+  -moz-border-radius: 50%
+  border-radius: 50%
+  display: flex
+  justify-content: center
+  align-items: center
+  background: linear-gradient(90deg, #0D6DD8 7.2%, #0D6DD8 39.97%, #33A0FD 100%), #C4C4C4
+  &::after
+    position: absolute
+    content: attr(data-num)
+    width: 16px
+    height: 16px
+    background: red
+    border-radius: 100%
+    color: #FFFFFF
+    font-size: 10px
+    display: flex
+    align-items: center
+    justify-content: center
+    right: 0
+    top: 0
+#vk_community_messages
+  bottom: 60px !important
 @media screen and (max-width: 767px)
   .footer
     &-top
@@ -69,6 +105,9 @@
           margin-bottom: 25px
     &-cat
       display: none
+    &-bottom
+      .container
+        padding: 0 20px
 @media screen and (max-width: 600px)
   .footer
     &-bottom

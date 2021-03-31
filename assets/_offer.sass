@@ -1,8 +1,7 @@
 .offer
   position: relative
   overflow: hidden
-  margin-bottom: 57px
-
+  padding: 0
   &-video
     position: absolute
     z-index: -1
@@ -15,7 +14,7 @@
     align-items: center
     text-align: center
     justify-content: center
-    padding: 215px 0 223px
+    min-height: 100vh
   &__title
     font-weight: 800
     color: #ffffff
@@ -27,9 +26,9 @@
     font-size: 36px
     line-height: 37px
     text-align: center
-    margin-bottom: 68px
+    margin-bottom: 70px
     &.subtitle-last
-      margin-bottom: 81px
+      margin-bottom: 70px
   &__button
     display: inline-block
     font-size: 36px
@@ -48,8 +47,7 @@
     color: #ffffff
     font-size: 36px
     font-weight: 700
-  .btn
-    display: none
+
 @media screen and (max-width: 768px)
   .offer
     min-height: 100vh
@@ -60,6 +58,7 @@
     padding: 0
     .btn
       text-transform: uppercase
+      font-size: 20px
     &-video
       display: none
 
@@ -117,7 +116,7 @@
       &.subtitle-last
         margin-bottom: 20px
 
-@media only screen and (min-width: 414px) and (max-height: 736px) and (-webkit-device-pixel-ratio: 2)
+@media only screen and (min-width: 414px) and (max-width: 850px) and (max-height: 736px) and (-webkit-device-pixel-ratio: 2)
   .offer
     padding: 50px 0
     &-wrapper

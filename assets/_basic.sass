@@ -10,12 +10,11 @@ body
   font-size: 18px
   color: $color-text
   background: #ffffff
-  //background: url(/loc.png)
-  //background: url(/p2.png)
   position: relative
 
 section
-  margin-bottom: 30px
+  padding: 65px 0
+  overflow-y: hidden
 .text-center
   text-align: center
 
@@ -43,8 +42,7 @@ section
   margin: 0 auto
 
 .section-header
-  font-weight: 700
-  font-size: 36px
+  +h2
   text-align: center
 .mb-35
   margin-bottom: 35px
@@ -54,8 +52,8 @@ section
   display: inline
 .section-subheader
   font-size: 18px
-  max-width: 822px
-  margin: 0 auto
+  max-width: 825px
+  margin: 0 auto 25px
   text-align: center
 
 .side-parts
@@ -68,84 +66,100 @@ section
   top: 0
   left: 0
   z-index: -1
+label
+  font-size: 16px
+  input
+    margin-top: 5px
+  sup
+    color: #ff4633
+textarea, input
+  background-color: #fff
+  box-shadow: inset 4px 4px 3px rgba(0, 0, 0, 0.12)
+  -webkit-border-radius: 5px
+  -moz-border-radius: 5px
+  border-radius: 5px
+  border: 1px solid #0d6dd8
+  padding: 10px 20px
+  width: 100%
+  margin-bottom: 35px
+  &:invalid
+    border-color: #ff4633
+  &::placeholder
+    font-style: normal
+    color: #808080
+    font-size: 16px
+  &:focus
+    outline: none
+  &:active
+    outline: none
 
+textarea
+  margin-bottom: 20px
+  height: 160px
 .subscribe
   text-align: center
   margin: 0 15px
   form
-    background: #fff
-    max-width: 486px
-    position: relative
+    max-width: 595px
     display: flex
     border-radius: 4px
     overflow: hidden
     margin: 0 auto
+    position: relative
   p
     font-size: 22px
     font-weight: 700
-    margin-bottom: 12px
+    margin-bottom: 25px
     color: #ffffff
     text-transform: uppercase
   input
     flex-grow: 1
-    border: none
-    padding: 14px 10px
-    font-style: italic
-    color: #b3b3b3
+    -webkit-border-radius: 50px
+    -moz-border-radius: 50px
+    border-radius: 50px
+    padding: 13px 280px 14px 30px
+    height: 55px
+    margin-bottom: 0
+    border: 1px solid $color-blue
     &::placeholder
-      color: #b3b3b3
+      +h5
+      color: #808080
+      font-style: normal
     &:focus
       outline: none
     &:active
       outline: none
-  button
-    border: none
-    background: #319eff
-    color: #fff
-    justify-content: center
-    font: bold 18px 'Open Sans', sans-serif
-    text-transform: uppercase
-    border-top-left-radius: 4px
-    border-bottom-left-radius: 4px
-    cursor: pointer
-    width: 170px
-    &:focus
-      outline: none
-    &:active
-      outline: none
-    &:hover
-      background: $color-yellow
   .btn
-    display: none
+    position: absolute
+    right: -1px
+    max-width: 250px
+    text-transform: none
+    border: none
+
+
 .separator
   position: relative
-  // max-width: 1220px
-  //margin: 50px auto 50px
-  //width: 100%
-  //height: 2px
   display: flex
   align-items: center
   justify-content: center
-  // padding: 0 10px
+  padding: 0 90px
+  margin: 50px 0
   svg
     margin: 0 5px
     min-width: 27px
-    path
-      fill: $gray
+
   &::before, &:after
     content: ''
     display: block
     height: 2px
-    background-color: $gray
+    background: linear-gradient(90deg, #35A3FF 0%, #0D6DD8 68.1%, #33A0FD 100%)
     width: 100%
 
 
   &.gamepad
-
-    path
-      fill: transparent
-      &:last-child
-        fill: #ffffff
+    svg
+      path
+        fill: transparent
   &.crown
     margin: 50px 0
     path
@@ -155,54 +169,105 @@ section
 
 
 .btn
-  display: inline-flex
-  padding: 27px 0px
-  //padding: 27px 60px
-  align-items: center
-  justify-content: center
-  max-width: 300px
   width: 100%
-  color: #ffffff
-  background: #d6e0e4
   text-transform: uppercase
-  outline: none
-  user-select: none
-  border-radius: 40px
-  font-weight: 700
-  &:hover
-    background: #FFC133
-    //background: linear-gradient(90deg, rgba(0,89,201,1) 0%, rgba(43,181,255,1) 35%, rgba(0,89,201,1) 100%)
+  display: flex
+  justify-content: center
+  color: #fff
+  align-items: center
+  border-radius: 50px
+  text-align: center
+  max-width: 335px
+  +h3
+  position: relative
+  border: none
+  cursor: pointer
+  height: 55px
+  -webkit-appearance: none
+  -webkit-tap-highlight-color: transparent
+  transition: background .3s ease
+  &:focus
+    outline: none
+  @media screen and (min-width: 1025px)
+    span
+      display: flex
+      .letter
+        display: block
+        min-width: 5px
+        transform: translateZ(0)
+        backface-visibility: hidden
+        font-style: normal
+        $i: 1
+        @while $i < 30
+          &:nth-child(#{$i})
+            --d: #{$i / 20 + s}
+          $i: $i + 1
+    &:hover
+      --move: -4px
+      span
+        animation: move .5s linear var(--d)
+
+
+
+
+  &--yellow
+    background: linear-gradient(270deg, #FFB400 0%, #FAFF00 50.29%, #FFB400 100%)
+    color: $color-text
+
+  &--blue
+    background: linear-gradient(90deg, #0363CD 0%, #2AB2FB 34.37%, #0C72D7 100%)
+
+  &--red
+    background: linear-gradient(90deg, #D01A14 1.82%, #FA4731 52.66%, #D01A14 100%)
+
+  &--green
+    background: linear-gradient(90deg, #02B858 0%, #14DA72 51.71%, #02B858 100%)
+
+  &--big
+    height: 81px!important
+    margin: 34px auto 0
+    font-size: 18px
+    max-width: 380px !important
   &.btn-w-icon
     position: relative
     width: 100%
     max-width: 360px
-    background: linear-gradient(90deg, rgba(0,89,201,1) 0%, rgba(43,181,255,1) 35%, rgba(0,89,201,1) 100%)
-    // padding-left: 20px
     img
       position: absolute
       pointer-events: none
       right: 19px
-    &:hover
-      background: #3febcd
+  &--form
+    max-width: 100%
   &.w-img
     justify-content: flex-start
     padding-left: 45px
-  &.red
-    background: linear-gradient(90deg, #ec463e 0%, #d01a14 50%, #ff4d35 100%)
-    width: 380px
+  &--vk
+    text-transform: none
     font-size: 18px
-    border: none
-    cursor: pointer
-    padding: 30px 0
-    &:hover
-      background: #FFC133
+    font-weight: 600
+    svg
+      margin-left: 10px
+
+
   &.btn-disable
-    background: #808080
-    cursor: default
-    &:hover
-      background: #d3d3d3
+    background: transparent
+    border: 1px solid #BAC8CF
+    color: #BAC8CF
+    pointer-events: none
+  &-wrapper
+    display: flex
+    justify-content: space-between
+@keyframes move
+  40%
+    transform: translateY(var(--move))
+
+
 .btn--icon
-  display: none
+  display: inline
+  position: absolute
+  top: -35px
+  left: 50%
+  transform: translateX(-50%)
 .video
   &-video
     width: 100%
@@ -213,97 +278,107 @@ section
     justify-content: center
   &-wrapper
     display: grid
-    grid-template-columns: 1fr 1fr
-    grid-column-gap: 36px
-    grid-row-gap: 36px
-    justify-items: end
-    max-width: 1000px
-    margin: 60px auto 54px
+    grid-template-columns: 1fr 1fr 1fr
+    grid-column-gap: 50px
+    grid-row-gap: 54px
+    justify-items: center
+    margin: 50px 0 35px
   &-block
     position: relative
-    & .section-subheader
-      margin: 14px auto 36px
-    // &__online
-    //   position: absolute
-    //   right: 133px
-    //   top: 481px
-    //   border: 2px solid #ff4633
-    //   padding: 12px 0px 10px 48px
-    //   width: 179px
-    //   height: 89px
-    //   border-radius: 4px
-    //   p
-    //     position: relative
-    //     color: #ff4633
-    //     font-size: 22px
-    //     font-weight: 700
-    //     max-width: 100px
-    //     text-align: left
-    //     line-height: 27px
-    //     &::before
-    //       position: absolute
-    //       content: ''
-    //       width: 18px
-    //       height: 18px
-    //       background: #ff4633
-    //       border-radius: 100%
-    //       left: -32px
-    //       top: 21px
+    overflow: visible
+    + .separator
+      margin: 0
+    .section-header
+     margin-bottom: 25px
   &-item
-    max-width: 391px
+    text-align: center
     &:nth-child(4)
       max-width: 376px
+    &:nth-child(3)
+      img
+        max-width: 186px
     img
-      width: 130px
-      height: 80px
-      object-fit: cover
+      width: 100%
+      max-width: 140px
+      height: auto
+
     &__title
       font-weight: 700
       font-size: 22px
-      margin-bottom: 10px
+      margin-bottom: 5px
   &-buttons
     display: flex
     flex-wrap: wrap
     align-items: center
-    justify-content: center
-    margin: 0 -30px 49px
+    justify-content: space-around
+
   &-button
-    width: 260px
-    margin: 0 30px 30px
+    position: relative
+    margin: 65px 0 0 0
+    text-transform: none
+    &.btn-disable
+      filter: none
+      .btn--icon
+        g
+          filter: none
+        path
+          fill: $gray
+.feedbacks, .tickets
+  .swiper
+    &-button
+      &-next,
+      &-prev
+        width: auto !important
+        height: auto !important
+        outline: none
 
-    &-long
-      width: 320px
+        top: 50%
 
-.swiper
-  &-button
-    &-next,
-    &-prev
-      width: auto !important
-      height: auto !important
-      transform: translateY(-50%)
-      outline: none
-    &-next
-      right: -88px !important
-      &::after
-      content: url(/arrow_r.png) !important
-    &-prev
-      left: -88px !important
-      &::after
-      content: url(/arrow_l.png) !important
-  &-pagination
-    display: none
-    position: unset !important
-    margin-top: 10px
-    &-bullet
-      outline: none
-      margin: 0 3px
-
+      &-next
+        right: 0
+        &::after
+         content: url(/arrow_r.svg) !important
+      &-prev
+        left: 0
+        &::after
+          content: url(/arrow_l.svg) !important
+    &-pagination
+      position: relative
+      margin-top: 40px
+      &-bullet
+        width: 20px
+        height: 20px
+        background: transparent
+        border: 1px solid #166FE0
+        opacity: 1
+        position: relative
+        margin: 0 20px 0 0
+        &:focus
+          outline: none
+        &:after
+          content: ''
+          position: absolute
+          top: 50%
+          left: 50%
+          width: 75%
+          height: 75%
+          -webkit-border-radius: 50%
+          -moz-border-radius: 50%
+          border-radius: 50%
+          transform: translate(-50%, -50%) scale(0, 0)
+          opacity: 0
+          transition: all .2s ease
+          background: radial-gradient(50% 50% at 50% 50%, #2A92F3 0%, #166FE0 100%)
+        &-active
+          &:after
+            transform: translate(-50%, -50%) scale(1, 1)
+            opacity: 1
 .slide
   height: 290px
   &__track
     height: 290px
 
-.splide__arrow
+.slide__arrow
   background: #ffffff
   svg
     fill: #bac8cf
@@ -324,73 +399,80 @@ section
   position: relative
 .desktop-hidden
   display: none
-@media screen and (max-width: 1400px)
-  .feedbacks__slider-wrap
-    width: 800px
-    margin: 0 auto
+
+@media screen and (max-width: 1440px)
+  .offer__title
+    margin-top: 150px
+
+@media screen and (max-width: 1360px)
+  .offer__title
+    margin-top: 0
+  .offer
+    .btn
+      margin-top: 45px
+@media screen and (max-width: 1120px)
+  .video-button
+    max-width: 300px
+
+@media screen and (max-width: 1024px)
+  .feedbacks
+    .swiper-container
+      max-width: 100%
 
 @media screen and (max-width: 1020px)
-  .video
-    &-buttons
-      margin-left: -15px
-      margin-right: -15px
-    &-button
-      font-size: 16px
-      width: 240px
-      margin-left: 15px
-      margin-right: 15px
-      &-long
-        width: 300px
-
+  .video-wrapper
+    grid-template-columns: 1fr 1fr
 @media screen and (max-width: 992px)
   body
     font-size: 17px
-  .container
+  .container, .separator
     padding: 0 20px
   .feedbacks__slider-wrap
     width: 100%
-    max-width: 386px
 
-@media screen and (max-width: 900px)
-  .section
-    &-header
-      font-size: 30px
-    &-subheader
-      font-size: 15px
 
 @media screen and (max-width: 768px)
   .desktop-hidden
     display: block
+    &.separator
+      display: flex
   .mobile-hidden
-    display: none
+    display: none!important
   section
     padding: 50px 0
     overflow-y: hidden
   .video
+    &-wrapper
+      grid-gap: 30px 40px
 
     &-buttons
       margin: 0
       flex-direction: column
     &-button
-      background: linear-gradient(90deg, #35A3FF 0%, #0D6DD8 68.1%, #33A0FD 100%), #C4C4C4
-      position: relative
-      margin: 65px 0 0 0
-      width: 100%
-      &.btn-disable
-        color: $gray
-        border: 1px solid $gray
-        background: transparent
-        .btn--icon
-          g
-            filter: none
-          path
-            fill: $gray
-  .btn--icon
-    display: inline
-    position: absolute
-    top: -35px
-    left: 50%
-    transform: translateX(-50%)
+      max-width: 335px
+
+  .video-item
+    &:nth-child(3) img
+      max-width: 100px
+
+    img
+      max-width: 100px
+      height: 68px
+      object-fit: cover
+      object-position: 0 0
+  .btn-wrapper
+    flex-direction: column
+  .separator
+    &::before, &:after
+      background: $gray
+    svg
+      defs
+        display: none
+      path
+        fill: $gray
+    &.gamepad
+      path
+        stroke: $gray
   .section-subheader
     +h5
     color: $color-text
@@ -398,11 +480,8 @@ section
   .btn
     height: 55px
     +h3
-
-    text-transform: none
     max-width: 335px
     position: relative
-    background: linear-gradient(90deg, #35A3FF 0%, #0D6DD8 68.1%, #33A0FD 100%), #C4C4C4
     &--yellow
       background: linear-gradient(0deg, #FFA800, #FFA800), linear-gradient(90deg, #FFC133 0%, #FFB800 50.2%, #FAFF00 100%), linear-gradient(90deg, #FFC133 0%, #DA9D00 32.62%, #DA9D00 61.58%, #FAFF00 98.31%), #FFC133
   .video-block + .container
@@ -414,13 +493,13 @@ section
   .pattern-bg
     position: absolute
     z-index: -1
-    top: 0
+    top: -132px
     left: 0
     right: 0
-    opacity: .034
-    height: 625px
+
+    height: 375px
     width: 100%
-    background: url(/streamer-bg-mob.png) 0 0 repeat
+    background: url(/patterrn-faq.png) center top no-repeat
   .subscribe
     form
       display: flex
@@ -428,22 +507,15 @@ section
       overflow: visible
       background: transparent
 
-    input
-      -webkit-border-radius: 50px
-      -moz-border-radius: 50px
-      border-radius: 50px
-      padding: 10px 20px
-      height: 48px
-      &::placeholder
-        +h5
-        color: #808080
 
-        font-style: normal
+    input
+      padding: 10px 20px
     p
       +h2
       margin-bottom: 20px
 
     .btn
+      position: static
       display: flex
       text-transform: none
       +h3
@@ -454,20 +526,7 @@ section
       max-width: 100%
       margin-top: 15px
       padding: 0
-      background: linear-gradient(90deg, #35A3FF 0%, #0D6DD8 68.1%, #33A0FD 100%), #0D6DD8
-  .feedbacks
-    .container
-      padding: 0
-    .swiper-slide
-      padding: 0 5px 0 15px
-      min-width: 330px
-    &__slider-wrap
-      max-width: 100%
 
-    &-button
-      &-prev,
-      &-next
-        display: none !important
 
 
 
@@ -495,17 +554,14 @@ section
     &-wrapper
       grid-template-columns: 1fr
       justify-items: center
-      margin: 30px auto
+
+      margin: 30px auto 0
     &-item
       text-align: center
       &__title
         +h4
       p
         +h5
-      img
-        max-width: 100px
-        width: 100%
-        height: auto
 
 @media screen and (max-width: 576px)
   .side-parts
@@ -533,9 +589,6 @@ section
     font-size: 15px
   .container
     padding: 0 20px
-  .section
-    &-header
-      +h2
   .subscribe
     button
       font-size: 12px

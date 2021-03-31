@@ -48,7 +48,7 @@
             <div
               v-for="ticket in tickets"
               :key="ticket.id"
-              class="streamer-bottom__button "
+              class="streamer-bottom__button btn"
               :class="[
                 ticket.is_one_day
                   ? 'streamer-bottom__button--yellow'
@@ -56,10 +56,10 @@
               ]"
             >
 
-              <p>
-                {{ ticket.is_one_day ? " купить билет на 1 день" : "купить билет на 2 дня" }}
+              <p class="split">
+                {{ ticket.is_one_day ? " Скоро — билет на 1 день" : "Скоро — билет на 2 дня" }}
               </p>
-              <p>от {{ streamer.nickName }}</p>
+              <p class="split">от {{ streamer.nickName }}</p>
 
             </div>
           </div>

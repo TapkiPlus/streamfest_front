@@ -2,7 +2,7 @@
   &-page
     min-height: 100vh
     height: 100%
-    background: url(/bg-success.png) 0 0 no-repeat
+    background: url(/bg-success-pc.png) center no-repeat
     -webkit-background-size: cover
     background-size: cover
     + footer
@@ -12,16 +12,20 @@
     align-items: center
     justify-content: center
     color: #ffffff
+    .btn
+      margin: 0 auto
+      background: linear-gradient(90deg, #FFC133 0%, #FFB800 50.2%, #FAFF00 100%)
+      text-transform: none
     &--error
-      background: url(/bg-error.png) center no-repeat
+      background: url(/bg-error-pc.png) center no-repeat
       -webkit-background-size: cover
       background-size: cover
+      .btn
+        background: linear-gradient(270deg, #FFB400 0%, #FAFF00 50.29%, #FFB400 100%)
 
-    .btn
-      background: linear-gradient(101.27deg, #FFC133 6.32%, #FFC42C 46.15%, #FF9900 87.11%)
 
     &__content
-
+      max-width: 675px
       text-align: center
       p
         +h5
@@ -30,11 +34,15 @@
           color: #ffffff
           +h5-bold
           text-decoration: underline
+          &:last-child
+            display: block
   &__title
-    +h1
+    font-size: 80px
+    font-weight: 800
     margin-bottom: 20px
   &__subtitle
-    +h4
+    font-size: 24px
+    font-weight: 700
     margin-bottom: 15px
 
   &__number
@@ -55,9 +63,33 @@
       -webkit-text-fill-color: transparent
       text-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25)
 
+@media screen and (max-width: 768px)
+  .info
+    &-page
+      &--error
+        background-image: url(/bg-error.png)
+      &--success
+        background-image: url(/bg-success.png)
+    &__title
+      +h1
+      margin-bottom: 20px
+    &__subtitle
+      +h4
+@media screen and (max-width: 425px)
+  .info-page
+
+    p
+      a:last-child
+        display: inline
+    .btn
+      background: linear-gradient(101.27deg, #FFC133 6.32%, #FFC42C 46.15%, #FF9900 87.11%)
+      color: #fff
 @media screen and (max-height: 425px)
-  .info-page__content
-    padding: 50px 0
+  .info-page
+    &__content
+      padding: 50px 0
+
+
 @media screen and (max-width: 320px)
   .info-page__content
     padding-top: 115px

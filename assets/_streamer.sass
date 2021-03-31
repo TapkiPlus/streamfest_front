@@ -51,24 +51,37 @@
       justify-content: space-evenly
       margin-bottom: 51px
     &__button
-      display: inline-block
-      border-radius: 8px
-      padding: 11px 55px
-      color: #ffffff
-      text-align: center
-    //  text-transform: uppercase
-     // border: none
-
-      p
-        &:first-child
-          font-size: 27px
-          font-weight: 700
-          text-transform: uppercase
-
-      &--red
-         background: linear-gradient(90deg, #ec463e 0%, #d01a14 50%, #ff4d35 100%)
+      flex-direction: column
+      height: 75px
+      margin-top: 72px
+      pointer-events: none
+      &:before
+        content: ''
+        position: absolute
+        top: -46px
+        left: 50%
+        transform: translateX(-50%)
+        max-width: 71px
+        width: 70px
+        height: 60px
       &--yellow
-        background: $color-yellow
+        background: linear-gradient(94.94deg, #FFC133 0.93%, #FFC42C 47.7%, #FF9900 95.8%)
+        &:before
+          background: url(/cats/cat_ticket_2.svg) 0 0 no-repeat
+          background-size: 100%
+      &--red
+        background: linear-gradient(90deg, #E94139 0%, #D01A14 50.2%, #FA4731 100%), linear-gradient(90deg, #FFC133 0%, #FFB800 50.2%, #FAFF00 100%), linear-gradient(90deg, #FFC133 0%, #DA9D00 32.62%, #DA9D00 61.58%, #FAFF00 98.31%), #FFC133
+        &:before
+          width: 78px
+          background: url(/cats/cat_ticket_1.svg) 0 0 no-repeat
+          background-size: 100%
+          top: -43px
+      p
+        +h5
+        text-transform: none
+        &:first-child
+          +h4
+          text-transform: uppercase
     &__text
       text-align: center
       margin: 0 auto 60px
@@ -93,16 +106,6 @@
       top: 921px
       right: 0
       z-index: -1
-    .pattern-bg
-      position: absolute
-      z-index: -1
-      top: 0
-      left: 0
-      right: 0
-      opacity: .034
-      height: 625px
-      width: 100%
-      background: url(/streamer-bg-mob.png) 0 0 repeat
     &-top
       display: flex
       justify-content: center
@@ -141,8 +144,7 @@
         flex-wrap: wrap
         margin-bottom: 25px
       &__button
-        height: 75px
-        margin-top: 72px
+
         -webkit-border-radius: 38px
         -moz-border-radius: 38px
         border-radius: 38px
@@ -152,32 +154,8 @@
         position: relative
         &:first-child
           margin-top: 45px
-        &:before
-          content: ''
-          position: absolute
-          top: -46px
-          left: 50%
-          transform: translateX(-50%)
-          max-width: 71px
-          width: 70px
-          height: 60px
-        &--yellow
-          background: linear-gradient(94.94deg, #FFC133 0.93%, #FFC42C 47.7%, #FF9900 95.8%)
-          &:before
-            background: url(/cats/cat_ticket_2.svg) 0 0 no-repeat
-            background-size: 100%
 
-        &--red
-          background: linear-gradient(90deg, #E94139 0%, #D01A14 50.2%, #FA4731 100%), linear-gradient(90deg, #FFC133 0%, #FFB800 50.2%, #FAFF00 100%), linear-gradient(90deg, #FFC133 0%, #DA9D00 32.62%, #DA9D00 61.58%, #FAFF00 98.31%), #FFC133
-          &:before
-           width: 78px
-           background: url(/cats/cat_ticket_1.svg) 0 0 no-repeat
-           background-size: 100%
-           top: -43px
-        p
-          +h5
-          text-transform: none
-          &:first-child
-            +h4
-            text-transform: uppercase
+
+
+
 
