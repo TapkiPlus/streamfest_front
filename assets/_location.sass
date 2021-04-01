@@ -59,8 +59,8 @@
       &::after
         position: absolute
         content: ''
-        top: 0px
-        bottom: 0px
+        top: 0
+        bottom: 0
         right: -9px
         width: 2px
         background: #bac8cf
@@ -251,6 +251,13 @@
       fill: red
 .map--wrapper
   margin-top: 50px
+@media screen and (max-width: 1024px)
+  .location-tabs
+    .station__list
+      width: 70%
+    .station__item
+      width: 50%
+      margin-right: 0
 @media screen and (max-width: 820px)
   .location
     &-tabs__top
@@ -368,9 +375,12 @@
           white-space: nowrap
 
     .station__list
-      width: 50%
+      width: 60%
     .station__item
       margin-bottom: 15px
+
+      width: 50%
+
     &-bottom
       margin-bottom: 0
       &__left
@@ -439,3 +449,9 @@
     min-width: 23px
     width: 23px
     height: 23px
+
+  .location-tabs
+    .station__list
+      width: 50%
+    .station__item
+      width: 100%
