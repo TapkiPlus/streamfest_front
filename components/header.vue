@@ -103,7 +103,7 @@ export default {
       this.$route.path === "/"
         ? (this.isHomePage = true)
         : (this.isHomePage = false);
-      this.isInfoPage = this.$route.path === "/error-page/" || this.$route.path === "/success-page/";
+      this.isInfoPage = this.$route.path === "/error-page" || this.$route.path === "/success-page";
       this.$store.dispatch("cart/fetchCart");
     }
   },
@@ -113,7 +113,7 @@ export default {
     this.$route.path === "/"
       ? (this.isHomePage = true)
       : (this.isHomePage = false);
-    this.isInfoPage = this.$route.path === "/error-page/" || this.$route.path === "/success-page/";
+    this.isInfoPage = this.$route.path === "/error-page" || this.$route.path === "/success-page";
     console.log(this.isInfoPage)
     if (!this.$auth.$storage.getCookie("session_id")) {
       this.$auth.$storage.setCookie("session_id", this.uuidv4());

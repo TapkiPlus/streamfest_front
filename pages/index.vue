@@ -10,12 +10,12 @@
         </p>
         <p class="offer__22px">до фестиваля</p>
         <p class="offer__36px">{{ lastDay }}</p>
-<!--        <nuxt-link-->
-<!--          @click.native="handleScroll"-->
-<!--          class="btn header__button btn&#45;&#45;big btn&#45;&#45;yellow"-->
-<!--          to="#tickets">-->
-<!--          <span class="split">Купить билет</span>-->
-<!--        </nuxt-link>-->
+        <nuxt-link
+          @click.native="handleScroll"
+          class="btn header__button btn--big btn--yellow"
+          to="#tickets">
+          <span class="split">Купить билет</span>
+        </nuxt-link>
       </div>
     </section>
     <section class="video-block">
@@ -667,7 +667,7 @@
       <div class="container">
         <h3 class="section-header">СТРАТЕГИЧЕСКИЕ ПАРТНЕРЫ</h3>
         <div class="partners-img strategy">
-          <a href="http://www.lg.com/ru/monitors/lg-34UC79G-B" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.lg.com/ru/monitors/lg-34UC79G-B" target="_blank" rel="noopener noreferrer">
             <el-image src="/partners/lg.png" lazy></el-image>
           </a>
           <a href="https://wasd.tv/" target="_blank" rel="noopener noreferrer">
@@ -703,7 +703,7 @@
 
             <el-image src="/partners/qiwi.png" lazy></el-image>
           </a>
-          <a class="part-6" href="http://goodgame.ru/" target="_blank" rel="noopener noreferrer">
+          <a class="part-6" href="https://goodgame.ru/" target="_blank" rel="noopener noreferrer">
             <el-image src="/partners/cyberbuild.png" lazy></el-image>
           </a>
           <a class="part-7"
@@ -728,7 +728,7 @@
         </div>
         <h3 class="section-header">ПАРТНЕРЫ ТЕМАТИЧЕСКИХ&nbsp;ЗОН</h3>
         <div class="partners-img tematic">
-          <a href="http://restream.io" target="_blank" rel="noopener noreferrer">
+          <a href="https://restream.io" target="_blank" rel="noopener noreferrer">
             <el-image src="/partners/restream.png" lazy></el-image>
           </a>
           <a
@@ -738,7 +738,7 @@
           >
             <el-image src="/partners/mega-drive.png" lazy></el-image>
           </a>
-          <a href="http://schoolskills.ru/" target="_blank" rel="noopener noreferrer">
+          <a href="https://schoolskills.ru/" target="_blank" rel="noopener noreferrer">
             <el-image src="/partners/school_skills.png" lazy></el-image>
           </a>
           <a href="https://podari-zhizn.ru/main" target="_blank" rel="noopener noreferrer">
@@ -750,7 +750,7 @@
         </div>
         <h3 class="section-header">ТЕХНИЧЕСКАЯ ПОДДЕРЖКА</h3>
         <div class="partners-img tematic">
-          <a href="http://warp.wtf/" target="_blank" rel="noopener noreferrer">
+          <a href="https://warp.wtf/" target="_blank" rel="noopener noreferrer">
             <el-image src="/partners/warp.png" lazy></el-image>
           </a>
           <a href="https://www.razerzone.ru/" target="_blank" rel="noopener noreferrer">
@@ -909,7 +909,7 @@ export default {
             slidesPerView: 1,
             spaceBetween: 20,
           },
-          375: {
+          360: {
             slidesPerView: 1.1,
           },
           410: {
