@@ -138,10 +138,14 @@ export default {
 
     };
     script.src = "https://vk.com/js/api/openapi.js?168";
+
+
+    document.body.appendChild(script);
+  },
+  beforeUpdate() {
     document.querySelectorAll('.split')
       .forEach(button => {button.innerHTML ='<span><span class="letter">' + button.textContent.trim().split('').join('</span><span class="letter">') + '</span></span>';});
 
-    document.body.appendChild(script);
   },
   methods: {
     scrollToTop() {

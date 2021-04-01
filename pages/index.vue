@@ -703,11 +703,11 @@
 
             <el-image src="/partners/qiwi.png" lazy></el-image>
           </a>
-          <a class="part-6" href="https://goodgame.ru/" target="_blank" rel="noopener noreferrer">
+          <a class="part-6" href="https://ru.siberianhealth.com/ru/shop/catalog/category/406/" target="_blank" rel="noopener noreferrer">
             <el-image src="/partners/cyberbuild.png" lazy></el-image>
           </a>
           <a class="part-7"
-            href="https://ru.siberianhealth.com/ru/shop/catalog/category/406/"
+            href="https://goodgame.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -909,7 +909,7 @@ export default {
             slidesPerView: 1,
             spaceBetween: 20,
           },
-          360: {
+          350: {
             slidesPerView: 1.1,
           },
           410: {
