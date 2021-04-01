@@ -10,12 +10,12 @@
         </p>
         <p class="offer__22px">до фестиваля</p>
         <p class="offer__36px">{{ lastDay }}</p>
-        <nuxt-link
-          @click.native="handleScroll"
-          class="btn header__button btn--big btn--yellow"
-          to="#tickets">
-          <span class="split">Купить билет</span>
-        </nuxt-link>
+<!--        <nuxt-link-->
+<!--          @click.native="handleScroll"-->
+<!--          class="btn header__button btn&#45;&#45;big btn&#45;&#45;yellow"-->
+<!--          to="#tickets">-->
+<!--          <span class="split">Купить билет</span>-->
+<!--        </nuxt-link>-->
       </div>
     </section>
     <section class="video-block">
