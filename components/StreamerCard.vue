@@ -10,9 +10,6 @@
 
 <script>
 export default {
-  props: ["image", "nickname", "name", "name_slug"],
-  data() {
-    return {};
-  }
+  props: ["image", "nickname", "name", "name_slug"]
 };
 </script>

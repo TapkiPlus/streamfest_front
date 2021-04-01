@@ -42,26 +42,28 @@
           <div class="streamer-text__block" v-html="streamer.about"></div>
           <div class="streamer-text__block" v-html="streamer.streaming"></div>
         </div>
-        <div class="streamer-bottom">
+        <div v-if="streamer.sells" class="streamer-bottom">
           <div class="streamer-bottom__buttons">
-            <!--            @click.prevent="addItem(ticket.id,streamer.id)" -->
-            <div
-              v-for="ticket in tickets"
-              :key="ticket.id"
+            <button
+              v-for="{ id, days_qty } in tickets"
+              :key="id"
+              @click="addItem(id, streamer.id)"
               class="streamer-bottom__button btn"
               :class="[
-                ticket.is_one_day
+                days_qty === 1
                   ? 'streamer-bottom__button--yellow'
                   : 'streamer-bottom__button--red'
               ]"
             >
-
               <p class="split">
-                {{ ticket.is_one_day ? " Скоро — билет на 1 день" : "Скоро — билет на 2 дня" }}
+                {{
+                  days_qty === 1
+                    ? " Скоро — билет на 1 день"
+                    : "Скоро — билет на 2 дня"
+                }}
               </p>
               <p class="split">от {{ streamer.nickName }}</p>
-
-            </div>
+            </button>
           </div>
           <p class="streamer-bottom__text">
             Покупая билет от участника, ты его поддерживаешь. Часть стоимости
@@ -76,25 +78,19 @@
 <script>
 export default {
   scrollToTop: true,
-  // auth: true,
   async asyncData({ $axios, params }) {
     try {
       const get_streamer = await $axios.get(
         `/api/get_streamer?name_slug=${params.streamer_slug}`
       );
       const streamer = get_streamer.data;
-      const get_tickets = await $axios.get(`/api/get_tickets`);
+      const get_tickets = await $axios.get(`/api/get_ticket_types`);
       const tickets = get_tickets.data;
       return { streamer, tickets };
     } catch (error) {
       throw { statusCode: 404, message: "Streamer not found" };
     }
   },
-  data() {
-    return {};
-  },
-  watch: {},
-  mounted() {},
   methods: {
     notify(title, message, type) {
       this.$notify({
@@ -104,13 +100,11 @@ export default {
       });
     },
     async addItem(t_id, s_id) {
-      await this.$axios.post("/api/add_item", {
-        session_id: this.$auth.$storage.getCookie("session_id"),
-        item_id: t_id,
-        streamer_id: s_id
+      await this.$store.dispatch("cart/addItem", {
+        t_id,
+        s_id
       });
       this.notify("Успешно", "Билет добавлен в корзину", "success");
-      await this.$store.dispatch("cart/fetchCart");
     }
   }
 };
