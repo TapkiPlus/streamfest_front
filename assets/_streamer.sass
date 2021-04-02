@@ -1,5 +1,17 @@
 .streamer
-  margin-bottom: 72px
+  position: relative
+  &:before, &:after
+    display: block
+    position: absolute
+  &:before
+    content: url(/bg-cart-pc-left.svg)
+    top: 100px
+    left: 0
+  &:after
+    content: url(/bg-cart-pc-right.svg)
+    top: 180px
+    right: 0
+    z-index: -1
   &-container
     max-width: 1000px
     margin: 0 auto
@@ -8,6 +20,7 @@
     grid-template-columns: 1fr 4fr
     grid-gap: 30px
     margin-bottom: 44px
+    margin-top: 50px
     &__avatar
       height: 290px
       background-size: cover
@@ -88,7 +101,7 @@
           text-transform: uppercase
     &__text
       text-align: center
-      margin: 0 auto 60px
+      margin: 0 auto
       font-style: italic
       max-width: 480px
 
@@ -156,10 +169,14 @@
         padding: 0
         width: 100%
         position: relative
-        &:first-child
-          margin-top: 45px
 
 
+    .pattern-bg
+      height: 625px
+      top: 0
+      background: url(/streamer-bg-mob.svg) center no-repeat
 
 
-
+@media screen and (max-width: 767px)
+  .streamer-bottom__button:first-child
+    margin-top: 45px

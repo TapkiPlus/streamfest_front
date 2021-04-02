@@ -63,10 +63,12 @@
         <div
           class="cart__empty"
           v-else
-        >
+        ><div>
           <img src="/cart-big.svg" alt="">
           <p class="cart-row ">Ваша корзина пока что пуста</p>
           <a href="/#tickets" class="btn btn--blue"><span class="split">Выбрать билет</span> </a>
+        </div>
+
         </div>
       </div>
 
