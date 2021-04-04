@@ -47,33 +47,26 @@
               <nuxt-link :to="nav_item.url">{{ nav_item.name }} </nuxt-link>
             </li>
           </ul>
-          <!--          <nuxt-link-->
-          <!--            v-if="items_in_cart.tickets.length > 0"-->
-          <!--            :data-num="items_in_cart.tickets.length"-->
-          <!--            class="btn header__button btn&#45;&#45;yellow header__button&#45;&#45;cart "-->
-          <!--            to="/cart"-->
-          <!--            @click="hamburgerActive = false"-->
-          <!--          >-->
-          <!--            <span class="split">корзина</span></nuxt-link>-->
-          <!--          <nuxt-link-->
-          <!--            v-else-->
-          <!--            @click.native="handleScroll"-->
-          <!--            class=" btn btn&#45;&#45;yellow header__button"-->
-          <!--            to="/#tickets">-->
-          <!--            <div class="btn-bg"></div>-->
-          <!--            <span class="split">-->
-          <!--              Купить билет-->
-          <!--            </span>-->
-
-          <!--          </nuxt-link>-->
-        </div>
-        <div class="header-button">
           <nuxt-link
+            v-if="totalCount > 0 ? true : false"
             :data-num="totalCount"
-            class="header-button__cart"
+            class="btn header__button btn-yellow header__button-cart"
             to="/cart"
-            >корзина</nuxt-link
+            @click="hamburgerActive = false"
           >
+            <span class="split">корзина</span>
+          </nuxt-link>
+          <nuxt-link
+            v-else
+            @click.native="handleScroll"
+            class="btn btn-yellow header__button"
+            to="/#tickets"
+          >
+            <div class="btn-bg"></div>
+            <span class="split">
+              Купить билет
+            </span>
+          </nuxt-link>
         </div>
       </div>
     </div>

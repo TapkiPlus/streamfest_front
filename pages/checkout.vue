@@ -159,7 +159,9 @@ export default {
     ...mapActions("checkout", ["getFormValues", "saveData", "getPayLink"]),
     submitForm(e) {
       e.preventDefault();
-      this.getPayLink();
+      this.$store.getters["cart/totalCount"]
+        ? this.getPayLink(true)
+        : this.$router.push("/");
     }
   },
   computed: mapState("checkout", ["form", "errors", "disabledPay"])

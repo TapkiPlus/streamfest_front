@@ -43,42 +43,6 @@ export default {
       });
       dispatch("fetchCart");
     }
-    //  addToCart({ dispatch }, { t_id, s_id = 0 }) {
-    // let cart = JSON.parse(localStorage.getItem("cart")),
-    //   ticketObj = { ticketId, count: 1, starId };
-    // if (cart) {
-    //   cart.find(item => item.ticketId === ticketId && item.starId === starId)
-    //     ? cart.forEach(item => {
-    //         if (item.ticketId === ticketId && item.starId === starId) {
-    //           ++item.count;
-    //           return item;
-    //         }
-    //       })
-    //     : cart.push(ticketObj);
-    // } else cart = [ticketObj];
-    // commit("SET_CART", cart);
-    // localStorage.setItem("cart", JSON.stringify(cart));
-    // this.$router.push("cart");
-    // },
-    // changeCount({ state, commit }, { ticketId, starId, count }) {
-    //   const cart = state.cart.map(item => {
-    //     if (item.ticketId === ticketId && item.starId === starId) {
-    //       item.count = count;
-    //       return item;
-    //     }
-    //   });
-    //   commit("SET_CART", cart);
-    //   localStorage.setItem("cart", JSON.stringify(cart));
-    // },
-    // delete({ state, commit }, { ticketId, starId }) {
-    //   const cart = state.cart.filter(
-    //     item => item.ticketId !== ticketId && item.starId !== starId
-    //   );
-    //   commit("SET_CART", cart);
-    //   cart.length
-    //     ? localStorage.setItem("cart", JSON.stringify(cart))
-    //     : localStorage.removeItem("cart");
-    // }
   },
   getters: {
     totalCount({ data: { cartitem_set } }) {

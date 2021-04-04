@@ -34,21 +34,18 @@ export default {
       ).data;
       commit("INIT_FORM", { firstname, lastname, email, phone });
     },
-    saveData({ commit }, obj) {
-      this.$axios.post("/api/save_user_data", {
-        session_id: this.$auth.$storage.getCookie("session_id"),
-        ...obj
-      });
+    saveData({ commit, dispatch }, obj) {
+      dispatch("userData/saveData", obj, { root: true });
       commit("SET_FORM", obj);
     },
-    async getPayLink({ state, commit }) {
+    async getPayLink({ state, commit, dispatch }, fromCheckout = false) {
       const { firstname, lastname, email, emailConfirm, phone } = state.form;
       commit("DISABLE_PAY", true);
       commit("REMOVE_ERRORS");
       if (!firstname) commit("PUSH_ERROR", "firstname");
       if (!lastname) commit("PUSH_ERROR", "lastname");
       if (!email) commit("PUSH_ERROR", "email");
-      if (!emailConfirm || email !== emailConfirm)
+      if (fromCheckout && (!emailConfirm || email !== emailConfirm))
         commit("PUSH_ERROR", "emailConfirm");
       if (!phone) commit("PUSH_ERROR", "phone");
       if (state.errors.length) commit("DISABLE_PAY", false);
@@ -62,8 +59,11 @@ export default {
             phone
           })
         ).data;
-        if (url) window.location.href = url;
-        else return false;
+        if (url) {
+          fromCheckout &&
+            dispatch("userData/saveData", { clickedPay: true }, { root: true });
+          window.location.href = url;
+        } else return false;
       }
     }
   }
