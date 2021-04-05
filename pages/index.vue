@@ -959,8 +959,11 @@ export default {
           86400000
       ).toString();
       const lastNum = days.substr(-1);
-      if ((lastNum == 1) && (days.length - 2) !== 1) days += " день";
-      else if ((lastNum == 2 || lastNum == 3 || lastNum == 4) && (days.length - 2) !== 1) days += " дня";
+      const lastNum2 = days.substr(-2);
+      console.log(days)
+      console.log(lastNum2)
+      if (lastNum === '1')  days += " день";
+      else if (lastNum === '2' || lastNum === '3' || lastNum === '4') days += " дня";
       else days += " дней";
       this.lastDay = days;
     },

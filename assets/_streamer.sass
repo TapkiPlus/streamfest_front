@@ -3,6 +3,7 @@
   &:before, &:after
     display: block
     position: absolute
+    z-index: -1
   &:before
     content: url(/bg-cart-pc-left.svg)
     top: 100px
@@ -11,14 +12,13 @@
     content: url(/bg-cart-pc-right.svg)
     top: 180px
     right: 0
-    z-index: -1
   &-container
     max-width: 1000px
     margin: 0 auto
   &-top
     display: grid
-    grid-template-columns: 1fr 4fr
-    grid-gap: 30px
+    grid-template-columns: .965fr 4fr
+    grid-gap: 20px
     margin-bottom: 44px
     margin-top: 50px
     &__avatar
@@ -39,6 +39,7 @@
         &:first-child
           font-size: 37px
           font-weight: 700
+          color: #0D6DD8
     &__links
       a
         margin-right: 5px
@@ -70,7 +71,7 @@
     &__button
       flex-direction: column
       height: 75px
-      margin-top: 72px
+      margin-top: 40px
       pointer-events: none
       &:before
         content: ''
@@ -175,6 +176,8 @@
       height: 625px
       top: 0
       background: url(/streamer-bg-mob.svg) center no-repeat
+      -webkit-background-size: cover
+      background-size: cover
 
 
 @media screen and (max-width: 767px)
