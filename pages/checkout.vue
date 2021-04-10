@@ -1,19 +1,10 @@
 <template>
   <section class="cart cart-checkout">
-    <h4 class="cart__title">Данные покупателя</h4>
     <div class="container">
-      <div class="cart-logo ">
-        <img src="/logo_b.png" alt="" />
-      </div>
-      <div class="cart-back">
-        <nuxt-link class="link" to="/cart">Назад в корзину</nuxt-link>
-      </div>
-      <div class="separator mobile-hidden"></div>
+      <h4 class="cart__title">Данные покупателя</h4>
       <div class="cart-container">
         <div class="cart-form">
-          <p class="cart-form__title">Данные покупателя</p>
-
-          <div class="cart-form-row">
+          <form class="cart-form-row">
             <div
               class="cart-form-row__item input__field"
               :class="{ 'item-error': nameError }"
@@ -56,21 +47,15 @@
                <input v-model="userData.phone" type="tel" class="input" placeholder="+7 123 456 78 90"/>
               </label>
             </div>
-          </div>
-        </div>
-        <div class="cart-big-button ">
-          <button :disabled="!is_ok" @click="pay">оплатить</button>
-          <p>
-            Переходя к оплате, вы соглашаетесь с
-            <a class="link" href="https://docs.google.com/document/d/1ZaexFifUQPt8RNLHgBg3aZToA8pKszJOOWLiQEkKB-s/edit?usp=sharing
+            <button class="btn btn--green" :disabled="!is_ok" @click="pay"><span class="split">Оплатить</span></button>
+            <p>
+              Переходя к оплате, вы соглашаетесь с
+              <a class="link" target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1ZaexFifUQPt8RNLHgBg3aZToA8pKszJOOWLiQEkKB-s/edit?usp=sharing
 ">договором оферты</a>,
-            <a class="link" href="https://docs.google.com/document/d/1LWNuBF596Wndtl4hiI2t12cOo_qHJsxMSD4qedX6HTA/edit?usp=sharing">условиями конфиденциальности</a> и
-            <a class="link" href="https://docs.google.com/document/d/1UiAIfANWzYRYZuGIW1sj3tAQ20-_AUEnvvgt8-xdPKQ/edit?usp=sharing">правилами площадки</a>.
-          </p>
-        </div>
-
-        <div class="">
-          <img :src="base_url + i.qr" alt="" v-for="i in temp" />
+              <a class="link" target="_blank" rel="noopener noreferrer"href="https://docs.google.com/document/d/1LWNuBF596Wndtl4hiI2t12cOo_qHJsxMSD4qedX6HTA/edit?usp=sharing">условиями конфиденциальности</a> и
+              <a class="link" target="_blank" rel="noopener noreferrer"href="https://docs.google.com/document/d/1UiAIfANWzYRYZuGIW1sj3tAQ20-_AUEnvvgt8-xdPKQ/edit?usp=sharing">правилами площадки</a>.
+            </p>
+          </form>
         </div>
         <p class="mb-35">
           После успешной оплаты вам на email придет два письма: одно с чеком,

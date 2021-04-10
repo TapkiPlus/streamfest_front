@@ -1,61 +1,73 @@
 @import "mixin"
 .header
-  //background: rgb(0,89,201)
-  //background: linear-gradient(90deg, rgba(0,89,201,1) 0%, rgba(43,181,255,1) 18%, rgba(0,89,201,1) 100%)
   background: transparent
-  padding: 15px 0
-
-  transition: all .2s linear
+  padding: 12px 0 23px
   position: absolute
+  transition: all .2s linear
   left: 0
+  top: 0
   right: 0
-  height: 90px
+  height: 80px
   z-index: 100
+  .container
+    max-width: 100%
+    padding: 0 90px
   &.header-bg
     // background: none
-    background: linear-gradient(90deg, rgba(0,89,201,1) 0%, rgba(43,181,255,1) 18%, rgba(0,89,201,1) 100%)
-    margin-bottom: 64px //normal
+    background: linear-gradient(90.2deg, #015ACA 0%, #2BB5FF 5.95%, #188DE7 38.72%, #117DDE 71.37%, #015BCA 100.1%)
+    //margin-bottom: 64px //normal
     //margin-bottom: 58px faq
     //margin-bottom: 37px streamer
-    position: sticky
+    position: fixed
     top: 0
+    + section
+      padding-top: 80px
+    + .cart
+      padding-top: 150px
+    + .streamers
+      padding-top: 150px
   &.header-prepare-sticky
     top: -90px
     transition: all .2s linear
   &.header-sticky
-    position: fixed
     transition: all .2s linear
     top: 0
+    position: fixed
     width: 100%
-    background: linear-gradient(90deg, rgba(0,89,201,1) 0%, rgba(43,181,255,1) 18%, rgba(0,89,201,1) 100%)
+    background: linear-gradient(90.2deg, #015ACA 0%, #2BB5FF 5.95%, #188DE7 38.72%, #117DDE 71.37%, #015BCA 100.1%)
     z-index: 100
     & .header-logo
       & .logo_w
         display: block
-
+  &.header-info
+    background: transparent
   &-wrapper
     display: flex
     align-items: center
     justify-content: space-between
   &-logo
-    flex-grow: 1
     cursor: pointer
+    flex: 0 0 220px
+
   &-nav
-    flex-grow: 3
+    width: 100%
+    display: flex
+
     ul
       display: flex
+      width: 100%
       align-items: center
-      justify-content: space-between
+      justify-content: space-evenly
       li
         position: relative
-        &:first-child
+        &:nth-child(1), &:nth-child(3), &:nth-child(6)
           display: none
         &.navItemActive
 
           &::after
             position: absolute
             content: ''
-            background: $color-yellow
+            background: linear-gradient(90deg, #FAFF00 18.52%, #FDD91C 44.99%, #FFF500 59.71%, #FFC42C 72.63%, #FFD600 88.71%), #C4C4C4
             left: 0
             right: 0
             height: 2px
@@ -72,36 +84,33 @@
           color: #FFFFFF
           font-size: 18px
   &__button
-    flex-grow: 1
-    text-align: right
-    display: none
-    a
-      display: inline-block
-      font-size: 14px
-      color: #333333
-      font-weight: 800
-      text-transform: uppercase
-      background: $color-yellow
-      border-radius: 2px
-      padding: 8px
+    margin-left: auto
+    max-width: 225px
+    color: $color-text
+    &:hover
+      animation: rainbow 6s infinite linear
     &--cart
       position: relative
 
       &::after
         position: absolute
         content: attr(data-num)
-        width: 15px
-        height: 15px
+        width: 26px
+        height: 26px
         background: red
         border-radius: 100%
         color: #FFFFFF
-        font-size: 10px
+        +h5-bold
         display: flex
         align-items: center
         justify-content: center
         right: -8px
         top: -5px
-
+    &.btn--big
+      font-size: 32px
+@keyframes rainbow
+  to
+    filter: hue-rotate(360deg)
 .hamburger
   width: 35px
   height: 26px
@@ -149,7 +158,12 @@
   &-4
     top: 24px
 
-@media screen and (max-width: 768px)
+@media screen and (max-width: 1560px)
+  .header
+    .container
+       padding: 0 25px
+
+@media screen and (max-width: 1360px)
   .header
     padding: 18px 0 15px
     height: auto
@@ -157,8 +171,7 @@
       position: fixed
       margin-bottom: 0
       background: linear-gradient(180deg, #0D6DD8 0%, rgba(13, 109, 216, 0.580271) 50.85%, rgba(13, 109, 216, 0) 100%)
-      + .cart.cart-checkout
-        padding-top: 115px
+
       + section, + .cart, + .faq, + .location
         padding-top: 70px
 
@@ -217,17 +230,13 @@
     &__button
       width: 100%
       text-transform: uppercase
-      display: flex
-      justify-content: center
       color: #fff
-      align-items: center
       background: linear-gradient(0deg, #FFA800, #FFA800), #FFC133
-      border-radius: 50px
-      text-align: center
       padding: 7px 35px 6px
       max-width: 335px
-      +h3
-      height: 55px
+      margin: 0 auto
+      &--big
+        margin-top: 34px
       &--cart
         &:after
           position: relative

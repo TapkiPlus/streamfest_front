@@ -5,12 +5,12 @@
         <div class="footer-top-left">
           <p>
             Старые медиа ушли или трансформировались. Новым — достаточно
-            веб-камеры. В 2020 году мировая аудитория стримов превысила 1 млрд
+            веб-камеры. В&nbsp;2020 году мировая аудитория стримов превысила 1 млрд
             человек. Типичный зритель смотрит их по 95&nbsp;минут в день.
           </p>
           <p>
             Российская аудитория стримов растет в два раза быстрее мировой — на
-            20% в год.<br />Стримфест — это точка входа в новую реальность.<br />Ждем
+            20% в год. Стримфест — это точка входа в новую реальность.<br />Ждем
             вас 17–18 июля в Технопарке Сколково!
           </p>
           <div class="footer-top-social">
@@ -38,11 +38,11 @@
               rel="noopener noreferrer"
               >
               <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0)">
+                <g clip-path="url(#tg)">
                   <path d="M15.2018 21.4459L14.7717 27.4952C15.387 27.4952 15.6535 27.2309 15.9731 26.9135L18.858 24.1564L24.8358 28.5341C25.9322 29.1451 26.7046 28.8234 27.0003 27.5255L30.9242 9.1392L30.9252 9.13812C31.273 7.51745 30.3392 6.8837 29.271 7.28129L6.20684 16.1115C4.63276 16.7225 4.65659 17.6 5.93926 17.9976L11.8358 19.8317L25.5324 11.2615C26.177 10.8346 26.7631 11.0708 26.281 11.4976L15.2018 21.4459Z" fill="white"/>
                 </g>
                 <defs>
-                  <clipPath id="clip0">
+                  <clipPath id="tg">
                     <rect width="26" height="26" fill="white" transform="translate(5 5)"/>
                   </clipPath>
                 </defs>
@@ -108,6 +108,14 @@
         </p>
       </div>
     </div>
+    <nuxt-link
+      v-if="items_in_cart.tickets.length > 0"
+      class="cart-fix"
+      :data-num="items_in_cart.tickets.length"
+      to="/cart">
+      <div class="cart-fix__counter"></div>
+      <img src="/cart-small.svg" alt="cart-icon">
+    </nuxt-link>
     <!-- VK Widget -->
     <div id="vk_community_messages"></div>
   </footer>
@@ -118,9 +126,10 @@ export default {
   mounted() {
     const script = document.createElement("script");
     script.onload = () => {
-      VK.Widgets.CommunityMessages("vk_community_messages", 122887579, {
-        tooltipButtonText: "Я отвечалка, ткни меня!"
-      });
+        VK.Widgets.CommunityMessages("vk_community_messages", 122887579, {
+          disableExpandChatSound: "1",
+          tooltipButtonText: "Я отвечалка, ткни меня!"});
+
       VK.Widgets.Group(
         "vk_groups",
         { mode: 3, width: "auto", no_cover: 1 },
@@ -129,11 +138,23 @@ export default {
 
     };
     script.src = "https://vk.com/js/api/openapi.js?168";
+
+
     document.body.appendChild(script);
+  },
+  beforeUpdate() {
+    document.querySelectorAll('.split')
+      .forEach(button => {button.innerHTML ='<span><span class="letter">' + button.textContent.trim().split('').join('</span><span class="letter">') + '</span></span>';});
+
   },
   methods: {
     scrollToTop() {
       window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  },
+  computed: {
+    items_in_cart() {
+      return this.$store.getters["cart/getCart"];
     }
   }
 };

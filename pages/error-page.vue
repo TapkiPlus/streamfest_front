@@ -13,11 +13,13 @@
         </p>
         <a
           href="#"
-          class="btn">
-          Попробовать еще раз
+          class="btn btn--yellow">
+          <span class="split">Попробовать еще раз</span>
         </a>
       </div>
     </div>
+    <!-- VK Widget -->
+    <div id="vk_community_messages"></div>
   </div>
 </template>
 
@@ -26,6 +28,7 @@ export default {
   scrollToTop: true,
   data() {
     return {
+      isInfoPage: true,
     };
   },
   watch: {

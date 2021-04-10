@@ -1,5 +1,6 @@
 .partners
   position: relative
+  padding-top: 0
   margin-bottom: 80px
   & .section-header
     margin-bottom: 35px
@@ -9,10 +10,12 @@
   &-img
     display: flex
     flex-wrap: wrap
-    justify-content: center
+    justify-content: space-evenly
+    align-items: center
     margin: 0 auto 50px
     img
-      margin: 0 7.5px 15px
+      margin: 0 0 15px
+      width: 100%
     &.general
       text-align: center
       img
@@ -21,20 +24,45 @@
         // object-fit: cover
     &.strategy
       img
-        width: 360px
-        height: 180px
-        object-fit: cover
+        max-width: 330px
+        width: 100%
     &.official
-      max-width: 855px
+      display: grid
+      grid-row-gap: 20px
+      align-items: center
+      justify-items: center
+      grid-template-columns: repeat(18, 1fr)
+      .part
+        &-1
+          grid-column: 1 / 4
+        &-2
+          grid-column: 5 / 9
+        &-3
+          grid-column: 10 / 14
+        &-4
+          grid-column: 15 / 19
+        &-5
+          grid-column: 3 / 7
+        &-6
+          grid-column: 8 / 12
+        &-7
+          grid-column: 13 / 16
+        &-8
+          grid-column: 5 / 9
+        &-9
+          grid-column: 10 / 14
+
+
       img
-        width: 270px
-        height: 130px
-        object-fit: cover
+        max-width: 230px
+
     &.tematic
+
+      a
+        width: calc((100% - 120px) / 5)
+        margin-bottom: 20px
       img
-        width: 210px
-        height: 105px
-        object-fit: cover
+        max-width: 236px
   &-modal
       opacity: 0
       visibility: hidden
@@ -71,6 +99,7 @@
 
 @media screen and (max-width: 768px)
   .partners
+    padding-top: 50px
     margin-bottom: 0
     position: relative
     z-index: 1
@@ -89,22 +118,32 @@
     .section-header
       margin-bottom: 25px
     &-img
-      margin-bottom: 32px
+      margin-bottom: 14px
       img
         margin-left: 0
         margin-right: 0
         margin-bottom: 25px
       &.general,
-      &.official,
+
+
+
       &.tematic
         justify-content: space-evenly
         a
-          &:not(:nth-child(4n+1))
-            margin-left: 17px
+          width: calc((100% - 100px) / 4)
+          min-width: 140px
+          margin-bottom: 18px
         img
           max-width: 140px
           width: 100%
           height: auto
+      &.official
+        display: flex
+        justify-content: space-around
+        flex-wrap: wrap
+        img
+          max-width: 140px
+          margin: 0 10px 18px
       &.strategy
         a
           &:not(:nth-child(2n+1))
@@ -118,19 +157,23 @@
         width: 100%
         padding: 0
         justify-content: center
+        text-transform: none
 @media screen and (max-width: 450px)
   .partners
     &-img
+      &.official
+        grid-row-gap: unset
       &.general,
       &.official,
       &.tematic
+        justify-content: space-around
+
         a
-          &:not(:nth-child(4n+1))
-            margin: 0
-          &:not(:nth-child(3n+1))
-            margin-left: 17px
+          min-width: 100px
+          margin-bottom: 18px
         img
           max-width: 100px
+          margin: 0
       &.strategy
         a
           &:not(:nth-child(2n+1))
@@ -148,7 +191,7 @@
       &.official,
       &.tematic
         a
-          margin: 0 !important
+
           width: 50%
           display: flex
           justify-content: center
