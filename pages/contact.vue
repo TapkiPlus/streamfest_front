@@ -914,10 +914,8 @@
 
 <script>
 import Subscribe from "@/components/Subscribe";
-
 export default {
   scrollToTop: true,
-  // auth: true,
   components: {
     Subscribe
   },
@@ -925,18 +923,6 @@ export default {
     return {
       activeTab: 1
     };
-  },
-  mounted() {
-    // const script = document.createElement("script");
-    // script.onload = () => {
-    //   VK.Widgets.ContactUs(
-    //     "vk_contact_us",
-    //     { text: "ПРЯМАЯ ЛИНИЯ: напиши Стримфесту в личку!" },
-    //     -122887579
-    //   );
-    // };
-    // script.src = "https://vk.com/js/api/openapi.js?168";
-    // document.body.appendChild(script);
   }
 };
 </script>

@@ -6,11 +6,11 @@
     display: block
     position: absolute
     z-index: -1
-  &:before
+  &::before
     content: url(/bg-cart-pc-left.svg)
     top: 283px
     left: 0
-  &:after
+  &::after
     content: url(/bg-cart-pc-right.svg)
     top: 578px
     right: 0
@@ -30,7 +30,7 @@
   & .separator
     margin-bottom: 39px
     padding: 0
-    &:before, &:after
+    &::before, &::after
       background: $gray
   &-container
     max-width: 1000px
@@ -127,11 +127,9 @@
     max-width: 1130px
     margin: 0 auto
 
-
   &-form
     margin: 0 auto 55px
     max-width: 625px
-
     &-row
       &__item
         &.item-error
@@ -198,17 +196,16 @@
 
 @media screen and (max-width: 768px)
   .cart
-
     padding: 0
     margin-bottom: 0
     overflow-y: hidden
     &-checkout
       padding-bottom: 50px
-    &:before
+    &::before
       content: url(/bg-cart-left.svg)
       top: 113px
       left: 0
-    &:after
+    &::after
       content: url(/bg-cart-right.svg)
       top: 295px
       right: 0
@@ -331,9 +328,9 @@
         align-items: flex-start
     .separator--thin
       margin: 25px 0
-      &:before
+      &::before
         height: 1px
-      &:after
+      &::after
         display: none
 
   .cart-big-button

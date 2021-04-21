@@ -3,56 +3,73 @@
     <div class="container">
       <h4 class="cart__title">Корзина</h4>
     </div>
-    <div class="container ">
-      <p class="cart-status success">Строка состояния на случай ошибки</p>
+    <div class="container">
+      <p
+        class="cart-status success"
+        :class="{
+          _active: statusTitle
+        }"
+      >
+        {{ statusTitle }}
+      </p>
     </div>
     <div class="container">
-      <div class="cart__full" v-if="items_in_cart.tickets.length > 0">
+      <div
+        class="cart__full"
+        v-if="data.cartitem_set && data.cartitem_set.length"
+      >
         <div class="cart__item">
           <div
             class="cart-row"
-            v-for="item in items_in_cart.tickets"
-            :key="item.id"
+            v-for="{ id, streamer, ticket_type, quantity } in data.cartitem_set"
+            :key="id"
           >
-            <div @click="delItem(item.id)" class="cart-row__delete">
+            <div
+              @click="deleteItem(id, streamer, ticket_type.days_qty)"
+              class="cart-row__delete"
+            >
               <img draggable="false" src="/delete.svg" alt="" />
             </div>
-            <div class="cart-row__icon" v-if="!item.streamer">
+            <div class="cart-row__icon" v-if="!streamer">
               <img
-                :src="item.ticket.is_one_day ? '/oneday.svg' : '/twoday.svg'"
+                :src="
+                  ticket_type.days_qty === 1 ? '/oneday.svg' : '/twoday.svg'
+                "
                 alt=""
               />
             </div>
             <div class="cart-row__icon" v-else>
               <img
                 :src="
-                  item.ticket.is_one_day
+                  ticket_type.days_qty === 1
                     ? '/oneday-star.svg'
                     : '/twoday-star.svg'
                 "
                 alt=""
               />
             </div>
-
             <div class="cart__body">
               <div class="cart-row__name">
-                <p v-if="!item.streamer">
+                <p>
                   Билет на Стримфест&nbsp;2021 на
-                  {{ item.ticket.is_one_day ? "1 день" : "2 дня" }}
-                </p>
-                <p v-else>
-                  Билет на Стримфест&nbsp;2021 на
-                  {{
-                    item.ticket.is_one_day
-                      ? `1 день от ${item.streamer.name}`
-                      : `2 дня от ${item.streamer.name}`
-                  }}
+                  {{ ticket_type.days_qty === 1 ? "1 день" : "2 дня" }}
+                  {{ streamer && streamer.name && ` от ${streamer.name}` }}
                 </p>
               </div>
               <div class="cart-row__quantity">
                 <svg
                   class="minus _disabled"
-                  @click="delItemQ(item.id)"
+                  @click="
+                    changeQuantity(
+                      {
+                        t_id: id,
+                        increase: false
+                      },
+                      streamer,
+                      ticket_type.days_qty,
+                      quantity
+                    )
+                  "
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -77,10 +94,19 @@
                     fill="#676767"
                   />
                 </svg>
-                <p>{{ item.quantity }}</p>
+                <p>{{ quantity }}</p>
                 <svg
                   class="plus"
-                  @click="addItemQ(item.id)"
+                  @click="
+                    changeQuantity(
+                      {
+                        t_id: id,
+                        increase: true
+                      },
+                      streamer,
+                      ticket_type.days_qty
+                    )
+                  "
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -108,37 +134,32 @@
                 </svg>
               </div>
               <div class="cart-row__price">
-                <p>{{ item.ticket.price * item.quantity }}&nbsp;руб.</p>
+                <p>{{ ticket_type.price * quantity }}&nbsp;руб.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-        <div class="cart__empty" v-else>
-          <div>
-            <img src="/cart-big.svg" alt="">
-            <p class="cart-row ">Ваша корзина пока что пуста</p>
-            <a href="/#tickets" class="btn btn--blue">
-              <span class="split">Выбрать билет</span>
-            </a>
-          </div>
-
-        </div>
+      <div class="cart__empty" v-else>
+        <img src="/cart-big.svg" alt="" />
+        <p class="cart-row ">Ваша корзина пока что пуста</p>
+        <button @click="goToHome" class="btn btn--blue">
+          <span class="split">Выбрать билет</span>
+        </button>
       </div>
-
-    <div class="container " v-if="items_in_cart.tickets.length > 0">
+    </div>
+    <div class="container" v-if="data.cartitem_set && data.cartitem_set.length">
       <div class="btn-wrapper">
         <button
           class="btn btn--blue"
-          :disabled="items_in_cart.tickets.length > 0"
-          @click="$router.push('/checkout')"
+          :disabled="!data.cartitem_set.length"
+          @click="goToCheckout"
         >
           <span class="split">Перейти к оформлению</span>
         </button>
         <div class="cart-button__total">
           <p>Общая стоимость:</p>
-          <p class="total">{{ items_in_cart.total_price }} ₽</p>
+          <p class="total">{{ data.total_price }} ₽</p>
         </div>
       </div>
       <div class="separator separator--thin"></div>
@@ -165,8 +186,8 @@
       <div class="cart-button--bottom desktop-hidden">
         <button
           class="btn btn--blue"
-          :disabled="items_in_cart.tickets.length === 0"
-          @click="$router.push('/checkout')"
+          :disabled="!data.cartitem_set.length"
+          @click="goToCheckout"
         >
           <span class="split">Перейти к оформлению</span>
         </button>
@@ -176,43 +197,56 @@
 </template>
 
 <script>
+import { mapState, mapActions } from "vuex";
 export default {
   scrollToTop: true,
-  // auth: true,
-
   data() {
     return {
+      statusTitle: "",
+      timerId: null
       isCartPage: true
     };
   },
-  watch: {},
-  mounted() {},
-  methods: {
-    async addItemQ(id) {
-      await this.$axios.post("/api/add_item_quantity", {
-        session_id: this.$auth.$storage.getCookie("session_id"),
-        item_id: id
-      });
-      await this.$store.dispatch("cart/fetchCart");
-    },
-    async delItemQ(id) {
-      await this.$axios.post("/api/delete_item_quantity", {
-        session_id: this.$auth.$storage.getCookie("session_id"),
-        item_id: id
-      });
-      await this.$store.dispatch("cart/fetchCart");
-    },
-    async delItem(id) {
-      await this.$axios.post("/api/delete_item", {
-        session_id: this.$auth.$storage.getCookie("session_id"),
-        item_id: id
-      });
-      await this.$store.dispatch("cart/fetchCart");
-    }
-  },
   computed: {
-    items_in_cart() {
-      return this.$store.getters["cart/getCart"];
+    ...mapState("cart", ["data"])
+  },
+  methods: {
+    ...mapActions("userData", ["saveData"]),
+    setStatusTitle(type, streamer, days_qty, quantity, increase) {
+      clearTimeout(this.timerId);
+      this.statusTitle =
+        (quantity === 1 && !increase) || type === "delete"
+          ? `Вы удалили Это НЕ Билет на Стримфест 2021 на ${
+              days_qty === 1 ? 1 : 2
+            } день${streamer && streamer.name ? ` от ${streamer.name}` : ""}`
+          : `Вы ${
+              increase ? "увеличили" : "уменьшили"
+            } количество Это НЕ Билет на Стримфест 2021 на ${
+              days_qty === 1 ? 1 : 2
+            } день${streamer && streamer.name ? ` от ${streamer.name}` : ""}`;
+      this.timerId = setTimeout(() => (this.statusTitle = ""), 3000);
+    },
+    async changeQuantity(obj, streamer, days_qty, quantity) {
+      await this.$store.dispatch("cart/changeQuantity", obj);
+      this.setStatusTitle(
+        "quantity",
+        streamer,
+        days_qty,
+        quantity,
+        obj.increase
+      );
+    },
+    async deleteItem(id, streamer, days_qty) {
+      await this.$store.dispatch("cart/deleteItem", id);
+      this.setStatusTitle("delete", streamer, days_qty);
+    },
+    goToHome() {
+      this.saveData({ returnedToShop: true });
+      this.$router.push("/#tickets");
+    },
+    goToCheckout() {
+      this.saveData({ wentToCheckout: true });
+      this.$router.push("/checkout");
     }
   }
 };
