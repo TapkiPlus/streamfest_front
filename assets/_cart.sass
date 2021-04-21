@@ -1,7 +1,8 @@
 .cart
   padding-top: 50px
   position: relative
-  &::before, &::after
+  min-height: calc(100vh - 97px)
+  &:before, &:after
     display: block
     position: absolute
     z-index: -1
@@ -142,11 +143,14 @@
       margin: 0 auto
 
   &__empty
-    min-height: calc(100vh - 421px)
-    display: flex
-    justify-content: center
-    align-items: center
-    flex-direction: column
+
+
+    > div
+      margin-top: 50px
+      display: flex
+      justify-content: center
+      align-items: center
+      flex-direction: column
     .cart-row
       display: block
       text-align: center
@@ -188,6 +192,7 @@
 .logo-pay
   margin-right: 50px
   display: block
+
 
 @media screen and (max-width: 768px)
   .cart
@@ -235,7 +240,7 @@
           text-transform: none
     &__empty
       font-size: 16px
-      min-height: calc(100vh - 196px)
+
       img
         width: 120px
     &-container
@@ -363,6 +368,9 @@
     margin-right: 20px
     max-height: 30px
 
+@media only screen and (max-width: 425px)
+  .cart
+    min-height: calc(100vh - 75px)
 @media only screen and (max-width: 340px)
   .logo-pay--wrapper
     flex-wrap: wrap
@@ -370,3 +378,4 @@
     width: 50%
     margin-right: 0
     margin-bottom: 15px
+

@@ -19,8 +19,6 @@
       margin-bottom: -30px
     .silentbox-item
       width: calc((100% - 120px) / 3 )
-      display: flex
-      justify-content: center
       margin-bottom: 30px
       img
         object-fit: contain
@@ -43,6 +41,7 @@
 @media screen and (max-width: 768px)
   #silentbox-gallery
     padding: 0
+    align-items: flex-start
   .how-it-was
     position: relative
     margin-bottom: 0
@@ -70,7 +69,7 @@
 @media screen and (max-width: 767px)
   .how-it-was-photos
     .silentbox-item
-      &:nth-child(3), &:nth-child(5), &:nth-child(6)
+      &:nth-child(5), &:nth-child(6)
         display: none
 @media screen and (max-width: 540px)
   .how-it-was

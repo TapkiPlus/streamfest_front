@@ -270,7 +270,7 @@
               target="_blank"
               rel="noopener noreferrer"
               >Интерактивная карта</a
-            >
+            >.
           </p>
           <p>
             Самая удобная пересадка на МЦД-1 — из метро
@@ -883,24 +883,18 @@
             >
             </iframe>
           </div>
-          <form class="location-bottom__form">
+          <div class="location-bottom__form">
             <h2 class="form__title desktop-hidden">Или напишите нам</h2>
             <input
               class="input"
               type="email"
-              required
               placeholder="Ваш email  — сюда отправим ответ"
             />
-            <textarea
-              class="input"
-              name=""
-              required
-              placeholder="Ваше сообщение"
-            ></textarea>
-            <button type="submit" class="btn btn--blue btn--form">
+            <textarea class="input" placeholder="Ваше сообщение"></textarea>
+            <button class="btn btn--blue btn--form" disabled>
               <span class="split">Отправить</span>
             </button>
-          </form>
+          </div>
         </div>
         <div class="location-bottom__right mobile-hidden">
           <iframe

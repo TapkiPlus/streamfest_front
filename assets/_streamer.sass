@@ -1,13 +1,26 @@
 .streamer
-  margin-bottom: 72px
+  position: relative
+  &:before, &:after
+    display: block
+    position: absolute
+    z-index: -1
+  &:before
+    content: url(/bg-cart-pc-left.svg)
+    top: 100px
+    left: 0
+  &:after
+    content: url(/bg-cart-pc-right.svg)
+    top: 180px
+    right: 0
   &-container
     max-width: 1000px
     margin: 0 auto
   &-top
     display: grid
-    grid-template-columns: 1fr 4fr
-    grid-gap: 30px
+    grid-template-columns: .965fr 4fr
+    grid-gap: 20px
     margin-bottom: 44px
+    margin-top: 50px
     &__avatar
       height: 290px
       background-size: cover
@@ -26,6 +39,7 @@
         &:first-child
           font-size: 37px
           font-weight: 700
+          color: #0D6DD8
     &__links
       a
         margin-right: 5px
@@ -42,6 +56,10 @@
     margin-bottom: 50px
     &__block
       margin-bottom: 30px
+      a
+        text-decoration: underline
+        color: $color-blue
+        display: inline
       &:last-child
         margin-bottom: 0
 
@@ -53,8 +71,8 @@
     &__button
       flex-direction: column
       height: 75px
-      margin-top: 72px
-      // pointer-events: none
+      margin-top: 40px
+      pointer-events: none
       &:before
         content: ''
         position: absolute
@@ -84,7 +102,7 @@
           text-transform: uppercase
     &__text
       text-align: center
-      margin: 0 auto 60px
+      margin: 0 auto
       font-style: italic
       max-width: 480px
 
@@ -152,10 +170,16 @@
         padding: 0
         width: 100%
         position: relative
-        &:first-child
-          margin-top: 45px
 
 
+    .pattern-bg
+      height: 625px
+      top: 0
+      background: url(/streamer-bg-mob.svg) center no-repeat
+      -webkit-background-size: cover
+      background-size: cover
 
 
-
+@media screen and (max-width: 767px)
+  .streamer-bottom__button:first-child
+    margin-top: 45px

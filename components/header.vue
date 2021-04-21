@@ -97,11 +97,12 @@ export default {
     };
   },
   watch: {
-    "$route.path": function() {
-      this.isHomePage = this.$route.path === "/";
-      this.isInfoPage =
-        this.$route.path === "/error-page/" ||
-        this.$route.path === "/success-page/";
+    "$route.path": function(val) {
+      this.$route.path === "/"
+        ? (this.isHomePage = true)
+        : (this.isHomePage = false);
+      this.isInfoPage = this.$route.path === "/error-page" || this.$route.path === "/success-page";
+      this.$store.dispatch("cart/fetchCart");
     }
   },
   computed: {
@@ -109,13 +110,18 @@ export default {
   },
   mounted() {
     window.addEventListener("scroll", this.updateScroll);
-    this.isHomePage = this.$route.path === "/";
-    this.isInfoPage =
-      this.$route.path === "/error-page/" ||
-      this.$route.path === "/success-page/";
-    this.$auth.$storage.getCookie("session_id")
-      ? this.$store.dispatch("cart/fetchCart")
-      : this.$auth.$storage.setCookie("session_id", this.uuidv4());
+    this.$route.path === "/"
+      ? (this.isHomePage = true)
+      : (this.isHomePage = false);
+    this.isInfoPage = this.$route.path === "/error-page" || this.$route.path === "/success-page";
+    console.log(this.isInfoPage)
+    if (!this.$auth.$storage.getCookie("session_id")) {
+      this.$auth.$storage.setCookie("session_id", this.uuidv4());
+      console.log("create session_id");
+    } else {
+      console.log("session_id exists");
+    }
+    this.$store.dispatch("cart/fetchCart");
   },
   methods: {
     handleScroll() {

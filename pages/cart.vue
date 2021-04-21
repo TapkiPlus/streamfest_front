@@ -204,6 +204,7 @@ export default {
     return {
       statusTitle: "",
       timerId: null
+      isCartPage: true
     };
   },
   computed: {
