@@ -150,47 +150,6 @@
                 css-class="header"
                 padding="42px 0 50px"
                 >
-        <!-- <mj-column width="49%">
-          <mj-image width="186px" css-class="logo" padding="0 30px" src="http://www.antonivanovs.ru/img/for_email/logo.png" alt="Стримфест 2021" />
-        </mj-column>
-        <mj-column
-          padding="3px 0 0 0"
-          width="2px"
-          border-left="2px solid #ffffff"
-        >
-          <mj-text css-class="line"
-            padding="0"
-            height="63px"
-            >
-            
-          </mj-text>
-        </mj-column>
-        <mj-column 
-          css-class="header-title"
-          width="50%"
-          vertical-align="middle"
-        >
-          <mj-text 
-            font-size="24px"
-            color="#ffffff"
-            font-family="Open Sans"
-            text-transform="uppercase"
-            font-weight="bold"
-            padding-bottom="6px"
-          >
-            <p>Билет на 1 день</p>
-          </mj-text>
-          <mj-text
-            font-size="18px"
-            color="#ffffff"
-            font-family="Open Sans"
-            text-transform="uppercase"
-            font-weight="bold"
-            padding-top="0"
-          >
-            <p>17 или 18 июля 2021</p>
-          </mj-text>
-        </mj-column> -->
     </mj-section>
     <mj-section background-color="#f5f5f5" padding="25px 40px">
       <mj-column>
