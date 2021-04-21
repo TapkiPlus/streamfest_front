@@ -1,7 +1,7 @@
 import serveStatic from "serve-static";
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
-  target: "static",
+  // target: "static",
   server: {
     port: 3000,
     host: "localhost"
@@ -41,6 +41,7 @@ export default {
   plugins: [
     "@/plugins/element-ui",
     "@/plugins/scroll",
+    "@/plugins/axios.js",
     { src: "@/plugins/swiper", mode: "client" },
     { src: "@/plugins/silentbox", mode: "client" }
   ],
@@ -48,7 +49,7 @@ export default {
   buildModules: [],
   modules: ["@nuxtjs/axios", "@nuxtjs/auth"],
   axios: {
-    baseURL: "http://127.0.0.1:8000"
+    baseURL: "http://sf.tagobar.ru"
     // baseURL: "https://streamfest.ru"
   },
   build: {
