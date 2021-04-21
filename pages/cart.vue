@@ -203,7 +203,7 @@ export default {
   data() {
     return {
       statusTitle: "",
-      timerId: null
+      timerId: null,
       isCartPage: true
     };
   },
