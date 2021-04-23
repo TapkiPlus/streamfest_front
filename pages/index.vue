@@ -10,12 +10,13 @@
         </p>
         <p class="offer__22px">до фестиваля</p>
         <p class="offer__36px">{{ lastDay }}</p>
-        <!--        <nuxt-link-->
-        <!--          @click.native="handleScroll"-->
-        <!--          class="btn header__button btn&#45;&#45;big btn&#45;&#45;yellow"-->
-        <!--          to="#tickets">-->
-        <!--          <span class="split">Купить билет</span>-->
-        <!--        </nuxt-link>-->
+        <nuxt-link
+          @click.native="handleScroll"
+          class="btn header__button btn--big btn--yellow"
+          to="#tickets"
+        >
+          <span class="split">Купить билет</span>
+        </nuxt-link>
       </div>
     </section>
     <section class="video-block">
@@ -1448,6 +1449,14 @@ export default {
       });
       this.notify("Успешно", "Билет добавлен в корзину", "success");
     },
+    handleScroll() {
+      const anchor = document.querySelector(`#tickets`);
+      if (anchor) {
+        window.scrollTo({
+          top: anchor.getBoundingClientRect().top + window.pageYOffset
+        });
+      }
+    },
     openPartnersModal() {
       document.querySelector("body").style.overflow = "hidden";
       this.partnersIframe = true;
@@ -1455,8 +1464,7 @@ export default {
     closePartnersModal() {
       this.partnersIframe = false;
       document.querySelector("body").style.overflow = "visible";
-    },
-    resize() {}
+    }
   }
 };
 </script>

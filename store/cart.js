@@ -10,7 +10,7 @@ export default {
     }
   },
   actions: {
-    async fetchCart({ commit }) {
+    async fetchCart({ state, commit }) {
       const session_id = this.$auth.$storage.getCookie("session_id");
       session_id &&
         commit(
@@ -45,9 +45,12 @@ export default {
     }
   },
   getters: {
-    totalCount({ data: { cartitem_set } }) {
-      return cartitem_set
-        ? cartitem_set.reduce((acc, { quantity }) => acc + quantity, 0)
+    totalCount(state) {
+      return state.data.cartitem_set
+        ? state.data.cartitem_set.reduce(
+            (acc, { quantity }) => acc + quantity,
+            0
+          )
         : 0;
     }
   }
