@@ -725,8 +725,7 @@
               class="link"
               target="_blank"
               rel="noopener noreferrer"
-              >WASD</a
-            >.
+              >WASD</a>.
           </p>
           <p>
             Организаторы Стримфеста совместно с WASD отберут из числа заявителей
