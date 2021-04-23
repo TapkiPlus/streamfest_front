@@ -202,17 +202,6 @@ export default {
     script.src = "https://vk.com/js/api/openapi.js?168";
     document.body.appendChild(script);
   },
-  updated() {
-    document.querySelectorAll(".split").forEach(button => {
-      button.innerHTML =
-        '<span><span class="letter">' +
-        button.textContent
-          .trim()
-          .split("")
-          .join('</span><span class="letter">') +
-        "</span></span>";
-    });
-  },
   methods: {
     scrollToTop() {
       window.scrollTo({ top: 0, behavior: "smooth" });

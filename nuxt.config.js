@@ -39,6 +39,7 @@ export default {
   },
   css: ["element-ui/lib/theme-chalk/index.css", "@/assets/main.sass"],
   plugins: [
+    "@/plugins/mixins",
     "@/plugins/element-ui",
     "@/plugins/scroll",
     { src: "@/plugins/swiper", mode: "client" },
