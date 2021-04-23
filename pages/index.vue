@@ -10,12 +10,13 @@
         </p>
         <p class="offer__22px">до фестиваля</p>
         <p class="offer__36px">{{ lastDay }}</p>
-        <!--        <nuxt-link-->
-        <!--          @click.native="handleScroll"-->
-        <!--          class="btn header__button btn&#45;&#45;big btn&#45;&#45;yellow"-->
-        <!--          to="#tickets">-->
-        <!--          <span class="split">Купить билет</span>-->
-        <!--        </nuxt-link>-->
+        <nuxt-link
+          @click.native="handleScroll"
+          class="btn header__button btn--big btn--yellow"
+          to="#tickets"
+        >
+          <span class="split">Купить билет</span>
+        </nuxt-link>
       </div>
     </section>
     <section class="video-block">
@@ -499,7 +500,6 @@
               <p class="tickets-item__price">
                 <span>{{ price }} ₽</span>
               </p>
-              <div class="tickets-item__soon">Скоро</div>
               <button
                 v-if="days_qty === 1"
                 @click="addItem(id)"
@@ -571,7 +571,6 @@
                     <p class="tickets-item__price">
                       <span>{{ price }} ₽</span>
                     </p>
-                    <div class="tickets-item__soon">Скоро</div>
                     <button
                       v-if="days_qty === 1"
                       @click="addItem(id)"
@@ -1055,7 +1054,11 @@
       <div class="container">
         <h3 class="section-header">СТРАТЕГИЧЕСКИЕ ПАРТНЕРЫ</h3>
         <div class="partners-img strategy">
-          <a href="https://www.lg.com/ru/monitors/lg-34UC79G-B" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.lg.com/ru/monitors/lg-34UC79G-B"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <el-image src="/partners/lg.png" lazy></el-image>
           </a>
           <a href="https://wasd.tv/" target="_blank" rel="noopener noreferrer">
@@ -1111,10 +1114,16 @@
           >
             <el-image src="/partners/qiwi.png" lazy></el-image>
           </a>
-          <a class="part-6" href="https://ru.siberianhealth.com/ru/shop/catalog/category/406/" target="_blank" rel="noopener noreferrer">
+          <a
+            class="part-6"
+            href="https://ru.siberianhealth.com/ru/shop/catalog/category/406/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <el-image src="/partners/cyberbuild.png" lazy></el-image>
           </a>
-          <a class="part-7"
+          <a
+            class="part-7"
             href="https://goodgame.ru/"
             target="_blank"
             rel="noopener noreferrer"
@@ -1140,7 +1149,11 @@
         </div>
         <h3 class="section-header">ПАРТНЕРЫ ТЕМАТИЧЕСКИХ&nbsp;ЗОН</h3>
         <div class="partners-img tematic">
-          <a href="https://restream.io" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://restream.io"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <el-image src="/partners/restream.png" lazy></el-image>
           </a>
           <a
@@ -1150,7 +1163,11 @@
           >
             <el-image src="/partners/mega-drive.png" lazy></el-image>
           </a>
-          <a href="https://schoolskills.ru/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://schoolskills.ru/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <el-image src="/partners/school_skills.png" lazy></el-image>
           </a>
           <a
@@ -1368,7 +1385,7 @@ export default {
             spaceBetween: 20
           },
           350: {
-            slidesPerView: 1.1,
+            slidesPerView: 1.1
           },
           410: {
             slidesPerView: 1.2
@@ -1420,8 +1437,9 @@ export default {
           86400000
       ).toString();
       const lastNum = days.substr(-1);
-      if (lastNum === '1')  days += " день";
-      else if (lastNum === '2' || lastNum === '3' || lastNum === '4') days += " дня";
+      if (lastNum === "1") days += " день";
+      else if (lastNum === "2" || lastNum === "3" || lastNum === "4")
+        days += " дня";
       else days += " дней";
       this.lastDay = days;
     },
@@ -1431,6 +1449,14 @@ export default {
       });
       this.notify("Успешно", "Билет добавлен в корзину", "success");
     },
+    handleScroll() {
+      const anchor = document.querySelector(`#tickets`);
+      if (anchor) {
+        window.scrollTo({
+          top: anchor.getBoundingClientRect().top + window.pageYOffset
+        });
+      }
+    },
     openPartnersModal() {
       document.querySelector("body").style.overflow = "hidden";
       this.partnersIframe = true;
@@ -1438,8 +1464,7 @@ export default {
     closePartnersModal() {
       this.partnersIframe = false;
       document.querySelector("body").style.overflow = "visible";
-    },
-    resize() {}
+    }
   }
 };
 </script>

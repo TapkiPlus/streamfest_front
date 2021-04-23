@@ -15,7 +15,7 @@
           <img
             class="logo_w"
             src="/logo.svg"
-            alt=""
+            alt="СТРИМФЕСТ"
             @click="hamburgerActive = false"
           />
         </div>
@@ -48,16 +48,16 @@
             </li>
           </ul>
           <nuxt-link
-            v-if="totalCount > 0 ? true : false"
-            :data-num="totalCount"
+            v-show="cartTotalCount"
+            :data-num="cartTotalCount"
             class="btn header__button btn-yellow header__button-cart"
             to="/cart"
-            @click="hamburgerActive = false"
+            @click.native="hamburgerActive = false"
           >
             <span class="split">корзина</span>
           </nuxt-link>
           <nuxt-link
-            v-else
+            v-show="!cartTotalCount"
             @click.native="handleScroll"
             class="btn btn-yellow header__button"
             to="/#tickets"
@@ -74,7 +74,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapState } from "vuex";
 export default {
   transition: "home",
   data() {
@@ -97,33 +97,37 @@ export default {
     };
   },
   watch: {
-    "$route.path": function(val) {
-      this.$route.path === "/"
-        ? (this.isHomePage = true)
-        : (this.isHomePage = false);
-      this.isInfoPage = this.$route.path === "/error-page" || this.$route.path === "/success-page";
-      this.$store.dispatch("cart/fetchCart");
+    "$route.path": function() {
+      this.checkRoutePath();
     }
   },
   computed: {
-    ...mapGetters("cart", ["totalCount"])
+    ...mapState("cart", ["data"]),
+    cartTotalCount() {
+      return this.data.cartitem_set
+        ? this.data.cartitem_set.reduce(
+            (acc, { quantity }) => acc + quantity,
+            0
+          )
+        : 0;
+    }
+  },
+  beforeMount() {
+    !this.$auth.$storage.getCookie("session_id") &&
+      this.$auth.$storage.setCookie("session_id", this.uuidv4());
   },
   mounted() {
     window.addEventListener("scroll", this.updateScroll);
-    this.$route.path === "/"
-      ? (this.isHomePage = true)
-      : (this.isHomePage = false);
-    this.isInfoPage = this.$route.path === "/error-page" || this.$route.path === "/success-page";
-    console.log(this.isInfoPage)
-    if (!this.$auth.$storage.getCookie("session_id")) {
-      this.$auth.$storage.setCookie("session_id", this.uuidv4());
-      console.log("create session_id");
-    } else {
-      console.log("session_id exists");
-    }
+    this.checkRoutePath();
     this.$store.dispatch("cart/fetchCart");
   },
   methods: {
+    checkRoutePath() {
+      this.isHomePage = this.$route.path === "/";
+      this.isInfoPage = ["/error-page", "/success-page"].includes(
+        this.$route.path
+      );
+    },
     handleScroll() {
       this.hamburgerActive = false;
       if (this.$route.hash) {
