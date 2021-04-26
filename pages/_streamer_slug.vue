@@ -95,7 +95,8 @@ export default {
     notify(title, message, type) {
       this.$notify({
         title: title,
-        message: message,
+        dangerouslyUseHTMLString: true,
+        message: `<a href="/cart">${message}</a>`,
         type: type
       });
     },

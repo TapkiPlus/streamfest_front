@@ -1427,7 +1427,8 @@ export default {
     notify(title, message, type) {
       this.$notify({
         title: title,
-        message: message,
+        dangerouslyUseHTMLString: true,
+        message: `<a href="/cart">${message}</a>`,
         type: type
       });
     },
@@ -1438,8 +1439,7 @@ export default {
       ).toString();
       const lastNum = days.substr(-1);
       if (lastNum === "1") days += " день";
-      else if (lastNum === "2" || lastNum === "3" || lastNum === "4")
-        days += " дня";
+      else if (["2", "3", "4"].includes(lastNum)) days += " дня";
       else days += " дней";
       this.lastDay = days;
     },

@@ -3,7 +3,7 @@
     <div class="container">
       <h4 class="cart__title">Корзина</h4>
     </div>
-    <div class="container">
+    <!-- <div class="container">
       <p
         class="cart-status success"
         :class="{
@@ -12,7 +12,7 @@
       >
         {{ statusTitle }}
       </p>
-    </div>
+    </div> -->
     <div class="container">
       <div
         class="cart__full"
@@ -141,11 +141,13 @@
         </div>
       </div>
       <div class="cart__empty" v-else>
-        <img src="/cart-big.svg" alt="" />
-        <p class="cart-row ">Ваша корзина пока что пуста</p>
-        <button @click="goToHome" class="btn btn--blue">
-          <span class="split">Выбрать билет</span>
-        </button>
+        <div>
+          <img src="/cart-big.svg" alt="" />
+          <p class="cart-row ">Ваша корзина пока что пуста</p>
+          <button @click="goToHome" class="btn btn--blue">
+            <span class="split">Выбрать билет</span>
+          </button>
+        </div>
       </div>
     </div>
     <div class="container" v-if="data.cartitem_set && data.cartitem_set.length">
@@ -212,33 +214,33 @@ export default {
   },
   methods: {
     ...mapActions("userData", ["saveData"]),
-    setStatusTitle(type, streamer, days_qty, quantity, increase) {
-      clearTimeout(this.timerId);
-      this.statusTitle =
-        (quantity === 1 && !increase) || type === "delete"
-          ? `Вы удалили Это НЕ Билет на Стримфест 2021 на ${
-              days_qty === 1 ? 1 : 2
-            } день${streamer && streamer.name ? ` от ${streamer.name}` : ""}`
-          : `Вы ${
-              increase ? "увеличили" : "уменьшили"
-            } количество Это НЕ Билет на Стримфест 2021 на ${
-              days_qty === 1 ? 1 : 2
-            } день${streamer && streamer.name ? ` от ${streamer.name}` : ""}`;
-      this.timerId = setTimeout(() => (this.statusTitle = ""), 3000);
-    },
+    // setStatusTitle(type, streamer, days_qty, quantity, increase) {
+    //   clearTimeout(this.timerId);
+    //   this.statusTitle =
+    //     (quantity === 1 && !increase) || type === "delete"
+    //       ? `Вы удалили Это НЕ Билет на Стримфест 2021 на ${
+    //           days_qty === 1 ? 1 : 2
+    //         } день${streamer && streamer.name ? ` от ${streamer.name}` : ""}`
+    //       : `Вы ${
+    //           increase ? "увеличили" : "уменьшили"
+    //         } количество Это НЕ Билет на Стримфест 2021 на ${
+    //           days_qty === 1 ? 1 : 2
+    //         } день${streamer && streamer.name ? ` от ${streamer.name}` : ""}`;
+    //   this.timerId = setTimeout(() => (this.statusTitle = ""), 3000);
+    // },
     async changeQuantity(obj, streamer, days_qty, quantity) {
       await this.$store.dispatch("cart/changeQuantity", obj);
-      this.setStatusTitle(
-        "quantity",
-        streamer,
-        days_qty,
-        quantity,
-        obj.increase
-      );
+      // this.setStatusTitle(
+      //   "quantity",
+      //   streamer,
+      //   days_qty,
+      //   quantity,
+      //   obj.increase
+      // );
     },
     async deleteItem(id, streamer, days_qty) {
       await this.$store.dispatch("cart/deleteItem", id);
-      this.setStatusTitle("delete", streamer, days_qty);
+      // this.setStatusTitle("delete", streamer, days_qty);
     },
     goToHome() {
       this.saveData({ returnedToShop: true });
