@@ -1424,13 +1424,6 @@ export default {
     document.body.appendChild(script);
   },
   methods: {
-    notify(title, message, type) {
-      this.$notify({
-        title: title,
-        message: message,
-        type: type
-      });
-    },
     starTimer() {
       let days = Math.floor(
         (new Date("Jul 17, 2021 11:00:00").getTime() - new Date().getTime()) /
@@ -1438,8 +1431,7 @@ export default {
       ).toString();
       const lastNum = days.substr(-1);
       if (lastNum === "1") days += " день";
-      else if (lastNum === "2" || lastNum === "3" || lastNum === "4")
-        days += " дня";
+      else if (["2", "3", "4"].includes(lastNum)) days += " дня";
       else days += " дней";
       this.lastDay = days;
     },
@@ -1447,7 +1439,15 @@ export default {
       await this.$store.dispatch("cart/addItem", {
         t_id
       });
-      this.notify("Успешно", "Билет добавлен в корзину", "success");
+      const { $router } = this;
+      this.$notify({
+        title: "Успешно",
+        message: "Билет добавлен в корзину",
+        type: "success",
+        onClick() {
+          $router.push("cart");
+        }
+      });
     },
     handleScroll() {
       const anchor = document.querySelector(`#tickets`);
