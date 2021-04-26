@@ -17,6 +17,7 @@
     "nuxt": "^2.14.12",
     "swiper": "^5.3.6",
     "vue-awesome-swiper": "^4.1.1",
+    "vue-phone-number-input": "^1.1.10",
     "vue-scrollto": "^2.20.0",
     "vue-silentbox": "^2.4.0",
     "vue2-datepicker": "^3.9.0"

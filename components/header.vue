@@ -5,7 +5,7 @@
     :class="[
       isHomePage && scrollPosition > 100 ? 'header-prepare-sticky' : '',
       isHomePage && scrollPosition > 150 ? 'header-sticky' : '',
-      !isHomePage  ? 'header-bg' : '',
+      !isHomePage && !isAccountPage ? 'header-bg' : '',
       isInfoPage ? 'header-info' : '',
       isAccountPage ? 'header-account' : ''
 
@@ -52,7 +52,7 @@
           <nuxt-link
             v-show="cartTotalCount"
             :data-num="cartTotalCount"
-            class="btn header__button btn-yellow header__button-cart"
+            class="btn header__button btn--yellow header__button-cart"
             to="/cart"
             @click.native="hamburgerActive = false"
           >
@@ -61,7 +61,7 @@
           <nuxt-link
             v-show="!cartTotalCount"
             @click.native="handleScroll"
-            class="btn btn-yellow header__button"
+            class="btn btn--yellow header__button"
             to="/#tickets"
           >
             <div class="btn-bg"></div>
@@ -128,6 +128,9 @@ export default {
     checkRoutePath() {
       this.isHomePage = this.$route.path === "/";
       this.isInfoPage = ["/error-page", "/success-page"].includes(
+        this.$route.path
+      );
+      this.isAccountPage=["/account"].includes(
         this.$route.path
       );
     },

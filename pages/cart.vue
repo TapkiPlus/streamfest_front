@@ -3,7 +3,7 @@
     <div class="container">
       <h4 class="cart__title">Корзина</h4>
     </div>
-    <div class="container">
+    <div class="container cart-status--wrapper">
       <p
         class="cart-status success"
         :class="{
@@ -18,11 +18,10 @@
         class="cart__full"
         v-if="data.cartitem_set && data.cartitem_set.length"
       >
-        <div class="cart__item">
+        <div class="cart__item" v-for="{ id, streamer, ticket_type, quantity } in data.cartitem_set"
+             :key="id">
           <div
             class="cart-row"
-            v-for="{ id, streamer, ticket_type, quantity } in data.cartitem_set"
-            :key="id"
           >
             <div
               @click="deleteItem(id, streamer, ticket_type.days_qty)"
@@ -159,7 +158,7 @@
         </button>
         <div class="cart-button__total">
           <p>Общая стоимость:</p>
-          <p class="total">{{ data.total_price }} ₽</p>
+          <p class="total">{{ data.total_price }} руб.</p>
         </div>
       </div>
       <div class="separator separator--thin"></div>
