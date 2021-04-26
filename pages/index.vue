@@ -1424,14 +1424,6 @@ export default {
     document.body.appendChild(script);
   },
   methods: {
-    notify(title, message, type) {
-      this.$notify({
-        title: title,
-        dangerouslyUseHTMLString: true,
-        message: `<a href="/cart">${message}</a>`,
-        type: type
-      });
-    },
     starTimer() {
       let days = Math.floor(
         (new Date("Jul 17, 2021 11:00:00").getTime() - new Date().getTime()) /
@@ -1447,7 +1439,15 @@ export default {
       await this.$store.dispatch("cart/addItem", {
         t_id
       });
-      this.notify("Успешно", "Билет добавлен в корзину", "success");
+      const { $router } = this;
+      this.$notify({
+        title: "Успешно",
+        message: "Билет добавлен в корзину",
+        type: "success",
+        onClick() {
+          $router.push("cart");
+        }
+      });
     },
     handleScroll() {
       const anchor = document.querySelector(`#tickets`);

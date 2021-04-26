@@ -92,20 +92,20 @@ export default {
     }
   },
   methods: {
-    notify(title, message, type) {
-      this.$notify({
-        title: title,
-        dangerouslyUseHTMLString: true,
-        message: `<a href="/cart">${message}</a>`,
-        type: type
-      });
-    },
     async addItem(t_id, s_id) {
       await this.$store.dispatch("cart/addItem", {
         t_id,
         s_id
       });
-      this.notify("Успешно", "Билет добавлен в корзину", "success");
+      const { $router } = this;
+      this.$notify({
+        title: "Успешно",
+        message: "Билет добавлен в корзину",
+        type: "success",
+        onClick() {
+          $router.push("cart");
+        }
+      });
     }
   }
 };
