@@ -1,0 +1,266 @@
+.activities
+  .container
+    max-width: 1300px
+    padding: 0 23px
+  &-tabs
+    display: flex
+    max-width: 1161px
+    justify-content: space-between
+    &__item
+      flex: 1 1 314px
+      text-align: center
+      cursor: pointer
+      position: relative
+      &:not(:last-child)
+        &:after
+          content: ''
+          height: 100%
+          width: 2px
+          display: block
+          background: $gray
+          position: absolute
+          right: 0
+          top: 30px
+          max-height: 131px
+      &._active
+        .activities-tabs__name
+          color: $color-blue
+          font-weight: 700
+        svg
+          g rect
+            fill: $color-blue
+    svg
+      margin-bottom: 5px
+      rect
+        transition: fill .25s ease
+    &__name
+      max-width: 340px
+      margin: 0 auto
+      height: 65px
+      transition: font-weight .25s ease
+      +h7
+      display: flex
+      align-items: center
+      justify-content: center
+      text-transform: uppercase
+    &__content
+      padding-top: 50px
+
+
+.tab-description
+  max-width: 1116px
+  margin: 0 auto 50px
+  text-align: center
+
+
+.activities-grid
+
+.activities-item
+  background: #ffffff
+  overflow: hidden
+  -webkit-border-radius: 12px
+  -moz-border-radius: 12px
+  border-radius: 12px
+  border: 1px solid #2FE9F5
+  position: relative
+  margin-bottom: 30px
+  &__corner
+    position: absolute
+    right: 0
+    bottom: 0
+    display: flex
+    justify-content: flex-end
+    align-items: flex-end
+  &__content
+    padding: 20px 25px 34px
+  &__img
+
+    img
+      object-fit: cover
+      width: 100%
+  &__title
+    font-size: 24px
+    line-height: 1.55
+    margin-bottom: 20px
+    font-weight: 700
+    display: flex
+    align-items: center
+  &__icon
+    max-width: 31px
+    margin-right: 13px
+  &__descr
+    line-height: 1.65
+    margin-bottom: 25px
+  &__footer
+    display: flex
+
+  &__place-id
+    display: flex
+    align-items: center
+    justify-content: center
+    font-size: 24px
+    line-height: 1.55
+    font-weight: 700
+    margin-right: 25px
+    position: relative
+    span
+      position: absolute
+      left: 50%
+      top: 50%
+      transform: translate(-50%, -50%)
+  &__place-icon
+    width: 100%
+
+
+  &__place
+    font-weight: 700
+    margin-bottom: 6px
+    position: relative
+    z-index: 2
+
+
+.container-wide
+  max-width: 100%
+  padding: 0 90px
+.timetable
+  display: grid
+  grid-template-columns: 468px 1fr
+  grid-column-gap:  72px
+  position: relative
+.timetable-nav
+  padding: 35px 30px
+  align-self: flex-start
+  position: sticky
+  bottom: 0
+  box-shadow: 5px 5px 24px rgba(0, 0, 0, 0.25)
+  &__tabs
+    border: 1px solid $color-blue
+    -webkit-border-radius: 6px
+    -moz-border-radius: 6px
+    border-radius: 6px
+    display: flex
+    width: 100%
+  &__tab
+    flex: 1 0 auto
+    text-align: center
+    padding: 16px 0
+    font-size: 24px
+    font-weight: 700
+    -webkit-border-radius: 6px
+    -moz-border-radius: 6px
+    border-radius: 6px
+    cursor: pointer
+    transition: background .25s ease, color .25s ease
+    &._active
+      color: #ffffff
+      background-color: $color-blue
+      box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.25)
+
+.place__item
+  margin-top: 15px
+  font-size: 24px
+  padding-left: 28px
+  position: relative
+  cursor: pointer
+  &-radio
+    position: absolute
+    left: 0
+    display: block
+    width: 18px
+    height: 18px
+    border: 1px solid $color-blue
+    -webkit-border-radius: 50%
+    -moz-border-radius: 50%
+    border-radius: 50%
+    top: 50%
+    transform: translateY(-50%)
+  &:after
+    content: ''
+    position: absolute
+    left: 3px
+    top: 50%
+    transform: translateY(-50%)
+    width: 12px
+    height: 12px
+    background: transparent
+    display: block
+    -webkit-border-radius: 50%
+    -moz-border-radius: 50%
+    border-radius: 50%
+  &._active
+    font-weight: 700
+    color: $color-blue
+    &:after
+      background-color: $color-blue
+
+
+.timetable-list
+  max-width: 1200px
+
+.timetable-item
+  margin-bottom: 25px
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.24)
+  -webkit-border-radius: 3px
+  -moz-border-radius: 3px
+  border-radius: 3px
+  display: flex
+  padding: 25px 95px 20px 25px
+  &__icon
+    flex: 1 0 100px
+    max-width: 100px
+    height: 100px
+    -webkit-border-radius: 50%
+    -moz-border-radius: 50%
+    border-radius: 50%
+    overflow: hidden
+    margin-right: 25px
+    img
+      object-fit: cover
+      height: 100px
+      object-position: center
+
+  &__time
+    font-size: 24px
+    line-height: 1.65
+    color: $color-blue
+    font-weight: 700
+    margin-bottom: 10px
+  &__title
+    font-weight: 700
+    text-transform: uppercase
+    margin-bottom: 10px
+  &__descr
+    font-size: 16px
+    margin-bottom: 10px
+    color: #626262
+  &__footer
+
+    border-top: 1px solid $gray
+    padding-top: 10px
+    overflow: hidden
+  &__stars
+    display: flex
+    max-width: 990px
+  &__star
+    display: flex
+    margin-right: 15px
+    align-items: center
+    &-icon
+      flex: 1 0 40px
+      max-height: 40px
+      width: 40px
+      -webkit-border-radius: 50%
+      -moz-border-radius: 50%
+      border-radius: 50%
+      overflow: hidden
+      margin-right: 5px
+      img
+        height: 40px
+        max-width: 40px
+        object-fit: cover
+        object-position: center
+    &-name
+      white-space: nowrap
+      color: $color-blue
+      font-size: 16px
+

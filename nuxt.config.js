@@ -42,6 +42,7 @@ export default {
     "@/plugins/mixins",
     "@/plugins/element-ui",
     "@/plugins/scroll",
+    "@/plugins/masonry",
     "@/plugins/axios.js",
     { src: "@/plugins/swiper", mode: "client" },
     { src: "@/plugins/silentbox", mode: "client" }

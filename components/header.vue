@@ -5,31 +5,33 @@
     :class="[
       isHomePage && scrollPosition > 100 ? 'header-prepare-sticky' : '',
       isHomePage && scrollPosition > 150 ? 'header-sticky' : '',
-      !isHomePage ? 'header-bg' : '',
-      isInfoPage ? 'header-info' : ''
+      !isHomePage  ? 'header-bg' : '',
+      isInfoPage ? 'header-info' : '',
+      isAccountPage ? 'header-account' : ''
+
     ]"
   >
     <div class="container">
       <div class="header-wrapper">
         <div @click="$router.push('/')" class="header-logo">
-          <img
-            class="logo_w"
-            src="/logo.svg"
-            alt="СТРИМФЕСТ"
-            @click="hamburgerActive = false"
-          />
+
+          <img class="logo_w" src="/logo.svg" alt="СТРИМФЕСТ"
+          @click="hamburgerActive = false" />
+          <img class="logo_b" src="/logo-blue.svg" alt=""
+               @click="hamburgerActive = false"/>
         </div>
         <div
           @click="hamburgerActive = !hamburgerActive"
           class="hamburger"
           :class="{ active: hamburgerActive }"
+          v-if="!isAccountPage"
         >
           <div class="bar bar-1"></div>
           <div class="bar bar-2"></div>
           <div class="bar bar-3"></div>
           <div class="bar bar-4"></div>
         </div>
-        <div class="header-nav">
+        <div class="header-nav" v-if="!isAccountPage">
           <!--                  navItemActive-->
           <ul>
             <li
@@ -82,12 +84,13 @@ export default {
       isHomePage: null,
       isCartPage: null,
       isInfoPage: null,
+      isAccountPage: null,
       scrollPosition: null,
       cart: null,
       nav_items: [
         { id: 1, name: "Главная", url: "/", star: false },
         { id: 2, name: "Участники", url: "/stars", star: true },
-        { id: 3, name: "Активности", url: "#", star: false },
+        { id: 3, name: "Активности", url: "/activities", star: false },
         { id: 4, name: "FAQ", url: "/faq", star: false },
         { id: 5, name: "Стать участником", url: "/how-to", star: false },
         { id: 6, name: "О фестивале", url: "#", star: false },
