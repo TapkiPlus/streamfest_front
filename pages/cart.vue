@@ -133,7 +133,7 @@
                 </svg>
               </div>
               <div class="cart-row__price">
-                <p>{{ ticket_type.price * quantity }}&nbsp;руб.</p>
+                <p>{{ (ticket_type.price * quantity).toLocaleString() }}&nbsp;руб.</p>
               </div>
             </div>
           </div>
@@ -158,7 +158,7 @@
         </button>
         <div class="cart-button__total">
           <p>Общая стоимость:</p>
-          <p class="total">{{ data.total_price }} руб.</p>
+          <p class="total">{{ (data.total_price).toLocaleString() }} руб.</p>
         </div>
       </div>
       <div class="separator separator--thin"></div>

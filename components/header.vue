@@ -52,10 +52,11 @@
           <nuxt-link
             v-show="cartTotalCount"
             :data-num="cartTotalCount"
-            class="btn header__button btn--yellow header__button-cart"
+            class="btn header__button btn--yellow header__button--cart"
             to="/cart"
             @click.native="hamburgerActive = false"
           >
+            <img src="/cart-small-blue.svg" alt="cart-icon">
             <span class="split">корзина</span>
           </nuxt-link>
           <nuxt-link

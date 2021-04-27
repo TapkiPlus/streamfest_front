@@ -14,20 +14,19 @@
               <span class="radio"></span>
               За промежуток
               <span class="report__filter-date--wrapper"> c
-                <span class="report__filter-date">
-                  {{ value1[0] }}
-                </span>
-                по
-                <span class="report__filter-date">{{ value1[1] }}</span>
-              </span>
-              <date-picker
-                v-model="value1"
-                value-type="format"
-                format="DD.MM.YY"
-                range
-                type="date"
-                :disabled-date="disabledAfterToday"
-                :clearable="false">
+<!--                <span class="report__filter-date">-->
+<!--                  {{ value1[0] }}-->
+<!--                </span>-->
+<!--                по-->
+<!--                <span class="report__filter-date">{{ value1[1] }}</span>-->
+                <date-picker
+                  v-model="value1"
+                  format="DD.MM.YY"
+                  range-separator=" по "
+                  range
+                  type="date"
+                  :disabled-date="disabledAfterToday"
+                  :clearable="false">
                 <template slot="icon-calendar">
                   <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M5.00002 3.75H5.05204C5.56985 3.75 5.98956 3.33033 5.98956 2.81248V2.5V0.937516C5.98956 0.419673 5.56985 0 5.05204 0H5.00002C4.48221 0 4.0625 0.419673 4.0625 0.937516V2.5V2.81248C4.0625 3.33033 4.48221 3.75 5.00002 3.75Z" fill="#0D6DD8"/>
@@ -42,6 +41,8 @@
                   </svg>
                 </template>
               </date-picker>
+              </span>
+
             </label>
 
             <label >
@@ -84,7 +85,7 @@
                 <div class="table__cell">
                   Итого
                 </div>
-                <div class="table__cell">85</div>
+                <div class="table__cell">{{(1000).toLocaleString()}}</div>
               </div>
             </div>
           </div>
@@ -117,7 +118,7 @@
                 <div class="table__row" v-else v-for="ticket in tickets" :key="ticket.id">
                   <div class="table__cell"> {{ ticket.id }}</div>
                   <div class="table__cell">{{ ticket.date }}</div>
-                  <div class="table__cell">{{ ticket.sum}}</div>
+                  <div class="table__cell">{{ (ticket.sum).toLocaleString()}}</div>
                   <div class="table__cell">{{ticket.user}}</div>
                   <div class="table__cell">{{ticket.mail }}</div>
                 </div>
@@ -154,15 +155,15 @@
             },
           },
           ],
-        value1: ['01.01.2021', new Date().getUTCDate() + '.' + new Date().getUTCMonth() + '.' + new Date().getFullYear()],
+        value1: [new Date(2021, 0,1), new Date()],
 		    tickets: [
-          {id: '23334', date: '04.16.2020  14:56', sum: '10', user: 'Виталий', mail: 'Vitalyi1245@gmail.com'},
-          {id: '234', date: '04.16.2020  14:56', sum: '5', user: 'Виталий', mail: 'Vitalyi1245@gmail.com'},
-          {id: '23234', date: '04.16.2020  14:56', sum: '354', user: 'Анатолий', mail: 'anatolyi.tkachenko1245@gmail.com'},
-          {id: '24', date: '04.16.2020  14:56', sum: '19', user: 'Виталий', mail: 'Vitalyi1245@gmail.com'},
-          {id: '4', date: '04.16.2020  14:56', sum: '111', user: 'Анатолий', mail: 'anatolyi.tkachenko1245@gmail.com'},
-          {id: '2124', date: '04.16.2020  14:56', sum: '879', user: 'Виталий', mail: 'Vitalyi1245@gmail.com'},
-          {id: '6754', date: '04.16.2020  14:56', sum: '3', user: 'Анатолий', mail: 'anatolyi.tkachenko1245@gmail.com'},
+          {id: '23334', date: '04.16.2020  14:56', sum: 10, user: 'Виталий', mail: 'Vitalyi1245@gmail.com'},
+          {id: '234', date: '04.16.2020  14:56', sum: 5, user: 'Виталий', mail: 'Vitalyi1245@gmail.com'},
+          {id: '23234', date: '04.16.2020  14:56', sum: 3540, user: 'Анатолий', mail: 'anatolyi.tkachenko1245@gmail.com'},
+          {id: '24', date: '04.16.2020  14:56', sum: 19, user: 'Виталий', mail: 'Vitalyi1245@gmail.com'},
+          {id: '4', date: '04.16.2020  14:56', sum: 111, user: 'Анатолий', mail: 'anatolyi.tkachenko1245@gmail.com'},
+          {id: '2124', date: '04.16.2020  14:56', sum: 879, user: 'Виталий', mail: 'Vitalyi1245@gmail.com'},
+          {id: '6754', date: '04.16.2020  14:56', sum: 3, user: 'Анатолий', mail: 'anatolyi.tkachenko1245@gmail.com'},
         ],
 
       }

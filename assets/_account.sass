@@ -84,7 +84,7 @@
       margin: 0 5px
       &--wrapper
         margin-left: 5px
-    input
+    input[type=radio]
       width: auto
       box-shadow: none
       visibility: hidden
@@ -96,18 +96,19 @@
     label
       position: relative
       padding-left: 28px
-      padding-right: 40px
       cursor: pointer
       display: flex
       flex-wrap: wrap
       align-items: center
       margin-right: 60px
-      @media screen and (max-width: 767px)
+      &:last-child
+        margin-right: 0
+      @media screen and (max-width: 620px)
         &:last-child
           margin-top: 20px
+          width: 100%
       @media screen and (max-width: 500px)
         margin-right: 0
-        padding-right: 64px
       .radio
         position: absolute
         left: 0
@@ -231,12 +232,28 @@
     @media screen and (max-width: 768px)
       max-width: 60px
       margin-right: 10px
-
-  .mx-input,.mx-datepicker, .mx-datepicker-range
-    width: 1px
-  .mx-datepicker
-    position: absolute
-    right: 0
+  .mx-datepicker-range
+    width: auto
+  .mx-input
+    margin: 0
+    border: none
+    background: transparent
+    box-shadow: none
+    padding: 0
+    font-size: 16px
+    height: auto
+    cursor: pointer
+    font-weight: 600
+    color: $color-blue
+  //.mx-input,.mx-datepicker, .mx-datepicker-range
+  //  width: 1px
+  //.mx-datepicker
+  //  position: absolute
+  //  right: 0
+  .report__filter-date--wrapper
+    font-weight: 600
+    color: $color-blue
+    margin-right: 8px
 
   .mx-input-wrapper
     .mx-icon-clear
@@ -253,7 +270,6 @@
       border-radius: 2px
       margin-left: 10px
       cursor: pointer
-      position: absolute
       right: 0
       top: 50%
       padding: 5px
@@ -263,13 +279,16 @@
         height: 20px
         path
           fill: $color-blue
-      @media screen and (max-width: 500px)
+      @media only screen and (max-width: 500px)
         width: 54px
         height: 54px
         padding: 8.5px
+        right: -25px
         svg
           width: 34px
           height: 34px
+      @media  screen and (max-width: 400px)
+        top: 0
       &:hover
         background-color: $color-blue
         svg

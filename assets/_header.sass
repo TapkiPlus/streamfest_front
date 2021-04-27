@@ -112,20 +112,21 @@
       animation: rainbow 6s infinite linear
     &--cart
       position: relative
+      img
+        margin-right: 12px
       &::after
-        position: absolute
+        position: relative
         content: attr(data-num)
-        width: 26px
-        height: 26px
+        width: 29px
+        height: 29px
         background: red
         border-radius: 100%
         color: #FFFFFF
-        +h5-bold
+        font-size: 15px
         display: flex
         align-items: center
         justify-content: center
-        right: -8px
-        top: -5px
+        right: -12px
     &.btn--big
       font-size: 32px
 @keyframes rainbow
