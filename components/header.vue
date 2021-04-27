@@ -50,7 +50,7 @@
           <nuxt-link
             v-show="cartTotalCount"
             :data-num="cartTotalCount"
-            class="btn header__button btn-yellow header__button-cart"
+            class="btn header__button btn--yellow header__button-cart"
             to="/cart"
             @click.native="hamburgerActive = false"
           >
@@ -59,7 +59,7 @@
           <nuxt-link
             v-show="!cartTotalCount"
             @click.native="handleScroll"
-            class="btn btn-yellow header__button"
+            class="btn btn--yellow header__button"
             to="/#tickets"
           >
             <div class="btn-bg"></div>
