@@ -3,16 +3,6 @@
     <div class="container">
       <h4 class="cart__title">Корзина</h4>
     </div>
-    <div class="container cart-status--wrapper">
-      <p
-        class="cart-status success"
-        :class="{
-          _active: statusTitle
-        }"
-      >
-        {{ statusTitle }}
-      </p>
-    </div>
     <div class="container">
       <div
         class="cart__full"
