@@ -1,7 +1,6 @@
 import serveStatic from "serve-static";
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
-  target: "static",
   server: {
     port: 3000,
     host: "localhost"
@@ -14,7 +13,7 @@ export default {
   },
   serverMiddleware: ["~/middleware/redirects.js"],
   head: {
-    title: "streamfest_front",
+    title: "Стримфест — главный фестиваль стримеров",
     htmlAttrs: {
       lang: "en"
     },
