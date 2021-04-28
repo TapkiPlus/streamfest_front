@@ -46,14 +46,14 @@ export default {
     "@/plugins/axios.js",
     "@/plugins/maz-ui",
     { src: "@/plugins/swiper", mode: "client" },
-    { src: "@/plugins/silentbox", mode: "client" },
-
+    { src: "@/plugins/silentbox", mode: "client" }
   ],
   components: true,
   buildModules: [],
   modules: ["@nuxtjs/axios", "@nuxtjs/auth"],
   axios: {
     baseURL: "http://sf.tagobar.ru"
+    // baseURL: "http://localhost:8000"
     // baseURL: "https://streamfest.ru"
   },
   build: {
@@ -62,14 +62,14 @@ export default {
     babel: {
       plugins: [
         [
-          'component', {
-          libraryName: 'maz-ui',
-          styleLibraryName: 'css'
-        }
+          "component",
+          {
+            libraryName: "maz-ui",
+            styleLibraryName: "css"
+          }
         ]
       ]
     }
-
   },
   auth: {
     strategies: {
