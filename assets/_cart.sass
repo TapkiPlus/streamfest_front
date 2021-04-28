@@ -263,6 +263,7 @@
         justify-content: space-between
         width: 100%
         margin-bottom: 25px
+        margin-right: 0
         .total
           +h2
         p:first-child
@@ -403,6 +404,8 @@
 @media only screen and (max-width: 425px)
   .cart
     min-height: calc(100vh - 75px)
+  .cart-button__total .total
+    font-size: 20px
 @media only screen and (max-width: 340px)
   .logo-pay--wrapper
     flex-wrap: wrap

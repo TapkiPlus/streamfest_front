@@ -118,13 +118,12 @@
         </div>
       </div>
       <div class="cart__empty" v-else>
-        <div>
+
           <img src="/cart-big.svg" alt="" />
           <p class="cart-row ">Ваша корзина пока что пуста</p>
           <button @click="goToHome" class="btn btn--blue">
             <span class="split">Выбрать билет</span>
           </button>
-        </div>
       </div>
     </div>
     <div class="container" v-if="data.cartitem_set && data.cartitem_set.length">

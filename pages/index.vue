@@ -505,14 +505,14 @@
                 @click="addItem(id)"
                 class="btn btn-ticket btn--red"
               >
-                <span class="split">Билет на 1 день</span>
+                <span class="split">Купить билет на 1 день</span>
               </button>
               <button
                 v-else
                 @click="addItem(id)"
                 class="btn btn-ticket btn--red"
               >
-                <span class="split">Билет на 2 дня</span>
+                <span class="split">Купить билет на 2 дня</span>
               </button>
             </div>
           </div>
@@ -574,16 +574,16 @@
                     <button
                       v-if="days_qty === 1"
                       @click="addItem(id)"
-                      class="tickets-item__button"
+                      class="btn btn--red btn-ticket"
                     >
-                      <span class="split">Билет на 1 день</span>
+                      <span class="split">Купить билет на 1 день</span>
                     </button>
                     <button
                       v-else
                       @click="addItem(id)"
-                      class="tickets-item__button tickets-item__button_red"
+                      class="btn btn--red btn-ticket"
                     >
-                      <span class="split">Билет на 2 дня</span>
+                      <span class="split">Купить билет на 2 дня</span>
                     </button>
                   </div>
                 </div>
