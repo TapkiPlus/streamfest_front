@@ -60,6 +60,8 @@
                       emailConfirm: $event.target.value
                     })
                   "
+                  @paste.prevent
+                  autocomplete="off"
                   type="mail"
                   class="input"
                   placeholder="@email"

@@ -102,6 +102,7 @@ export default {
         title: "Успешно",
         message: "Билет добавлен в корзину",
         type: "success",
+        customClass: "c-pointer",
         onClick() {
           $router.push("cart");
         }
