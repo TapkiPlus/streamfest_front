@@ -8,11 +8,10 @@
         class="cart__full"
         v-if="data.cartitem_set && data.cartitem_set.length"
       >
-        <div class="cart__item">
+        <div class="cart__item" v-for="{ id, streamer, ticket_type, quantity } in data.cartitem_set"
+             :key="id">
           <div
             class="cart-row"
-            v-for="{ id, streamer, ticket_type, quantity } in data.cartitem_set"
-            :key="id"
           >
             <div @click="deleteItem(id)" class="cart-row__delete">
               <img draggable="false" src="/delete.svg" alt="" />
@@ -112,20 +111,19 @@
                 </svg>
               </div>
               <div class="cart-row__price">
-                <p>{{ ticket_type.price * quantity }}&nbsp;руб.</p>
+                <p>{{ (ticket_type.price * quantity).toLocaleString() }}&nbsp;руб.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="cart__empty" v-else>
-        <div>
+
           <img src="/cart-big.svg" alt="" />
           <p class="cart-row ">Ваша корзина пока что пуста</p>
           <button @click="goToHome" class="btn btn--blue">
             <span class="split">Выбрать билет</span>
           </button>
-        </div>
       </div>
     </div>
     <div class="container" v-if="data.cartitem_set && data.cartitem_set.length">
@@ -139,7 +137,7 @@
         </button>
         <div class="cart-button__total">
           <p>Общая стоимость:</p>
-          <p class="total">{{ data.total_price }} ₽</p>
+          <p class="total">{{ (data.total_price).toLocaleString() }} руб.</p>
         </div>
       </div>
       <div class="separator separator--thin"></div>

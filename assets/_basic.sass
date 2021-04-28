@@ -18,7 +18,7 @@ section
 .text-center
   text-align: center
 
-button 
+button
   border: none
   outline: none
 
@@ -44,6 +44,9 @@ button
 .container-1000
   max-width: 1000px
   margin: 0 auto
+
+.p0
+  padding: 0 !important
 
 .section-header
   +h2
@@ -143,7 +146,8 @@ textarea
     text-transform: none
     border: none
 
-
+.logo_b
+  display: none
 .separator
   position: relative
   display: flex
@@ -207,7 +211,7 @@ textarea
         $i: 1
         @while $i < 30
           &:nth-child(#{$i})
-            --d: #{$i / 20 + s} 
+            --d: #{$i / 20 + s}
           $i: $i + 1
     &:hover
       --move: -4px
@@ -264,6 +268,7 @@ textarea
   &-wrapper
     display: flex
     justify-content: space-between
+    align-items: center
 @keyframes move
   40%
     transform: translateY(var(--move))

@@ -14,14 +14,18 @@
     "axios": "^0.21.1",
     "core-js": "^3.8.2",
     "element-ui": "^2.15.0",
+    "maz-ui": "^2.3.7",
     "nuxt": "^2.14.12",
     "swiper": "^5.3.6",
     "vue-awesome-swiper": "^4.1.1",
     "vue-scrollto": "^2.20.0",
-    "vue-silentbox": "^2.4.0"
+    "vue-silentbox": "^2.4.0",
+    "vue2-datepicker": "^3.9.0"
   },
   "devDependencies": {
+    "babel-plugin-component": "^1.1.1",
     "node-sass": "^5.0.0",
-    "sass-loader": "^10.0.5"
+    "sass-loader": "^10.0.5",
+    "vue-masonry-css": "^1.0.3"
   }
 }

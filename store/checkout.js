@@ -50,19 +50,17 @@ export default {
       if (!phone) commit("PUSH_ERROR", "phone");
       if (state.errors.length) commit("DISABLE_PAY", false);
       else {
-        const url = (
-          await this.$axios.post("/api/create_order", {
-            session_id: this.$auth.$storage.getCookie("session_id"),
-            firstname,
-            lastname,
-            email,
-            phone
-          })
-        ).data;
-        if (url) {
+        const { data } = await this.$axios.post("/api/create_order", {
+          session_id: this.$auth.$storage.getCookie("session_id"),
+          firstname,
+          lastname,
+          email,
+          phone
+        });
+        if (data) {
           fromCheckout &&
             dispatch("userData/saveData", { clickedPay: true }, { root: true });
-          window.location.href = url;
+          window.location.href = data;
         } else {
           commit("DISABLE_PAY", false);
           return false;

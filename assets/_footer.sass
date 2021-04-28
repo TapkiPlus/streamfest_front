@@ -62,9 +62,10 @@
   -webkit-border-radius: 50%
   -moz-border-radius: 50%
   border-radius: 50%
-  display: flex
+  display: none
   justify-content: center
   align-items: center
+  z-index: 200
   background: linear-gradient(90deg, #0D6DD8 7.2%, #0D6DD8 39.97%, #33A0FD 100%), #C4C4C4
   &::after
     position: absolute
@@ -83,6 +84,9 @@
 #vk_community_messages
   bottom: 60px !important
 @media screen and (max-width: 767px)
+  .cart-fix
+    display: flex
+
   .footer
     &-top
       .container
@@ -136,3 +140,6 @@
     &-bottom
       &-wrapper
         font-size: 10px
+
+  .el-notification
+    width: 300px

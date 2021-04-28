@@ -22,10 +22,8 @@
     top: 0
     + section
       padding-top: 80px
-    + .cart
-      padding-top: 150px
-    + .streamers
-      padding-top: 150px
+    + .cart, + .streamers, + .activities
+      padding-top: 130px
   &.header-prepare-sticky
     top: -90px
     transition: all .2s linear
@@ -41,6 +39,29 @@
         display: block
   &.header-info
     background: transparent
+  + .account
+    padding-top: 150px
+  &.header-account
+    .header-logo
+      flex: 0 0 auto
+      margin-top: 25px
+
+    .logo_w
+      display: none
+    .logo_b
+      display: block
+
+    .header-wrapper
+      justify-content: center
+    &.header-sticky
+      background: linear-gradient(90.2deg, #015ACA 0%, #188DE7 22.29%, #2BB5FF 49.19%, #117DDE 71.37%, #015BCA 100.1%)
+      .header-logo
+        margin-top: 0
+      .logo_w
+        display: block
+      .logo_b
+        display: none
+
   &-wrapper
     display: flex
     align-items: center
@@ -60,7 +81,7 @@
       justify-content: space-evenly
       li
         position: relative
-        &:nth-child(1), &:nth-child(3), &:nth-child(6)
+        &:nth-child(1), &:nth-child(6)
           display: none
         &.navItemActive
 
@@ -91,20 +112,21 @@
       animation: rainbow 6s infinite linear
     &--cart
       position: relative
+      svg
+        margin-right: 12px
       &::after
-        position: absolute
+        position: relative
         content: attr(data-num)
-        width: 26px
-        height: 26px
+        width: 29px
+        height: 29px
         background: red
         border-radius: 100%
         color: #FFFFFF
-        +h5-bold
+        font-size: 15px
         display: flex
         align-items: center
         justify-content: center
-        right: -8px
-        top: -5px
+        right: -12px
     &.btn--big
       font-size: 32px
 @keyframes rainbow
@@ -173,7 +195,11 @@
 
       + section, + .cart, + .faq, + .location
         padding-top: 70px
-
+    + .account
+      padding-top: 70px
+    &.header-account
+      .header-logo
+        margin-top: 0
     &__title
 
       width: 100%
@@ -234,6 +260,8 @@
       padding: 7px 35px 6px
       max-width: 335px
       margin: 0 auto
+      path
+        fill: #ffffff
       &--big
         margin-top: 34px
       &--cart

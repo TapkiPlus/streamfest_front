@@ -42,7 +42,7 @@
                 <input
                   @input="saveData({ email: $event.target.value })"
                   :value="form.email"
-                  type="mail"
+                  type="email"
                   class="input"
                   placeholder="@email"
                 />
@@ -62,7 +62,7 @@
                   "
                   @paste.prevent
                   autocomplete="off"
-                  type="mail"
+                  type="email"
                   class="input"
                   placeholder="@email"
                 />
@@ -73,16 +73,34 @@
               :class="{ 'item-error': errors.includes('phone') }"
             >
               <label
-                >Телефон — начиная с кода +7, если вы из России, или кода вашей
-                страны <sup>*</sup>
-                <input
-                  @input="saveData({ phone: $event.target.value })"
-                  :value="form.phone || '+7'"
-                  class="input"
-                  placeholder="+7 123 456 78 90"
-                  pattern="^\+[0-9]+$"
-                  title="Разрешены только цифры и плюс в начале"
+                >Телефон
+                <!--                — -->
+                <!--                начиная с кода +7, если вы из России, или кода вашей-->
+                <!--                страны -->
+                <sup>*</sup>
+                <MazPhoneNumberInput
+                  v-model="phoneNumberExample"
+                  default-country-code="RU"
+                  :default-phone-number="initPhoneNumberExample"
+                  :required="true"
+                  @update="resultsExample = $event"
+                  error-color="#f8c8cc"
+                  color="#0d6dd8"
+                  :translations="{
+                    countrySelectorLabel: 'Код страны',
+                    countrySelectorError: 'Неверный формат номера',
+                    phoneNumberLabel: 'Телефон',
+                    example: 'Пример :'
+                  }"
                 />
+                <!--                <input-->
+                <!--                  @input="saveData({ phone: $event.target.value })"-->
+                <!--                  :value="form.phone || '+7'"-->
+                <!--                  class="input"-->
+                <!--                  placeholder="+7 123 456 78 90"-->
+                <!--                  pattern="^\+[0-9]+$"-->
+                <!--                  title="Разрешены только цифры и плюс в начале"-->
+                <!--                />-->
               </label>
             </div>
             <button
@@ -153,7 +171,15 @@
 <script>
 import { mapState, mapMutations, mapActions } from "vuex";
 export default {
+  components: {},
   scrollToTop: true,
+  data() {
+    return {
+      phoneNumberExample: null,
+      initPhoneNumberExample: "",
+      resultsExample: null
+    };
+  },
   computed: mapState("checkout", ["form", "errors", "disabledPay"]),
   beforeMount() {
     this.getFormValues();
