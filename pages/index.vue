@@ -447,7 +447,7 @@
     <section class="tickets">
       <div id="tickets"></div>
       <h3 class="section-header">
-        БИЛЕТЫ СКОРО В&nbsp;ПРОДАЖЕ&nbsp;— STAY&nbsp;TUNED!
+        ЦЕНЫ ВЫРАСТУТ&nbsp;— БЕРИ БИЛЕТ СЕЙЧАС!
       </h3>
       <div class="tickets-wrapper">
         <div class="tickets-desktop">
@@ -1444,6 +1444,7 @@ export default {
         title: "Успешно",
         message: "Билет добавлен в корзину",
         type: "success",
+        customClass: "c-pointer",
         onClick() {
           $router.push("cart");
         }
