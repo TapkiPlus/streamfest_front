@@ -170,7 +170,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapMutations, mapActions } from "vuex";
 export default {
   components: {},
   scrollToTop: true,
@@ -181,18 +181,22 @@ export default {
       resultsExample: null
     }
   },
+  computed: mapState("checkout", ["form", "errors", "disabledPay"]),
   beforeMount() {
     this.getFormValues();
   },
+  mounted() {
+    this.DISABLE_PAY(false);
+  },
   methods: {
     ...mapActions("checkout", ["getFormValues", "saveData", "getPayLink"]),
+    ...mapMutations("checkout", ["DISABLE_PAY"]),
     submitForm(e) {
       e.preventDefault();
       this.$store.getters["cart/totalCount"]
         ? this.getPayLink(true)
         : this.$router.push("/");
     }
-  },
-  computed: mapState("checkout", ["form", "errors", "disabledPay"])
+  }
 };
 </script>
