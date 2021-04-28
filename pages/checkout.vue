@@ -78,11 +78,13 @@
 <!--                начиная с кода +7, если вы из России, или кода вашей-->
 <!--                страны -->
                 <sup>*</sup>
-                <VuePhoneNumberInput
-                  v-model="yourValue"
+                <MazPhoneNumberInput
+                  v-model="phoneNumberExample"
                   default-country-code="RU"
-                  :countries-height= 44
+                  :default-phone-number="initPhoneNumberExample"
                   :required="true"
+
+                  @update="resultsExample = $event"
                   error-color="#f8c8cc"
                   color="#0d6dd8"
                   :translations="{
@@ -169,14 +171,14 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
-import VuePhoneNumberInput from 'vue-phone-number-input';
-import 'vue-phone-number-input/dist/vue-phone-number-input.css';
 export default {
-  components: {VuePhoneNumberInput,},
+  components: {},
   scrollToTop: true,
   data() {
     return {
-      yourValue: null
+      phoneNumberExample: null,
+      initPhoneNumberExample: '',
+      resultsExample: null
     }
   },
   beforeMount() {
