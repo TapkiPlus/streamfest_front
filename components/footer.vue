@@ -170,20 +170,22 @@
       </div>
     </div>
     <!-- MUST RESOLVE -->
-    <!-- <nuxt-link
-      v-if="items_in_cart.tickets.length > 0"
-      class="cart-fix"
-      :data-num="items_in_cart.tickets.length"
-      to="/cart">
+     <nuxt-link
+       v-show="cartTotalCount"
+       :data-num="cartTotalCount"
+       class="cart-fix"
+       to="/cart">
       <div class="cart-fix__counter"></div>
       <img src="/cart-small.svg" alt="cart-icon">
-    </nuxt-link> -->
+    </nuxt-link>
     <!-- VK Widget -->
     <div id="vk_community_messages"></div>
   </footer>
 </template>
 
 <script>
+import {mapState} from "vuex";
+
 export default {
   mounted() {
     const script = document.createElement("script");
@@ -208,6 +210,15 @@ export default {
     }
   },
   computed: {
+    ...mapState("cart", ["data"]),
+    cartTotalCount() {
+      return this.data.cartitem_set
+        ? this.data.cartitem_set.reduce(
+          (acc, { quantity }) => acc + quantity,
+          0
+        )
+        : 0;
+    },
     items_in_cart() {
       return this.$store.getters["cart/totalItems"];
     }
