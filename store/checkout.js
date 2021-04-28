@@ -63,7 +63,10 @@ export default {
           fromCheckout &&
             dispatch("userData/saveData", { clickedPay: true }, { root: true });
           window.location.href = url;
-        } else return false;
+        } else {
+          commit("DISABLE_PAY", false);
+          return false;
+        }
       }
     }
   }
