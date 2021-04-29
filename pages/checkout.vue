@@ -171,8 +171,12 @@
 
 <script>
 import { mapState, mapMutations, mapActions } from "vuex";
+import { MazPhoneNumberInput } from "maz-ui";
 export default {
   scrollToTop: true,
+  components: {
+    MazPhoneNumberInput
+  },
   data() {
     return {
       phoneNumber: "",
