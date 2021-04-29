@@ -75,9 +75,6 @@
             >
               <label
                 >Телефон
-                <!--                — -->
-                <!--                начиная с кода +7, если вы из России, или кода вашей-->
-                <!--                страны -->
                 <sup>*</sup>
                 <MazPhoneNumberInput
                   :class="{ 'item-error': errors.includes('phone') }"
@@ -94,14 +91,6 @@
                   :defaultPhoneNumber="form.phone || ''"
                   noExample
                 />
-                <!--                <input-->
-                <!--                  @input="saveData({ phone: $event.target.value })"-->
-                <!--                  :value="form.phone || '+7'"-->
-                <!--                  class="input"-->
-                <!--                  placeholder="+7 123 456 78 90"-->
-                <!--                  pattern="^\+[0-9]+$"-->
-                <!--                  title="Разрешены только цифры и плюс в начале"-->
-                <!--                />-->
               </label>
             </div>
             <button
