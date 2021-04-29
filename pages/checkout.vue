@@ -81,11 +81,10 @@
                 <MazPhoneNumberInput
                   v-model="phoneNumberExample"
                   default-country-code="RU"
-                  :default-phone-number="initPhoneNumberExample"
                   :required="true"
-                  @update="resultsExample = $event"
                   error-color="#f8c8cc"
                   color="#0d6dd8"
+                  @update="saveData({ phone: $event.formatInternational })"
                   :translations="{
                     countrySelectorLabel: 'Код страны',
                     countrySelectorError: 'Неверный формат номера',
@@ -93,14 +92,7 @@
                     example: 'Пример :'
                   }"
                 />
-                <!--                <input-->
-                <!--                  @input="saveData({ phone: $event.target.value })"-->
-                <!--                  :value="form.phone || '+7'"-->
-                <!--                  class="input"-->
-                <!--                  placeholder="+7 123 456 78 90"-->
-                <!--                  pattern="^\+[0-9]+$"-->
-                <!--                  title="Разрешены только цифры и плюс в начале"-->
-                <!--                />-->
+
               </label>
             </div>
             <button
@@ -176,7 +168,6 @@ export default {
   data() {
     return {
       phoneNumberExample: null,
-      initPhoneNumberExample: "",
       resultsExample: null
     };
   },
@@ -195,7 +186,7 @@ export default {
       this.$store.getters["cart/totalCount"]
         ? this.getPayLink(true)
         : this.$router.push("/");
-    }
+    },
   }
 };
 </script>
