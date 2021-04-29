@@ -8,17 +8,23 @@
       !isHomePage && !isAccountPage ? 'header-bg' : '',
       isInfoPage ? 'header-info' : '',
       isAccountPage ? 'header-account' : ''
-
     ]"
   >
     <div class="container">
       <div class="header-wrapper">
         <div @click="$router.push('/')" class="header-logo">
-
-          <img class="logo_w" src="/logo.svg" alt="СТРИМФЕСТ"
-          @click="hamburgerActive = false" />
-          <img class="logo_b" src="/logo-blue.svg" alt=""
-               @click="hamburgerActive = false"/>
+          <img
+            class="logo_w"
+            src="/logo.svg"
+            alt="СТРИМФЕСТ"
+            @click="hamburgerActive = false"
+          />
+          <img
+            class="logo_b"
+            src="/logo-blue.svg"
+            alt=""
+            @click="hamburgerActive = false"
+          />
         </div>
         <div
           @click="hamburgerActive = !hamburgerActive"
@@ -56,7 +62,7 @@
             to="/cart"
             @click.native="hamburgerActive = false"
           >
-            <img src="/cart-small-blue.svg" alt="cart-icon">
+            <img src="/cart-small-blue.svg" alt="cart-icon" />
             <span class="split">корзина</span>
           </nuxt-link>
           <nuxt-link
@@ -131,9 +137,7 @@ export default {
       this.isInfoPage = ["/error-page", "/success-page"].includes(
         this.$route.path
       );
-      this.isAccountPage=["/account"].includes(
-        this.$route.path
-      );
+      this.isAccountPage = ["/account"].includes(this.$route.path);
     },
     handleScroll() {
       this.hamburgerActive = false;

@@ -61,10 +61,11 @@
                     })
                   "
                   @paste.prevent
-                  autocomplete="off"
                   type="email"
                   class="input"
                   placeholder="@email"
+                  :readonly="emailConfirmReadonly"
+                  @focus="emailConfirmReadonly = false"
                 />
               </label>
             </div>
@@ -79,19 +80,19 @@
                 <!--                страны -->
                 <sup>*</sup>
                 <MazPhoneNumberInput
-                  v-model="phoneNumberExample"
+                  :class="{ 'item-error': errors.includes('phone') }"
+                  v-model="phoneNumber"
                   default-country-code="RU"
-                  :default-phone-number="initPhoneNumberExample"
-                  :required="true"
-                  @update="resultsExample = $event"
+                  @update="savePhoneNumber"
                   error-color="#f8c8cc"
                   color="#0d6dd8"
                   :translations="{
                     countrySelectorLabel: 'Код страны',
                     countrySelectorError: 'Неверный формат номера',
-                    phoneNumberLabel: 'Телефон',
-                    example: 'Пример :'
+                    phoneNumberLabel: 'Телефон'
                   }"
+                  :defaultPhoneNumber="form.phone || ''"
+                  noExample
                 />
                 <!--                <input-->
                 <!--                  @input="saveData({ phone: $event.target.value })"-->
@@ -106,7 +107,7 @@
             <button
               class="btn btn--green"
               type="submit"
-              :disabled="disabledPay"
+              :disabled="loading || disabledPay"
             >
               <span class="split">Оплатить</span>
             </button>
@@ -171,16 +172,17 @@
 <script>
 import { mapState, mapMutations, mapActions } from "vuex";
 export default {
-  components: {},
   scrollToTop: true,
   data() {
     return {
-      phoneNumberExample: null,
-      initPhoneNumberExample: "",
-      resultsExample: null
+      phoneNumber: "",
+      emailConfirmReadonly: true
     };
   },
-  computed: mapState("checkout", ["form", "errors", "disabledPay"]),
+  computed: {
+    ...mapState("cart", ["loading"]),
+    ...mapState("checkout", ["form", "errors", "disabledPay"])
+  },
   beforeMount() {
     this.getFormValues();
   },
@@ -190,11 +192,19 @@ export default {
   methods: {
     ...mapActions("checkout", ["getFormValues", "saveData", "getPayLink"]),
     ...mapMutations("checkout", ["DISABLE_PAY"]),
+    savePhoneNumber(e) {
+      e.formatInternational && this.saveData({ phone: e.formatInternational });
+    },
     submitForm(e) {
       e.preventDefault();
       this.$store.getters["cart/totalCount"]
         ? this.getPayLink(true)
         : this.$router.push("/");
+    }
+  },
+  watch: {
+    phoneNumber(e) {
+      !e && this.saveData({ phone: "" });
     }
   }
 };
