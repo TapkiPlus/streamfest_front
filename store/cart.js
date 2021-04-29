@@ -1,22 +1,28 @@
 export default {
   state() {
     return {
-      data: {}
+      data: {},
+      loading: true
     };
   },
   mutations: {
-    SET_DATA(state, data) {
-      state.data = data;
+    SET_DATA(state, payload) {
+      state.data = payload;
+    },
+    SET_LOADING(state, payload) {
+      state.loading = payload;
     }
   },
   actions: {
-    async fetchCart({ state, commit }) {
+    async fetchCart({ commit }) {
+      commit("SET_LOADING", true);
       const session_id = this.$auth.$storage.getCookie("session_id");
       session_id &&
         commit(
           "SET_DATA",
           (await this.$axios.get(`/api/get_cart?session_id=${session_id}`)).data
         );
+      commit("SET_LOADING", false);
     },
     async addItem({ dispatch }, { t_id, s_id = 0 }) {
       await this.$axios.post("/api/add_item", {
