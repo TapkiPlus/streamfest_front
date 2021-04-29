@@ -82,8 +82,10 @@
                   v-model="phoneNumber"
                   default-country-code="RU"
                   @update="savePhoneNumber"
+                  :required="true"
                   error-color="#f8c8cc"
                   color="#0d6dd8"
+                  @update="saveData({ phone: $event.formatInternational })"
                   :translations="{
                     countrySelectorLabel: 'Код страны',
                     countrySelectorError: 'Неверный формат номера',
