@@ -65,6 +65,7 @@
                   class="input"
                   placeholder="@email"
                   :readonly="emailConfirmReadonly"
+                  autocomplete="off"
                   @focus="emailConfirmReadonly = false"
                 />
               </label>
