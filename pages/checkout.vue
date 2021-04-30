@@ -82,7 +82,6 @@
                   v-model="phoneNumber"
                   default-country-code="RU"
                   @update="savePhoneNumber"
-                  :required="true"
                   error-color="#f8c8cc"
                   color="#0d6dd8"
                   :translations="{
