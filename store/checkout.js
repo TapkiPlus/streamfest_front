@@ -57,8 +57,6 @@ export default {
           email,
           phone
         });
-        alert("POST REQUEST TO CREATE ORDER DONE!");
-        alert(JSON.stringify(data));
         if (data) {
           fromCheckout &&
             dispatch("userData/saveData", { clickedPay: true }, { root: true });
