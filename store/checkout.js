@@ -10,17 +10,17 @@ export default {
     INIT_FORM(state, payload) {
       state.form = payload;
     },
-    SET_FORM(state, obj) {
-      state.form = { ...state.form, ...obj };
+    SET_FORM(state, payload) {
+      state.form = { ...state.form, ...payload };
     },
     REMOVE_ERRORS(state) {
       state.errors = [];
     },
-    PUSH_ERROR(state, name) {
-      state.errors.push(name);
+    PUSH_ERROR(state, payload) {
+      state.errors.push(payload);
     },
-    DISABLE_PAY(state, boolean) {
-      state.disabledPay = boolean;
+    DISABLE_PAY(state, payload) {
+      state.disabledPay = payload;
     }
   },
   actions: {
