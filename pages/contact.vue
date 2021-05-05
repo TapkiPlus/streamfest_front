@@ -906,6 +906,20 @@
           </iframe>
         </div>
       </div>
+      <p>
+        Фестиваль проводит общество с ограниченной ответственностью «Си Джи
+        Ивент» (ИНН 7717614720, КПП 771701001, ОГРН 1087746367334). Юр. адрес:
+        129226, г. Москва, ул. Сельскохозяйственная, д.11, корп.3, эт. 1, пом.
+        II, оф. 73,
+        <a class="link" href="mailto:info@streamfest.ru">info@streamfest.ru</a
+        >.<br /><a
+          class="link"
+          href="https://docs.google.com/document/d/1ZaexFifUQPt8RNLHgBg3aZToA8pKszJOOWLiQEkKB-s/edit?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Публичная оферта.</a
+        >
+      </p>
     </div>
 
     <!--    <Subscribe />-->
