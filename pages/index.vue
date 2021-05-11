@@ -519,10 +519,15 @@
         </div>
         <div class="tickets-mobile">
           <client-only>
-            <swiper :options="ticketsOptions">
+            <swiper
+              :options="ticketsOptions"
+              ref="ticketsSwiper"
+              @click.native="ticketsSwiperClick"
+            >
               <swiper-slide
                 v-for="{ id, days_qty, price } in tickets"
                 :key="id"
+                :data-ticket-id="id"
               >
                 <div class="tickets-item">
                   <div class="tickets-item__wrapper">
@@ -573,16 +578,11 @@
                     </p>
                     <button
                       v-if="days_qty === 1"
-                      @click="addItem(id)"
                       class="btn btn--red btn-ticket"
                     >
                       <span class="split">Купить билет на 1 день</span>
                     </button>
-                    <button
-                      v-else
-                      @click="addItem(id)"
-                      class="btn btn--red btn-ticket"
-                    >
+                    <button v-else class="btn btn--red btn-ticket">
                       <span class="split">Купить билет на 2 дня</span>
                     </button>
                   </div>
@@ -1418,6 +1418,7 @@ export default {
     };
   },
   mounted() {
+    this.$router.currentRoute.hash === "#tickets" && this.handleScroll();
     this.starTimer();
     const script = document.createElement("script");
     script.src = "https://player.vimeo.com/api/player.js";
@@ -1449,6 +1450,14 @@ export default {
           $router.push("cart");
         }
       });
+    },
+    ticketsSwiperClick(e) {
+      (e.target.classList.contains("btn-ticket") ||
+        e.target.classList.contains("split") ||
+        e.target.classList.contains("letter")) &&
+        this.addItem(
+          this.$refs.ticketsSwiper.$swiper.clickedSlide.attributes[1].value
+        );
     },
     handleScroll() {
       const anchor = document.querySelector(`#tickets`);

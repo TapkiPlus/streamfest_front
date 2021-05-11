@@ -8,11 +8,12 @@
         class="cart__full"
         v-if="data.cartitem_set && data.cartitem_set.length"
       >
-        <div class="cart__item" v-for="{ id, streamer, ticket_type, quantity } in data.cartitem_set"
-             :key="id">
-          <div
-            class="cart-row"
-          >
+        <div
+          class="cart__item"
+          v-for="{ id, streamer, ticket_type, quantity } in data.cartitem_set"
+          :key="id"
+        >
+          <div class="cart-row">
             <div @click="deleteItem(id)" class="cart-row__delete">
               <img draggable="false" src="/delete.svg" alt="" />
             </div>
@@ -111,19 +112,22 @@
                 </svg>
               </div>
               <div class="cart-row__price">
-                <p>{{ (ticket_type.price * quantity).toLocaleString() }}&nbsp;руб.</p>
+                <p>
+                  {{
+                    (ticket_type.price * quantity).toLocaleString()
+                  }}&nbsp;руб.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="cart__empty" v-else>
-
-          <img src="/cart-big.svg" alt="" />
-          <p class="cart-row ">Ваша корзина пока что пуста</p>
-          <button @click="goToHome" class="btn btn--blue">
-            <span class="split">Выбрать билет</span>
-          </button>
+        <img src="/cart-big.svg" alt="" />
+        <p class="cart-row ">Ваша корзина пока что пуста</p>
+        <button @click="goToHome" class="btn btn--blue">
+          <span class="split">Выбрать билет</span>
+        </button>
       </div>
     </div>
     <div class="container" v-if="data.cartitem_set && data.cartitem_set.length">
@@ -137,7 +141,7 @@
         </button>
         <div class="cart-button__total">
           <p>Общая стоимость:</p>
-          <p class="total">{{ (data.total_price).toLocaleString() }} руб.</p>
+          <p class="total">{{ data.total_price.toLocaleString() }} руб.</p>
         </div>
       </div>
       <div class="separator separator--thin"></div>
@@ -152,8 +156,8 @@
         <b>Возрастные ограничения</b>: подростки 14-16 лет должны находиться на
         фестивале в постоянном сопровождении любого лица старше 18 лет; дети
         8-13 лет на фестиваль не допускаются в соответствии с требованиями
-        площадки; дети до 8 лет должны находиться на фестивале в постоянном с
-        опровождении родственников или опекунов.<br /><br />
+        площадки; дети до 8 лет должны находиться на фестивале в постоянном
+        сопровождении родственников или опекунов.<br /><br />
         <b>Не все участники и активности будут на фестивале оба дня</b>. Билет
         на два дня позволяет увидеть всех стримеров и подкастеров и
         поучаствовать во всех активностях. Билет на один день позволяет посетить

@@ -19,7 +19,7 @@
         <p>
           Если письма не пришли, напишите на
           <a href="mailto:tickets@streamfest.ru">tickets@streamfest.ru</a>,
-          указав ваш <br /><b>номер заказа: №ХХХХХ-ХХ.</b>
+          указав ваш <br /><b>номер заказа: №{{ $route.query.pg_order_id }}.</b>
         </p>
         <nuxt-link to="/" class="btn"
           ><span class="split">На главную</span></nuxt-link
@@ -31,6 +31,9 @@
 
 <script>
 export default {
-  scrollToTop: true
+  scrollToTop: true,
+  mounted() {
+    this.$store.dispatch("cart/fetchCart");
+  }
 };
 </script>
