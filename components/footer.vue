@@ -169,22 +169,21 @@
         </p>
       </div>
     </div>
-    <!-- MUST RESOLVE -->
-     <nuxt-link
-       v-show="cartTotalCount"
-       :data-num="cartTotalCount"
-       class="cart-fix"
-       to="/cart">
+    <nuxt-link
+      v-show="cartTotalCount"
+      :data-num="cartTotalCount"
+      class="cart-fix"
+      to="/cart"
+    >
       <div class="cart-fix__counter"></div>
-      <img src="/cart-small.svg" alt="cart-icon">
+      <img src="/cart-small.svg" alt="cart-icon" />
     </nuxt-link>
-    <!-- VK Widget -->
     <div id="vk_community_messages"></div>
   </footer>
 </template>
 
 <script>
-import {mapState} from "vuex";
+import { mapState } from "vuex";
 
 export default {
   mounted() {
@@ -214,9 +213,9 @@ export default {
     cartTotalCount() {
       return this.data.cartitem_set
         ? this.data.cartitem_set.reduce(
-          (acc, { quantity }) => acc + quantity,
-          0
-        )
+            (acc, { quantity }) => acc + quantity,
+            0
+          )
         : 0;
     },
     items_in_cart() {

@@ -44,7 +44,7 @@
                   :value="form.email"
                   type="email"
                   class="input"
-                  placeholder="@email"
+                  placeholder="mail@email.com"
                 />
               </label>
             </div>
@@ -63,7 +63,7 @@
                   @paste.prevent
                   type="email"
                   class="input"
-                  placeholder="@email"
+                  placeholder="mail@email.com"
                   :readonly="emailConfirmReadonly"
                   autocomplete="new-password"
                   @focus="emailConfirmReadonly = false"
@@ -173,11 +173,14 @@ export default {
     ...mapState("cart", ["loading"]),
     ...mapState("checkout", ["form", "errors", "disabledPay"])
   },
+  beforeRouteEnter(to, from, next) {
+    next(vm => {
+      vm.emailConfirmReadonly = false;
+      vm.DISABLE_PAY(false);
+    });
+  },
   beforeMount() {
     this.getFormValues();
-  },
-  mounted() {
-    this.DISABLE_PAY(false);
   },
   methods: {
     ...mapActions("checkout", ["getFormValues", "saveData", "getPayLink"]),
