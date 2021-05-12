@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'hide-widgets': ['cart', 'checkout'].includes($route.name) }">
+  <div>
     <Header />
     <Nuxt />
     <Footer />

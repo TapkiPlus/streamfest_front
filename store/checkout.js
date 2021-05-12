@@ -48,8 +48,10 @@ export default {
       if (fromCheckout && (!emailConfirm || email !== emailConfirm))
         commit("PUSH_ERROR", "emailConfirm");
       if (!phone) commit("PUSH_ERROR", "phone");
+      alert('CHECKING USER DATA BEFORE SENDING CREATE ORDER REQUEST');
       if (state.errors.length) commit("DISABLE_PAY", false);
       else {
+        alert('CHECKED USER DATA AND SENDING CREATE ORDER REQUEST')
         const { data } = await this.$axios.post("/api/create_order", {
           session_id: this.$auth.$storage.getCookie("session_id"),
           firstname,
@@ -58,6 +60,7 @@ export default {
           phone
         });
         if (data) {
+          alert('AFTER SENDING CREATE ORDER REQUEST AND IT`S DATA', JSON.stringify(data))
           fromCheckout &&
             dispatch("userData/saveData", { clickedPay: true }, { root: true });
           window.location.href = data;
