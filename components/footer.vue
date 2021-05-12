@@ -191,7 +191,7 @@ export default {
     script.onload = () => {
       VK.Widgets.CommunityMessages("vk_community_messages", 122887579, {
         disableExpandChatSound: "1",
-        tooltipButtonText: "Я отвечалка, ткни меня!"
+        disableButtonTooltip: "1"
       });
 
       VK.Widgets.Group(
