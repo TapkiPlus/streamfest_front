@@ -139,6 +139,13 @@
   import 'vue2-datepicker/locale/ru';
 	export default {
 		name: "account",
+    head() {
+      return {
+        meta: [
+          { hid: 'robots', name: 'robots', content: 'noindex' }
+        ]
+      }
+    },
     components: {
       DatePicker
     },
