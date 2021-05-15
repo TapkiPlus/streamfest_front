@@ -60,7 +60,7 @@ export default {
           phone
         });
         if (data) {
-          alert('AFTER SENDING CREATE ORDER REQUEST AND IT`S DATA', JSON.stringify(data))
+          alert(`AFTER SENDING CREATE ORDER REQUEST AND IT'S DATA ${JSON.stringify(data)}`)
           fromCheckout &&
             dispatch("userData/saveData", { clickedPay: true }, { root: true });
           window.location.href = data;
