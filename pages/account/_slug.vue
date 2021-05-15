@@ -163,7 +163,7 @@
             }
       },
       getTotalPrice() {
-       return (this.summary[0].amt + this.summary[1].amt).toLocaleString()
+       return (this.stats.summary[0].amt + this.stats.summary[1].amt).toLocaleString()
       },
       disabledAfterToday(date) {
         const today = new Date();
