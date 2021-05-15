@@ -1,7 +1,11 @@
 <template>
   <section class="account">
     <div class="container">
-      <div class="section-header">Личный кабинет участника {{stats.streamer && stats.streamer.nickName}}</div>
+      <img
+            src="/logo-blue.svg"
+            alt=""
+          />
+      <div class="section-header">Личный кабинет {{stats.streamer && stats.streamer.nickName}}</div>
     </div>
     <div class="container p0">
       <div class="report">
