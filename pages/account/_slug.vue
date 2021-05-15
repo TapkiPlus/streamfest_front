@@ -1,7 +1,7 @@
 <template>
   <section class="account">
     <div class="container">
-      <div class="section-header">Личный кабинет участника ник_стрмера</div>
+      <div class="section-header">Личный кабинет участника {{stats.streamer && stats.streamer.nickName}}</div>
     </div>
     <div class="container p0">
       <div class="report">
@@ -68,7 +68,7 @@
                 <div class="table__cell">
                   <img class="ticket-icon" :src="type === 1 ? '/oneday-star.svg' : '/twoday-star.svg'" alt=""/>
                   <div class="ticket-info">
-                    Билет на Стримфест 2021 на {{type}} день от Терминальное чтиво
+                    Билет на Стримфест 2021 на {{type}} день от {{stats.streamer.nickName}}
                   </div>
                 </div>
                 <div class="table__cell">{{qty}}</div>
@@ -79,7 +79,7 @@
                 <div class="table__cell">
                   Итого
                 </div>
-                <div class="table__cell">{{(1000).toLocaleString()}}</div>
+                <div class="table__cell">{{getTotalPrice()}}</div>
               </div>
             </div>
             </template>
@@ -147,17 +147,23 @@
         datePickerModel: [new Date(2021, 0, 1), new Date()],
       }
     },
-    mounted() {
-    this.getStats()
+    created() {
+      this.getStats()
     },
     methods: {
       async getStats(obj = {}) {
-        const {data} = await this.$axios.post('/api/get_streamer_stats',{
+            try {
+              const {data} = await this.$axios.post('/api/get_streamer_stats',{
               streamer_uuid: this.$route.params.slug,
               ...obj
             })
-            console.log(data);
             this.stats = data;
+            } catch (err) {
+              this.$nuxt.error({ statusCode: 404, message: 'Streamer no found' })
+            }
+      },
+      getTotalPrice() {
+       return (this.summary[0].amt + this.summary[1].amt).toLocaleString()
       },
       disabledAfterToday(date) {
         const today = new Date();
