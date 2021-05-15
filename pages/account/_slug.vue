@@ -10,7 +10,7 @@
           <div class="report__filter">
             <label class="report__filter-custom" >
 
-              <input type="radio" :value="0" name="period" @input="getPeriodStats">
+              <input type="radio" :value="0" name="period" :checked="periodInputChecked" @input="getPeriodStats">
               <span class="radio"></span>
               За промежуток
               <span class="report__filter-date--wrapper"> c
@@ -27,6 +27,7 @@
                   type="date"
                   :disabled-date="disabledAfterToday"
                   :clearable="false"
+                  @open="periodInputChecked = true"
                   @input="getPeriodStats"
                   >
                 <template slot="icon-calendar">
@@ -144,6 +145,7 @@
     data() {
 		  return {
         stats: {},
+        periodInputChecked: false,
         datePickerModel: [new Date(2021, 0, 1), new Date()],
       }
     },
@@ -171,9 +173,11 @@
         return date > today;
       },
       getPeriodStats() {
+        const from = new Date(this.datePickerModel[0]);
+        const till = new Date(this.datePickerModel[1]);
         this.getStats({
-                from: this.datePickerModel[0].toISOString(),
-                till: this.datePickerModel[1].toISOString()
+                from: new Date(from.getFullYear(), from.getMonth(), from.getDate(), 4, 0, 0),
+                till: new Date(till.getFullYear(), till.getMonth(), till.getDate() + 1, 4, 0, 0)
               })
       }
     }
