@@ -2,8 +2,8 @@
   <section class="account">
     <div class="container">
       <img
-            src="/logo-blue.svg"
-            alt=""
+          src="/logo-blue.svg"
+          alt=""
           />
       <div class="section-header">Личный кабинет {{stats.streamer && stats.streamer.nickName}}</div>
     </div>
