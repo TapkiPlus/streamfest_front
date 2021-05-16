@@ -2,6 +2,7 @@
   <section class="account">
     <div class="container">
       <img
+          class="account__logo"
           src="/logo-blue.svg"
           alt=""
           />
