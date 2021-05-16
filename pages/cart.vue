@@ -40,7 +40,7 @@
                 <p>
                   Билет на Стримфест&nbsp;2021 на
                   {{ ticket_type.days_qty === 1 ? "1 день" : "2 дня" }}
-                  {{ streamer && streamer.name && ` от ${streamer.name}` }}
+                  {{ streamer && streamer.nickName && ` от ${streamer.nickName}` }}
                 </p>
               </div>
               <div class="cart-row__quantity">
