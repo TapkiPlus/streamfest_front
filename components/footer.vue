@@ -170,7 +170,7 @@
       </div>
     </div>
     <nuxt-link
-      v-show="cartTotalCount"
+      v-show="isWidgetsVisible && cartTotalCount"
       :data-num="cartTotalCount"
       class="cart-fix"
       to="/cart"
@@ -178,7 +178,7 @@
       <div class="cart-fix__counter"></div>
       <img src="/cart-small.svg" alt="cart-icon" />
     </nuxt-link>
-    <div id="vk_community_messages"></div>
+    <div v-show="isWidgetsVisible" id="vk_community_messages"></div>
   </footer>
 </template>
 
@@ -191,7 +191,7 @@ export default {
     script.onload = () => {
       VK.Widgets.CommunityMessages("vk_community_messages", 122887579, {
         disableExpandChatSound: "1",
-        tooltipButtonText: "Я отвечалка, ткни меня!"
+        disableButtonTooltip: "1"
       });
 
       VK.Widgets.Group(
@@ -210,6 +210,9 @@ export default {
   },
   computed: {
     ...mapState("cart", ["data"]),
+    isWidgetsVisible() {
+    return !['/cart', '/checkout'].includes(this.$route.path)
+    },
     cartTotalCount() {
       return this.data.cartitem_set
         ? this.data.cartitem_set.reduce(
@@ -218,9 +221,6 @@ export default {
           )
         : 0;
     },
-    items_in_cart() {
-      return this.$store.getters["cart/totalItems"];
-    }
   }
 };
 </script>

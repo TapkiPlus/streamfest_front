@@ -1,6 +1,6 @@
 <template>
-  <div :class="{ 'hide-widgets': ['cart', 'checkout'].includes($route.name) }">
-    <Header />
+  <div>
+    <Header v-if="$route.name !== 'account-slug'"/>
     <Nuxt />
     <Footer />
   </div>
@@ -14,6 +14,6 @@ export default {
   components: {
     Header,
     Footer
-  }
+  },
 };
 </script>

@@ -1,7 +1,12 @@
 <template>
   <section class="account">
     <div class="container">
-      <div class="section-header">Личный кабинет участника ник_стрмера</div>
+      <img
+          class="account__logo"
+          src="/logo-blue.svg"
+          alt=""
+          />
+      <div class="section-header">Личный кабинет {{stats.streamer && stats.streamer.nickName}}</div>
     </div>
     <div class="container p0">
       <div class="report">
@@ -10,7 +15,7 @@
           <div class="report__filter">
             <label class="report__filter-custom" >
 
-              <input type="radio" :value="0" name="period">
+              <input type="radio" :value="0" name="period" :checked="periodInputChecked" @input="getPeriodStats">
               <span class="radio"></span>
               За промежуток
               <span class="report__filter-date--wrapper"> c
@@ -20,13 +25,16 @@
 <!--                по-->
 <!--                <span class="report__filter-date">{{ value1[1] }}</span>-->
                 <date-picker
-                  v-model="value1"
+                  v-model="datePickerModel"
                   format="DD.MM.YY"
                   range-separator=" по "
                   range
                   type="date"
                   :disabled-date="disabledAfterToday"
-                  :clearable="false">
+                  :clearable="false"
+                  @open="periodInputChecked = true"
+                  @input="getPeriodStats"
+                  >
                 <template slot="icon-calendar">
                   <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M5.00002 3.75H5.05204C5.56985 3.75 5.98956 3.33033 5.98956 2.81248V2.5V0.937516C5.98956 0.419673 5.56985 0 5.05204 0H5.00002C4.48221 0 4.0625 0.419673 4.0625 0.937516V2.5V2.81248C4.0625 3.33033 4.48221 3.75 5.00002 3.75Z" fill="#0D6DD8"/>
@@ -45,8 +53,8 @@
 
             </label>
 
-            <label >
-              <input type="radio" value="all" name="period" checked>
+            <label>
+              <input type="radio" value="all" name="period" checked @input="getStats">
               <span class="radio"></span>
               За всё время
             </label>
@@ -60,24 +68,16 @@
                 <div class="table__cell">Количество</div>
               </div>
             </div>
+            <template v-if="stats.summary && stats.summary.length">
             <div class="table__body">
-              <div class="table__row">
+              <div v-for="({type, qty}, index) in stats.summary" :key="index" class="table__row">
                 <div class="table__cell">
-                  <img class="ticket-icon" src="/twoday-star.svg" alt=""/>
+                  <img class="ticket-icon" :src="type === 1 ? '/oneday-star.svg' : '/twoday-star.svg'" alt=""/>
                   <div class="ticket-info">
-                    Билет на Стримфест 2021 на 1 день от Терминальное чтиво
+                    Билет на Стримфест 2021 на {{type}} день от {{stats.streamer.nickName}}
                   </div>
                 </div>
-                <div class="table__cell">3</div>
-              </div>
-              <div class="table__row">
-                <div class="table__cell">
-                  <img class="ticket-icon" src="/oneday-star.svg" alt=""/>
-                  <div class="ticket-info">
-                    Билет на Стримфест 2021 на 2 дня от Терминальное чтиво
-                  </div>
-                </div>
-                <div class="table__cell">15</div>
+                <div class="table__cell">{{qty}}</div>
               </div>
             </div>
             <div class="table__footer">
@@ -85,9 +85,10 @@
                 <div class="table__cell">
                   Итого
                 </div>
-                <div class="table__cell">{{(1000).toLocaleString()}}</div>
+                <div class="table__cell">{{getTotalCount()}}</div>
               </div>
             </div>
+            </template>
           </div>
         </div>
       </div>
@@ -110,19 +111,20 @@
                 </div>
               </div>
               <div class="table__body">
-                <div class="table__row table-empty" v-if="tickets.length === 0">
+                <template v-if="stats.items && stats.items.length">
+<div class="table__row"  v-for="({order_pk, when_paid, qty, name, email}, index) in stats.items" :key="index">
+                  <div class="table__cell"> {{order_pk }}</div>
+                  <div class="table__cell">{{ new Date(when_paid).toLocaleString() }}</div>
+                  <div class="table__cell">{{ (qty).toLocaleString()}}</div>
+                  <div class="table__cell">{{name}}</div>
+                  <div class="table__cell">{{email }}</div>
+                </div>
+                </template>
+<div class="table__row table-empty" v-else>
                   <div class="table__cell ">
                     Здесь будет список посетителей, которые купили ваш билет.
                   </div>
                 </div>
-                <div class="table__row" v-else v-for="ticket in tickets" :key="ticket.id">
-                  <div class="table__cell"> {{ ticket.id }}</div>
-                  <div class="table__cell">{{ ticket.date }}</div>
-                  <div class="table__cell">{{ (ticket.sum).toLocaleString()}}</div>
-                  <div class="table__cell">{{ticket.user}}</div>
-                  <div class="table__cell">{{ticket.mail }}</div>
-                </div>
-
 
 
               </div>
@@ -142,46 +144,54 @@
   import 'vue2-datepicker/locale/ru';
 	export default {
 		name: "account",
-    components: {DatePicker},
-    data() {
-		  return {
-        shortcuts: [
-          {
-            text: 'Today',
-            onClick() {
-              const date = new Date();
-              // return a Date
-              return date;
-            },
-          },
-          ],
-        value1: [new Date(2021, 0,1), new Date()],
-		    tickets: [
-          {id: '23334', date: '04.16.2020  14:56', sum: 10, user: 'Виталий', mail: 'Vitalyi1245@gmail.com'},
-          {id: '234', date: '04.16.2020  14:56', sum: 5, user: 'Виталий', mail: 'Vitalyi1245@gmail.com'},
-          {id: '23234', date: '04.16.2020  14:56', sum: 3540, user: 'Анатолий', mail: 'anatolyi.tkachenko1245@gmail.com'},
-          {id: '24', date: '04.16.2020  14:56', sum: 19, user: 'Виталий', mail: 'Vitalyi1245@gmail.com'},
-          {id: '4', date: '04.16.2020  14:56', sum: 111, user: 'Анатолий', mail: 'anatolyi.tkachenko1245@gmail.com'},
-          {id: '2124', date: '04.16.2020  14:56', sum: 879, user: 'Виталий', mail: 'Vitalyi1245@gmail.com'},
-          {id: '6754', date: '04.16.2020  14:56', sum: 3, user: 'Анатолий', mail: 'anatolyi.tkachenko1245@gmail.com'},
-        ],
-
+    head() {
+      return {
+        meta: [
+          { hid: 'robots', name: 'robots', content: 'noindex' }
+        ]
       }
     },
-    computed: {
+    components: {
+      DatePicker
     },
-
+    data() {
+		  return {
+        stats: {},
+        periodInputChecked: false,
+        datePickerModel: [new Date(2021, 0, 1), new Date()],
+      }
+    },
+    created() {
+      this.getStats()
+    },
     methods: {
+      async getStats(obj = {}) {
+            try {
+              const {data} = await this.$axios.post('/api/get_streamer_stats',{
+              streamer_uuid: this.$route.params.slug,
+              ...obj
+            })
+            this.stats = data;
+            } catch (err) {
+              this.$nuxt.error({ statusCode: 404, message: 'Streamer no found' })
+            }
+      },
+      getTotalCount() {
+       return (this.stats.summary[0].qty + this.stats.summary[1].qty).toLocaleString()
+      },
       disabledAfterToday(date) {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
-
         return date > today;
       },
+      getPeriodStats() {
+        const from = new Date(this.datePickerModel[0]);
+        const till = new Date(this.datePickerModel[1]);
+        this.getStats({
+                from: new Date(from.getFullYear(), from.getMonth(), from.getDate(), 4, 0, 0),
+                till: new Date(till.getFullYear(), till.getMonth(), till.getDate() + 1, 4, 0, 0)
+              })
+      }
     }
 	}
 </script>
-
-<style scoped>
-
-</style>

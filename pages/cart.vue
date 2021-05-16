@@ -200,7 +200,7 @@ export default {
       this.$router.push("/#tickets");
     },
     goToCheckout() {
-      this.saveData({ wentToCheckout: true });
+      // this.saveData({ wentToCheckout: true });
       this.$router.push("/checkout");
     }
   }

@@ -20,7 +20,7 @@ export default {
               session_id: this.$auth.$storage.getCookie("session_id"),
               ...obj
             }),
-          300
+          450
         )
       );
     }
