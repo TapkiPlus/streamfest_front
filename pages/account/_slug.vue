@@ -84,7 +84,7 @@
                 <div class="table__cell">
                   Итого
                 </div>
-                <div class="table__cell">{{getTotalPrice()}}</div>
+                <div class="table__cell">{{getTotalCount()}}</div>
               </div>
             </div>
             </template>
@@ -175,8 +175,8 @@
               this.$nuxt.error({ statusCode: 404, message: 'Streamer no found' })
             }
       },
-      getTotalPrice() {
-       return (this.stats.summary[0].amt + this.stats.summary[1].amt).toLocaleString()
+      getTotalCount() {
+       return (this.stats.summary[0].qty + this.stats.summary[1].qty).toLocaleString()
       },
       disabledAfterToday(date) {
         const today = new Date();
