@@ -19,11 +19,6 @@
               <span class="radio"></span>
               За промежуток
               <span class="report__filter-date--wrapper"> c
-<!--                <span class="report__filter-date">-->
-<!--                  {{ value1[0] }}-->
-<!--                </span>-->
-<!--                по-->
-<!--                <span class="report__filter-date">{{ value1[1] }}</span>-->
                 <date-picker
                   v-model="datePickerModel"
                   format="DD.MM.YY"
@@ -177,7 +172,12 @@
             }
       },
       getTotalCount() {
-       return (this.stats.summary[0].qty + this.stats.summary[1].qty).toLocaleString()
+        var s = 0;
+        var summary = this.stats.summary;
+        for (i = 0; i < summary.length; i++) {
+          s += summary[i].qty;
+        }
+        return s.toLocaleString()
       },
       disabledAfterToday(date) {
         const today = new Date();
