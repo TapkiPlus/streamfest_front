@@ -27,10 +27,12 @@
           color: $color-blue
           font-weight: 700
         svg
+
           g rect
             fill: $color-blue
     svg
       margin-bottom: 5px
+      width: 72px
       rect
         transition: fill .25s ease
     &__name
@@ -47,6 +49,7 @@
       padding-top: 50px
 
 
+
 .tab-description
   max-width: 1116px
   margin: 0 auto 50px
@@ -54,7 +57,8 @@
 
 
 .activities-grid
-
+  max-width: 1260px
+  margin: 0 auto
 .activities-item
   background: #ffffff
   overflow: hidden
@@ -218,7 +222,8 @@
       object-fit: cover
       height: 100px
       object-position: center
-
+  &__content
+    width: 100%
   &__time
     font-size: 24px
     line-height: 1.65
