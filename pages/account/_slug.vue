@@ -174,7 +174,7 @@
       getTotalCount() {
         var s = 0;
         var summary = this.stats.summary;
-        for (i = 0; i < summary.length; i++) {
+        for (var i = 0; i < summary.length; i++) {
           s += summary[i].qty;
         }
         return s.toLocaleString()
