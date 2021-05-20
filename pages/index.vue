@@ -1065,11 +1065,11 @@
             <el-image src="/partners/wasd.png" lazy></el-image>
           </a>
           <a
-            href="https://www.asus.com/Microsite/powered-by-asus/RU/"
+            href="https://www.bigo.tv/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/asus.png" lazy></el-image>
+            <el-image src="/partners/bigo-live.png" lazy></el-image>
           </a>
         </div>
         <h3 class="section-header">ОФИЦИАЛЬНЫЕ ПАРТНЕРЫ</h3>
