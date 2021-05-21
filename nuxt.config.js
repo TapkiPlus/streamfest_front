@@ -57,6 +57,7 @@ export default {
   gtm: {
     enabled: true, 
     autoInit: false,
+    pageTracking: true,
   },
   robots: {
     UserAgent: '*',
