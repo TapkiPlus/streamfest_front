@@ -53,11 +53,6 @@ export default {
   components: true,
   buildModules: [],
   modules: [ "@nuxtjs/axios", "@nuxtjs/auth", "@nuxtjs/robots"],
-  // gtm: {
-  //   enabled: true, 
-  //   autoInit: false,
-  //   pageTracking: true,
-  // },
   robots: {
     UserAgent: '*',
     Disallow: '/account/',
