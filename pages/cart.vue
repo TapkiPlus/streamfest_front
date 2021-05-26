@@ -200,10 +200,6 @@ export default {
       this.$router.push("/#tickets");
     },
     goToCheckout() {
-      this.$gtm.push({
-        event: 'goToCheckout',
-        totalPrice: `${this.data.total_price.toLocaleString()} руб`
-      })
       this.$router.push("/checkout");
     }
   }

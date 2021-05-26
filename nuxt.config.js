@@ -41,7 +41,6 @@ export default {
   },
   css: ["element-ui/lib/theme-chalk/index.css", "@/assets/main.sass"],
   plugins: [
-    "@/plugins/gtm",
     "@/plugins/mixins",
     "@/plugins/element-ui",
     "@/plugins/scroll",
@@ -53,12 +52,12 @@ export default {
   ],
   components: true,
   buildModules: [],
-  modules: ["@nuxtjs/gtm", "@nuxtjs/axios", "@nuxtjs/auth", "@nuxtjs/robots"],
-  gtm: {
-    enabled: true, 
-    autoInit: false,
-    pageTracking: true,
-  },
+  modules: [ "@nuxtjs/axios", "@nuxtjs/auth", "@nuxtjs/robots"],
+  // gtm: {
+  //   enabled: true, 
+  //   autoInit: false,
+  //   pageTracking: true,
+  // },
   robots: {
     UserAgent: '*',
     Disallow: '/account/',
