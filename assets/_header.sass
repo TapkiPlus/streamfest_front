@@ -81,7 +81,7 @@
       justify-content: space-evenly
       li
         position: relative
-        &:nth-child(1), &:nth-child(3), &:nth-child(6)
+        &:nth-child(1)
           display: none
         &.navItemActive
 
@@ -183,7 +183,9 @@
   .header
     .container
        padding: 0 25px
-
+@media screen and (max-width: 1300px)
+  .header-logo
+    flex: 0 0 130px
 @media screen and (max-width: 1024px)
   .header
     padding: 18px 0 15px
@@ -193,7 +195,7 @@
       margin-bottom: 0
       background: linear-gradient(180deg, #0D6DD8 0%, rgba(13, 109, 216, 0.580271) 50.85%, rgba(13, 109, 216, 0) 100%)
 
-      + section, + .cart, + .faq, + .location
+      + section, + .cart, + .faq, + .location, +.activities
         padding-top: 70px
     + .account
       padding-top: 70px

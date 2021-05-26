@@ -86,17 +86,17 @@
       </ul>
     </div>
     <div class="container-wide">
-      <div class="activities-tabs__content" v-if="activeTable === 1">
+      <div class="activities-tabs__content" v-show="activeTable === 1">
         <p class="tab-description">
           Смотри, что покажу! Самые интересные места и события фестиваля, которые вообще нельзя пропустить. Демозоны, анонсы, челленджи, шоу-матчи, технологии, весь фарш и вау-косплей.
         </p>
         <div class="activities-grid">
           <masonry
-            :cols="2"
-            :gutter="60"
+            :cols="{default: 2, 767: 1}"
+            :gutter="{default: '60px', 768: '25px' }"
           >
             <div v-for="(item, index) in items" :key="index">
-              <div class="activities-item">
+              <div class="activities-item" :style="{borderColor: item.borderColor}">
                 <div class="activities-item__img" v-if="item.img">
                   <img :src="item.img" alt="">
                 </div>
@@ -122,8 +122,7 @@
                 <div class="activities-item__corner" v-if="!item.img" >
                   <svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g filter="url(#filter0_d)">
-                      <path d="M15.7722 11.7722L24.988 2.32C29.3715 -2.17586 37 0.927558 37 7.2067V26C37 29.866 33.866 33 30 33H11.2067C4.92756 33 1.82413 25.3715 6.32 20.988L15.7722 11.7722Z" fill="#FF7A00"/>
-                      <path d="M15.7722 11.7722L24.988 2.32C29.3715 -2.17586 37 0.927558 37 7.2067V26C37 29.866 33.866 33 30 33H11.2067C4.92756 33 1.82413 25.3715 6.32 20.988L15.7722 11.7722Z" fill="#2AB2FB"/>
+                      <path d="M15.7722 11.7722L24.988 2.32C29.3715 -2.17586 37 0.927558 37 7.2067V26C37 29.866 33.866 33 30 33H11.2067C4.92756 33 1.82413 25.3715 6.32 20.988L15.7722 11.7722Z" :fill="item.borderColor" />
                     </g>
                     <defs>
                       <filter id="filter0_d" x="0.193359" y="0.192627" width="40.8074" height="40.8074" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
@@ -144,13 +143,10 @@
           </masonry>
         </div>
 
-
-
-
       </div>
 
 
-      <div class="activities-tabs__content" v-if="activeTable === 2">
+      <div class="activities-tabs__content" v-show="activeTable === 2">
         <p class="tab-description">
           Стримфест проходит 17 и 18 июля с 11:00 до 19:00.  Смотри тут расписание фестивальных сцен, партнерских стендов и лектория!
           Ищешь
@@ -165,7 +161,7 @@
             rel="noopener noreferrer" >@streamFestBot</a></p>
 
         <div class="timetable">
-          <div class="timetable-nav">
+          <div class="timetable-nav" :class="{_active: openStageList}">
             <ul class="timetable-nav__tabs">
               <li
                 class="timetable-nav__tab"
@@ -190,13 +186,14 @@
                 <div class="place__item-radio"></div>{{place.name}}
               </li>
             </ul>
+            <button class="close-list" @click="openStageList = !openStageList">Свернуть</button>
           </div>
           <div class="timetable-list">
-            <div class="timetable-item" data-date="" data-place="" v-for="tableItem in items" :key="tableItem.id">
+            <div class="timetable-item" data-date="" data-place=""  v-for="tableItem in items" :key="tableItem.id">
               <div class="timetable-item__icon">
                 <img :src="tableItem.iconTable" alt="">
               </div>
-              <div class="timetable-item__content">
+              <div class="timetable-item__content" ref="timetableContent">
                 <div class="timetable-item__body">
                   <div class="timetable-item__time"><span>{{tableItem.timeEnd}}</span>-<span>{{tableItem.timeEnd}}</span></div>
                   <div class="timetable-item__title">{{tableItem.title}}</div>
@@ -204,10 +201,13 @@
                 </div>
                 <div class="timetable-item__footer" v-if="tableItem.stars">
                   <div class="timetable-item__stars" ref="starList">
-                    <a href="" class="timetable-item__star" v-for="{icon, name, index} in tableItem.stars" :key="index">
-                      <div class="timetable-item__star-icon">
-                        <img :src="icon" :alt="name">
+                    <a href="" class="timetable-item__star" v-for="{icon, name, index} in tableItem.stars" :key="index" ref="starItem">
+                      <div class="timetable-item__star-icon--wrapper">
+                        <div class="timetable-item__star-icon">
+                         <img :src="icon" :alt="name">
+                        </div>
                       </div>
+
                       <div class="timetable-item__star-name">{{name}}</div>
                     </a>
                   </div>
@@ -215,30 +215,125 @@
               </div>
             </div>
           </div>
+          <button class="btn btn-stage btn--blue" @click="openStageList = !openStageList">Выбор даты и зоны</button>
         </div>
       </div>
 
 
-      <div class="activities-tabs__content" v-if="activeTable === 3">
+      <div class="activities-tabs__content" v-show="activeTable === 3">
 
         <p class="tab-description">
           У нас два входа: со стороны станции МЦД-1 «Сколково» и с главной лестницы Технопарка. Первый этаж — развлекательный. Второй — обзорный. На третьем — лекторий. Залетай!
         </p>
         <div class="map--wrapper">
-          <ul class="map__tabs">
-            <li class="map-tab"> Вход 1</li>
-            <li class="map-tab"> Вход 2</li>
-            <li class="map-tab"> 1 этаж</li>
-            <li class="map-tab"> 2 этаж</li>
-            <li class="map-tab"> 3 этаж</li>
-            <li class="map-tab">
-              <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M41.4995 20.9998C41.4995 32.3215 32.3215 41.4995 20.9998 41.4995C9.67806 41.4995 0.5 32.3215 0.5 20.9998C0.5 9.67805 9.67806 0.5 20.9998 0.5C32.3215 0.5 41.4995 9.67805 41.4995 20.9998Z" stroke="white"/>
-                <path d="M20.6634 32.0048H16.5908L20.0267 16.507H24.0993L20.6634 32.0048ZM22.6457 14.8372C22.021 14.8372 21.5044 14.633 21.0839 14.2245C20.6634 13.816 20.4592 13.3235 20.4592 12.7468C20.4592 11.9059 20.7475 11.2449 21.3122 10.7404C21.8768 10.2358 22.5015 9.98364 23.1863 9.98364C23.823 9.98364 24.3636 10.1879 24.7721 10.5964C25.1805 11.0048 25.3968 11.4974 25.3968 12.074C25.3968 12.915 25.1085 13.5756 24.5318 14.0802C23.9672 14.5848 23.3304 14.8372 22.6457 14.8372Z" fill="white"/>
-              </svg>
-            </li>
+          <div class="map__tabs">
+            <div class="map-tab map-tab--thin">
+              <a href="#enter1" @click="activeStage = 1">Вход 1</a>
+            </div>
+            <div class="map-tab map-tab--thin">
+              <a href="#enter2" @click="activeStage = 1">Вход 2</a>
+            </div>
+            <div class="map-tab">
+              <a href="" @click.prevent="activeStage = 1" :class="{_active : activeStage === 1}">1 этаж</a>
+            </div>
+            <div class="map-tab" >
+              <a href="" @click.prevent="activeStage = 2" :class="{_active : activeStage === 2}">2 этаж</a>
+            </div>
+            <div class="map-tab" >
+              <a href="" @click.prevent="activeStage = 3" :class="{_active : activeStage === 3}">3 этаж</a></div>
+            <div class="map-tab map-tab--info" >
+              <a href="">
+                <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M41.4995 20.9998C41.4995 32.3215 32.3215 41.4995 20.9998 41.4995C9.67806 41.4995 0.5 32.3215 0.5 20.9998C0.5 9.67805 9.67806 0.5 20.9998 0.5C32.3215 0.5 41.4995 9.67805 41.4995 20.9998Z" stroke="white"/>
+                  <path d="M20.6634 32.0048H16.5908L20.0267 16.507H24.0993L20.6634 32.0048ZM22.6457 14.8372C22.021 14.8372 21.5044 14.633 21.0839 14.2245C20.6634 13.816 20.4592 13.3235 20.4592 12.7468C20.4592 11.9059 20.7475 11.2449 21.3122 10.7404C21.8768 10.2358 22.5015 9.98364 23.1863 9.98364C23.823 9.98364 24.3636 10.1879 24.7721 10.5964C25.1805 11.0048 25.3968 11.4974 25.3968 12.074C25.3968 12.915 25.1085 13.5756 24.5318 14.0802C23.9672 14.5848 23.3304 14.8372 22.6457 14.8372Z" fill="white"/>
+                </svg>
+              </a>
+              <div class="map-tooltip">
+                <ul class="map-tooltip__list">
+                  <li class="map-tooltip__item">
+                    <img class="map-tooltip__icon" src="/activity/info-food.svg" alt=""/>
+                    <div class="map-tooltip__text">Еда, бафы</div>
+                  </li>
+                  <li class="map-tooltip__item">
+                    <img class="map-tooltip__icon" src="/activity/info-medic.svg" alt=""/>
+                    <div class="map-tooltip__text">Хилки</div>
+                  </li>
+                  <li class="map-tooltip__item">
+                    <img class="map-tooltip__icon" src="/activity/info-cash.svg" alt=""/>
+                    <div class="map-tooltip__text">Банкомат</div>
+                  </li>
+                  <li class="map-tooltip__item">
+                    <img class="map-tooltip__icon" src="/activity/info-info.svg" alt=""/>
+                    <div class="map-tooltip__text">Пресса</div>
+                  </li>
+                  <li class="map-tooltip__item">
+                    <img class="map-tooltip__icon" src="/activity/info-wc.svg" alt=""/>
+                    <div class="map-tooltip__text">Туалет</div>
+                  </li>
+                  <li class="map-tooltip__item">
+                    <img class="map-tooltip__icon" src="/activity/info-fire.svg" alt=""/>
+                    <div class="map-tooltip__text">Пожарка</div>
+                  </li>
 
-          </ul>
+                </ul>
+              </div>
+
+
+            </div>
+
+          </div>
+          <div class="map-stage--wrapper">
+            <div class="map-stage" v-show="activeStage === 1">
+              <div class="map-image">
+                <div id="enter1"></div>
+                <div id="enter2"></div>
+                <img src="/activity/map-1flor.svg" alt="">
+              </div>
+              <div class="map__list--wrapper" :class="{_active: openStageList}">
+                <div class="map-title">Что где на карте</div>
+                <ul class="map__list">
+                  <li class="map__item" v-for="item in stages[0]" :key="item.id">
+                    <span class="zone-id">{{ item.id }} - </span> {{ item.name }}
+                  </li>
+                </ul>
+                <button class="close-list" @click="openStageList = !openStageList">Свернуть</button>
+              </div>
+
+            </div>
+            <div class="map-stage" v-show="activeStage === 2">
+              <div class="map-image">
+                <img src="/activity/map-2flor.svg" alt="">
+              </div>
+              <div class="map__list--wrapper" :class="{_active: openStageList}">
+                <div class="map-title">Что где на карте</div>
+                <ul class="map__list">
+                  <li class="map__item" v-for="item in stages[1]" :key="item.id">
+                    <span class="zone-id">{{ item.id }} - </span> {{ item.name }}
+                  </li>
+                </ul>
+                <button class="close-list" @click="openStageList = !openStageList">Свернуть</button>
+              </div>
+
+            </div>
+            <div class="map-stage" v-show="activeStage === 3">
+              <div class="map-image">
+                <img src="/activity/map-2flor.svg" alt="">
+              </div>
+              <div class="map__list--wrapper" :class="{_active: openStageList}">
+                <div class="map-title">Что где на карте</div>
+                <ul class="map__list" >
+                  <li class="map__item" v-for="item in stages[2]" :key="item.id">
+                    <span class="zone-id">{{ item.id }} - </span> {{ item.name }}
+                  </li>
+                </ul>
+                <button class="close-list" @click="openStageList = !openStageList">Свернуть</button>
+              </div>
+
+            </div>
+            <button class="btn btn-stage btn--blue" @click="openStageList = !openStageList">Что где на карте</button>
+          </div>
+
+
         </div>
       </div>
     </div>
@@ -262,9 +357,46 @@ export default {
   },
   data() {
     return {
-      activeTable: 3,
+      openStageList: false,
+      activeStage: 1,
+      activeTable: 2,
       activeDay: 1,
       activePlace: 1,
+      stages : [
+        [
+          { id: 42, name: "Стрим-октагон WASD.TV"},
+          { id: 41, name: "Пиццерия Osteria Mario"},
+          { id: 40, name: "Ретроигры"} ,
+          { id: 39, name: "Шатер QIWI Donate"} ,
+          { id: 38, name: "Настольные ролевые игры"} ,
+          { id: 37, name: "Святой источник"} ,
+          { id: 36, name: "Маркет Музыкальные шкатулки"} ,
+          { id: 35, name: "Маркет Milky Sky"} ,
+          { id: 34, name: "Стрим-октагон ASUS Republic  of Gamers"} ,
+          { id: 33, name: "Мастерская Карматен"} ,
+          { id: 32, name: "Танцевальная зона Just Dance"} ,
+          { id: 31, name: "Сувениры и мерч"} ,
+          { id: 30, name: "Кофейня и смузи"} ,
+        ],
+        [
+          { id: 43, name: "Стрим-октагон WASD.TV"} ,
+          { id: 44, name: "Пиццерия Osteria Mario"} ,
+          { id: 45, name: "Ретроигры"} ,
+          { id: 46, name: "Шатер QIWI Donate"} ,
+          { id: 47, name: "Настольные ролевые игры"} ,
+          { id: 48, name: "Святой источник"} ,
+          { id: 49, name: "Маркет Музыкальные шкатулки"} ,
+        ],
+        [
+          { id: 1, name: "Стрим-октагон WASD.TV"} ,
+          { id: 2, name: "Пиццерия Osteria Mario"} ,
+          { id: 3, name: "Ретроигры"} ,
+          { id: 4, name: "Шатер QIWI Donate"} ,
+          { id: 5, name: "Настольные ролевые игры"} ,
+          { id: 6, name: "Святой источник"} ,
+          { id: 7, name: "Маркет Музыкальные шкатулки"} ,
+        ],
+      ],
       places: [
         {id: 1, name: 'Главная сцена'},
         {id: 2, name: 'Музыкальная сцена'},
@@ -294,6 +426,7 @@ export default {
           timeEnd: '14:30',
           stars: [{icon: '/activity/star.png', name: 'Иванов Иван'}],
           iconTable: '/activity/item.png',
+          borderColor: '#2AB2FB'
 
         },
         {
@@ -302,7 +435,7 @@ export default {
           title: 'Blizzard на Стримфесте!',
           img: '',
           placeId: '26',
-          placeIcon: '/activity/place-id.svg',
+          placeIcon: '/activity/place-id-2.svg',
           place: 'Октагон Sovremenii',
           date: 'День 2, началов 14:00',
           descr: 'Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc. In ac felis quis tortor malesuada pretium. Sed in libero ut nibh placerat accumsan. Praesent egestas neque eu enim. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc. In ac felis quis tortor malesuada pretium. Sed in libero ut nibh placerat accumsan. Praesent egestas neque eu enim.',
@@ -312,6 +445,7 @@ export default {
           timeEnd: '14:30',
           stars: [{icon: '/activity/star.png', name: 'Иванов Иван'}],
           iconTable: '/activity/item.png',
+          borderColor: '#2AB2FB'
 
         },
         {
@@ -330,6 +464,7 @@ export default {
           timeEnd: '14:30',
           stars: [{icon: '/activity/star.png', name: 'Иванов Иван'}],
           iconTable: '/activity/item.png',
+          borderColor: '#2AB2FB'
 
         },
         {
@@ -347,6 +482,7 @@ export default {
           timeStart: '14:30',
           timeEnd: '14:30',
           iconTable: '/activity/item.png',
+          borderColor: '#8C45F7'
 
         },
         {
@@ -363,8 +499,9 @@ export default {
           day: '',
           timeStart: '11:30',
           timeEnd: '14:30',
-          stars: [{icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'},],
+          stars: [{icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'},{icon: '/activity/star.png', name: 'Иванов Иван'},{icon: '/activity/star.png', name: 'Иванов Иван'},{icon: '/activity/star.png', name: 'Иванов Иван'},],
           iconTable: '/activity/item.png',
+          borderColor: '#FF7A00'
 
         },
         {
@@ -383,6 +520,7 @@ export default {
           timeEnd: '14:30',
           stars: [{icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'},],
           iconTable: '/activity/item.png',
+          borderColor: '#2AB2FB'
 
         },
         {
@@ -401,6 +539,7 @@ export default {
           timeEnd: '14:30',
           stars: [{icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'},],
           iconTable: '/activity/item.png',
+          borderColor: '#2AB2FB'
 
         },
         {
@@ -417,8 +556,9 @@ export default {
           day: '',
           timeStart: '12:30',
           timeEnd: '14:30',
-          stars: [{icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'}, ],
+          stars: [{icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'}, ],
           iconTable: '/activity/item.png',
+          borderColor: '#2AB2FB'
 
 
         }
@@ -429,14 +569,42 @@ export default {
   watch: {
 
   },
-  mounted() {
-    // let starsList = this.$refs[`starList`]
-    // starsList.forEach(star => {
-    //   if(star.innerWidth > 990) {
-    //     console.log('very long')
-    //   }
-    // })
+  created() {
+
   },
-  methods: {}
+  computed: {
+
+  },
+  mounted() {
+    window.addEventListener("resize", this.calcWith);
+    this.calcWith();
+  },
+  methods: {
+    calcWith() {
+      let starsLists = this.$refs[`starList`]
+      let timetableContent = this.$refs[`timetableContent`][0].clientWidth
+      console.log(timetableContent)
+      starsLists.forEach(starList => {
+        if((starList.children.length > 5) || (starList.clientWidth >= (timetableContent ))) {
+          starList.classList.add("short")
+          let maxWidth = window.screen.width - 70
+          let starsArray = starList.children
+          let stars = (maxWidth / starsArray.length)
+          let starsPosition = 0
+          if(starList.clientWidth > maxWidth ) {
+            console.log(starsPosition)
+            for( let i = 0; i < starsArray.length; i++) {
+              starsArray[i].style.position = 'absolute'
+              starsArray[i].style.transform = `translateX(${starsPosition}px)`
+              starsPosition = starsPosition + stars
+            }
+          }
+
+        } else {
+          starList.classList.remove("short")
+          }
+      })
+    },
+  }
 };
 </script>
