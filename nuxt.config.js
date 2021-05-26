@@ -14,7 +14,7 @@ export default {
   },
   serverMiddleware: ["~/middleware/redirects.js"],
   head: {
-    title: "streamfest_front",
+    title: "Стримфест — главный фестиваль стримеров",
     htmlAttrs: {
       lang: "en"
     },
