@@ -1079,7 +1079,6 @@
         <h3 class="section-header">ОФИЦИАЛЬНЫЕ ПАРТНЕРЫ</h3>
         <div class="partners-img official">
           <a
-            class="part-1"
             href="https://www.logitech.com/ru-ru/"
             target="_blank"
             rel="noopener noreferrer"
@@ -1087,7 +1086,6 @@
             <el-image src="/partners/logitech.png" lazy></el-image>
           </a>
           <a
-            class="part-2"
             href="https://zen.yandex.ru/"
             target="_blank"
             rel="noopener noreferrer"
@@ -1095,7 +1093,6 @@
             <el-image src="/partners/yandex_dzen.png" lazy></el-image>
           </a>
           <a
-            class="part-3"
             href="https://skillbox.ru/course/profession-stream-bloger/?utm_source=pr&utm_medium=pr&utm_campaign=all_all_pr_pr_all_all_all_StreamFest_skillbox"
             target="_blank"
             rel="noopener noreferrer"
@@ -1103,7 +1100,6 @@
             <el-image src="/partners/skillbox.png" lazy></el-image>
           </a>
           <a
-            class="part-4"
             href="https://vk.com/"
             target="_blank"
             rel="noopener noreferrer"
@@ -1111,7 +1107,6 @@
             <el-image src="/partners/vk.png" lazy></el-image>
           </a>
           <a
-            class="part-5"
             href="http://red-square.org/"
             target="_blank"
             rel="noopener noreferrer"
@@ -1119,7 +1114,6 @@
             <el-image src="/partners/red-square.png" lazy></el-image>
           </a>
           <a
-            class="part-6"
             href="https://www.amd.com/ru"
             target="_blank"
             rel="noopener noreferrer"
@@ -1127,7 +1121,6 @@
             <el-image src="/partners/amd.png" lazy></el-image>
           </a>
           <a
-            class="part-7"
             href="https://donate.qiwi.com/"
             target="_blank"
             rel="noopener noreferrer"
@@ -1135,7 +1128,6 @@
             <el-image src="/partners/qiwi.png" lazy></el-image>
           </a>
           <a
-            class="part-8"
             href="https://ru.siberianhealth.com/ru/shop/catalog/category/406/"
             target="_blank"
             rel="noopener noreferrer"
@@ -1143,7 +1135,6 @@
             <el-image src="/partners/cyberbuild.png" lazy></el-image>
           </a>
           <a
-            class="part-9"
             href="https://goodgame.ru/"
             target="_blank"
             rel="noopener noreferrer"
@@ -1151,7 +1142,6 @@
             <el-image src="/partners/gg.png" lazy></el-image>
           </a>
           <a
-            class="part-10"
             href="https://flick.redbull.com/"
             target="_blank"
             rel="noopener noreferrer"
@@ -1159,7 +1149,6 @@
             <el-image src="/partners/redbull.png" lazy></el-image>
           </a>
           <a
-            class="part-11"
             href="https://www.teamgroupinc.com/ru/products/t-force"
             target="_blank"
             rel="noopener noreferrer"
