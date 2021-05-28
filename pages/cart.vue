@@ -126,7 +126,7 @@
         <img src="/cart-big.svg" alt="" />
         <p class="cart-row ">Ваша корзина пока что пуста</p>
         <button @click="goToHome" class="btn btn--blue">
-          <span class="split">Выбрать билет</span>
+          Выбрать билет
         </button>
       </div>
     </div>
@@ -137,7 +137,7 @@
           :disabled="!data.cartitem_set.length"
           @click="goToCheckout"
         >
-          <span class="split">Перейти к оформлению</span>
+          Перейти к оформлению
         </button>
         <div class="cart-button__total">
           <p>Общая стоимость:</p>
@@ -171,7 +171,7 @@
           :disabled="!data.cartitem_set.length"
           @click="goToCheckout"
         >
-          <span class="split">Перейти к оформлению</span>
+          Перейти к оформлению
         </button>
       </div>
     </div>

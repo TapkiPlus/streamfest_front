@@ -22,7 +22,7 @@
           указав ваш <br /><b>номер заказа: №{{ $route.query.pg_order_id }}.</b>
         </p>
         <nuxt-link to="/" class="btn"
-          ><span class="split">На главную</span></nuxt-link
+          >На главную</nuxt-link
         >
       </div>
     </div>

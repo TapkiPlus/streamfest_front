@@ -15,7 +15,7 @@
           class="btn header__button btn--big btn--yellow"
           to="#tickets"
         >
-          <span class="split">Купить билет</span>
+          Купить билет
         </nuxt-link>
       </div>
     </section>
@@ -193,7 +193,7 @@
               </defs>
             </svg>
 
-            <span class="split">И другие активности</span></a
+            И другие активности</a
           >
           <a class="video-button btn-disable btn btn--blue">
             <svg
@@ -302,7 +302,7 @@
                 </filter>
               </defs>
             </svg>
-            <span class="split">Карта фестиваля</span></a
+            Карта фестиваля</a
           >
           <a class="video-button btn-disable btn btn--blue">
             <svg
@@ -391,7 +391,7 @@
                 </filter>
               </defs>
             </svg>
-            <span class="split">Расписание</span></a
+            Расписание</a
           >
         </div>
       </div>
@@ -439,7 +439,7 @@
         <div class="streamers-btn">
           <img src="/smile.png" class="btn--icon" alt="" />
           <nuxt-link class="btn btn-w-icon btn--blue" to="/stars"
-            ><span class="split">КТО ТОЛЬКО НЕ ПРИДЕТ</span>
+            >КТО ТОЛЬКО НЕ ПРИДЕТ
           </nuxt-link>
         </div>
       </div>
@@ -506,7 +506,7 @@
                 class="btn btn-ticket btn--red"
                 id="homeTicketOne"
               >
-                <span class="split">Купить билет на 1 день</span>
+                Купить билет на 1 день
               </button>
               <button
                 v-else
@@ -514,7 +514,7 @@
                 class="btn btn-ticket btn--red"
                 id="homeTicketTwo"
               >
-                <span class="split">Купить билет на 2 дня</span>
+                Купить билет на 2 дня
               </button>
             </div>
           </div>
@@ -583,13 +583,13 @@
                       class="btn btn--red btn-ticket"
                       id="homeTicketOne"
                     >
-                      <span class="split">Купить билет на 1 день</span>
+                      Купить билет на 1 день
                     </button>
                     <button v-else
                     class="btn btn--red btn-ticket"
                     id="homeTicketTwo"
                     >
-                      <span class="split">Купить билет на 2 дня</span>
+                      Купить билет на 2 дня
                     </button>
                   </div>
                 </div>
@@ -798,9 +798,7 @@
             target="_blank"
             rel="noopener noreferrers"
           >
-            <span class="split">
               Больше фото
-            </span>
           </a>
         </div>
       </div>
@@ -1018,7 +1016,7 @@
             rel="noopener noreferrer"
           >
             <div class="letters">
-              <span class="split">Как&nbsp;это&nbsp;было</span>
+              Как&nbsp;это&nbsp;было
             </div></a
           >
         </p>
@@ -1288,7 +1286,7 @@
         </div>
         <div class="partners-btn">
           <button @click="openPartnersModal" class="btn btn--red btn--big">
-            <span class="split">Хочу стать партнером</span>
+            Хочу стать партнером
           </button>
         </div>
       </div>
@@ -1467,9 +1465,7 @@ export default {
       });
     },
     ticketsSwiperClick(e) {
-      (e.target.classList.contains("btn-ticket") ||
-        e.target.classList.contains("split") ||
-        e.target.classList.contains("letter")) &&
+      e.target.classList.contains("btn-ticket") &&
         this.addItem(
           this.$refs.ticketsSwiper.$swiper.clickedSlide.attributes[1].value
         );

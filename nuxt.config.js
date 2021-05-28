@@ -53,7 +53,6 @@ body: true
   },
   css: ["element-ui/lib/theme-chalk/index.css", "@/assets/main.sass"],
   plugins: [
-    "@/plugins/mixins",
     "@/plugins/element-ui",
     "@/plugins/scroll",
     "@/plugins/masonry",

@@ -27,7 +27,7 @@
           class="btn btn--yellow"
           :disabled="disabledPay"
         >
-          <span class="split">Попробовать еще раз</span>
+          Попробовать еще раз
         </button>
       </div>
     </div>

@@ -99,7 +99,7 @@
               type="submit"
               :disabled="loading || disabledPay"
             >
-              <span class="split">Оплатить</span>
+              Оплатить
             </button>
             <p>
               Переходя к оплате, вы соглашаетесь с

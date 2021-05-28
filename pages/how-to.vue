@@ -982,7 +982,7 @@
             class="btn btn--vk desktop-hidden"
             target="_blank"
             rel="noopener noreferrer"
-            ><span class="split">Задайте их в личку </span
+            >Задайте их в личку 
             ><svg
               width="36"
               height="36"

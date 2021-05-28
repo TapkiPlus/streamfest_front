@@ -71,7 +71,7 @@
                 </linearGradient>
               </defs>
             </svg>
-            <span class="split">корзина</span>
+            корзина
           </nuxt-link>
           <nuxt-link
             v-show="!cartTotalCount"
@@ -80,9 +80,7 @@
             to="/#tickets"
           >
             <div class="btn-bg"></div>
-            <span class="split">
               Купить билет
-            </span>
           </nuxt-link>
         </div>
       </div>

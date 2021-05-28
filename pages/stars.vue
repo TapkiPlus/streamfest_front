@@ -54,7 +54,7 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          <span class="split">СТАТЬ УЧАСТНИКОМ</span>
+          СТАТЬ УЧАСТНИКОМ
         </a>
       </div>
     </div>
