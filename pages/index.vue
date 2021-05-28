@@ -1217,7 +1217,7 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/hyper-pc.png" lazy></el-image>
+            <el-image src="/partners/hyper.png" lazy></el-image>
           </a>
           <a
             href="https://www.bluemics.ru/"
