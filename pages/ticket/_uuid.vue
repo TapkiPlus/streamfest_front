@@ -17,7 +17,6 @@
 <script>
 export default {
   scrollToTop: true,
-  // auth: true,
   async asyncData({$axios,params}){
     try{
       const get_ticket = await $axios.get(`/api/get_ticket?uuid=${params.uuid}`)
@@ -26,19 +25,7 @@ export default {
     }catch (e) {
       console.log(e)
     }
-
   },
-  data() {
-    return {
-    };
-  },
-  watch: {
-  },
-  mounted() {
-
-  },
-  methods: {
-  }
 }
 </script>
 

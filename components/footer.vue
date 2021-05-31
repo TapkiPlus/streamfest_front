@@ -176,7 +176,7 @@
       to="/cart"
     >
       <div class="cart-fix__counter"></div>
-      <img src="/cart-small.svg" alt="cart-icon" />
+      <el-image src="/cart-small.svg" alt="cart-icon" lazy></el-image>
     </nuxt-link>
     <div v-show="isWidgetsVisible" id="vk_community_messages"></div>
   </footer>
@@ -184,7 +184,6 @@
 
 <script>
 import { mapState } from "vuex";
-
 export default {
   mounted() {
     const script = document.createElement("script");

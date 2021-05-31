@@ -2,7 +2,7 @@
   <section class="location">
     <div class="pattern-bg"></div>
     <div class="faq-banner">
-      <img src="/location.png" alt="" />
+      <img src="/location.png" alt="" loading="lazy" />
     </div>
     <div class="container-1000">
       <h1 class="section-header mobile-hidden">

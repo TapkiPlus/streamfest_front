@@ -2,7 +2,7 @@
   <section class="faq faq--how-to">
     <div class="pattern-bg "></div>
     <div class="faq-banner">
-      <img src="/SU.png" alt="" />
+      <img src="/SU.png" alt="" loading="lazy" />
     </div>
     <div class="container">
       <div class="section-header">КАК СТАТЬ УЧАСТНИКОМ СТРИМФЕСТА 2021</div>

@@ -1,7 +1,7 @@
 <template>
-  <div class="">
+  <div>
     <section class="offer">
-      <video class="offer-video" src="/videos/home.mp4" loop autoplay muted />
+      <video ref="mainVideo" class="offer-video" src="/videos/home.mp4" loop preload="none" muted />
       <div class="container offer-wrapper">
         <h3 class="offer__title">СТРИМФЕСТ 2021</h3>
         <p class="offer__subtitle">Главный фестиваль стримеров!</p>
@@ -34,6 +34,7 @@
         <div style="padding:56.25% 0 0 0;position:relative;">
           <iframe
             src="https://player.vimeo.com/video/530958754?title=0&byline=0&portrait=0"
+            loading="lazy"
             style="position:absolute;top:0;left:0;width:100%;height:100%;"
             frameborder="0"
             allow="autoplay; fullscreen; picture-in-picture"
@@ -42,7 +43,7 @@
         </div>
         <div class="video-wrapper">
           <div class="video-item">
-            <img src="/cats/s_1.svg" alt="" />
+            <el-image src="/cats/s_1.svg" lazy></el-image>
             <div class="video-item__title">Встречи со звездами</div>
             <p>
               Топы всех платформ: Twitch.tv, YouTube, TikTok, WASD, Goodgame, VK
@@ -50,14 +51,14 @@
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_2.svg" alt="" />
+            <el-image src="/cats/s_2.svg" lazy></el-image>
             <div class="video-item__title">Игровые зоны и конкурсы</div>
             <p>
               Развлечения по полной: видеоигры, роботы, танцы, фотозоны и призы.
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_3.svg" alt="" />
+            <el-image src="/cats/s_3.svg" lazy></el-image>
             <div class="video-item__title">Турниры и шоу-матчи</div>
             <p>
               MOBA, шутеры и батл рояли — участвуй сам и смотри, как жарят
@@ -65,14 +66,14 @@
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_4.svg" alt="" />
+            <el-image src="/cats/s_4.svg" lazy></el-image>
             <div class="video-item__title">Настолки и застолья</div>
             <p>
               Тащи друзей в партию или в кафешки, там всё вкусно и по карману.
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_5.svg" alt="" />
+            <el-image src="/cats/s_5.svg" lazy></el-image>
             <div class="video-item__title">Дефиле косплееров</div>
             <p>
               Самый демократичный конкурс фанатского костюма — портал
@@ -80,7 +81,7 @@
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_6.svg" alt="" />
+            <el-image src="/cats/s_6.svg" lazy></el-image>
             <div class="video-item__title">Лекции и мастер-классы</div>
             <p>
               Два дня интенсива: прокачаем скиллы, научим зарабатывать на
@@ -396,8 +397,8 @@
         </div>
       </div>
       <div class="side-parts">
-        <img src="/side-parts_1.svg" />
-        <img src="/side-parts_2.svg" />
+        <img src="/side-parts_1.svg" loading="lazy" />
+        <img src="/side-parts_2.svg" loading="lazy" />
       </div>
     </section>
     <div class="separator">
@@ -437,7 +438,7 @@
         </div>
         <StreamersSwiper :streamers="streamers" />
         <div class="streamers-btn">
-          <img src="/smile.png" class="btn--icon" alt="" />
+          <el-image class="btn--icon" src="/smile.png" lazy></el-image>
           <nuxt-link class="btn btn-w-icon btn--blue" to="/stars"
             ><span class="split">КТО ТОЛЬКО НЕ ПРИДЕТ</span>
           </nuxt-link>
@@ -614,6 +615,7 @@
         <div style="padding:56.25% 0 0 0;position:relative;">
           <iframe
             src="https://player.vimeo.com/video/348364566?title=0&byline=0&portrait=0"
+            loading="lazy"
             style="position:absolute;top:0;left:0;width:100%;height:100%;"
             frameborder="0"
             allow="autoplay; fullscreen; picture-in-picture"
@@ -805,8 +807,8 @@
         </div>
       </div>
       <div class="side-parts">
-        <img src="/side-parts_3.svg" alt="" />
-        <img src="/side-parts_4.svg" alt="" />
+        <img src="/side-parts_3.svg" loading="lazy" />
+        <img src="/side-parts_4.svg" loading="lazy" />
       </div>
     </section>
     <section class="feedbacks">
@@ -829,7 +831,7 @@
                     <p class="feedback-item__who">Стример</p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/1_s.jpg" />
+                    <img src="/reviews/1_s.jpg" loading="lazy" />
                   </div>
                 </div>
               </swiper-slide>
@@ -846,7 +848,7 @@
                     <p class="feedback-item__who">Видеоблогер</p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/2_s.jpg" />
+                    <img src="/reviews/2_s.jpg" loading="lazy"/>
                   </div>
                 </div>
               </swiper-slide>
@@ -865,7 +867,7 @@
                     </p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/3_s.jpg" />
+                    <img src="/reviews/3_s.jpg" loading="lazy"/>
                   </div>
                 </div>
               </swiper-slide>
@@ -884,7 +886,7 @@
                     </p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/4_s.jpg" />
+                    <img src="/reviews/4_s.jpg" loading="lazy"/>
                   </div>
                 </div>
               </swiper-slide>
@@ -903,7 +905,7 @@
                     </p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/5_s.jpg" />
+                    <img src="/reviews/5_s.jpg" loading="lazy"/>
                   </div>
                 </div>
               </swiper-slide>
@@ -923,7 +925,7 @@
                     </p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/6_s.jpg" />
+                    <img src="/reviews/6_s.jpg" loading="lazy"/>
                   </div>
                 </div>
               </swiper-slide>
@@ -942,7 +944,7 @@
                     </p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/7_s.jpg" />
+                    <img src="/reviews/7_s.jpg" loading="lazy"/>
                   </div>
                 </div>
               </swiper-slide>
@@ -963,7 +965,7 @@
                     </p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/8_s.jpg" />
+                    <img src="/reviews/8_s.jpg" loading="lazy"/>
                   </div>
                 </div>
               </swiper-slide>
@@ -1293,17 +1295,18 @@
         </div>
       </div>
       <div class="side-parts">
-        <img src="/side-parts_5.png" />
-        <img src="/side-parts_6.png" />
+        <img src="/side-parts_5.png" loading="lazy"/>
+        <img src="/side-parts_6.png" loading="lazy"/>
       </div>
     </section>
-    <div :class="{ visible: partnersIframe }" class="partners-modal">
+    <div v-if="partnersIframe" class="partners-modal">
       <button @click="closePartnersModal" class="partners-modal__close">
         ✖
       </button>
       <iframe
         class="partners-modal__iframe"
         src="https://docs.google.com/forms/d/e/1FAIpQLSeMR_dy_vI2fTg89_Qf8ssprOwOFiwIaPRdzIrm9-MPr8yUdA/viewform?embedded=true"
+        loading="lazy"
         frameborder="0"
         marginheight="0"
         marginwidth="0"
@@ -1323,14 +1326,10 @@ export default {
     StreamersSwiper,
     Subscribe
   },
-  async asyncData({ $axios }) {
-    const streamers = (await $axios.get("/api/get_streamers?at_home=show"))
-      .data;
-    const tickets = (await $axios.get("/api/get_ticket_types")).data;
-    return { streamers, tickets };
-  },
   data() {
     return {
+      streamers: [],
+      tickets: [],
       lastDay: null,
       ticketsOptions: {
         spaceBetween: 0,
@@ -1432,12 +1431,16 @@ export default {
       partnersIframe: false
     };
   },
-  mounted() {
+  async mounted() {
     this.$router.currentRoute.hash === "#tickets" && this.handleScroll();
+    this.$refs.mainVideo.play()
     this.starTimer();
     const script = document.createElement("script");
     script.src = "https://player.vimeo.com/api/player.js";
     document.body.appendChild(script);
+    this.streamers = (await this.$axios.get("/api/get_streamers?at_home=show"))
+      .data
+    this.tickets = (await this.$axios.get("/api/get_ticket_types")).data;
   },
   methods: {
     starTimer() {

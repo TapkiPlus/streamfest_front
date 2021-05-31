@@ -5,7 +5,7 @@
         <swiper-slide v-for="streamer in streamers" :key="streamer.id">
           <nuxt-link :to="`/${streamer.nickNameSlug}`">
             <div class="streamers-item">
-              <img :src="streamer.photo" alt="" />
+              <img :src="streamer.photo" loading="lazy" alt="" />
               <p class="streamers-item__nick">{{ streamer.nickName }}</p>
               <p class="streamers-item__fio">{{ streamer.name }}</p>
             </div>
