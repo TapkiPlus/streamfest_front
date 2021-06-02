@@ -15,25 +15,19 @@
         >
           <div class="cart-row">
             <div @click="deleteItem(id)" class="cart-row__delete">
-              <img draggable="false" src="/delete.svg" alt="" />
+              <el-image src="/delete.svg" :draggable="false" lazy></el-image>
             </div>
             <div class="cart-row__icon" v-if="!streamer">
-              <img
-                :src="
+              <el-image :src="
                   ticket_type.days_qty === 1 ? '/oneday.svg' : '/twoday.svg'
-                "
-                alt=""
-              />
+                " lazy></el-image>
             </div>
             <div class="cart-row__icon" v-else>
-              <img
-                :src="
+              <el-image :src="
                   ticket_type.days_qty === 1
                     ? '/oneday-star.svg'
                     : '/twoday-star.svg'
-                "
-                alt=""
-              />
+                " lazy></el-image>
             </div>
             <div class="cart__body">
               <div class="cart-row__name">
@@ -123,7 +117,7 @@
         </div>
       </div>
       <div class="cart__empty" v-else>
-        <img src="/cart-big.svg" alt="" />
+        <img src="/cart-big.svg" alt="" loading="lazy">
         <p class="cart-row ">Ваша корзина пока что пуста</p>
         <button @click="goToHome" class="btn btn--blue">
           Выбрать билет
@@ -189,9 +183,7 @@ export default {
       isCartPage: true
     };
   },
-  computed: {
-    ...mapState("cart", ["data"])
-  },
+  computed: mapState("cart", ["data"]),
   methods: {
     ...mapActions("cart", ["changeQuantity", "deleteItem"]),
     ...mapActions("userData", ["saveData"]),

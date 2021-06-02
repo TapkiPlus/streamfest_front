@@ -2,7 +2,7 @@
   <section class="faq">
     <div class="pattern-bg "></div>
     <div class="faq-banner">
-      <img src="/FAQ.png" alt="" />
+      <img src="/FAQ.png" alt="" loading="lazy" />
     </div>
     <div class="container">
 

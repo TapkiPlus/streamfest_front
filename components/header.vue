@@ -13,18 +13,14 @@
     <div class="container">
       <div class="header-wrapper">
         <div @click="$router.push('/')" class="header-logo">
-          <img
-            class="logo_w"
+          <el-image class="logo_w"
             src="/logo.svg"
             alt="СТРИМФЕСТ"
-            @click="hamburgerActive = false"
-          />
-          <img
-            class="logo_b"
+            @click="hamburgerActive = false" lazy></el-image>
+            <el-image class="logo_b"
             src="/logo-blue.svg"
-            alt=""
-            @click="hamburgerActive = false"
-          />
+            alt="СТРИМФЕСТ"
+            @click="hamburgerActive = false" lazy></el-image>
         </div>
         <div
           @click="hamburgerActive = !hamburgerActive"

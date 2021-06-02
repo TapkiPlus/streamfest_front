@@ -1,11 +1,8 @@
 <template>
   <section class="account">
     <div class="container">
-      <img
-          class="account__logo"
-          src="/logo-blue.svg"
-          alt=""
-          />
+    <el-image class="account__logo"
+          src="/logo-blue.svg" alt="СТРИМФЕСТ" lazy></el-image>
       <div class="section-header">Личный кабинет {{stats.streamer && stats.streamer.nickName}}</div>
     </div>
     <div class="container p0">
@@ -67,13 +64,13 @@
             <div class="table__body">
               <div v-for="({type, qty}, index) in stats.summary" :key="index" class="table__row">
                 <div class="table__cell" v-if="type === 1">
-                  <img class="ticket-icon" src="/oneday-star.svg" alt=""/>
+                  <el-image class="ticket-icon" src="/oneday-star.svg" lazy></el-image>
                   <div class="ticket-info">
                     Билет на Стримфест 2021 на 1 день от {{stats.streamer.nickName}}
                   </div>
                 </div>
                 <div class="table__cell" v-else>
-                  <img class="ticket-icon" src="/twoday-star.svg" alt=""/>
+                  <el-image class="ticket-icon" src="/twoday-star.svg" lazy></el-image>
                   <div class="ticket-info">
                     Билет на Стримфест 2021 на 2 дня от {{stats.streamer.nickName}}
                   </div>

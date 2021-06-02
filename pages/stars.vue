@@ -47,7 +47,7 @@
       </div>
       <StreamersSwiper :streamers="streamers" />
       <div class="streamers-btn">
-        <img src="/active.svg" alt="" class="btn--icon" />
+        <el-image src="/active.svg" alt="" class="btn--icon" lazy></el-image>
         <a
           href="/how-to"
           class="btn btn-w-icon btn--blue"
@@ -70,10 +70,14 @@ export default {
     StreamerCard,
     StreamersSwiper
   },
-  async asyncData({ $axios }) {
-    const streamers = (await $axios.get(`/api/get_streamers?at_home=not_show`))
+  data() {
+    return {
+      streamers: []
+    }
+  },
+  async mounted() {
+   this.streamers = (await this.$axios.get(`/api/get_streamers?at_home=not_show`))
       .data;
-    return { streamers };
   }
 };
 </script>
