@@ -136,10 +136,10 @@
         </p>
 
         <div class="logo-pay--wrapper">
-          <el-image class="logo-pay" src="/pay/platron.svg" lazy></el-image>
-          <el-image class="logo-pay" src="/pay/maestro.svg" lazy></el-image>
-          <el-image class="logo-pay" src="/pay/visa.svg" lazy></el-image>
-          <el-image class="logo-pay" src="/pay/master.svg" lazy></el-image>
+          <img class="logo-pay" src="/pay/platron.svg" loading="lazy"/>
+          <img class="logo-pay" src="/pay/maestro.svg" loading="lazy"/>
+          <img class="logo-pay" src="/pay/visa.svg" loading="lazy"/>
+          <img class="logo-pay" src="/pay/master.svg" loading="lazy"/>
         </div>
 
         <p>

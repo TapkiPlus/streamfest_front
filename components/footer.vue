@@ -176,7 +176,7 @@
       to="/cart"
     >
       <div class="cart-fix__counter"></div>
-      <el-image src="/cart-small.svg" alt="cart-icon" lazy></el-image>
+      <img src="/cart-small.svg" alt="cart-icon" loading="lazy"/>
     </nuxt-link>
     <div v-show="isWidgetsVisible" id="vk_community_messages"></div>
   </footer>

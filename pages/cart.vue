@@ -15,19 +15,19 @@
         >
           <div class="cart-row">
             <div @click="deleteItem(id)" class="cart-row__delete">
-              <el-image src="/delete.svg" :draggable="false" lazy></el-image>
+              <img src="/delete.svg" :draggable="false" loading="lazy"/>
             </div>
             <div class="cart-row__icon" v-if="!streamer">
-              <el-image :src="
+              <img :src="
                   ticket_type.days_qty === 1 ? '/oneday.svg' : '/twoday.svg'
-                " lazy></el-image>
+                " loading="lazy"/>
             </div>
             <div class="cart-row__icon" v-else>
-              <el-image :src="
+              <img :src="
                   ticket_type.days_qty === 1
                     ? '/oneday-star.svg'
                     : '/twoday-star.svg'
-                " lazy></el-image>
+                " loading="lazy"/>
             </div>
             <div class="cart__body">
               <div class="cart-row__name">

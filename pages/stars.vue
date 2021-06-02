@@ -47,7 +47,7 @@
       </div>
       <StreamersSwiper :streamers="streamers" />
       <div class="streamers-btn">
-        <el-image src="/active.svg" alt="" class="btn--icon" lazy></el-image>
+        <img src="/active.svg" alt="" class="btn--icon" loading="lazy"/>
         <a
           href="/how-to"
           class="btn btn-w-icon btn--blue"
