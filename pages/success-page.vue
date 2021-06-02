@@ -19,7 +19,7 @@
         <p>
           Если письма не пришли, напишите на
           <a href="mailto:tickets@streamfest.ru">tickets@streamfest.ru</a>,
-          указав ваш <br /><b>номер заказа: №{{ $route.query.pg_order_id }}.</b>
+          указав ваш <br /><b>номер заказа: №<span id="orderId">{{ $route.query.pg_order_id }}</span><span v-show="false" id="orderAmount">{{order.amount}}RUR</span>.</b>
         </p>
         <nuxt-link to="/" class="btn"
           >На главную</nuxt-link
@@ -32,6 +32,13 @@
 <script>
 export default {
   scrollToTop: true,
+  async asyncData({ $axios, query }){
+    try {
+      const order = await $axios.get(`/api/get_order?id=${query.pg_order_id }`)
+      return {order}
+    } catch (e) {}
+    return {order: {}}
+  },
   mounted() {
     this.$store.dispatch("cart/fetchCart");
   }
