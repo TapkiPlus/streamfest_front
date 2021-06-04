@@ -185,33 +185,13 @@
 <script>
 import { mapState } from "vuex";
 export default {
-  mounted() {
-    const script = document.createElement("script");
-    script.onload = () => {
-      VK.Widgets.CommunityMessages("vk_community_messages", 122887579, {
-        disableExpandChatSound: "1",
-        disableButtonTooltip: "1"
-      });
-
-      VK.Widgets.Group(
-        "vk_groups",
-        { mode: 3, width: "auto", no_cover: 1 },
-        122887579
-      );
-    };
-    script.src = "https://vk.com/js/api/openapi.js?168";
-    document.body.appendChild(script);
-  },
-  methods: {
-    scrollToTop() {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+  data() {
+    return {
+      isWidgetsVisible: false
     }
   },
   computed: {
     ...mapState("cart", ["data"]),
-    isWidgetsVisible() {
-    return !['/cart', '/checkout'].includes(this.$route.path)
-    },
     cartTotalCount() {
       return this.data.cartitem_set
         ? this.data.cartitem_set.reduce(
@@ -220,6 +200,36 @@ export default {
           )
         : 0;
     },
-  }
+  },
+  mounted() {
+    const script = document.createElement("script");
+    script.onload = () => {
+      VK.Widgets.CommunityMessages("vk_community_messages", 122887579, {
+        disableExpandChatSound: "1",
+        disableButtonTooltip: "1"
+      });
+      VK.Widgets.Group(
+        "vk_groups",
+        { mode: 3, width: "auto", no_cover: 1 },
+        122887579
+      );
+    };
+    script.src = "https://vk.com/js/api/openapi.js?168";
+    document.body.appendChild(script);
+    this.checkRoutePath();
+  },
+   watch: {
+    "$route.path": function() {
+      this.checkRoutePath();
+    }
+  },
+  methods: {
+    checkRoutePath() {
+      this.isWidgetsVisible = !['/cart', '/checkout'].includes(this.$route.path)
+    },
+    scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  },
 };
 </script>

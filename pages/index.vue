@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="offer">
-      <video ref="mainVideo" class="offer-video" src="/videos/home.mp4" loop preload="none" muted />
+      <video class="offer-video" :src="mainVideoSrc" loop autoplay muted />
       <div class="container offer-wrapper">
         <h3 class="offer__title">СТРИМФЕСТ 2021</h3>
         <p class="offer__subtitle">Главный фестиваль стримеров!</p>
@@ -1326,6 +1326,7 @@ export default {
   },
   data() {
     return {
+      mainVideoSrc: '',
       streamers: [],
       tickets: [],
       lastDay: null,
@@ -1431,7 +1432,7 @@ export default {
   },
   async mounted() {
     this.$router.currentRoute.hash === "#tickets" && this.handleScroll();
-    this.$refs.mainVideo.play()
+    this.mainVideoSrc = '/videos/home.mp4'
     this.starTimer();
     const script = document.createElement("script");
     script.src = "https://player.vimeo.com/api/player.js";

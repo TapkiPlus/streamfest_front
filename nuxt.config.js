@@ -65,8 +65,8 @@ export default {
   css: ["element-ui/lib/theme-chalk/index.css", "@/assets/main.sass"],
   plugins: [
     "@/plugins/element-ui",
-    "@/plugins/scroll",
-    "@/plugins/masonry",
+    { src: "@/plugins/scroll", mode: "client" },
+    { src: "@/plugins/masonry", mode: "client" },
     "@/plugins/axios.js",
     "@/plugins/maz-ui",
     { src: "@/plugins/swiper", mode: "client" },
