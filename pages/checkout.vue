@@ -12,10 +12,13 @@
               <label
                 >Имя <sup>*</sup>
                 <input
-                  @input="saveData({ firstname: $event.target.value })"
                   :value="form.firstname"
                   class="input"
                   placeholder="Андрей"
+                  pattern="^[A-Z][a-z]*$"
+                  title="Необходимо ввести кириллицу и первую букву заглавными буквами"
+                  required
+                  @input="saveData({ firstname: $event.target.value })"
                 />
               </label>
             </div>
@@ -26,10 +29,13 @@
               <label
                 >Фамилия <sup>*</sup>
                 <input
-                  @input="saveData({ lastname: $event.target.value })"
                   :value="form.lastname"
                   class="input"
                   placeholder="Иванов"
+                  pattern="^[A-Z][a-z]*$"
+                  title="Необходимо ввести кириллицу и первую букву заглавными буквами"
+                  required
+                  @input="saveData({ lastname: $event.target.value })"
                 />
               </label>
             </div>
@@ -40,11 +46,12 @@
               <label
                 >Email — на него придут ваши билеты <sup>*</sup>
                 <input
-                  @input="saveData({ email: $event.target.value })"
                   :value="form.email"
                   type="email"
                   class="input"
                   placeholder="mail@email.com"
+                  required
+                  @input="saveData({ email: $event.target.value })"
                 />
               </label>
             </div>
@@ -55,33 +62,33 @@
               <label
                 >Email — введите еще раз <sup>*</sup>
                 <input
+                  class="input"
+                  placeholder="mail@email.com"
+                  :readonly="emailConfirmReadonly"
+                  autocomplete="new-password"
+                  :pattern="form.email"
+                  title="Адреса e-mail не совпадают"
+                  required
+                  @focus="emailConfirmReadonly = false"
                   @input="
                     $store.commit('checkout/SET_FORM', {
                       emailConfirm: $event.target.value
                     })
                   "
                   @paste.prevent
-                  type="email"
-                  class="input"
-                  placeholder="mail@email.com"
-                  :readonly="emailConfirmReadonly"
-                  autocomplete="new-password"
-                  @focus="emailConfirmReadonly = false"
                 />
               </label>
             </div>
             <div
               class="cart-form-row__item input__field"
-              :class="{ 'item-error': errors.includes('phone') }"
             >
               <label
                 >Телефон
                 <sup>*</sup>
                 <MazPhoneNumberInput
-                  :class="{ 'item-error': errors.includes('phone') }"
                   v-model="phoneNumber"
+                  :class="{ 'item-error': errors.includes('phone') }"
                   default-country-code="RU"
-                  @update="savePhoneNumber"
                   error-color="#f8c8cc"
                   color="#0d6dd8"
                   :translations="{
@@ -90,7 +97,9 @@
                     phoneNumberLabel: 'Телефон'
                   }"
                   :defaultPhoneNumber="form.phone || ''"
-                  noExample
+                  no-example
+                  required
+                  @update="savePhoneNumber"
                 />
               </label>
             </div>

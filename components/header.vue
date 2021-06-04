@@ -12,16 +12,16 @@
   >
     <div class="container">
       <div class="header-wrapper">
-        <div @click="$router.push('/')" class="header-logo">
-          <img class="logo_w"
+        <nuxt-link to="/" class="header-logo" @click.native="hamburgerActive = false">
+        <img class="logo_w"
             src="/logo.svg"
             alt="СТРИМФЕСТ"
-            @click="hamburgerActive = false" loading="lazy" />
+            loading="lazy" />
             <img class="logo_b"
             src="/logo-blue.svg"
             alt="СТРИМФЕСТ"
-            @click="hamburgerActive = false" loading="lazy" />
-        </div>
+            loading="lazy" />
+        </nuxt-link>
         <div
           @click="hamburgerActive = !hamburgerActive"
           class="hamburger"

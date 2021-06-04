@@ -35,7 +35,7 @@ export default {
       commit("INIT_FORM", { firstname, lastname, email, phone });
     },
     saveData({ commit, dispatch }, obj) {
-      dispatch("userData/saveData", obj, { root: true });
+      dispatch("userData/saveData", (Object.keys(obj)[0] === 'phone' ? obj.formatInternational : obj), { root: true });
       commit("SET_FORM", obj);
     },
     async getPayLink({ state, commit, dispatch }, fromCheckout = false) {
@@ -47,7 +47,7 @@ export default {
       if (!email) commit("PUSH_ERROR", "email");
       if (fromCheckout && (!emailConfirm || email !== emailConfirm))
         commit("PUSH_ERROR", "emailConfirm");
-      if (!phone) commit("PUSH_ERROR", "phone");
+      if (!phone || !phone.isValid) commit("PUSH_ERROR", "phone");
       if (state.errors.length) commit("DISABLE_PAY", false);
       else {
         const { data } = await this.$axios.post("/api/create_order", {
