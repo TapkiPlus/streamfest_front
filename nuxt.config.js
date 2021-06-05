@@ -57,8 +57,8 @@ export default {
     Disallow: '/account/',
   },
   axios: {
-    baseURL: "http://sf.tagobar.ru"
-    // baseURL: "http://localhost:8000"
+    // baseURL: "http://sf.tagobar.ru"
+    baseURL: "http://localhost:8000"
     // baseURL: "https://streamfest.ru"
   },
   build: {
