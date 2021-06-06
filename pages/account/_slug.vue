@@ -19,11 +19,6 @@
               <span class="radio"></span>
               За промежуток
               <span class="report__filter-date--wrapper"> c
-<!--                <span class="report__filter-date">-->
-<!--                  {{ value1[0] }}-->
-<!--                </span>-->
-<!--                по-->
-<!--                <span class="report__filter-date">{{ value1[1] }}</span>-->
                 <date-picker
                   v-model="datePickerModel"
                   format="DD.MM.YY"
@@ -71,10 +66,16 @@
             <template v-if="stats.summary && stats.summary.length">
             <div class="table__body">
               <div v-for="({type, qty}, index) in stats.summary" :key="index" class="table__row">
-                <div class="table__cell">
-                  <img class="ticket-icon" :src="type === 1 ? '/oneday-star.svg' : '/twoday-star.svg'" alt=""/>
+                <div class="table__cell" v-if="type === 1">
+                  <img class="ticket-icon" src="/oneday-star.svg" alt=""/>
                   <div class="ticket-info">
-                    Билет на Стримфест 2021 на {{type}} день от {{stats.streamer.nickName}}
+                    Билет на Стримфест 2021 на 1 день от {{stats.streamer.nickName}}
+                  </div>
+                </div>
+                <div class="table__cell" v-else>
+                  <img class="ticket-icon" src="/twoday-star.svg" alt=""/>
+                  <div class="ticket-info">
+                    Билет на Стримфест 2021 на 2 дня от {{stats.streamer.nickName}}
                   </div>
                 </div>
                 <div class="table__cell">{{qty}}</div>
@@ -177,7 +178,12 @@
             }
       },
       getTotalCount() {
-       return (this.stats.summary[0].qty + this.stats.summary[1].qty).toLocaleString()
+        var s = 0;
+        var summary = this.stats.summary;
+        for (var i = 0; i < summary.length; i++) {
+          s += summary[i].qty;
+        }
+        return s.toLocaleString()
       },
       disabledAfterToday(date) {
         const today = new Date();

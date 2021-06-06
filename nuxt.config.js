@@ -27,7 +27,8 @@ export default {
         hid: "og:image",
         property: "og:image",
         content: "/og_img.png"
-      }
+      },
+      {name:"facebook-domain-verification", content:"gdwwtt8fj1li8w6tqr2maceqf2dim2"}
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.png" },
@@ -40,6 +41,7 @@ export default {
   },
   css: ["element-ui/lib/theme-chalk/index.css", "@/assets/main.sass"],
   plugins: [
+    "@/plugins/gtm",
     "@/plugins/mixins",
     "@/plugins/element-ui",
     "@/plugins/scroll",
@@ -51,15 +53,20 @@ export default {
   ],
   components: true,
   buildModules: [],
-  modules: ["@nuxtjs/axios", "@nuxtjs/auth", "@nuxtjs/robots"],
+  modules: ["@nuxtjs/gtm", "@nuxtjs/axios", "@nuxtjs/auth", "@nuxtjs/robots"],
+  gtm: {
+    enabled: true, 
+    autoInit: false,
+    pageTracking: true,
+  },
   robots: {
     UserAgent: '*',
     Disallow: '/account/',
   },
   axios: {
-    baseURL: "http://sf.tagobar.ru"
+    // baseURL: "http://sf.tagobar.ru"
     // baseURL: "http://localhost:8000"
-    // baseURL: "https://streamfest.ru"
+    baseURL: "https://streamfest.ru"
   },
   build: {
     transpile: [/^element-ui/],
