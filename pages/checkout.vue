@@ -195,7 +195,7 @@ export default {
     ...mapActions("checkout", ["getFormValues", "saveData", "getPayLink"]),
     ...mapMutations("checkout", ["DISABLE_PAY"]),
     savePhoneNumber(e) {
-      e.formatInternational && this.saveData({ phone: e.formatInternational });
+        this.$nextTick(() => setTimeout(() => this.saveData({ phone: e }), 0) )
     },
     submitForm(e) {
       e.preventDefault();
