@@ -18,7 +18,7 @@
     "element-ui": "^2.15.0",
     "maz-ui": "^2.3.7",
     "nuxt": "^2.14.12",
-    "swiper": "^5.3.6",
+    "swiper": "^6.5.1",
     "vue-awesome-swiper": "^4.1.1",
     "vue-scrollto": "^2.20.0",
     "vue-silentbox": "^2.4.0",
