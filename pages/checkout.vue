@@ -18,7 +18,7 @@
                   pattern="^[A-Z][a-z]*$"
                   title="Необходимо ввести кириллицу и первую букву заглавными буквами"
                   required
-                  @input="saveData({ firstname: $event.target.value })"
+                  @input="onInput('firstname', $event)"
                 />
               </label>
             </div>
@@ -35,7 +35,7 @@
                   pattern="^[A-Z][a-z]*$"
                   title="Необходимо ввести кириллицу и первую букву заглавными буквами"
                   required
-                  @input="saveData({ lastname: $event.target.value })"
+                  @input="onInput('lastname', $event)"
                 />
               </label>
             </div>
@@ -51,7 +51,7 @@
                   class="input"
                   placeholder="mail@email.com"
                   required
-                  @input="saveData({ email: $event.target.value })"
+                  @input="onInput('email', $event)"
                 />
               </label>
             </div>
@@ -62,6 +62,7 @@
               <label
                 >Email — введите еще раз <sup>*</sup>
                 <input
+                v-model="emailConfirm"
                   class="input"
                   placeholder="mail@email.com"
                   :readonly="inputReadonly"
@@ -70,7 +71,6 @@
                   title="Адреса e-mail не совпадают"
                   required
                   @focus="inputReadonly = false"
-                  @input="emailConfirm = $event.target.value"
                   @paste.prevent
                 />
               </label>
@@ -200,6 +200,11 @@ export default {
   methods: {
     ...mapActions("checkout", ["getPayLink"]),
     ...mapActions("userData", ["saveData"]),
+    onInput(key, event) {
+      const {value} = event.target
+      this[key] = value
+      this.saveData({ [key]: value })
+    },
     savePhoneNumber(e) {
        this.phoneNumber = e
     },

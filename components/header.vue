@@ -136,7 +136,7 @@ export default {
   methods: {
     checkRoutePath() {
       this.isHomePage = this.$route.path === "/";
-      this.isInfoPage = ["/error-page", "/success-page", "/activities"].includes(
+      this.isInfoPage = ["/error-page", "/success-page"].includes(
         this.$route.path
       );
       this.isAccountPage = ["/account"].includes(this.$route.path);
