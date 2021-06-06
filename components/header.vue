@@ -12,20 +12,16 @@
   >
     <div class="container">
       <div class="header-wrapper">
-        <div @click="$router.push('/')" class="header-logo">
-          <img
-            class="logo_w"
+        <nuxt-link to="/" class="header-logo" @click.native="hamburgerActive = false">
+        <img class="logo_w"
             src="/logo.svg"
             alt="СТРИМФЕСТ"
-            @click="hamburgerActive = false"
-          />
-          <img
-            class="logo_b"
+            loading="lazy" />
+            <img class="logo_b"
             src="/logo-blue.svg"
-            alt=""
-            @click="hamburgerActive = false"
-          />
-        </div>
+            alt="СТРИМФЕСТ"
+            loading="lazy" />
+        </nuxt-link>
         <div
           @click="hamburgerActive = !hamburgerActive"
           class="hamburger"
@@ -71,7 +67,7 @@
                 </linearGradient>
               </defs>
             </svg>
-            <span class="split">корзина</span>
+            корзина
           </nuxt-link>
           <nuxt-link
             v-show="!cartTotalCount"
@@ -80,9 +76,7 @@
             to="/#tickets"
           >
             <div class="btn-bg"></div>
-            <span class="split">
               Купить билет
-            </span>
           </nuxt-link>
         </div>
       </div>
@@ -105,7 +99,7 @@ export default {
       nav_items: [
         { id: 1, name: "Главная", url: "/", star: false },
         { id: 2, name: "Участники", url: "/stars", star: true },
-        // { id: 3, name: "Активности", url: "/activities", star: false },
+        { id: 3, name: "Активности", url: "/activities", star: false },
         { id: 4, name: "FAQ", url: "/faq", star: false },
         { id: 5, name: "Стать участником", url: "/how-to", star: false },
         // { id: 6, name: "О фестивале", url: "#", star: false },
@@ -142,7 +136,7 @@ export default {
   methods: {
     checkRoutePath() {
       this.isHomePage = this.$route.path === "/";
-      this.isInfoPage = ["/error-page", "/success-page"].includes(
+      this.isInfoPage = ["/error-page", "/success-page", "/activities"].includes(
         this.$route.path
       );
       this.isAccountPage = ["/account"].includes(this.$route.path);

@@ -1,11 +1,1 @@
-<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0)">
-<rect y="3.65942" width="4.8766" height="23.4077" rx="2.4383" transform="rotate(-45 0 3.65942)" fill="white"/>
-<rect width="4.8766" height="23.4077" rx="2.4383" transform="matrix(-0.707107 -0.707107 -0.707107 0.707107 20 3.65942)" fill="white"/>
-</g>
-<defs>
-<clipPath id="clip0">
-<rect width="20" height="20" fill="white"/>
-</clipPath>
-</defs>
-</svg>
+<svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0)" fill="#fff"><rect y="3.659" width="4.877" height="23.408" rx="2.438" transform="rotate(-45 0 3.66)"/><rect width="4.877" height="23.408" rx="2.438" transform="scale(-1 1) rotate(-45 -5.583 25.972)"/></g><defs><clipPath id="clip0"><path fill="#fff" d="M0 0h20v20H0z"/></clipPath></defs></svg>
