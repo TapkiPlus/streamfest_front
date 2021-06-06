@@ -2,7 +2,7 @@
   <section class="faq faq--how-to">
     <div class="pattern-bg "></div>
     <div class="faq-banner">
-      <img src="/SU.png" alt="" />
+      <img src="/SU.png" alt="" loading="lazy" />
     </div>
     <div class="container">
       <div class="section-header">КАК СТАТЬ УЧАСТНИКОМ СТРИМФЕСТА 2021</div>
@@ -982,7 +982,7 @@
             class="btn btn--vk desktop-hidden"
             target="_blank"
             rel="noopener noreferrer"
-            ><span class="split">Задайте их в личку </span
+            >Задайте их в личку 
             ><svg
               width="36"
               height="36"
