@@ -166,25 +166,29 @@
 import { mapActions } from "vuex";
 export default {
   scrollToTop: true,
-  async asyncData({ $axios, $auth }) {
-    const { firstname, lastname, email, phone } = (
-        await $axios.get(
-          `/api/get_user_data?session_id=${$auth.$storage.getCookie(
-            "session_id"
-          )}`
-        )
-      ).data;
-      return { firstname, lastname, email, phone }
-  },
   data() {
     return {
+      firstname: '',
+      lastname: '',
+      email: '', 
       emailConfirm: '',
+      phone: '',
       errors: [],
       phoneNumberModel: '',
       phoneNumber: {},
       inputReadonly: true,
       disabledSubmit: false
     };
+  },
+  async mounted() {
+    const { data } = await this.$axios.get(
+          `/api/get_user_data?session_id=${this.$auth.$storage.getCookie(
+            "session_id"
+          )}`);
+  this.firstname = data.firstname;
+  this.lastname = data.lastname;
+  this.email = data.email;
+  this.phone = data.phone
   },
   beforeRouteEnter(to, from, next) {
     next(vm => {
