@@ -7,7 +7,6 @@
           <div class="cart-form-row">
             <div
               class="cart-form-row__item input__field"
-              :class="{ 'item-error': errors.includes('firstname') }"
             >
               <label
                 >Имя <sup>*</sup>
@@ -15,16 +14,15 @@
                   :value="firstname"
                   class="input"
                   placeholder="Андрей"
-                  pattern="^[A-Z][a-z]*$"
+                  pattern="^[А-Я][а-я]*$"
                   title="Необходимо ввести кириллицу и первую букву заглавными буквами"
                   required
-                  @input="saveData({ firstname: $event.target.value })"
+                  @input="onInput('firstname', $event)"
                 />
               </label>
             </div>
             <div
               class="cart-form-row__item input__field "
-              :class="{ 'item-error': errors.includes('lastname') }"
             >
               <label
                 >Фамилия <sup>*</sup>
@@ -32,16 +30,15 @@
                   :value="lastname"
                   class="input"
                   placeholder="Иванов"
-                  pattern="^[A-Z][a-z]*$"
+                  pattern="^[А-Я][а-я]*$"
                   title="Необходимо ввести кириллицу и первую букву заглавными буквами"
                   required
-                  @input="saveData({ lastname: $event.target.value })"
+                  @input="onInput('lastname', $event)"
                 />
               </label>
             </div>
             <div
               class="cart-form-row__item input__field"
-              :class="{ 'item-error': errors.includes('email') }"
             >
               <label
                 >Email — на него придут ваши билеты <sup>*</sup>
@@ -51,17 +48,17 @@
                   class="input"
                   placeholder="mail@email.com"
                   required
-                  @input="saveData({ email: $event.target.value })"
+                  @input="onInput('email', $event)"
                 />
               </label>
             </div>
             <div
               class="cart-form-row__item input__field"
-              :class="{ 'item-error': errors.includes('emailConfirm') }"
             >
               <label
                 >Email — введите еще раз <sup>*</sup>
                 <input
+                v-model="emailConfirm"
                   class="input"
                   placeholder="mail@email.com"
                   :readonly="inputReadonly"
@@ -70,7 +67,6 @@
                   title="Адреса e-mail не совпадают"
                   required
                   @focus="inputReadonly = false"
-                  @input="emailConfirm = $event.target.value"
                   @paste.prevent
                 />
               </label>
@@ -166,29 +162,25 @@
 import { mapActions } from "vuex";
 export default {
   scrollToTop: true,
+  async asyncData({ $axios, $auth }) {
+    const { firstname, lastname, email, phone } = (
+        await $axios.get(
+          `/api/get_user_data?session_id=${$auth.$storage.getCookie(
+            "session_id"
+          )}`
+        )
+      ).data;
+      return { firstname, lastname, email, phone }
+  },
   data() {
     return {
-      firstname: '',
-      lastname: '',
-      email: '', 
       emailConfirm: '',
-      phone: '',
       errors: [],
       phoneNumberModel: '',
       phoneNumber: {},
       inputReadonly: true,
       disabledSubmit: false
     };
-  },
-  async mounted() {
-    const { data } = await this.$axios.get(
-          `/api/get_user_data?session_id=${this.$auth.$storage.getCookie(
-            "session_id"
-          )}`);
-  this.firstname = data.firstname;
-  this.lastname = data.lastname;
-  this.email = data.email;
-  this.phone = data.phone
   },
   beforeRouteEnter(to, from, next) {
     next(vm => {
@@ -204,6 +196,11 @@ export default {
   methods: {
     ...mapActions("checkout", ["getPayLink"]),
     ...mapActions("userData", ["saveData"]),
+    onInput(key, event) {
+      const {value} = event.target
+      this[key] = value
+      this.saveData({ [key]: value })
+    },
     savePhoneNumber(e) {
        this.phoneNumber = e
     },
