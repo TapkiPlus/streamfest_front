@@ -3,7 +3,7 @@
     <div class="container">
       <h4 class="cart__title">Данные покупателя</h4>
       <div class="cart-container">
-        <form @submit="submitForm" class="cart-form">
+        <form @submit.prevent="submitForm" class="cart-form">
           <div class="cart-form-row">
             <div
               class="cart-form-row__item input__field"
@@ -12,10 +12,13 @@
               <label
                 >Имя <sup>*</sup>
                 <input
-                  @input="saveData({ firstname: $event.target.value })"
-                  :value="form.firstname"
+                  :value="firstname"
                   class="input"
                   placeholder="Андрей"
+                  pattern="^[A-Z][a-z]*$"
+                  title="Необходимо ввести кириллицу и первую букву заглавными буквами"
+                  required
+                  @input="saveData({ firstname: $event.target.value })"
                 />
               </label>
             </div>
@@ -26,10 +29,13 @@
               <label
                 >Фамилия <sup>*</sup>
                 <input
-                  @input="saveData({ lastname: $event.target.value })"
-                  :value="form.lastname"
+                  :value="lastname"
                   class="input"
                   placeholder="Иванов"
+                  pattern="^[A-Z][a-z]*$"
+                  title="Необходимо ввести кириллицу и первую букву заглавными буквами"
+                  required
+                  @input="saveData({ lastname: $event.target.value })"
                 />
               </label>
             </div>
@@ -40,11 +46,12 @@
               <label
                 >Email — на него придут ваши билеты <sup>*</sup>
                 <input
-                  @input="saveData({ email: $event.target.value })"
-                  :value="form.email"
+                  :value="email"
                   type="email"
                   class="input"
                   placeholder="mail@email.com"
+                  required
+                  @input="saveData({ email: $event.target.value })"
                 />
               </label>
             </div>
@@ -55,33 +62,29 @@
               <label
                 >Email — введите еще раз <sup>*</sup>
                 <input
-                  @input="
-                    $store.commit('checkout/SET_FORM', {
-                      emailConfirm: $event.target.value
-                    })
-                  "
-                  @paste.prevent
-                  type="email"
                   class="input"
                   placeholder="mail@email.com"
-                  :readonly="emailConfirmReadonly"
+                  :readonly="inputReadonly"
                   autocomplete="new-password"
-                  @focus="emailConfirmReadonly = false"
+                  :pattern="email"
+                  title="Адреса e-mail не совпадают"
+                  required
+                  @focus="inputReadonly = false"
+                  @input="emailConfirm = $event.target.value"
+                  @paste.prevent
                 />
               </label>
             </div>
             <div
               class="cart-form-row__item input__field"
-              :class="{ 'item-error': errors.includes('phone') }"
             >
               <label
                 >Телефон
                 <sup>*</sup>
                 <MazPhoneNumberInput
+                  v-model="phoneNumberModel"
                   :class="{ 'item-error': errors.includes('phone') }"
-                  v-model="phoneNumber"
                   default-country-code="RU"
-                  @update="savePhoneNumber"
                   error-color="#f8c8cc"
                   color="#0d6dd8"
                   :translations="{
@@ -89,17 +92,19 @@
                     countrySelectorError: 'Неверный формат номера',
                     phoneNumberLabel: 'Телефон'
                   }"
-                  :defaultPhoneNumber="form.phone || ''"
-                  noExample
+                  :defaultPhoneNumber="phone || ''"
+                  no-example
+                  required
+                  @update="savePhoneNumber"
                 />
               </label>
             </div>
             <button
               class="btn btn--green"
               type="submit"
-              :disabled="loading || disabledPay"
+              :disabled="$store.state.cart.loading || disabledSubmit"
             >
-              <span class="split">Оплатить</span>
+              Оплатить
             </button>
             <p>
               Переходя к оплате, вы соглашаетесь с
@@ -134,14 +139,12 @@
           другое — с билетом в виде QR-кода. Распечатайте письмо с QR-кодом или
           сохраните его на телефоне. До встречи на Стримфесте 2021!
         </p>
-
         <div class="logo-pay--wrapper">
-          <img src="/pay/platron.svg" alt="" class="logo-pay" />
-          <img src="/pay/maestro.svg" alt="" class="logo-pay" />
-          <img src="/pay/visa.svg" alt="" class="logo-pay" />
-          <img src="/pay/master.svg" alt="" class="logo-pay" />
+          <img class="logo-pay" src="/pay/platron.svg" loading="lazy"/>
+          <img class="logo-pay" src="/pay/maestro.svg" loading="lazy"/>
+          <img class="logo-pay" src="/pay/visa.svg" loading="lazy"/>
+          <img class="logo-pay" src="/pay/master.svg" loading="lazy"/>
         </div>
-
         <p>
           Оплата производится через надежную платежную систему Platron по картам
           VISA, Maestro и MasterCard.
@@ -160,45 +163,63 @@
 </template>
 
 <script>
-import { mapState, mapMutations, mapActions } from "vuex";
+import { mapActions } from "vuex";
 export default {
   scrollToTop: true,
+  async asyncData({ $axios, $auth }) {
+    const { firstname, lastname, email, phone } = (
+        await $axios.get(
+          `/api/get_user_data?session_id=${$auth.$storage.getCookie(
+            "session_id"
+          )}`
+        )
+      ).data;
+      return { firstname, lastname, email, phone }
+  },
   data() {
     return {
-      phoneNumber: "",
-      emailConfirmReadonly: true
+      emailConfirm: '',
+      errors: [],
+      phoneNumberModel: '',
+      phoneNumber: {},
+      inputReadonly: true,
+      disabledSubmit: false
     };
-  },
-  computed: {
-    ...mapState("cart", ["loading"]),
-    ...mapState("checkout", ["form", "errors", "disabledPay"])
   },
   beforeRouteEnter(to, from, next) {
     next(vm => {
-      vm.emailConfirmReadonly = false;
-      vm.DISABLE_PAY(false);
+      vm.inputReadonly = false;
+      vm.disabledSubmit = false
     });
   },
-  beforeMount() {
-    this.getFormValues();
+  watch: {
+     phoneNumberModel(newValue) {
+        this.saveData({phone: newValue === null ? '' : newValue})
+     }
   },
   methods: {
-    ...mapActions("checkout", ["getFormValues", "saveData", "getPayLink"]),
-    ...mapMutations("checkout", ["DISABLE_PAY"]),
+    ...mapActions("checkout", ["getPayLink"]),
+    ...mapActions("userData", ["saveData"]),
     savePhoneNumber(e) {
-      e.formatInternational && this.saveData({ phone: e.formatInternational });
+       this.phoneNumber = e
     },
-    submitForm(e) {
-      e.preventDefault();
-      this.$store.getters["cart/totalCount"]
-        ? this.getPayLink(true)
-        : this.$router.push("/");
+    submitForm() {
+      this.disabledSubmit = true
+      if(!this.phoneNumber.isValid) {
+        this.errors.push('phone')
+         this.disabledSubmit = false
+      }
+      else if(this.$store.getters["cart/totalCount"]) {
+         this.saveData({ clickedPay: true })
+          this.getPayLink({
+            firstname: this.firstname,
+            lastname: this.lastname,
+            email: this.email,
+            emailConfirm: this.emailConfirm,
+            phone: this.phone
+          })
+      } else this.$router.push("/");
     }
   },
-  watch: {
-    phoneNumber(e) {
-      !e && this.saveData({ phone: "" });
-    }
-  }
 };
 </script>

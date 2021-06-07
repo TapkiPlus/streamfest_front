@@ -1,7 +1,7 @@
 <template>
-  <div class="">
+  <div>
     <section class="offer">
-      <video class="offer-video" src="/videos/home.mp4" loop autoplay muted />
+      <video class="offer-video" :src="mainVideoSrc" loop autoplay muted />
       <div class="container offer-wrapper">
         <h3 class="offer__title">СТРИМФЕСТ 2021</h3>
         <p class="offer__subtitle">Главный фестиваль стримеров!</p>
@@ -15,7 +15,7 @@
           class="btn header__button btn--big btn--yellow"
           to="#tickets"
         >
-          <span class="split">Купить билет</span>
+          Купить билет
         </nuxt-link>
       </div>
     </section>
@@ -34,6 +34,7 @@
         <div style="padding:56.25% 0 0 0;position:relative;">
           <iframe
             src="https://player.vimeo.com/video/530958754?title=0&byline=0&portrait=0"
+            loading="lazy"
             style="position:absolute;top:0;left:0;width:100%;height:100%;"
             frameborder="0"
             allow="autoplay; fullscreen; picture-in-picture"
@@ -42,7 +43,7 @@
         </div>
         <div class="video-wrapper">
           <div class="video-item">
-            <img src="/cats/s_1.svg" alt="" />
+            <img src="/cats/s_1.svg" loading="lazy"/>
             <div class="video-item__title">Встречи со звездами</div>
             <p>
               Топы всех платформ: Twitch.tv, YouTube, TikTok, WASD, Goodgame, VK
@@ -50,14 +51,14 @@
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_2.svg" alt="" />
+            <img src="/cats/s_2.svg" loading="lazy"/>
             <div class="video-item__title">Игровые зоны и конкурсы</div>
             <p>
               Развлечения по полной: видеоигры, роботы, танцы, фотозоны и призы.
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_3.svg" alt="" />
+            <img src="/cats/s_3.svg" loading="lazy"/>
             <div class="video-item__title">Турниры и шоу-матчи</div>
             <p>
               MOBA, шутеры и батл рояли — участвуй сам и смотри, как жарят
@@ -65,14 +66,14 @@
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_4.svg" alt="" />
+            <img src="/cats/s_4.svg" loading="lazy"/>
             <div class="video-item__title">Настолки и застолья</div>
             <p>
               Тащи друзей в партию или в кафешки, там всё вкусно и по карману.
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_5.svg" alt="" />
+            <img src="/cats/s_5.svg" loading="lazy"/>
             <div class="video-item__title">Дефиле косплееров</div>
             <p>
               Самый демократичный конкурс фанатского костюма — портал
@@ -80,7 +81,7 @@
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_6.svg" alt="" />
+            <img src="/cats/s_6.svg" loading="lazy"/>
             <div class="video-item__title">Лекции и мастер-классы</div>
             <p>
               Два дня интенсива: прокачаем скиллы, научим зарабатывать на
@@ -193,7 +194,7 @@
               </defs>
             </svg>
 
-            <span class="split">И другие активности</span></a
+            И другие активности</a
           >
           <a class="video-button btn-disable btn btn--blue">
             <svg
@@ -302,7 +303,7 @@
                 </filter>
               </defs>
             </svg>
-            <span class="split">Карта фестиваля</span></a
+            Карта фестиваля</a
           >
           <a class="video-button btn-disable btn btn--blue">
             <svg
@@ -391,13 +392,13 @@
                 </filter>
               </defs>
             </svg>
-            <span class="split">Расписание</span></a
+            Расписание</a
           >
         </div>
       </div>
       <div class="side-parts">
-        <img src="/side-parts_1.svg" />
-        <img src="/side-parts_2.svg" />
+        <img src="/side-parts_1.svg" loading="lazy" />
+        <img src="/side-parts_2.svg" loading="lazy" />
       </div>
     </section>
     <div class="separator">
@@ -437,9 +438,9 @@
         </div>
         <StreamersSwiper :streamers="streamers" />
         <div class="streamers-btn">
-          <img src="/smile.png" class="btn--icon" alt="" />
+          <img class="btn--icon" src="/smile.png" loading="lazy"/>
           <nuxt-link class="btn btn-w-icon btn--blue" to="/stars"
-            ><span class="split">КТО ТОЛЬКО НЕ ПРИДЕТ</span>
+            >КТО ТОЛЬКО НЕ ПРИДЕТ
           </nuxt-link>
         </div>
       </div>
@@ -504,15 +505,17 @@
                 v-if="days_qty === 1"
                 @click="addItem(id)"
                 class="btn btn-ticket btn--red"
+                id="homeTicketOne"
               >
-                <span class="split">Купить билет на 1 день</span>
+                Купить билет на 1 день
               </button>
               <button
                 v-else
                 @click="addItem(id)"
                 class="btn btn-ticket btn--red"
+                id="homeTicketTwo"
               >
-                <span class="split">Купить билет на 2 дня</span>
+                Купить билет на 2 дня
               </button>
             </div>
           </div>
@@ -579,11 +582,15 @@
                     <button
                       v-if="days_qty === 1"
                       class="btn btn--red btn-ticket"
+                      id="homeTicketOne"
                     >
-                      <span class="split">Купить билет на 1 день</span>
+                      Купить билет на 1 день
                     </button>
-                    <button v-else class="btn btn--red btn-ticket">
-                      <span class="split">Купить билет на 2 дня</span>
+                    <button v-else
+                    class="btn btn--red btn-ticket"
+                    id="homeTicketTwo"
+                    >
+                      Купить билет на 2 дня
                     </button>
                   </div>
                 </div>
@@ -608,6 +615,7 @@
         <div style="padding:56.25% 0 0 0;position:relative;">
           <iframe
             src="https://player.vimeo.com/video/348364566?title=0&byline=0&portrait=0"
+            loading="lazy"
             style="position:absolute;top:0;left:0;width:100%;height:100%;"
             frameborder="0"
             allow="autoplay; fullscreen; picture-in-picture"
@@ -792,15 +800,13 @@
             target="_blank"
             rel="noopener noreferrers"
           >
-            <span class="split">
               Больше фото
-            </span>
           </a>
         </div>
       </div>
       <div class="side-parts">
-        <img src="/side-parts_3.svg" alt="" />
-        <img src="/side-parts_4.svg" alt="" />
+        <img src="/side-parts_3.svg" loading="lazy" />
+        <img src="/side-parts_4.svg" loading="lazy" />
       </div>
     </section>
     <section class="feedbacks">
@@ -823,7 +829,7 @@
                     <p class="feedback-item__who">Стример</p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/1_s.jpg" />
+                    <img src="/reviews/1_s.jpg" loading="lazy" />
                   </div>
                 </div>
               </swiper-slide>
@@ -840,7 +846,7 @@
                     <p class="feedback-item__who">Видеоблогер</p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/2_s.jpg" />
+                    <img src="/reviews/2_s.jpg" loading="lazy"/>
                   </div>
                 </div>
               </swiper-slide>
@@ -859,7 +865,7 @@
                     </p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/3_s.jpg" />
+                    <img src="/reviews/3_s.jpg" loading="lazy"/>
                   </div>
                 </div>
               </swiper-slide>
@@ -878,7 +884,7 @@
                     </p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/4_s.jpg" />
+                    <img src="/reviews/4_s.jpg" loading="lazy"/>
                   </div>
                 </div>
               </swiper-slide>
@@ -897,7 +903,7 @@
                     </p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/5_s.jpg" />
+                    <img src="/reviews/5_s.jpg" loading="lazy"/>
                   </div>
                 </div>
               </swiper-slide>
@@ -917,7 +923,7 @@
                     </p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/6_s.jpg" />
+                    <img src="/reviews/6_s.jpg" loading="lazy"/>
                   </div>
                 </div>
               </swiper-slide>
@@ -936,7 +942,7 @@
                     </p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/7_s.jpg" />
+                    <img src="/reviews/7_s.jpg" loading="lazy"/>
                   </div>
                 </div>
               </swiper-slide>
@@ -957,7 +963,7 @@
                     </p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/8_s.jpg" />
+                    <img src="/reviews/8_s.jpg" loading="lazy"/>
                   </div>
                 </div>
               </swiper-slide>
@@ -1012,12 +1018,12 @@
             rel="noopener noreferrer"
           >
             <div class="letters">
-              <span class="split">Как&nbsp;это&nbsp;было</span>
+              Как&nbsp;это&nbsp;было
             </div></a
           >
         </p>
         <div class="awards-img">
-          <el-image src="/awards.png" lazy></el-image>
+          <img src="/awards.png" loading="lazy"/>
         </div>
       </div>
     </section>
@@ -1055,96 +1061,105 @@
         <h3 class="section-header">СТРАТЕГИЧЕСКИЕ ПАРТНЕРЫ</h3>
         <div class="partners-img strategy">
           <a
-            href="https://www.lg.com/ru/monitors/lg-34UC79G-B"
+            href="https://www.mvideo.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/lg.png" lazy></el-image>
+            <img src="/partners/mvideo.png" loading="lazy"/>
           </a>
-          <a href="https://wasd.tv/" target="_blank" rel="noopener noreferrer">
-            <el-image src="/partners/wasd.png" lazy></el-image>
+          <a
+            href="https://www.lg.com/ru/ergo-monitors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/lg.png" loading="lazy"/>
           </a>
           <a
             href="https://www.bigo.tv/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/bigo-live.png" lazy></el-image>
+            <img src="/partners/bigo-live.png" loading="lazy"/>
           </a>
         </div>
         <h3 class="section-header">ОФИЦИАЛЬНЫЕ ПАРТНЕРЫ</h3>
         <div class="partners-img official">
           <a
-            class="part-1"
             href="https://www.logitech.com/ru-ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/logitech.png" lazy></el-image>
+            <img src="/partners/logitech.png" loading="lazy"/>
           </a>
           <a
-            class="part-2"
-            href="http://red-square.org/"
+            href="https://zen.yandex.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/red-square.png" lazy></el-image>
+            <img src="/partners/yandex_dzen.png" loading="lazy"/>
           </a>
           <a
-            class="part-3"
-            href="https://www.amd.com/ru"
+            href="https://skillbox.ru/course/profession-stream-bloger/?utm_source=pr&utm_medium=pr&utm_campaign=all_all_pr_pr_all_all_all_StreamFest_skillbox"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/amd.png" lazy></el-image>
+            <img src="/partners/skillbox.png" loading="lazy"/>
           </a>
           <a
-            class="part-4"
             href="https://vk.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/vk.png" lazy></el-image>
+            <img src="/partners/vk.png" loading="lazy"/>
           </a>
           <a
-            class="part-5"
+            href="http://red-square.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/red-square.png" loading="lazy"/>
+          </a>
+          <a
+            href="https://www.amd.com/ru"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/amd.png" loading="lazy"/>
+          </a>
+          <a
             href="https://donate.qiwi.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/qiwi.png" lazy></el-image>
+            <img src="/partners/qiwi.png" loading="lazy"/>
           </a>
           <a
-            class="part-6"
             href="https://ru.siberianhealth.com/ru/shop/catalog/category/406/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/cyberbuild.png" lazy></el-image>
+            <img src="/partners/cyberbuild.png" loading="lazy"/>
           </a>
           <a
-            class="part-7"
             href="https://goodgame.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/gg.png" lazy></el-image>
+            <img src="/partners/gg.png" loading="lazy"/>
           </a>
           <a
-            class="part-8"
             href="https://flick.redbull.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/redbull.png" lazy></el-image>
+            <img src="/partners/redbull.png" loading="lazy"/>
           </a>
           <a
-            class="part-9"
             href="https://www.teamgroupinc.com/ru/products/t-force"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/teamgroup.png" lazy></el-image>
+            <img src="/partners/teamgroup.png" loading="lazy"/>
           </a>
         </div>
         <h3 class="section-header">ПАРТНЕРЫ ТЕМАТИЧЕСКИХ&nbsp;ЗОН</h3>
@@ -1154,83 +1169,83 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/restream.png" lazy></el-image>
+            <img src="/partners/restream.png" loading="lazy"/>
           </a>
           <a
             href="https://www.uniconf.ru/about/news/2018/7027/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/mega-drive.png" lazy></el-image>
+            <img src="/partners/mega-drive.png" loading="lazy"/>
           </a>
           <a
             href="https://schoolskills.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/school_skills.png" lazy></el-image>
+            <img src="/partners/school_skills.png" loading="lazy"/>
           </a>
           <a
             href="https://podari-zhizn.ru/main"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/podari_jizn.png" lazy></el-image>
+            <img src="/partners/podari_jizn.png" loading="lazy"/>
           </a>
           <a
             href="https://store.avermedia.com/ru"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/avermedia.png" lazy></el-image>
+            <img src="/partners/avermedia.png" loading="lazy"/>
           </a>
         </div>
         <h3 class="section-header">ТЕХНИЧЕСКАЯ ПОДДЕРЖКА</h3>
         <div class="partners-img tematic">
           <a href="https://warp.wtf/" target="_blank" rel="noopener noreferrer">
-            <el-image src="/partners/warp.png" lazy></el-image>
+            <img src="/partners/warp.png" loading="lazy"/>
           </a>
           <a
             href="https://www.razerzone.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/razer.png" lazy></el-image>
+            <img src="/partners/razer.png" loading="lazy"/>
           </a>
           <a
             href="https://hyperpc.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/hyper-pc.png" lazy></el-image>
+            <img src="/partners/hyper.png" loading="lazy"/>
           </a>
           <a
             href="https://www.bluemics.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/blue.png" lazy></el-image>
+            <img src="/partners/blue.png" loading="lazy"/>
           </a>
           <a
             href="https://www.wd.com/ru-ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/western_digital.png" lazy></el-image>
+            <img src="/partners/western_digital.png" loading="lazy"/>
           </a>
           <a
             href="https://www.dmitrylive.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/dmitry_live.png" lazy></el-image>
+            <img src="/partners/dmitry_live.png" loading="lazy"/>
           </a>
           <a
             href="https://streamscharts.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/stream-charts.png" lazy></el-image>
+            <img src="/partners/stream-charts.png" loading="lazy"/>
           </a>
         </div>
         <h3 class="section-header">ИНФОРМАЦИОННАЯ ПОДДЕРЖКА</h3>
@@ -1240,55 +1255,56 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/mania.png" lazy></el-image>
+            <img src="/partners/mania.png" loading="lazy"/>
           </a>
           <a
             href="https://tv.m24.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/moskva24.svg" lazy></el-image>
+            <img src="/partners/moskva24.svg" loading="lazy"/>
           </a>
           <a
             href="https://daily.afisha.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/afisha.png" lazy></el-image>
+            <img src="/partners/afisha.png" loading="lazy"/>
           </a>
           <a
             href="https://www.cybersport.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/cybersport.png" lazy></el-image>
+            <img src="/partners/cybersport.png" loading="lazy"/>
           </a>
           <a
             href="https://www.mirf.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <el-image src="/partners/mirf.png" lazy></el-image>
+            <img src="/partners/mirf.png" loading="lazy"/>
           </a>
         </div>
         <div class="partners-btn">
           <button @click="openPartnersModal" class="btn btn--red btn--big">
-            <span class="split">Хочу стать партнером</span>
+            Хочу стать партнером
           </button>
         </div>
       </div>
       <div class="side-parts">
-        <img src="/side-parts_5.png" />
-        <img src="/side-parts_6.png" />
+        <img src="/side-parts_5.png" loading="lazy"/>
+        <img src="/side-parts_6.png" loading="lazy"/>
       </div>
     </section>
-    <div :class="{ visible: partnersIframe }" class="partners-modal">
+    <div v-if="partnersIframe" class="partners-modal">
       <button @click="closePartnersModal" class="partners-modal__close">
         ✖
       </button>
       <iframe
         class="partners-modal__iframe"
         src="https://docs.google.com/forms/d/e/1FAIpQLSeMR_dy_vI2fTg89_Qf8ssprOwOFiwIaPRdzIrm9-MPr8yUdA/viewform?embedded=true"
+        loading="lazy"
         frameborder="0"
         marginheight="0"
         marginwidth="0"
@@ -1308,14 +1324,11 @@ export default {
     StreamersSwiper,
     Subscribe
   },
-  async asyncData({ $axios }) {
-    const streamers = (await $axios.get("/api/get_streamers?at_home=show"))
-      .data;
-    const tickets = (await $axios.get("/api/get_ticket_types")).data;
-    return { streamers, tickets };
-  },
   data() {
     return {
+      mainVideoSrc: '',
+      streamers: [],
+      tickets: [],
       lastDay: null,
       ticketsOptions: {
         spaceBetween: 0,
@@ -1417,12 +1430,16 @@ export default {
       partnersIframe: false
     };
   },
-  mounted() {
+  async mounted() {
     this.$router.currentRoute.hash === "#tickets" && this.handleScroll();
+    this.mainVideoSrc = '/videos/home.mp4'
     this.starTimer();
     const script = document.createElement("script");
     script.src = "https://player.vimeo.com/api/player.js";
     document.body.appendChild(script);
+    this.streamers = (await this.$axios.get("/api/get_streamers?at_home=show"))
+      .data
+    this.tickets = (await this.$axios.get("/api/get_ticket_types")).data;
   },
   methods: {
     starTimer() {
@@ -1452,9 +1469,7 @@ export default {
       });
     },
     ticketsSwiperClick(e) {
-      (e.target.classList.contains("btn-ticket") ||
-        e.target.classList.contains("split") ||
-        e.target.classList.contains("letter")) &&
+      e.target.classList.contains("btn-ticket") &&
         this.addItem(
           this.$refs.ticketsSwiper.$swiper.clickedSlide.attributes[1].value
         );

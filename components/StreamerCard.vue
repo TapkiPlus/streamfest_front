@@ -1,7 +1,7 @@
 <template>
   <nuxt-link :to="`/${name_slug}`">
     <div class="streamers-item">
-      <el-image :src="image" lazy></el-image>
+      <img :src="image" loading="lazy" />
       <p class="streamers-item__nick">{{ nickname }}</p>
       <p class="streamers-item__fio">{{ name }}</p>
     </div>
