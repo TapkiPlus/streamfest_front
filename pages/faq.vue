@@ -120,7 +120,7 @@
           <p>
             Да! Если вы регулярно стримите видеоигры и у вас больше 3000
             подписчиков на любой из стрим-платформ (Twitch.tv, YouTube, TikTok,
-            VK, OK, WASD, Goodgame, Instagram), мы дадим вам бесплатный билет на
+            VK, OK, WASD, Goodgame, BIGO Live), мы дадим вам бесплатный билет на
             оба дня фестиваля.
           </p>
 
@@ -457,7 +457,7 @@
             интересным докладом или присоединиться к&nbsp;дискуссионным панелям,
             напишите на
             <a href="mailto:mike@streamfest.ru" class="link"
-              >mike@streamfest.ru .</a>
+              >mike@streamfest.ru</a>.
           </p>
         </div>
         <div class="faq-item-last">
