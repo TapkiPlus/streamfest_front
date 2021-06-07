@@ -26,8 +26,7 @@
         <li
           class="activities-tabs__item"
           :class="{_active : activeTable === 2}"
-          @click="activeTable = 2"
-        >
+          >
           <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <mask id="mask0-time" mask-type="alpha" maskUnits="userSpaceOnUse" x="20" y="20" width="60" height="59">
               <rect x="20" y="20.7692" width="59.2308" height="57.6923" fill="url(#pattern0-time)"/>
@@ -47,7 +46,6 @@
         <li
           class="activities-tabs__item"
           :class="{_active : activeTable === 3}"
-          @click="activeTable = 3"
         >
           <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <mask id="mask0-m" mask-type="alpha" maskUnits="userSpaceOnUse" x="16" y="20" width="68" height="59">
@@ -77,7 +75,7 @@
             :cols="2"
             :gutter="60"
           >
-            <div v-for="{id, image, title, description, place, day, start} in activities" :key="id">
+            <div v-for="{id, image, icon, title, description, place, day, start} in activities" :key="id">
               <div class="activities-item">
                 <div class="activities-item__img" v-if="image">
                   <img :src="image" alt="" loading="lazy">
@@ -85,7 +83,7 @@
                 <div class="activities-item__content">
                   <div class="activities-item__body">
                     <div class="activities-item__title">
-                      <img class="activities-item__icon" src="/activity/cup.svg" alt="" loading="lazy"/>
+                      <img class="activities-item__icon" :src="icon" alt="" loading="lazy"/>
                       <span>{{title}}</span>
                     </div>
                     <div class="activities-item__descr">{{description}}</div>
@@ -214,7 +212,7 @@ export default {
   },
   data() {
     return {
-      activeTable: 2,
+      activeTable: 1,
       days: [17, 18],
       activeDay: 17,
       activePlaceId: 1,
