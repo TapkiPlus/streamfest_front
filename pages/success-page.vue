@@ -19,7 +19,7 @@
         <p>
           Если письма не пришли, напишите на
           <a href="mailto:tickets@streamfest.ru">tickets@streamfest.ru</a>,
-          указав ваш <br /><b>номер заказа: №<span id="orderId">{{ $route.query.pg_order_id }}</span><span v-show="false" id="orderAmount">{{amount}}RUR</span>.</b>
+          указав ваш <br /><b>номер заказа: №<span id="orderId">{{ $route.query.pg_order_id }}</span><span v-show="false" id="orderAmount">{{amount}}</span>.</b>
         </p>
         <nuxt-link to="/" class="btn"
           >На главную</nuxt-link
