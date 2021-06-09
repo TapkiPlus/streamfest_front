@@ -97,7 +97,7 @@
                       <span>{{place.id}}</span></div>
                     <div class="activities-item__info">
                       <div class="activities-item__place">{{place.name}}</div>
-                      <div class="activities-item__date">День {{day}}, начало {{start}}</div>
+                      <div class="activities-item__date">{{getDay(day)}}, начало {{start}}</div>
                     </div>
                   </div>
                 </div>
@@ -149,7 +149,7 @@
                 class="timetable-nav__tab"
                 :class="{_active : activeDay === day}"
                 @click="activeDay = day"
-              >{{day}} июля</li>
+              >{{getDay(day)}}</li>
             </ul>
             <ul class="place__list">
               <li
@@ -210,15 +210,33 @@ export default {
       id: place.id,
       name: place.name
     }))
+    console.log(activities);
     return { activities, places};
   },
   data() {
     return {
       activeTable: 2,
-      days: [17, 18],
-      activeDay: 17,
+      days: [1, 2, 3],
+      activeDay: 1,
       activePlaceId: 1,
     };
   },
+  methods: {
+    getDay(day) {
+      let dayStr = "";
+      switch (day) {
+        case 1:
+          dayStr = "17 июля"
+          break;
+      case 2:
+          dayStr = "18 июля"
+          break;
+      case 3:
+          dayStr = "17 и 18 июля"
+          break;
+      }
+      return dayStr
+    }
+  }
 };
 </script>
