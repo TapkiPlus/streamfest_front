@@ -11,8 +11,11 @@
     &__item
       flex: 1 1 314px
       text-align: center
-      cursor: pointer
+      opacity: .5
       position: relative
+      &:first-child
+        cursor: pointer
+        opacity: 1
       &:not(:last-child)
         &:after
           content: ''

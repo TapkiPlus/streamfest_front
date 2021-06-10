@@ -7,7 +7,6 @@
           <div class="cart-form-row">
             <div
               class="cart-form-row__item input__field"
-              :class="{ 'item-error': errors.includes('firstname') }"
             >
               <label
                 >Имя <sup>*</sup>
@@ -15,7 +14,7 @@
                   :value="firstname"
                   class="input"
                   placeholder="Андрей"
-                  pattern="^[A-Z][a-z]*$"
+                  pattern="^[А-Я][а-я]*$"
                   title="Необходимо ввести кириллицу и первую букву заглавными буквами"
                   required
                   @input="onInput('firstname', $event)"
@@ -24,7 +23,6 @@
             </div>
             <div
               class="cart-form-row__item input__field "
-              :class="{ 'item-error': errors.includes('lastname') }"
             >
               <label
                 >Фамилия <sup>*</sup>
@@ -32,7 +30,7 @@
                   :value="lastname"
                   class="input"
                   placeholder="Иванов"
-                  pattern="^[A-Z][a-z]*$"
+                  pattern="^[А-Я][а-я]*$"
                   title="Необходимо ввести кириллицу и первую букву заглавными буквами"
                   required
                   @input="onInput('lastname', $event)"
@@ -41,7 +39,6 @@
             </div>
             <div
               class="cart-form-row__item input__field"
-              :class="{ 'item-error': errors.includes('email') }"
             >
               <label
                 >Email — на него придут ваши билеты <sup>*</sup>
@@ -57,7 +54,6 @@
             </div>
             <div
               class="cart-form-row__item input__field"
-              :class="{ 'item-error': errors.includes('emailConfirm') }"
             >
               <label
                 >Email — введите еще раз <sup>*</sup>
