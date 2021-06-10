@@ -97,7 +97,7 @@
                       <span>{{place.id}}</span></div>
                     <div class="activities-item__info">
                       <div class="activities-item__place">{{place.name}}</div>
-                      <div class="activities-item__date">День {{day}}, начало {{start}}</div>
+                      <div class="activities-item__date">{{getDay(day)}}, начало {{start}}</div>
                     </div>
                   </div>
                 </div>
@@ -149,7 +149,7 @@
                 class="timetable-nav__tab"
                 :class="{_active : activeDay === day}"
                 @click="activeDay = day"
-              >{{day}} июля</li>
+              >{{getDay(day)}}</li>
             </ul>
             <ul class="place__list">
               <li
@@ -165,7 +165,7 @@
             </ul>
           </div>
           <div class="timetable-list">
-            <div class="timetable-item" data-date="" data-place="" v-for="{id, icon, start, end, title, description, streamer} in activities.filter(({day, place}) => day === activeDay && place.id === activePlaceId)" :key="id">
+            <div class="timetable-item" data-date="" data-place="" v-for="{id, icon, start, end, title, description, streamers} in activities.filter(({day, place}) => day === activeDay && place.id === activePlaceId)" :key="id">
               <div class="timetable-item__icon">
                 <img :src="icon" alt="" loading="lazy">
               </div>
@@ -175,13 +175,13 @@
                   <div class="timetable-item__title">{{title}}</div>
                   <div class="timetable-item__descr">{{description}}</div>
                 </div>
-                <div class="timetable-item__footer" v-if="streamer">
+                <div v-if="streamers.length" class="timetable-item__footer">
                   <div class="timetable-item__stars">
-                    <nuxt-link :to="`/${streamer.nickNameSlug}`" class="timetable-item__star">
+                    <nuxt-link v-for="{id, nickNameSlug, photo, name} in streamers" :key="id"  :to="`/${nickNameSlug}`" class="timetable-item__star">
                       <div class="timetable-item__star-icon">
-                        <img :src="streamer.photo" :alt="streamer.name" loading="lazy">
+                        <img :src="photo" :alt="name">
                       </div>
-                      <div class="timetable-item__star-name">{{streamer.name}}</div>
+                      <div class="timetable-item__star-name">{{name}}</div>
                     </nuxt-link>
                   </div>
                 </div>
@@ -215,10 +215,27 @@ export default {
   data() {
     return {
       activeTable: 2,
-      days: [17, 18],
-      activeDay: 17,
+      days: [1, 2, 3],
+      activeDay: 1,
       activePlaceId: 1,
     };
   },
+  methods: {
+    getDay(day) {
+      let dayStr = "";
+      switch (day) {
+        case 1:
+          dayStr = "17 июля"
+          break;
+      case 2:
+          dayStr = "18 июля"
+          break;
+      case 3:
+          dayStr = "17 и 18 июля"
+          break;
+      }
+      return dayStr
+    }
+  }
 };
 </script>
