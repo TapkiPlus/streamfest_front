@@ -5,7 +5,6 @@
         <li
           class="activities-tabs__item"
           :class="{_active : activeTable === 1}"
-          @click="activeTable = 1"
         >
           <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <mask id="mask0-act" mask-type="alpha" maskUnits="userSpaceOnUse" x="13" y="20" width="73" height="59">
@@ -163,7 +162,7 @@
             </ul>
           </div>
           <div class="timetable-list">
-            <div class="timetable-item" data-date="" data-place="" v-for="{id, icon, start, end, title, description, streamers} in activities.filter(({day, place}) => day === activeDay && place.id === activePlaceId)" :key="id">
+            <div class="timetable-item" data-date="" data-place="" v-for="{id, icon, start, end, title, description, streamers} in activities.filter(({day, place}) => (day === activeDay || day === 3) && place.id === activePlaceId)" :key="id">
               <div class="timetable-item__icon">
                 <img :src="icon" alt="" loading="lazy">
               </div>
@@ -212,8 +211,8 @@ export default {
   },
   data() {
     return {
-      activeTable: 2,
-      days: [1, 2, 3],
+      activeTable: 1,
+      days: [1, 2],
       activeDay: 1,
       activePlaceId: 1,
     };
