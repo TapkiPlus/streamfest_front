@@ -165,7 +165,7 @@
             </ul>
           </div>
           <div class="timetable-list">
-            <div class="timetable-item" data-date="" data-place="" v-for="{id, icon, start, end, title, description, streamer} in activities.filter(({day, place}) => day === activeDay && place.id === activePlaceId)" :key="id">
+            <div class="timetable-item" data-date="" data-place="" v-for="{id, icon, start, end, title, description, streamers} in activities.filter(({day, place}) => day === activeDay && place.id === activePlaceId)" :key="id">
               <div class="timetable-item__icon">
                 <img :src="icon" alt="">
               </div>
@@ -175,13 +175,13 @@
                   <div class="timetable-item__title">{{title}}</div>
                   <div class="timetable-item__descr">{{description}}</div>
                 </div>
-                <div class="timetable-item__footer" v-if="streamer">
+                <div v-if="streamers.length" class="timetable-item__footer">
                   <div class="timetable-item__stars">
-                    <nuxt-link :to="`/${streamer.nickNameSlug}`" class="timetable-item__star">
+                    <nuxt-link v-for="{id, nickNameSlug, photo, name} in streamers" :key="id"  :to="`/${nickNameSlug}`" class="timetable-item__star">
                       <div class="timetable-item__star-icon">
-                        <img :src="streamer.photo" :alt="streamer.name">
+                        <img :src="photo" :alt="name">
                       </div>
-                      <div class="timetable-item__star-name">{{streamer.name}}</div>
+                      <div class="timetable-item__star-name">{{name}}</div>
                     </nuxt-link>
                   </div>
                 </div>
@@ -210,7 +210,6 @@ export default {
       id: place.id,
       name: place.name
     }))
-    console.log(activities);
     return { activities, places};
   },
   data() {
