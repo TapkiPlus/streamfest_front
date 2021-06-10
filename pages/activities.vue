@@ -80,12 +80,12 @@
             <div v-for="{id, image, title, description, place, day, start} in activities" :key="id">
               <div class="activities-item">
                 <div class="activities-item__img" v-if="image">
-                  <img :src="image" alt="">
+                  <img :src="image" alt="" loading="lazy">
                 </div>
                 <div class="activities-item__content">
                   <div class="activities-item__body">
                     <div class="activities-item__title">
-                      <img class="activities-item__icon" src="/activity/cup.svg" alt=""/>
+                      <img class="activities-item__icon" src="/activity/cup.svg" alt="" loading="lazy"/>
                       <span>{{title}}</span>
                     </div>
                     <div class="activities-item__descr">{{description}}</div>
@@ -93,7 +93,7 @@
                   </div>
                   <div class="activities-item__footer">
                     <div class="activities-item__place-id">
-                      <img class="activities-item__place-icon" src="/activity/place-id.svg" alt=""/>
+                      <img class="activities-item__place-icon" src="/activity/place-id.svg" alt="" loading="lazy"/>
                       <span>{{place.id}}</span></div>
                     <div class="activities-item__info">
                       <div class="activities-item__place">{{place.name}}</div>
@@ -167,7 +167,7 @@
           <div class="timetable-list">
             <div class="timetable-item" data-date="" data-place="" v-for="{id, icon, start, end, title, description, streamers} in activities.filter(({day, place}) => day === activeDay && place.id === activePlaceId)" :key="id">
               <div class="timetable-item__icon">
-                <img :src="icon" alt="">
+                <img :src="icon" alt="" loading="lazy">
               </div>
               <div class="timetable-item__content">
                 <div class="timetable-item__body">

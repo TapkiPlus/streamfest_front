@@ -2,7 +2,7 @@
   <section class="location">
     <div class="pattern-bg"></div>
     <div class="faq-banner">
-      <img src="/location.png" alt="" />
+      <img src="/location.png" alt="" loading="lazy" />
     </div>
     <div class="container-1000">
       <h1 class="section-header mobile-hidden">
@@ -804,7 +804,7 @@
               href="https://vk.com/streamfest"
               class="btn btn--vk btn--blue"
               target="_blank"
-              ><span class="split">Задайте их в личку</span>
+              >Задайте их в личку
               <svg
                 width="36"
                 height="36"
@@ -892,7 +892,7 @@
             />
             <textarea class="input" placeholder="Ваше сообщение"></textarea>
             <button class="btn btn--blue btn--form" disabled>
-              <span class="split">Отправить</span>
+              Отправить
             </button>
           </div>
         </div>

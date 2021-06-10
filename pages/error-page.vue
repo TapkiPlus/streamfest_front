@@ -25,9 +25,9 @@
         <button
           @click="retryPay"
           class="btn btn--yellow"
-          :disabled="disabledPay"
+          :disabled="disabledSubmit"
         >
-          <span class="split">Попробовать еще раз</span>
+          Попробовать еще раз
         </button>
       </div>
     </div>
@@ -41,17 +41,28 @@ export default {
   data() {
     return {
       isInfoPage: true,
-      disabledPay: false
+      disabledSubmit: false
     };
+  },
+  beforeRouteEnter(to, from, next) {
+    next(vm => (
+      vm.disabledSubmit = false
+    ));
   },
   methods: {
     ...mapActions("userData", ["saveData"]),
-    ...mapActions("checkout", ["getFormValues", "getPayLink"]),
+    ...mapActions("checkout", ["getPayLink"]),
     async retryPay() {
-      this.disabledPay = true;
+      this.disabledSubmit = true;
       this.saveData({ tryedToPayAgain: true });
-      await this.getFormValues();
-      this.getPayLink();
+      const { firstname, lastname, email, phone } = (
+        await this.$axios.get(
+          `/api/get_user_data?session_id=${this.$auth.$storage.getCookie(
+            "session_id"
+          )}`
+        )
+      ).data;
+      !this.getPayLink({ firstname, lastname, email, phone }) && this.$router.push("/");
     }
   }
 };
