@@ -202,8 +202,6 @@ export default {
     },
   },
   mounted() {
-    const script = document.createElement("script");
-    script.onload = () => {
       VK.Widgets.CommunityMessages("vk_community_messages", 122887579, {
         disableExpandChatSound: "1",
         disableButtonTooltip: "1"
@@ -213,9 +211,6 @@ export default {
         { mode: 3, width: "auto", no_cover: 1 },
         122887579
       );
-    };
-    script.src = "https://vk.com/js/api/openapi.js?168";
-    document.body.appendChild(script);
     this.checkRoutePath();
   },
    watch: {
