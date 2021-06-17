@@ -170,7 +170,7 @@
       </div>
     </div>
     <nuxt-link
-      v-show="isWidgetsVisible && cartTotalCount"
+      v-show="isWidgetVisible && cartTotalCount"
       :data-num="cartTotalCount"
       class="cart-fix"
       to="/cart"
@@ -178,7 +178,7 @@
       <div class="cart-fix__counter"></div>
       <img src="/cart-small.svg" alt="cart-icon" loading="lazy"/>
     </nuxt-link>
-    <div v-show="isWidgetsVisible" id="vk_community_messages"></div>
+    <div v-show="isWidgetVisible" id="vk_community_messages"></div>
   </footer>
 </template>
 
@@ -187,7 +187,7 @@ import { mapState } from "vuex";
 export default {
   data() {
     return {
-      isWidgetsVisible: false
+      isWidgetVisible: false
     }
   },
   computed: {
@@ -220,7 +220,7 @@ export default {
   },
   methods: {
     checkRoutePath() {
-      this.isWidgetsVisible = !['/cart', '/checkout'].includes(this.$route.path)
+      this.isWidgetVisible = !['/cart', '/checkout'].includes(this.$route.path)
     },
     scrollToTop() {
       window.scrollTo({ top: 0, behavior: "smooth" });
