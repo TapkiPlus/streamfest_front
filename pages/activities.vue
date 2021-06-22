@@ -125,7 +125,7 @@
       </div>
       <div class="activities-tabs__content" v-else-if="activeTable === 2">
         <p class="tab-description">
-          Стримфест проходит 17 и 18 июля с 11:00 до 19:00.  Смотри тут расписание фестивальных сцен, партнерских стендов и лектория!
+          Стримфест проходит 7 и 8 августа с 11:00 до 19:00.  Смотри тут расписание фестивальных сцен, партнерских стендов и лектория!
           Ищешь
           <router-link
             to="/stars"
@@ -222,13 +222,13 @@ export default {
       let dayStr = "";
       switch (day) {
         case 1:
-          dayStr = "17 июля"
+          dayStr = "7 августа"
           break;
       case 2:
-          dayStr = "18 июля"
+          dayStr = "8 августа"
           break;
       case 3:
-          dayStr = "17 и 18 июля"
+          dayStr = "7 и 8 августа"
           break;
       }
       return dayStr
