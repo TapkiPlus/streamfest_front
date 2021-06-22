@@ -6,7 +6,7 @@
         <h3 class="offer__title">СТРИМФЕСТ 2021</h3>
         <p class="offer__subtitle">Главный фестиваль стримеров!</p>
         <p class="offer__subtitle subtitle-last">
-          17–18 июля<br />Москва, Сколково
+          7–8 августа<br />Москва, Сколково
         </p>
         <p class="offer__22px">до фестиваля</p>
         <p class="offer__36px">{{ lastDay }}</p>
@@ -458,11 +458,8 @@
             :key="id"
           >
             <div class="tickets-item__wrapper">
-              <p v-if="days_qty === 1" class="tickets-item__days">
-                Билет на один день 17&nbsp;или&nbsp;18&nbsp;июля
-              </p>
-              <p v-else class="tickets-item__days">
-                Билет на оба дня 17&nbsp;и&nbsp;18&nbsp;июля
+              <p class="tickets-item__days">
+                Билет на {{days_qty === 1 ? "один" : "оба"}} дня 7&nbsp;и&nbsp;8&nbsp;августа
               </p>
               <ul v-if="days_qty === 1" class="tickets-item__list">
                 <li class="tickets-item__list--item checked">
@@ -534,12 +531,9 @@
               >
                 <div class="tickets-item">
                   <div class="tickets-item__wrapper">
-                    <p v-if="days_qty === 1" class="tickets-item__days">
-                      Билет на один из дней 17&nbsp;или&nbsp;18&nbsp;июля
-                    </p>
-                    <p v-else class="tickets-item__days">
-                      Билет на оба дня 17&nbsp;и&nbsp;18&nbsp;июля
-                    </p>
+                    <p class="tickets-item__days">
+                Билет на {{days_qty === 1 ? "один" : "оба"}} дня 7&nbsp;и&nbsp;8&nbsp;августа
+              </p>
                     <ul v-if="days_qty === 1" class="tickets-item__list">
                       <li class="tickets-item__list--item checked">
                         Хайп, веселье, конкурсы
