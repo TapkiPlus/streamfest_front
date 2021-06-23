@@ -458,8 +458,11 @@
             :key="id"
           >
             <div class="tickets-item__wrapper">
-              <p class="tickets-item__days">
-                Билет на {{days_qty === 1 ? "один" : "оба"}} дня 7&nbsp;и&nbsp;8&nbsp;августа
+              <p v-if="days_qty === 1" class="tickets-item__days">
+                Билет на один день 7&nbsp;или&nbsp;8&nbsp;августа
+              </p>
+              <p v-else class="tickets-item__days">
+                Билет на оба дня 7&nbsp;и&nbsp;8&nbsp;августа
               </p>
               <ul v-if="days_qty === 1" class="tickets-item__list">
                 <li class="tickets-item__list--item checked">
@@ -531,8 +534,11 @@
               >
                 <div class="tickets-item">
                   <div class="tickets-item__wrapper">
-                    <p class="tickets-item__days">
-                Билет на {{days_qty === 1 ? "один" : "оба"}} дня 7&nbsp;и&nbsp;8&nbsp;августа
+                    <p v-if="days_qty === 1" class="tickets-item__days">
+                Билет на один день 7&nbsp;или&nbsp;8&nbsp;августа
+              </p>
+              <p v-else class="tickets-item__days">
+                Билет на оба дня 7&nbsp;и&nbsp;8&nbsp;августа
               </p>
                     <ul v-if="days_qty === 1" class="tickets-item__list">
                       <li class="tickets-item__list--item checked">
@@ -1323,7 +1329,6 @@ export default {
       mainVideoSrc: '',
       streamers: [],
       tickets: [],
-      lastDay: null,
       ticketsOptions: {
         spaceBetween: 0,
         slidesPerView: 1.1,
@@ -1424,10 +1429,22 @@ export default {
       partnersIframe: false
     };
   },
+  computed: {
+    lastDay() {
+      let days = Math.floor(
+        (new Date("Aug 7, 2021 11:00:00").getTime() - new Date().getTime()) /
+          86400000
+      ).toString();
+      const lastNum = days.substr(-1);
+      if (lastNum === "1") days += " день";
+      else if (["2", "3", "4"].includes(lastNum)) days += " дня";
+      else days += " дней";
+      return days;
+    }
+  },
   async mounted() {
     this.$router.currentRoute.hash === "#tickets" && this.handleScroll();
     this.mainVideoSrc = '/videos/home.mp4'
-    this.starTimer();
     const script = document.createElement("script");
     script.src = "https://player.vimeo.com/api/player.js";
     document.body.appendChild(script);
@@ -1436,17 +1453,6 @@ export default {
     this.tickets = (await this.$axios.get("/api/get_ticket_types")).data;
   },
   methods: {
-    starTimer() {
-      let days = Math.floor(
-        (new Date("Jul 17, 2021 11:00:00").getTime() - new Date().getTime()) /
-          86400000
-      ).toString();
-      const lastNum = days.substr(-1);
-      if (lastNum === "1") days += " день";
-      else if (["2", "3", "4"].includes(lastNum)) days += " дня";
-      else days += " дней";
-      this.lastDay = days;
-    },
     async addItem(t_id) {
       await this.$store.dispatch("cart/addItem", {
         t_id
