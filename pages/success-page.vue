@@ -6,7 +6,7 @@
         <div class="info__subtitle">Заказ успешно оплачен!</div>
         <p>
           Поздравляем, вы идете на Стримфест!<br />
-          Ждем вас 17–18 июля в Технопарке «Сколково», <br />
+          Ждем вас 7–8 августа в Технопарке «Сколково», <br />
           <a href="/contact" target="_blank" rel="noopener noreferrers"
             >вот схема проезда.</a
           >
@@ -19,7 +19,7 @@
         <p>
           Если письма не пришли, напишите на
           <a href="mailto:tickets@streamfest.ru">tickets@streamfest.ru</a>,
-          указав ваш <br /><b>номер заказа: №<span id="orderId">{{ $route.query.pg_order_id }}</span><span v-show="false" id="orderAmount">{{amount}}RUR</span>.</b>
+          указав ваш <br /><b>номер заказа: №<span id="orderId">{{ $route.query.pg_order_id }}</span><span v-show="false" id="orderAmount">{{amount}}</span>.</b>
         </p>
         <nuxt-link to="/" class="btn"
           >На главную</nuxt-link
