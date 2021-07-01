@@ -103,7 +103,7 @@ export default {
         { id: 4, name: "FAQ", url: "/faq", star: false },
         { id: 5, name: "Стать участником", url: "/how-to", star: false },
         // { id: 6, name: "О фестивале", url: "#", star: false },
-        { id: 7, name: "Как добраться", url: "/contact", star: false }
+        { id: 6, name: "Как добраться", url: "/contact", star: false }
       ],
       hamburgerActive: false
     };
