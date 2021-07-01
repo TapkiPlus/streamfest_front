@@ -5,6 +5,7 @@
         <li
           class="activities-tabs__item"
           :class="{_active : activeTable === 1}"
+          @click="activeTable = 1"
         >
           <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <mask id="mask0-act" mask-type="alpha" maskUnits="userSpaceOnUse" x="13" y="20" width="73" height="59">
@@ -25,6 +26,7 @@
         <li
           class="activities-tabs__item"
           :class="{_active : activeTable === 2}"
+          @click="activeTable = 2"
           >
           <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <mask id="mask0-time" mask-type="alpha" maskUnits="userSpaceOnUse" x="20" y="20" width="60" height="59">
@@ -45,6 +47,7 @@
         <li
           class="activities-tabs__item"
           :class="{_active : activeTable === 3}"
+          @click="activeTable = 3"
         >
           <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <mask id="mask0-m" mask-type="alpha" maskUnits="userSpaceOnUse" x="16" y="20" width="68" height="59">
