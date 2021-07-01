@@ -798,7 +798,7 @@
             href="https://vk.com/streamfest"
             class="btn btn-w-icon btn--blue"
             target="_blank"
-            rel="noopener noreferrers"
+            rel="noopener noreferrer"
           >
               Больше фото
           </a>
@@ -1099,84 +1099,49 @@
             <img src="/partners/yandex_dzen.png" loading="lazy"/>
           </a>
           <a
-            href="https://skillbox.ru/course/profession-stream-bloger/?utm_source=pr&utm_medium=pr&utm_campaign=all_all_pr_pr_all_all_all_StreamFest_skillbox"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/skillbox.png" loading="lazy"/>
-          </a>
-          <a
-            href="https://vk.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/vk.png" loading="lazy"/>
-          </a>
-          <a
-            href="http://red-square.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/red-square.png" loading="lazy"/>
-          </a>
-          <a
             href="https://www.amd.com/ru"
             target="_blank"
             rel="noopener noreferrer"
           >
             <img src="/partners/amd.png" loading="lazy"/>
           </a>
-          <a
-            href="https://donate.qiwi.com/"
+           <a
+            href="https://www.faceit.com/en"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/qiwi.png" loading="lazy"/>
-          </a>
-          <a
-            href="https://ru.siberianhealth.com/ru/shop/catalog/category/406/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/cyberbuild.png" loading="lazy"/>
+            <img src="/partners/faceit.png" loading="lazy"/>
           </a>
           <a
             href="https://goodgame.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/gg.png" loading="lazy"/>
-          </a>
-          <a
-            href="https://flick.redbull.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/redbull.png" loading="lazy"/>
-          </a>
-          <a
-            href="https://www.teamgroupinc.com/ru/products/t-force"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/teamgroup.png" loading="lazy"/>
+            <img src="/partners/goodgame.png" loading="lazy"/>
           </a>
         </div>
         <h3 class="section-header">ПАРТНЕРЫ ТЕМАТИЧЕСКИХ&nbsp;ЗОН</h3>
         <div class="partners-img tematic">
-          <a
-            href="https://restream.io"
+            <a
+            href="https://wasd.tv"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/restream.png" loading="lazy"/>
+            <img src="/partners/wasd.png" loading="lazy"/>
+          </a>
+           <a
+            href="https://fantv.ru"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/fan.png" loading="lazy"/>
           </a>
           <a
-            href="https://www.uniconf.ru/about/news/2018/7027/"
+            href="https://reyden-x.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/mega-drive.png" loading="lazy"/>
+            <img src="/partners/reyden-x.png" loading="lazy"/>
           </a>
           <a
             href="https://schoolskills.ru/"
@@ -1185,6 +1150,13 @@
           >
             <img src="/partners/school_skills.png" loading="lazy"/>
           </a>
+           <a
+            href="https://synergy.ru"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/synergy.png" loading="lazy"/>
+          </a>
           <a
             href="https://podari-zhizn.ru/main"
             target="_blank"
@@ -1192,25 +1164,18 @@
           >
             <img src="/partners/podari_jizn.png" loading="lazy"/>
           </a>
-          <a
-            href="https://store.avermedia.com/ru"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/avermedia.png" loading="lazy"/>
-          </a>
         </div>
         <h3 class="section-header">ТЕХНИЧЕСКАЯ ПОДДЕРЖКА</h3>
         <div class="partners-img tematic">
-          <a href="https://warp.wtf/" target="_blank" rel="noopener noreferrer">
-            <img src="/partners/warp.png" loading="lazy"/>
-          </a>
           <a
-            href="https://www.razerzone.ru/"
+            href="https://www.bluemics.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/razer.png" loading="lazy"/>
+            <img src="/partners/blue.png" loading="lazy"/>
+          </a>
+          <a href="https://warp.wtf/" target="_blank" rel="noopener noreferrer">
+            <img src="/partners/warp.png" loading="lazy"/>
           </a>
           <a
             href="https://hyperpc.ru/"
@@ -1219,19 +1184,25 @@
           >
             <img src="/partners/hyper.png" loading="lazy"/>
           </a>
-          <a
-            href="https://www.bluemics.ru/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/blue.png" loading="lazy"/>
+          <a href="http://red-square.org/" target="_blank" rel="noopener noreferrer">
+            <img src="/partners/red-square.png" loading="lazy"/>
+          </a>
+          <a href="https://flick.redbull.com/" target="_blank" rel="noopener noreferrer">
+            <img src="/partners/redbull.png" loading="lazy"/>
           </a>
           <a
-            href="https://www.wd.com/ru-ru/"
+            href="https://streamscharts.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/western_digital.png" loading="lazy"/>
+            <img src="/partners/stream-charts.png" loading="lazy"/>
+          </a>
+          <a
+            href="https://www.dell.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/dell.png" loading="lazy"/>
           </a>
           <a
             href="https://www.dmitrylive.com/"
@@ -1241,11 +1212,11 @@
             <img src="/partners/dmitry_live.png" loading="lazy"/>
           </a>
           <a
-            href="https://streamscharts.com/"
+            href="https://en-us.sennheiser.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/stream-charts.png" loading="lazy"/>
+            <img src="/partners/sennheiser.png" loading="lazy"/>
           </a>
         </div>
         <h3 class="section-header">ИНФОРМАЦИОННАЯ ПОДДЕРЖКА</h3>
