@@ -1143,13 +1143,6 @@
           >
             <img src="/partners/reyden-x.png" loading="lazy"/>
           </a>
-          <a
-            href="https://schoolskills.ru/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/school_skills.png" loading="lazy"/>
-          </a>
            <a
             href="https://synergy.ru"
             target="_blank"
@@ -1163,6 +1156,13 @@
             rel="noopener noreferrer"
           >
             <img src="/partners/podari_jizn.png" loading="lazy"/>
+          </a>
+           <a
+            href="https://schoolskills.ru/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/school_skills.png" loading="lazy"/>
           </a>
         </div>
         <h3 class="section-header">ТЕХНИЧЕСКАЯ ПОДДЕРЖКА</h3>
@@ -1204,19 +1204,19 @@
           >
             <img src="/partners/dell.png" loading="lazy"/>
           </a>
+           <a
+            href="https://en-us.sennheiser.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/sennheiser.png" loading="lazy"/>
+          </a>
           <a
             href="https://www.dmitrylive.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <img src="/partners/dmitry_live.png" loading="lazy"/>
-          </a>
-          <a
-            href="https://en-us.sennheiser.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/sennheiser.png" loading="lazy"/>
           </a>
         </div>
         <h3 class="section-header">ИНФОРМАЦИОННАЯ ПОДДЕРЖКА</h3>
