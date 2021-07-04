@@ -61,7 +61,7 @@ export default {
         innerHTML: `<div><img src="https://mc.yandex.ru/watch/38023235" style="position:absolute; left:-9999px;" alt="" /></div>`,
         body: true
       },
-      
+
     ],
      __dangerouslyDisableSanitizers: ['script','noscript']
   },
@@ -83,9 +83,9 @@ export default {
     Disallow: '/account/',
   },
   axios: {
-    // baseURL: "http://sf.tagobar.ru"
+    baseURL: "http://sf.tagobar.ru"
     // baseURL: "http://localhost:8000"
-    baseURL: "https://streamfest.ru"
+    // baseURL: "https://streamfest.ru"
   },
   build: {
     transpile: [/^element-ui/],

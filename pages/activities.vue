@@ -86,7 +86,7 @@
       </ul>
     </div>
     <div class="container-wide">
-      <div class="activities-tabs__content" v-show="activeTable === 1">
+      <div class="activities-tabs__content" v-if="activeTable === 1">
         <p class="tab-description">
           Смотри, что покажу! Самые интересные места и события фестиваля, которые вообще нельзя пропустить. Демозоны, анонсы, челленджи, шоу-матчи, технологии, весь фарш и вау-косплей.
         </p>
@@ -285,7 +285,7 @@
               <div class="map__list--wrapper" :class="{_active: openStageList}">
                 <div class="map-title">Что где на карте</div>
                 <ul class="map__list">
-                  <li class="map__item" v-for="item in stages[0]" :key="item.id">
+                  <li class="map__item" v-for="item in places" :key="item.id">
                     <span class="zone-id">{{ item.id }} </span> &mdash;{{ item.name }}
                   </li>
                 </ul>
@@ -300,8 +300,8 @@
               <div class="map__list--wrapper" :class="{_active: openStageList}">
                 <div class="map-title">Что где на карте</div>
                 <ul class="map__list">
-                  <li class="map__item" v-for="item in stages[1]" :key="item.id">
-                    <span class="zone-id">{{ item.id }} - </span> {{ item.name }}
+                  <li class="map__item" v-for="item in places" :key="item.id">
+                    <span class="zone-id">{{ item.id }}  </span> &mdash; {{ item.name }}
                   </li>
                 </ul>
                 <button class="close-list" @click="openStageList = !openStageList">Свернуть</button>
@@ -315,8 +315,8 @@
               <div class="map__list--wrapper" :class="{_active: openStageList}">
                 <div class="map-title">Что где на карте</div>
                 <ul class="map__list" >
-                  <li class="map__item" v-for="item in stages[2]" :key="item.id">
-                    <span class="zone-id">{{ item.id }} - </span> {{ item.name }}
+                  <li class="map__item" v-for="item in places" :key="item.id">
+                    <span class="zone-id">{{ item.id }} </span> &mdash; {{ item.name }}
                   </li>
                 </ul>
                 <button class="close-list" @click="openStageList = !openStageList">Свернуть</button>
@@ -357,10 +357,10 @@ export default {
     };
   },
 
-  mounted() {
-    window.addEventListener("resize", this.calcWith);
-    this.calcWith();
-  },
+  // mounted() {
+  //   window.addEventListener("resize", this.calcWith);
+  //   this.calcWith();
+  // },
 
   methods: {
     getDay(day) {
@@ -378,30 +378,30 @@ export default {
       }
       return dayStr
     },
-    calcWith() {
-      let starsLists = this.$refs[`starList`]
-      let timetableContent = this.$refs[`timetableContent`][0].clientWidth
-      console.log(timetableContent)
-      starsLists.forEach(starList => {
-        if((starList.children.length > 5) || (starList.clientWidth >= (timetableContent ))) {
-          starList.classList.add("short")
-          let maxWidth = window.screen.width - 70
-          let starsArray = starList.children
-          let stars = (maxWidth / starsArray.length)
-          let starsPosition = 0
-          if(starList.clientWidth > maxWidth ) {
-            console.log(starsPosition)
-            for( let i = 0; i < starsArray.length; i++) {
-              starsArray[i].style.position = 'absolute'
-              starsArray[i].style.transform = `translateX(${starsPosition}px)`
-              starsPosition = starsPosition + stars
-            }
-          }
-        } else {
-          starList.classList.remove("short")
-        }
-      })
-    },
+    // calcWith() {
+    //   let starsLists = this.$refs[`starList`]
+    //   let timetableContent = this.$refs[`timetableContent`][0].clientWidth
+    //   console.log(timetableContent)
+    //   starsLists.forEach(starList => {
+    //     if((starList.children.length > 5) || (starList.clientWidth >= (timetableContent ))) {
+    //       starList.classList.add("short")
+    //       let maxWidth = window.screen.width - 70
+    //       let starsArray = starList.children
+    //       let stars = (maxWidth / starsArray.length)
+    //       let starsPosition = 0
+    //       if(starList.clientWidth > maxWidth ) {
+    //         console.log(starsPosition)
+    //         for( let i = 0; i < starsArray.length; i++) {
+    //           starsArray[i].style.position = 'absolute'
+    //           starsArray[i].style.transform = `translateX(${starsPosition}px)`
+    //           starsPosition = starsPosition + stars
+    //         }
+    //       }
+    //     } else {
+    //       starList.classList.remove("short")
+    //     }
+    //   })
+    // },
   }
 };
 </script>
