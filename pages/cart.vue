@@ -15,32 +15,26 @@
         >
           <div class="cart-row">
             <div @click="deleteItem(id)" class="cart-row__delete">
-              <img draggable="false" src="/delete.svg" alt="" />
+              <img src="/delete.svg" :draggable="false" loading="lazy"/>
             </div>
             <div class="cart-row__icon" v-if="!streamer">
-              <img
-                :src="
+              <img :src="
                   ticket_type.days_qty === 1 ? '/oneday.svg' : '/twoday.svg'
-                "
-                alt=""
-              />
+                " loading="lazy"/>
             </div>
             <div class="cart-row__icon" v-else>
-              <img
-                :src="
+              <img :src="
                   ticket_type.days_qty === 1
                     ? '/oneday-star.svg'
                     : '/twoday-star.svg'
-                "
-                alt=""
-              />
+                " loading="lazy"/>
             </div>
             <div class="cart__body">
               <div class="cart-row__name">
                 <p>
                   Билет на Стримфест&nbsp;2021 на
                   {{ ticket_type.days_qty === 1 ? "1 день" : "2 дня" }}
-                  {{ streamer && streamer.name && ` от ${streamer.name}` }}
+                  {{ streamer && streamer.nickName && ` от ${streamer.nickName}` }}
                 </p>
               </div>
               <div class="cart-row__quantity">
@@ -123,10 +117,10 @@
         </div>
       </div>
       <div class="cart__empty" v-else>
-        <img src="/cart-big.svg" alt="" />
+        <img src="/cart-big.svg" alt="" loading="lazy">
         <p class="cart-row ">Ваша корзина пока что пуста</p>
         <button @click="goToHome" class="btn btn--blue">
-          <span class="split">Выбрать билет</span>
+          Выбрать билет
         </button>
       </div>
     </div>
@@ -137,7 +131,7 @@
           :disabled="!data.cartitem_set.length"
           @click="goToCheckout"
         >
-          <span class="split">Перейти к оформлению</span>
+          Перейти к оформлению
         </button>
         <div class="cart-button__total">
           <p>Общая стоимость:</p>
@@ -153,7 +147,7 @@
         браслет посетителя.<br /><br />
         <b>Билеты не именные</b>: один человек может купить сразу несколько
         билетов, для себя и друзей.<br /><br />
-        <b>Возрастные ограничения</b>: подростки 14-16 лет должны находиться на
+        <b>Возрастные ограничения</b>: подростки 14–16 лет должны находиться на
         фестивале в постоянном сопровождении любого лица старше 18 лет; дети
         8-13 лет на фестиваль не допускаются в соответствии с требованиями
         площадки; дети до 8 лет должны находиться на фестивале в постоянном
@@ -161,7 +155,7 @@
         <b>Не все участники и активности будут на фестивале оба дня</b>. Билет
         на два дня позволяет увидеть всех стримеров и подкастеров и
         поучаствовать во всех активностях. Билет на один день позволяет посетить
-        фестиваль или 17, или 18 июля — на ваш выбор.<br /><br />
+        фестиваль или 7, или 8 августа — на ваш выбор.<br /><br />
         <b>Баффы, полученные на фестивале</b>, действуют 8759 часов и множатся в
         зависимости от количества приведенных друзей ;)
       </p>
@@ -171,7 +165,7 @@
           :disabled="!data.cartitem_set.length"
           @click="goToCheckout"
         >
-          <span class="split">Перейти к оформлению</span>
+          Перейти к оформлению
         </button>
       </div>
     </div>
@@ -189,9 +183,7 @@ export default {
       isCartPage: true
     };
   },
-  computed: {
-    ...mapState("cart", ["data"])
-  },
+  computed: mapState("cart", ["data"]),
   methods: {
     ...mapActions("cart", ["changeQuantity", "deleteItem"]),
     ...mapActions("userData", ["saveData"]),
@@ -200,7 +192,6 @@ export default {
       this.$router.push("/#tickets");
     },
     goToCheckout() {
-      // this.saveData({ wentToCheckout: true });
       this.$router.push("/checkout");
     }
   }

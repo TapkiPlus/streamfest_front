@@ -559,7 +559,8 @@ textarea
     &__field
       label
         color: $color-text
-        +h5
+        &:not(.maz-input__label)
+          +h5
         sup
           color: red
 @media screen and (max-width: 610px)

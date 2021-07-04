@@ -95,31 +95,31 @@
             :cols="{default: 2, 767: 1}"
             :gutter="{default: '60px', 1024: '30px' }"
           >
-            <div v-for="(item, index) in items" :key="index">
-              <div class="activities-item" :style="{borderColor: item.borderColor}">
-                <div class="activities-item__img" v-if="item.img">
-                  <img :src="item.img" alt="">
+            <div v-for="{id, image, icon, title, description, place, day, start} in activities" :key="id">
+              <div class="activities-item">
+                <div class="activities-item__img" v-if="image">
+                  <img :src="image" alt="" loading="lazy">
                 </div>
                 <div class="activities-item__content">
                   <div class="activities-item__body">
                     <div class="activities-item__title">
-                      <img class="activities-item__icon" :src="item.icon" alt=""/>
-                      <span>{{item.title}}</span>
+                      <img class="activities-item__icon" :src="icon" alt="" loading="lazy"/>
+                      <span>{{title}}</span>
                     </div>
-                    <div class="activities-item__descr">{{item.descr}}</div>
+                    <div class="activities-item__descr">{{description}}</div>
 
                   </div>
                   <div class="activities-item__footer">
                     <div class="activities-item__place-id">
-                      <img class="activities-item__place-icon" :src="item.placeIcon" alt=""/>
-                      <span>{{item.placeId}}</span></div>
+                      <img class="activities-item__place-icon" src="/activity/place-id.svg" alt="" loading="lazy"/>
+                      <span>{{place.id}}</span></div>
                     <div class="activities-item__info">
-                      <div class="activities-item__place">{{item.place}}</div>
-                      <div class="activities-item__date">{{item.date}}</div>
+                      <div class="activities-item__place">{{place.name}}</div>
+                      <div class="activities-item__date">{{getDay(day)}}, начало {{start}}</div>
                     </div>
                   </div>
                 </div>
-                <div class="activities-item__corner" v-if="!item.img" >
+                <div class="activities-item__corner" v-if="!image" >
                   <svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g filter="url(#filter0_d)">
                       <path d="M15.7722 11.7722L24.988 2.32C29.3715 -2.17586 37 0.927558 37 7.2067V26C37 29.866 33.866 33 30 33H11.2067C4.92756 33 1.82413 25.3715 6.32 20.988L15.7722 11.7722Z" :fill="item.borderColor" />
@@ -145,10 +145,9 @@
 
       </div>
 
-
-      <div class="activities-tabs__content" v-show="activeTable === 2">
+      <div class="activities-tabs__content" v-else-if="activeTable === 2">
         <p class="tab-description">
-          Стримфест проходит 7 и 8 августа с 11:00 до 19:00. Смотри тут расписание фестивальных сцен, партнерских стендов и лектория!
+          Стримфест проходит 7 и 8 августа с 11:00 до 19:00.  Смотри тут расписание фестивальных сцен, партнерских стендов и лектория!
           Ищешь
           <router-link
             to="/stars"
@@ -164,52 +163,49 @@
           <div class="timetable-nav" :class="{_active: openStageList}">
             <ul class="timetable-nav__tabs">
               <li
-                class="timetable-nav__tab"
-                :class="{_active : activeDay === 1}"
-                @click="activeDay = 1"
-              >7 августа</li>
-              <li
-                class="timetable-nav__tab"
-                :class="{_active : activeDay === 2}"
-                @click="activeDay = 2"
-              >8 августа</li>
+              v-for="day, index in days"
+              :key="index"
+              class="timetable-nav__tab"
+              :class="{_active : activeDay === day}"
+              @click="activeDay = day"
+              >{{getDay(day)}}</li>
             </ul>
             <ul class="place__list">
               <li
+                v-for="{id, name} in places"
+                :key="id"
                 class="place__item"
-                :class="{_active: activePlace === place.id}"
-                v-for="place in places"
-                :data-place="place.id"
-                :key="place.id"
-                @click="activePlace = place.id"
+                :class="{_active: activePlaceId === id}"
+                :data-place="id"
+                @click="activePlaceId = id"
                 >
-                <div class="place__item-radio"></div>{{place.name}}
+                <div class="place__item-radio"></div>{{name}}
               </li>
             </ul>
             <button class="close-list" @click="openStageList = !openStageList">Свернуть</button>
           </div>
           <div class="timetable-list">
-            <div class="timetable-item" data-date="" data-place=""  v-for="tableItem in items" :key="tableItem.id">
+            <div class="timetable-item" data-date="" data-place="" v-for="{id, icon, start, end, title, description, streamers} in activities.filter(({day, place}) => (day === activeDay || day === 3) && place.id === activePlaceId)" :key="id">
               <div class="timetable-item__icon">
-                <img :src="tableItem.iconTable" alt="">
+                <img :src="icon" alt="" loading="lazy">
               </div>
               <div class="timetable-item__content" ref="timetableContent">
                 <div class="timetable-item__body">
-                  <div class="timetable-item__time"><span>{{tableItem.timeEnd}}</span>&#8211;<span>{{tableItem.timeEnd}}</span></div>
-                  <div class="timetable-item__title">{{tableItem.title}}</div>
-                  <div class="timetable-item__descr">{{tableItem.descr}}</div>
+                  <div class="timetable-item__time"><span>{{start}}</span>&#8211;<span>{{end}}</span></div>
+                  <div class="timetable-item__title">{{title}}</div>
+                  <div class="timetable-item__descr">{{description}}</div>
                 </div>
-                <div class="timetable-item__footer" v-if="tableItem.stars">
+                <div class="timetable-item__footer" v-if="streamers.length">
                   <div class="timetable-item__stars" ref="starList">
-                    <a :href="url" class="timetable-item__star" v-for="{icon, name, url, index} in tableItem.stars" :key="index" ref="starItem">
+                    <nuxt-link v-for="{id, nickNameSlug, photo, name} in streamers" :key="id"  :to="`/${nickNameSlug}`" class="timetable-item__star">
                       <div class="timetable-item__star-icon--wrapper">
                         <div class="timetable-item__star-icon">
-                         <img :src="icon" :alt="name">
+                         <img :src="photo" :alt="name">
                         </div>
                       </div>
 
                       <div class="timetable-item__star-name">{{name}}</div>
-                    </a>
+                    </nuxt-link>
                   </div>
                 </div>
               </div>
@@ -218,10 +214,7 @@
           <button class="btn btn-stage btn--blue" @click="openStageList = !openStageList">Выбор даты и зоны</button>
         </div>
       </div>
-
-
-      <div class="activities-tabs__content" v-show="activeTable === 3">
-
+      <div class="activities-tabs__content" v-else-if="activeTable === 3">
         <p class="tab-description">
           У нас два входа: со стороны станции МЦД-1 «Сколково» и с главной лестницы Технопарка. Первый этаж — развлекательный. Второй — обзорный. На третьем — лекторий. Залетай!
         </p>
@@ -337,249 +330,54 @@
         </div>
       </div>
     </div>
-
-
   </section>
 </template>
 
 <script>
 export default {
   scrollToTop: true,
-  // auth: true,
-  components: {
-  },
   async asyncData({ $axios }) {
-    const get_streamers = await $axios.get(
-      `/api/get_streamers?at_home=not_show`
-    );
-    const streamers = get_streamers.data;
-    return { streamers };
+    const activities = (await $axios.get(
+      '/api/get_activities'
+    )).data;
+    const places = activities.map(({place})=>({
+      id: place.id,
+      name: place.name
+    }))
+    return { activities, places};
   },
   data() {
     return {
+      activeTable: 1,
+      days: [1, 2],
       openStageList: false,
       activeStage: 1,
-      activeTable: 1,
       activeDay: 1,
-      activePlace: 1,
-      stages : [
-        [
-          { id: 42, name: "Стрим-октагон WASD.TV"},
-          { id: 41, name: "Пиццерия Osteria Mario"},
-          { id: 40, name: "Ретроигры"} ,
-          { id: 39, name: "Шатер QIWI Donate"} ,
-          { id: 38, name: "Настольные ролевые игры"} ,
-          { id: 37, name: "Святой источник"} ,
-          { id: 36, name: "Маркет Музыкальные шкатулки"} ,
-          { id: 35, name: "Маркет Milky Sky"} ,
-          { id: 34, name: "Стрим-октагон ASUS Republic  of Gamers"} ,
-          { id: 33, name: "Мастерская Карматен"} ,
-          { id: 32, name: "Танцевальная зона Just Dance"} ,
-          { id: 31, name: "Сувениры и мерч"} ,
-          { id: 30, name: "Кофейня и смузи"} ,
-        ],
-        [
-          { id: 43, name: "Стрим-октагон WASD.TV"} ,
-          { id: 44, name: "Пиццерия Osteria Mario"} ,
-          { id: 45, name: "Ретроигры"} ,
-          { id: 46, name: "Шатер QIWI Donate"} ,
-          { id: 47, name: "Настольные ролевые игры"} ,
-          { id: 48, name: "Святой источник"} ,
-          { id: 49, name: "Маркет Музыкальные шкатулки"} ,
-        ],
-        [
-          { id: 1, name: "Стрим-октагон WASD.TV"} ,
-          { id: 2, name: "Пиццерия Osteria Mario"} ,
-          { id: 3, name: "Ретроигры"} ,
-          { id: 4, name: "Шатер QIWI Donate"} ,
-          { id: 5, name: "Настольные ролевые игры"} ,
-          { id: 6, name: "Святой источник"} ,
-          { id: 7, name: "Маркет Музыкальные шкатулки"} ,
-        ],
-      ],
-      places: [
-        {id: 1, name: 'Главная сцена'},
-        {id: 2, name: 'Музыкальная сцена'},
-        {id: 3, name: 'Сцена Q&A'},
-        {id: 4, name: 'Автограф-зона'},
-        {id: 5, name: 'Лекторий, зал «Бобёр»'},
-        {id: 6, name: 'Лекторий, зал «Каппа»'},
-        {id: 7, name: 'Лекторий, зал «Гарольд»'},
-        {id: 8, name: 'Партнерский стенд №1'},
-        {id: 9, name: 'Партнерский стенд №2'},
-        {id: 10, name: 'Партнерский стенд №3'},
-      ],
-      items: [
-        {
-          id: '1',
-          icon: '/activity/cup.svg',
-          title: 'Blizzard на Стримфесте!',
-          img: '/activity/activ1.png',
-          placeId: '26',
-          placeIcon: '/activity/place-id.svg',
-          place: 'Октагон Sovremenii',
-          date: 'День 2, началов 14:00',
-          descr: 'Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc. In ac felis quis tortor malesuada pretium. Sed in libero ut nibh placerat accumsan. Praesent egestas neque eu enim.',
-          placeName: 'Главная сцена',
-          day: '',
-          timeStart: '14:30',
-          timeEnd: '14:30',
-          stars: [{icon: '/activity/star.png', name: 'Иванов Иван', url: ''}],
-          iconTable: '/activity/item.png',
-          borderColor: '#2AB2FB'
-
-        },
-        {
-          id: '3',
-          icon: '/activity/cup.svg',
-          title: 'Blizzard на Стримфесте!',
-          img: '',
-          placeId: '26',
-          placeIcon: '/activity/place-id-2.svg',
-          place: 'Октагон Sovremenii',
-          date: 'День 2, началов 14:00',
-          descr: 'Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc. In ac felis quis tortor malesuada pretium. Sed in libero ut nibh placerat accumsan. Praesent egestas neque eu enim. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc. In ac felis quis tortor malesuada pretium. Sed in libero ut nibh placerat accumsan. Praesent egestas neque eu enim.',
-          placeName: 'Музыкальная сцена',
-          day: '',
-          timeStart: '14:30',
-          timeEnd: '14:30',
-          stars: [{icon: '/activity/star.png', name: 'Иванов Иван', url: ''}],
-          iconTable: '/activity/item.png',
-          borderColor: '#2AB2FB'
-
-        },
-        {
-          id: '2',
-          icon: '/activity/cup.svg',
-          title: 'Blizzard на Стримфесте!',
-          img: '/activity/activ1.png',
-          placeId: '26',
-          placeIcon: '/activity/place-id.svg',
-          place: 'Октагон Sovremenii',
-          date: 'День 2, началов 14:00',
-          descr: 'Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc. In ac felis quis tortor malesuada pretium. Sed in libero ut nibh placerat accumsan. Praesent egestas neque eu enim.',
-          placeName: 'Музыкальная сцена',
-          day: '',
-          timeStart: '14:30',
-          timeEnd: '14:30',
-          stars: [{icon: '/activity/star.png', name: 'Иванов Иван', url: ''}],
-          iconTable: '/activity/item.png',
-          borderColor: '#2AB2FB'
-
-        },
-        {
-          id: '4',
-          icon: '/activity/cup.svg',
-          title: 'Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh,',
-          img: '/activity/activ1.png',
-          placeId: '26',
-          placeIcon: '/activity/place-id.svg',
-          place: 'Октагон Sovremenii',
-          date: 'День 2, началов 14:00',
-          descr: 'Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh.',
-          placeName: 'Лекторий, зал «Гарольд»',
-          day: '',
-          timeStart: '14:30',
-          timeEnd: '14:30',
-          iconTable: '/activity/item.png',
-          borderColor: '#8C45F7'
-
-        },
-        {
-          id: '5',
-          icon: '/activity/cup.svg',
-          title: 'Blizzard на Стримфесте!',
-          img: '',
-          placeId: '26',
-          placeIcon: '/activity/place-id.svg',
-          place: 'Октагон Sovremenii',
-          date: 'День 2, началов 14:00',
-          descr: 'Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc. In ac felis quis tortor malesuada pretium. Sed in libero ut nibh placerat accumsan. Praesent egestas neque eu enim.',
-          placeName: 'Лекторий, зал «Гарольд»',
-          day: '',
-          timeStart: '11:30',
-          timeEnd: '14:30',
-          stars: [{icon: '/activity/star.png', name: 'Иванов Иван', url: ''}, {icon: '/activity/star.png', name: 'Иванов Иван', url: ''}, {icon: '/activity/star.png', name: 'Иванов Иван', url: ''}, {icon: '/activity/star.png', name: 'Иванов Иван' , url: ''}, {icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван' , url: ''},{icon: '/activity/star.png', name: 'Иванов Иван' , url: '' },{icon: '/activity/star.png', name: 'Иванов Иван'},{icon: '/activity/star.png', name: 'Иванов Иван'},],
-          iconTable: '/activity/item.png',
-          borderColor: '#FF7A00'
-
-        },
-        {
-          id: '6',
-          icon: '/activity/cup.svg',
-          title: 'Suspendisse pulvinar, augue ac venenatis.',
-          img: '/activity/activ1.png',
-          placeId: '26',
-          placeIcon: '/activity/place-id.svg',
-          place: 'Октагон Sovremenii',
-          date: 'День 2, началов 14:00',
-          descr: 'Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh.',
-          placeName: 'Лекторий, зал «Гарольд»',
-          day: '',
-          timeStart: '14:30',
-          timeEnd: '14:30',
-          stars: [{icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'},],
-          iconTable: '/activity/item.png',
-          borderColor: '#2AB2FB'
-
-        },
-        {
-          id: '7',
-          icon: '/activity/cup.svg',
-          title: 'Blizzard на Стримфесте!',
-          img: '/activity/activ1.png',
-          placeId: '26',
-          placeIcon: '/activity/place-id.svg',
-          place: 'Октагон Sovremenii',
-          date: 'День 2, началов 14:00',
-          descr: 'Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh.',
-          placeName: 'Лекторий, зал «Бобёр»',
-          day: '',
-          timeStart: '12:30',
-          timeEnd: '14:30',
-          stars: [{icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'},],
-          iconTable: '/activity/item.png',
-          borderColor: '#2AB2FB'
-
-        },
-        {
-          id: '8',
-          icon: '/activity/cup.svg',
-          title: 'Blizzard на Стримфесте!',
-          img: '',
-          placeId: '26',
-          placeIcon: '/activity/place-id.svg',
-          place: 'Октагон Sovremenii',
-          date: 'День 2, началов 14:00',
-          descr: 'Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh.',
-          placeName: 'Лекторий, зал «Бобёр»',
-          day: '',
-          timeStart: '12:30',
-          timeEnd: '14:30',
-          stars: [{icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'}, ],
-          iconTable: '/activity/item.png',
-          borderColor: '#2AB2FB'
-
-
-        }
-
-      ]
+      activePlaceId: 1,
     };
   },
-  watch: {
 
-  },
-  created() {
-
-  },
-  computed: {
-
-  },
   mounted() {
     window.addEventListener("resize", this.calcWith);
     this.calcWith();
   },
+
   methods: {
+    getDay(day) {
+      let dayStr = "";
+      switch (day) {
+        case 1:
+          dayStr = "7 августа"
+          break;
+      case 2:
+          dayStr = "8 августа"
+          break;
+      case 3:
+          dayStr = "7 и 8 августа"
+          break;
+      }
+      return dayStr
+    },
     calcWith() {
       let starsLists = this.$refs[`starList`]
       let timetableContent = this.$refs[`timetableContent`][0].clientWidth
@@ -599,10 +397,9 @@ export default {
               starsPosition = starsPosition + stars
             }
           }
-
         } else {
           starList.classList.remove("short")
-          }
+        }
       })
     },
   }

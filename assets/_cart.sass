@@ -189,6 +189,7 @@
       display: none
 .logo-pay--wrapper
   display: flex
+  align-items: center
   margin-bottom: 25px
   width: 100%
 .logo-pay
@@ -225,8 +226,10 @@
     border-radius: 5px
     margin-bottom: 35px
     margin-top: 5px
-    &.item-error 
-      border-color: #ff4633
+    &.item-error
+      border: transparent
+      .maz-input:not(.is-valid)
+        border-color: #ff4633
     input
       margin: 0 !important
       -webkit-border-radius: 0

@@ -170,49 +170,28 @@
       </div>
     </div>
     <nuxt-link
-      v-show="isWidgetsVisible && cartTotalCount"
+      v-show="isWidgetVisible && cartTotalCount"
       :data-num="cartTotalCount"
       class="cart-fix"
       to="/cart"
     >
       <div class="cart-fix__counter"></div>
-      <img src="/cart-small.svg" alt="cart-icon" />
+      <img src="/cart-small.svg" alt="cart-icon" loading="lazy"/>
     </nuxt-link>
-    <div v-show="isWidgetsVisible" id="vk_community_messages"></div>
+    <div v-show="isWidgetVisible" id="vk_community_messages"></div>
   </footer>
 </template>
 
 <script>
 import { mapState } from "vuex";
-
 export default {
-  mounted() {
-    const script = document.createElement("script");
-    script.onload = () => {
-      VK.Widgets.CommunityMessages("vk_community_messages", 122887579, {
-        disableExpandChatSound: "1",
-        disableButtonTooltip: "1"
-      });
-
-      VK.Widgets.Group(
-        "vk_groups",
-        { mode: 3, width: "auto", no_cover: 1 },
-        122887579
-      );
-    };
-    script.src = "https://vk.com/js/api/openapi.js?168";
-    document.body.appendChild(script);
-  },
-  methods: {
-    scrollToTop() {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+  data() {
+    return {
+      isWidgetVisible: false
     }
   },
   computed: {
     ...mapState("cart", ["data"]),
-    isWidgetsVisible() {
-    return !['/cart', '/checkout'].includes(this.$route.path)
-    },
     cartTotalCount() {
       return this.data.cartitem_set
         ? this.data.cartitem_set.reduce(
@@ -221,6 +200,31 @@ export default {
           )
         : 0;
     },
-  }
+  },
+  mounted() {
+      VK.Widgets.CommunityMessages("vk_community_messages", 122887579, {
+        disableExpandChatSound: "1",
+        disableButtonTooltip: "1"
+      });
+      VK.Widgets.Group(
+        "vk_groups",
+        { mode: 3, width: "auto", no_cover: 1 },
+        122887579
+      );
+    this.checkRoutePath();
+  },
+   watch: {
+    "$route.path": function() {
+      this.checkRoutePath();
+    }
+  },
+  methods: {
+    checkRoutePath() {
+      this.isWidgetVisible = !['/cart', '/checkout'].includes(this.$route.path)
+    },
+    scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  },
 };
 </script>

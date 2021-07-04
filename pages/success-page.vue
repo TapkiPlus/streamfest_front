@@ -6,7 +6,7 @@
         <div class="info__subtitle">Заказ успешно оплачен!</div>
         <p>
           Поздравляем, вы идете на Стримфест!<br />
-          Ждем вас 17–18 июля в Технопарке «Сколково», <br />
+          Ждем вас 7–8 августа в Технопарке «Сколково», <br />
           <a href="/contact" target="_blank" rel="noopener noreferrers"
             >вот схема проезда.</a
           >
@@ -19,10 +19,10 @@
         <p>
           Если письма не пришли, напишите на
           <a href="mailto:tickets@streamfest.ru">tickets@streamfest.ru</a>,
-          указав ваш <br /><b>номер заказа: №{{ $route.query.pg_order_id }}.</b>
+          указав ваш <br /><b>номер заказа: №<span id="orderId">{{ $route.query.pg_order_id }}</span><span v-show="false" id="orderAmount">{{amount}}</span>.</b>
         </p>
         <nuxt-link to="/" class="btn"
-          ><span class="split">На главную</span></nuxt-link
+          >На главную</nuxt-link
         >
       </div>
     </div>
@@ -32,6 +32,14 @@
 <script>
 export default {
   scrollToTop: true,
+  async asyncData({ $axios, query }){
+    try {
+      const {data} = await $axios.get(`/api/get_order?id=${query.pg_order_id }`)
+      return {amount: data.amount}
+    } catch (e) {
+      return {amount: null}
+    }
+  },
   mounted() {
     this.$store.dispatch("cart/fetchCart");
   }

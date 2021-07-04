@@ -55,14 +55,14 @@
                   : 'streamer-bottom__button--red'
               ]"
             >
-              <p class="split">
+              <p>
                 {{
                   days_qty === 1
                     ? "Купить — билет на 1 день"
                     : "Купить — билет на 2 дня"
                 }}
               </p>
-              <p class="split">от {{ streamer.nickName }}</p>
+              <p>от {{ streamer.nickName }}</p>
             </button>
           </div>
           <p class="streamer-bottom__text">

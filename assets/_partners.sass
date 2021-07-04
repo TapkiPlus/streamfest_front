@@ -28,37 +28,15 @@
         width: 100%
     &.official
       display: flex
-      margin: 0 -20px
+      margin: 0 -20px 50px
       grid-row-gap: 20px
       align-items: center
       justify-content: center
-      //grid-template-columns: repeat(18, 1fr)
       a
         padding: 0 20px
         width: calc(100% / 4)
         text-align: center
-
-
-      //.part
-      //  &-1
-      //    grid-column: 1 / 4
-      //  &-2
-      //    grid-column: 5 / 9
-      //  &-3
-      //    grid-column: 10 / 14
-      //  &-4
-      //    grid-column: 15 / 19
-      //  &-5
-      //    grid-column: 3 / 7
-      //  &-6
-      //    grid-column: 8 / 12
-      //  &-7
-      //    grid-column: 13 / 16
-      //  &-8
-      //    grid-column: 5 / 9
-      //  &-9
-      //    grid-column: 10 / 14
-
+        margin-bottom: 20px
 
       img
         max-width: 230px
@@ -71,8 +49,6 @@
       img
         max-width: 236px
   &-modal
-      opacity: 0
-      visibility: hidden
       background: rgba(43,46,56,.9)
       position: fixed
       z-index: 9999
@@ -80,10 +56,6 @@
       right: 0
       bottom: 0
       left: 0
-      transition: all .2s linear
-      &.visible
-        opacity: 1
-        visibility: visible
       &__close
         background: #00a1e0
         color: #fff
@@ -148,13 +120,10 @@
         display: flex
         justify-content: space-around
         flex-wrap: wrap
-        margin: 0 -10px
+        margin: 0 -10px 18px
         a
           width: calc(100% / 3)
           padding: 0 10px
-        //img
-        //  max-width: 140px
-        //  margin: 0 10px 18px
       &.strategy
         a
           &:not(:nth-child(2n+1))
