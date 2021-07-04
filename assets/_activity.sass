@@ -2,8 +2,30 @@
   overflow-y: initial
   position: relative
   &:before
-    content: url(/activity/activ-bg-left.svg)
+    content: ''
+    background: url('/activity/activ-bg-left.svg') left top repeat
+    -webkit-background-size: 100%
+    background-size: 100%
     position: absolute
+    width: 174px
+    top: 0
+    left: 0
+    bottom: 0
+    overflow: hidden
+    z-index: -1
+    @media only screen and (max-width: 992px)
+      display: none
+  &:after
+    content: ''
+    background: url('/activity/activ-bg-right.svg') 0 0 repeat
+    -webkit-background-size: 100%
+    background-size: 100%
+    position: absolute
+    width: 230px
+    top: 0
+    right: 0
+    bottom: 0
+    overflow: hidden
     z-index: -1
     @media only screen and (max-width: 992px)
       display: none
@@ -78,7 +100,7 @@
       transition: font-weight .25s ease
       +h7
       display: flex
-      align-items: center
+      align-items: flex-start
       justify-content: center
       text-transform: uppercase
       @media only screen and (max-width: 992px)
@@ -105,7 +127,7 @@
   -webkit-border-radius: 12px
   -moz-border-radius: 12px
   border-radius: 12px
-  border: 1px solid #2FE9F5
+  border: 3px solid #2FE9F5
   position: relative
   margin-bottom: 30px
   &__corner
@@ -211,14 +233,22 @@
   height: fit-content
   top: 150px
   margin-right: 72px
-  max-width: 486px
   min-width: 335px
-  width: 100%
+  width: 468px
   -webkit-border-radius: 8px
   -moz-border-radius: 8px
   border-radius: 8px
   box-shadow: 5px 5px 24px rgba(0, 0, 0, 0.25)
   background-color: #fff
+  &::-webkit-scrollbar
+    width: 5px
+    background: transparent
+
+  ::-webkit-scrollbar-thumb
+    background-color: #843465
+    border-radius: 9em
+    box-shadow: inset 1px 1px 10px #f3faf7
+
   @media screen and (max-width: 1280px)
     margin-right: 35px
     padding: 25px 15px
@@ -263,7 +293,7 @@
       color: #ffffff
       background-color: $color-blue
       box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.25)
-    @media only screen and (max-width: 767px)
+    @media only screen and (max-width: 1440px)
       font-size: 18px
 
   .close-list
@@ -276,6 +306,8 @@
     padding-bottom: 15px
     height: calc(100vh - 177px)
     overflow-y: auto
+    max-height: 80vh
+
   @media only screen and (max-width: 767px)
     height: calc(100vh - 167px)
 
@@ -317,7 +349,8 @@
     &:after
       background-color: $color-blue
 
-
+  @media only screen and (max-width: 1440px)
+    font-size: 18px
 .timetable-list
   max-width: 1200px
 
@@ -374,7 +407,7 @@
     @media only screen and (max-width: 768px)
       text-align: left
   &__footer
-    border-top: 1px solid $gray
+    border-top: 2px solid $gray
     padding-top: 10px
   &__stars
     display: flex
@@ -574,7 +607,7 @@
             fill: #ffffff
       @media only screen and (max-width: 767px)
         font-size: 12px
-        height: 55px
+        height: 55pxF
 
     @media only screen and (max-width: 767px)
       margin-bottom: 10px
@@ -582,6 +615,8 @@
         height: 30px
     &--info
       position: relative
+      a
+        cursor: initial
       path
         stroke: $color-blue
         &:last-child
@@ -623,7 +658,7 @@
         border-width: 3px 6px 3px 0
         border-color: transparent #ffffff transparent transparent
     &__item
-      width: calc((100% - 30px) / 2)
+      width: calc((100% - 10px) / 2)
       min-width: 83px
       display: flex
       align-items: center
@@ -708,13 +743,16 @@
 
 
 ::-webkit-scrollbar-track
-  background-color: #000
+  background-color: #fff
 
 ::-webkit-scrollbar-thumb
-  background-color: red
+  background-color: $gray
+  -webkit-border-radius: 10px
+  -moz-border-radius: 10px
+  border-radius: 10px
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25)
   &:hover
-    background-color: yellow
+    background-color: darken($gray, 10%)
 
 
 .btn-stage
@@ -725,5 +763,6 @@
   display: none
   margin-left: auto
   margin-right: auto
+  z-index: 200
   @media only screen and (max-width: 767px)
     display: flex

@@ -93,7 +93,7 @@
         <div class="activities-grid">
           <masonry
             :cols="{default: 2, 767: 1}"
-            :gutter="{default: '60px', 768: '25px' }"
+            :gutter="{default: '60px', 1024: '30px' }"
           >
             <div v-for="(item, index) in items" :key="index">
               <div class="activities-item" :style="{borderColor: item.borderColor}">
@@ -148,7 +148,7 @@
 
       <div class="activities-tabs__content" v-show="activeTable === 2">
         <p class="tab-description">
-          Стримфест проходит 17 и 18 июля с 11:00 до 19:00.  Смотри тут расписание фестивальных сцен, партнерских стендов и лектория!
+          Стримфест проходит 7 и 8 августа с 11:00 до 19:00. Смотри тут расписание фестивальных сцен, партнерских стендов и лектория!
           Ищешь
           <router-link
             to="/stars"
@@ -158,7 +158,7 @@
             href="https://t.me/StreamfestBot/start"
             class="link"
             target="_blank"
-            rel="noopener noreferrer" >@streamFestBot</a></p>
+            rel="noopener noreferrer" >@StreamfestBot</a></p>
 
         <div class="timetable">
           <div class="timetable-nav" :class="{_active: openStageList}">
@@ -167,12 +167,12 @@
                 class="timetable-nav__tab"
                 :class="{_active : activeDay === 1}"
                 @click="activeDay = 1"
-              >17 июля</li>
+              >7 августа</li>
               <li
                 class="timetable-nav__tab"
                 :class="{_active : activeDay === 2}"
                 @click="activeDay = 2"
-              >18 июля</li>
+              >8 августа</li>
             </ul>
             <ul class="place__list">
               <li
@@ -195,13 +195,13 @@
               </div>
               <div class="timetable-item__content" ref="timetableContent">
                 <div class="timetable-item__body">
-                  <div class="timetable-item__time"><span>{{tableItem.timeEnd}}</span>-<span>{{tableItem.timeEnd}}</span></div>
+                  <div class="timetable-item__time"><span>{{tableItem.timeEnd}}</span>&#8211;<span>{{tableItem.timeEnd}}</span></div>
                   <div class="timetable-item__title">{{tableItem.title}}</div>
                   <div class="timetable-item__descr">{{tableItem.descr}}</div>
                 </div>
                 <div class="timetable-item__footer" v-if="tableItem.stars">
                   <div class="timetable-item__stars" ref="starList">
-                    <a href="" class="timetable-item__star" v-for="{icon, name, index} in tableItem.stars" :key="index" ref="starItem">
+                    <a :href="url" class="timetable-item__star" v-for="{icon, name, url, index} in tableItem.stars" :key="index" ref="starItem">
                       <div class="timetable-item__star-icon--wrapper">
                         <div class="timetable-item__star-icon">
                          <img :src="icon" :alt="name">
@@ -242,7 +242,7 @@
             <div class="map-tab" >
               <a href="" @click.prevent="activeStage = 3" :class="{_active : activeStage === 3}">3 этаж</a></div>
             <div class="map-tab map-tab--info" >
-              <a href="">
+              <a href="" @click.prevent>
                 <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M41.4995 20.9998C41.4995 32.3215 32.3215 41.4995 20.9998 41.4995C9.67806 41.4995 0.5 32.3215 0.5 20.9998C0.5 9.67805 9.67806 0.5 20.9998 0.5C32.3215 0.5 41.4995 9.67805 41.4995 20.9998Z" stroke="white"/>
                   <path d="M20.6634 32.0048H16.5908L20.0267 16.507H24.0993L20.6634 32.0048ZM22.6457 14.8372C22.021 14.8372 21.5044 14.633 21.0839 14.2245C20.6634 13.816 20.4592 13.3235 20.4592 12.7468C20.4592 11.9059 20.7475 11.2449 21.3122 10.7404C21.8768 10.2358 22.5015 9.98364 23.1863 9.98364C23.823 9.98364 24.3636 10.1879 24.7721 10.5964C25.1805 11.0048 25.3968 11.4974 25.3968 12.074C25.3968 12.915 25.1085 13.5756 24.5318 14.0802C23.9672 14.5848 23.3304 14.8372 22.6457 14.8372Z" fill="white"/>
@@ -252,11 +252,11 @@
                 <ul class="map-tooltip__list">
                   <li class="map-tooltip__item">
                     <img class="map-tooltip__icon" src="/activity/info-food.svg" alt=""/>
-                    <div class="map-tooltip__text">Еда, бафы</div>
+                    <div class="map-tooltip__text">Кафе</div>
                   </li>
                   <li class="map-tooltip__item">
                     <img class="map-tooltip__icon" src="/activity/info-medic.svg" alt=""/>
-                    <div class="map-tooltip__text">Хилки</div>
+                    <div class="map-tooltip__text">Медпункт</div>
                   </li>
                   <li class="map-tooltip__item">
                     <img class="map-tooltip__icon" src="/activity/info-cash.svg" alt=""/>
@@ -264,7 +264,7 @@
                   </li>
                   <li class="map-tooltip__item">
                     <img class="map-tooltip__icon" src="/activity/info-info.svg" alt=""/>
-                    <div class="map-tooltip__text">Пресса</div>
+                    <div class="map-tooltip__text">Информация</div>
                   </li>
                   <li class="map-tooltip__item">
                     <img class="map-tooltip__icon" src="/activity/info-wc.svg" alt=""/>
@@ -272,7 +272,7 @@
                   </li>
                   <li class="map-tooltip__item">
                     <img class="map-tooltip__icon" src="/activity/info-fire.svg" alt=""/>
-                    <div class="map-tooltip__text">Пожарка</div>
+                    <div class="map-tooltip__text">Эвакуация</div>
                   </li>
 
                 </ul>
@@ -293,7 +293,7 @@
                 <div class="map-title">Что где на карте</div>
                 <ul class="map__list">
                   <li class="map__item" v-for="item in stages[0]" :key="item.id">
-                    <span class="zone-id">{{ item.id }} - </span> {{ item.name }}
+                    <span class="zone-id">{{ item.id }} </span> &mdash;{{ item.name }}
                   </li>
                 </ul>
                 <button class="close-list" @click="openStageList = !openStageList">Свернуть</button>
@@ -359,7 +359,7 @@ export default {
     return {
       openStageList: false,
       activeStage: 1,
-      activeTable: 2,
+      activeTable: 1,
       activeDay: 1,
       activePlace: 1,
       stages : [
@@ -424,7 +424,7 @@ export default {
           day: '',
           timeStart: '14:30',
           timeEnd: '14:30',
-          stars: [{icon: '/activity/star.png', name: 'Иванов Иван'}],
+          stars: [{icon: '/activity/star.png', name: 'Иванов Иван', url: ''}],
           iconTable: '/activity/item.png',
           borderColor: '#2AB2FB'
 
@@ -443,7 +443,7 @@ export default {
           day: '',
           timeStart: '14:30',
           timeEnd: '14:30',
-          stars: [{icon: '/activity/star.png', name: 'Иванов Иван'}],
+          stars: [{icon: '/activity/star.png', name: 'Иванов Иван', url: ''}],
           iconTable: '/activity/item.png',
           borderColor: '#2AB2FB'
 
@@ -462,7 +462,7 @@ export default {
           day: '',
           timeStart: '14:30',
           timeEnd: '14:30',
-          stars: [{icon: '/activity/star.png', name: 'Иванов Иван'}],
+          stars: [{icon: '/activity/star.png', name: 'Иванов Иван', url: ''}],
           iconTable: '/activity/item.png',
           borderColor: '#2AB2FB'
 
@@ -499,7 +499,7 @@ export default {
           day: '',
           timeStart: '11:30',
           timeEnd: '14:30',
-          stars: [{icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван'},{icon: '/activity/star.png', name: 'Иванов Иван'},{icon: '/activity/star.png', name: 'Иванов Иван'},{icon: '/activity/star.png', name: 'Иванов Иван'},],
+          stars: [{icon: '/activity/star.png', name: 'Иванов Иван', url: ''}, {icon: '/activity/star.png', name: 'Иванов Иван', url: ''}, {icon: '/activity/star.png', name: 'Иванов Иван', url: ''}, {icon: '/activity/star.png', name: 'Иванов Иван' , url: ''}, {icon: '/activity/star.png', name: 'Иванов Иван'}, {icon: '/activity/star.png', name: 'Иванов Иван' , url: ''},{icon: '/activity/star.png', name: 'Иванов Иван' , url: '' },{icon: '/activity/star.png', name: 'Иванов Иван'},{icon: '/activity/star.png', name: 'Иванов Иван'},],
           iconTable: '/activity/item.png',
           borderColor: '#FF7A00'
 
