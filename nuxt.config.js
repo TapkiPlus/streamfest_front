@@ -61,7 +61,7 @@ export default {
         innerHTML: `<div><img src="https://mc.yandex.ru/watch/38023235" style="position:absolute; left:-9999px;" alt="" /></div>`,
         body: true
       },
-      
+
     ],
      __dangerouslyDisableSanitizers: ['script','noscript']
   },

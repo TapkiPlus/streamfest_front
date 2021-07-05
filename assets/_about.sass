@@ -1,0 +1,195 @@
+.about
+  padding-top: 150px
+  @media screen and (max-width: 1024px)
+    padding-top: 90px
+  .section-descr
+    max-width: 1000px
+    margin: 25px auto 0
+    text-align: center
+    @media screen and (max-width: 767px)
+      margin-top: 10px
+  .video-block
+    max-width: 1000px
+    margin: 20px auto 25px
+    &:before, &:after
+      display: none
+    p
+      margin-bottom: 25px
+    @media screen and (max-width: 767px)
+      margin: 10px auto 0
+  .partners
+    &:before, &:after
+      display: none
+    .section-header
+      text-transform: uppercase
+    @media screen and (max-width: 767px)
+      padding-top: 40px
+      .partners-btn
+        margin-bottom: 35px
+
+  .partners-img
+
+    justify-content: center
+    &.commercial
+      margin: 0 -18px 35px
+      a
+        padding: 0 18px
+        width: calc(100% / 6)
+        @media screen and (max-width: 767px)
+          width: calc(100% / 4)
+        @media screen and (max-width: 567px)
+          width: calc(100% / 3)
+    &.tematic
+      margin: 0 -45px
+      @media screen and (max-width: 767px)
+        margin: 0 -18px
+      a
+        padding: 0 45px
+        width: calc(100% / 5)
+        @media screen and (max-width: 767px)
+          width: calc(100% / 4)
+          padding: 0 18px
+        @media screen and (max-width: 567px)
+          width: calc(100% / 3)
+
+.tabs-slider
+  max-width: 385px
+  margin: 50px auto
+  position: relative
+  padding: 0 18px
+  @media screen and (max-width: 767px)
+    margin: 25px auto
+
+.years-button-prev.swiper-button-prev
+  transform: rotate(180deg)
+  left: 0
+.years-button-next.swiper-button-next
+  right: 0
+
+
+.year-slide
+  text-align: center
+  font-size: 24px
+  font-weight: 700
+  color: $gray
+  max-width: 115px
+  position: relative
+  transition: color .25s ease
+  cursor: pointer
+  &.swiper-slide-active
+    color: $color-blue
+
+    &:after, &:before
+      content: ''
+      position: absolute
+      top: 50%
+      transform: translateY(-50%)
+      display: block
+      height: 30px
+      width: 2px
+      -webkit-border-radius: 1px
+      -moz-border-radius: 1px
+      border-radius: 1px
+      background-color: $gray
+    &:before
+      left: 0
+    &:after
+      right: 0
+
+
+.about-counter
+  max-width: 900px
+  margin: 0 auto
+  &__list
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+  &__item
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    border: 1px solid $gray
+    -webkit-border-radius: 10px
+    -moz-border-radius: 10px
+    border-radius: 10px
+    width: calc((100% - 60px) / 3 )
+    min-height: 140px
+    margin-bottom: 30px
+    &:last-child
+      .about-counter__percent
+        &:before
+          display: none
+    @media screen and (max-width: 767px )
+      width: calc((100% - 10px) / 2 )
+      margin-bottom: 10px
+      min-height: 118px
+  &__icon
+    height: 32px
+    width: 39px
+    display: flex
+    justify-content: center
+    align-items: center
+  &__descr
+    font-size: 16px
+    font-weight: 600
+    @media screen and (max-width: 767px )
+      font-size: 14px
+    @media screen and (max-width: 365px )
+      font-size: 11px
+      margin-bottom: 6px
+      margin-top: 6px
+
+  &__count
+    font-size: 35px
+    font-weight: 700
+    line-height: .9
+    @media screen and (max-width: 767px )
+      font-size: 24px
+  &__percent
+    font-size: 16px
+    font-weight: 600
+    color: #44C868
+    &:before
+      content: url(/about/up.svg)
+      margin-right: 4px
+    @media screen and (max-width: 767px )
+      font-size: 14px
+      margin-top: 3px
+
+
+.about__descr
+  margin-top: 25px
+
+.about-gallery
+  position: relative
+  &:after
+    content: ''
+    position: absolute
+    display: block
+    bottom: 0
+    width: 100%
+    height: 170px
+    background: linear-gradient(0deg, #FFFFFF 17.06%, rgba(255, 255, 255, 0.337366) 64.43%, rgba(255, 255, 255, 0) 100%)
+  @media screen and (max-width: 767px)
+    &:after
+      height: 76px
+.gallery__item
+  display: flex
+  justify-content: space-between
+  margin-bottom: 5px
+  img
+    object-fit: cover
+    width: 100%
+    height: 100%
+  &--double
+
+    .gallery-img
+      width: calc((100% - 5px) / 2 )
+    @media screen and (max-width: 767px)
+      flex-wrap: wrap
+      .gallery-img
+        width: 100%
+        &:first-child
+          margin-bottom: 5px
+

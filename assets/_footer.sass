@@ -66,12 +66,13 @@
   justify-content: center
   align-items: center
   z-index: 200
-  background: linear-gradient(160.42deg, #FFC133 0%, #FF9900 47.49%, #FF9900 97.78%)
+  filter: drop-shadow(6px 6px 12px rgba(0, 0, 0, 0.35))
+  background: linear-gradient(90deg, #0D6DD8 7.2%, #0D6DD8 39.97%, #33A0FD 100%), #C4C4C4
   &::after
     position: absolute
     content: attr(data-num)
-    width: 16px
-    height: 16px
+    width: 24px
+    height: 24px
     background: red
     border-radius: 100%
     color: #FFFFFF
@@ -79,8 +80,8 @@
     display: flex
     align-items: center
     justify-content: center
-    right: 0
-    top: 0
+    right: -6px
+    top: -6px
 #vk_community_messages
   bottom: 60px !important
 @media screen and (max-width: 1024px)
