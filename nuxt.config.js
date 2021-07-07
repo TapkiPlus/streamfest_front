@@ -80,7 +80,7 @@ export default {
   modules: [ "@nuxtjs/axios", "@nuxtjs/auth", "@nuxtjs/robots"],
   robots: {
     UserAgent: '*',
-    Disallow: '/account/',
+    Disallow: '/account/',  
   },
   axios: {
     // baseURL: "http://sf.tagobar.ru"

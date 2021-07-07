@@ -234,11 +234,7 @@
                 <el-image src="/partners/stream-charts.png" lazy></el-image>
               </a>
             </div>
-            <div class="partners-btn">
-              <button @click="openPartnersModal" class="btn btn--red btn--big">
-                <span class="split">Хочу стать партнером</span>
-              </button>
-            </div>
+            <PartnersModalButton/>
           </div>
           <div class="about-gallery">
             <masonry
@@ -527,11 +523,7 @@
                 <el-image src="/partners/stream-charts.png" lazy></el-image>
               </a>
             </div>
-            <div class="partners-btn">
-              <button @click="openPartnersModal" class="btn btn--red btn--big">
-                <span class="split">Хочу стать партнером</span>
-              </button>
-            </div>
+            <PartnersModalButton/>
           </div>
           <div class="about-gallery">
             <masonry
@@ -820,11 +812,7 @@
                 <el-image src="/partners/stream-charts.png" lazy></el-image>
               </a>
             </div>
-            <div class="partners-btn">
-              <button @click="openPartnersModal" class="btn btn--red btn--big">
-                <span class="split">Хочу стать партнером</span>
-              </button>
-            </div>
+            <PartnersModalButton/>
           </div>
           <div class="about-gallery">
             <masonry
@@ -1113,11 +1101,7 @@
                 <el-image src="/partners/stream-charts.png" lazy></el-image>
               </a>
             </div>
-            <div class="partners-btn">
-              <button @click="openPartnersModal" class="btn btn--red btn--big">
-                <span class="split">Хочу стать партнером</span>
-              </button>
-            </div>
+            <PartnersModalButton/>
           </div>
           <div class="about-gallery">
             <masonry
@@ -1406,11 +1390,7 @@
                 <el-image src="/partners/stream-charts.png" lazy></el-image>
               </a>
             </div>
-            <div class="partners-btn">
-              <button @click="openPartnersModal" class="btn btn--red btn--big">
-                <span class="split">Хочу стать партнером</span>
-              </button>
-            </div>
+           <PartnersModalButton/>
           </div>
           <div class="about-gallery">
             <masonry
@@ -1699,11 +1679,7 @@
                 <el-image src="/partners/stream-charts.png" lazy></el-image>
               </a>
             </div>
-            <div class="partners-btn">
-              <button @click="openPartnersModal" class="btn btn--red btn--big">
-                <span class="split">Хочу стать партнером</span>
-              </button>
-            </div>
+            <PartnersModalButton/>
           </div>
           <div class="about-gallery">
             <masonry
@@ -1792,30 +1768,23 @@
         </div>
       </div>
     </section>
-    <div :class="{ visible: partnersIframe }" class="partners-modal">
-      <button @click="closePartnersModal" class="partners-modal__close">
-        ✖
-      </button>
-      <iframe
-        class="partners-modal__iframe"
-        src="https://docs.google.com/forms/d/e/1FAIpQLSeMR_dy_vI2fTg89_Qf8ssprOwOFiwIaPRdzIrm9-MPr8yUdA/viewform?embedded=true"
-        frameborder="0"
-        marginheight="0"
-        marginwidth="0"
-      >Loading…</iframe
-      >
-    </div>
+    <PartnersModal/>
   </div>
 
 
 </template>
 
 <script>
+import PartnersModal from "@/components/PartnersModal/"
+import PartnersModalButton from "@/components/PartnersModal/Button"
 	export default {
 		name: "about",
+    components: {
+      PartnersModal,
+      PartnersModalButton
+    },
     data() {
 		  return {
-        partnersIframe: false,
         activeYear: 2,
 		    years: ["2017", "2018", "2019", "2020", "2021", "2022"],
         yearsOptions: {
@@ -1828,21 +1797,10 @@
             nextEl: ".years-button-next",
             prevEl: ".years-button-prev"
           },
-
-
-
         }
-      }
+      } 
     },
     methods: {
-      openPartnersModal() {
-        document.querySelector("body").style.overflow = "hidden";
-        this.partnersIframe = true;
-      },
-      closePartnersModal() {
-        this.partnersIframe = false;
-        document.querySelector("body").style.overflow = "visible";
-      },
       changeSwiperIndex() {
         this.activeYear = this.$refs["yearsSlider"].$swiper.activeIndex;
       }
