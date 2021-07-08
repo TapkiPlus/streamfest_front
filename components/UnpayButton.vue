@@ -4,7 +4,7 @@
                   :data-event_id="day"
                   data-width="211px"
                   :data-text="day === 1 ? 'Получить билет бесплатно от Альфа Банка' : 'Получить скидку - 1300р от Альфа Банка'"
-                  data-color="inherit"
+                  data-color="#fff"
                   data-background="transparent"
                   data-border="none"
                   data-padding="0"
