@@ -92,106 +92,161 @@
     <div class="container-wide">
       <div class="activities-tabs__content">
         <p class="tab-description">
-          Смотри, что покажу! Самые интересные места и события фестиваля, которые вообще нельзя пропустить. Демозоны, анонсы, челленджи, шоу-матчи, технологии, весь фарш и вау-косплей.
-        </p>
-        <div class="activities-grid">
-          <masonry
-            :cols="{default: 2, 767: 1}"
-            :gutter="{default: '60px', 1024: '30px' }"
-          >
-            <div v-for="{id, image, icon, title, description, place, day, start} in activities" :key="id">
-              <div class="activities-item">
-                <div class="activities-item__img" v-if="image">
-                  <img :src="image" alt="" loading="lazy">
-                </div>
-                <div class="activities-item__content">
-                  <div class="activities-item__body">
-                    <div class="activities-item__title">
-                      <img class="activities-item__icon" :src="icon" alt="" loading="lazy"/>
-                      <span>{{title}}</span>
-                    </div>
-                    <div class="activities-item__descr">{{description}}</div>
+          Стримфест проходит 7 и 8 августа с 11:00 до 19:00.  Смотри тут расписание фестивальных сцен, партнерских стендов и лектория!
+          Ищешь
+          <router-link
+            to="/stars"
+            class="link">
+            конкретного участника</router-link>? Спроси телеграм-бота:
+          <a
+            href="https://t.me/StreamfestBot/start"
+            class="link"
+            target="_blank"
+            rel="noopener noreferrer" >@StreamfestBot</a></p>
 
-                  </div>
-                  <div class="activities-item__footer">
-                    <div class="activities-item__place-id">
-                      <img class="activities-item__place-icon" src="/activity/place-id.svg" alt="" loading="lazy"/>
-                      <span>{{place.id}}</span></div>
-                    <div class="activities-item__info">
-                      <div class="activities-item__place">{{place.name}}</div>
-                      <div class="activities-item__date">{{getDay(day)}}, начало {{start}}</div>
-                    </div>
-                  </div>
+        <div class="timetable">
+          <div class="timetable-nav" :class="{_active: openStageList}">
+            <ul class="timetable-nav__tabs">
+              <li
+                v-for="day, index in days"
+                :key="index"
+                class="timetable-nav__tab"
+                :class="{_active : activeDay === day}"
+                @click="activeDay = day"
+              >{{getDay(day)}}</li>
+            </ul>
+            <ul class="place__list">
+              <li
+                v-for="{id, name} in places"
+                :key="id"
+                class="place__item"
+                :class="{_active: activePlaceId === id}"
+                :data-place="id"
+                @click="updateWidth(id)"
+              >
+                <div class="place__item-radio"></div>{{name}}
+              </li>
+            </ul>
+            <button class="close-list" @click="openStageList = !openStageList">Свернуть</button>
+          </div>
+          <div class="timetable-list">
+            <div class="timetable-item" :style="{'border-color': border}" data-date="" data-place="" v-for="{id, icon, start, end, title, description, streamers, border} in activities.filter(({day, place}) => (day === activeDay || day === 3) && place.id === activePlaceId)" :key="id">
+              <div class="timetable-item__icon">
+                <img :src="icon" alt="" loading="lazy">
+              </div>
+              <div class="timetable-item__content" ref="timetableContent">
+                <div class="timetable-item__body">
+                  <div class="timetable-item__time"><span>{{start}}</span>&#8211;<span>{{end}}</span></div>
+                  <div class="timetable-item__title">{{title}}</div>
+                  <div class="timetable-item__descr">{{description}}</div>
                 </div>
-                <div class="activities-item__corner" v-if="!image" >
-                  <svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g filter="url(#filter0_d)">
-                      <path d="M15.7722 11.7722L24.988 2.32C29.3715 -2.17586 37 0.927558 37 7.2067V26C37 29.866 33.866 33 30 33H11.2067C4.92756 33 1.82413 25.3715 6.32 20.988L15.7722 11.7722Z" :fill="item.borderColor" />
-                    </g>
-                    <defs>
-                      <filter id="filter0_d" x="0.193359" y="0.192627" width="40.8074" height="40.8074" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-                        <feOffset dy="4"/>
-                        <feGaussianBlur stdDeviation="2"/>
-                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
-                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
-                      </filter>
-                    </defs>
-                  </svg>
+                <div class="timetable-item__footer" v-if="streamers.length">
+                  <div class="timetable-item__stars" ref="starList">
+                    <nuxt-link v-for="{id, nickNameSlug, photo, name} in streamers" :key="id"  :to="`/${nickNameSlug}`" class="timetable-item__star">
+                      <div class="timetable-item__star-icon--wrapper">
+                        <div class="timetable-item__star-icon">
+                          <img :src="photo" :alt="name">
+                        </div>
+                      </div>
 
+                      <div class="timetable-item__star-name">{{name}}</div>
+                    </nuxt-link>
+                  </div>
                 </div>
               </div>
             </div>
-          </masonry>
+          </div>
+          <button class="btn btn-stage btn--blue" @click="openStageList = !openStageList">Выбор даты и зоны</button>
         </div>
-
       </div>
     </div>
   </section>
 </template>
 
 <script>
-export default {
-  scrollToTop: true,
-  async asyncData({ $axios }) {
-    const activities = (await $axios.get(
-      '/api/get_activities'
-    )).data;
-    const places = activities.map(({place})=>({
-      id: place.id,
-      name: place.name
-    }))
-    return { activities, places};
-  },
-  name: 'Activities',
-  data() {
-    return {
-      activeTable: 1,
-      days: [1, 2],
-      openStageList: false,
-      activeStage: 1,
-      activeDay: 1,
-      activePlaceId: 1,
-    };
-  },
-  methods: {
-    getDay(day) {
-      let dayStr = "";
-      switch (day) {
-        case 1:
-          dayStr = "7 августа"
-          break;
-      case 2:
-          dayStr = "8 августа"
-          break;
-      case 3:
-          dayStr = "7 и 8 августа"
-          break;
+  export default {
+    head() {
+      return {
+        bodyAttrs: {
+          class: this.openStageList ? '_fixed' : ''
+        }
       }
-      return dayStr
     },
-  }
-};
+    scrollToTop: true,
+    async asyncData({ $axios }) {
+      const activities = (await $axios.get(
+        '/api/get_activities'
+      )).data;
+      const places = activities.map(({place})=>({
+        id: place.id,
+        name: place.name
+      }))
+      return { activities, places};
+    },
+    name: 'Timetable',
+    data() {
+      return {
+        activeTable: 2,
+        days: [1, 2],
+        openStageList: false,
+        activeStage: 1,
+        activeDay: 1,
+        activePlaceId: 11,
+      };
+    },
+
+    mounted() {
+      this.calcWith()
+    },
+
+    methods: {
+      getDay(day) {
+        let dayStr = "";
+        switch (day) {
+          case 1:
+            dayStr = "7 августа"
+            break;
+          case 2:
+            dayStr = "8 августа"
+            break;
+          case 3:
+            dayStr = "7 и 8 августа"
+            break;
+        }
+        return dayStr
+      },
+      calcWith() {
+        let starsLists = this.$refs[`starList`]
+        console.log(starsLists)
+        console.log(this.$refs.timetableContent)
+        let timetableContent = setTimeout(this.$refs.timetableContent.clientWidth, 100 )
+        console.log(timetableContent)
+        starsLists.forEach(starList => {
+          if(starList.clientWidth >= (timetableContent )) {
+            starList.classList.add("short")
+            let maxWidth = window.screen.width - 40
+            let starsArray = starList.children
+            let stars = (maxWidth / starsArray.length)
+            let starsPosition = 0
+            // if(starList.clientWidth > maxWidth ) {
+            //   console.log(starsPosition)
+            //   for( let i = 0; i < starsArray.length; i++) {
+            //     starsArray[i].style.position = 'absolute'
+            //     starsArray[i].style.transform = `translateX(${starsPosition}px)`
+            //     starsPosition = starsPosition + stars
+            //   }
+            // }
+          } else {
+            starList.classList.remove("short")
+          }
+        })
+      },
+      updateWidth(id) {
+        this.activePlaceId = id
+        this.openStageList = false
+        setTimeout(this.calcWith, 100)
+
+      }
+    }
+  };
 </script>

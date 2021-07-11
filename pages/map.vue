@@ -92,106 +92,174 @@
     <div class="container-wide">
       <div class="activities-tabs__content">
         <p class="tab-description">
-          Смотри, что покажу! Самые интересные места и события фестиваля, которые вообще нельзя пропустить. Демозоны, анонсы, челленджи, шоу-матчи, технологии, весь фарш и вау-косплей.
+          У нас два входа: со стороны станции МЦД-1 «Сколково» и с главной лестницы Технопарка. Первый этаж — развлекательный. Второй — обзорный. На третьем — лекторий. Залетай!
         </p>
-        <div class="activities-grid">
-          <masonry
-            :cols="{default: 2, 767: 1}"
-            :gutter="{default: '60px', 1024: '30px' }"
-          >
-            <div v-for="{id, image, icon, title, description, place, day, start} in activities" :key="id">
-              <div class="activities-item">
-                <div class="activities-item__img" v-if="image">
-                  <img :src="image" alt="" loading="lazy">
-                </div>
-                <div class="activities-item__content">
-                  <div class="activities-item__body">
-                    <div class="activities-item__title">
-                      <img class="activities-item__icon" :src="icon" alt="" loading="lazy"/>
-                      <span>{{title}}</span>
-                    </div>
-                    <div class="activities-item__descr">{{description}}</div>
-
-                  </div>
-                  <div class="activities-item__footer">
-                    <div class="activities-item__place-id">
-                      <img class="activities-item__place-icon" src="/activity/place-id.svg" alt="" loading="lazy"/>
-                      <span>{{place.id}}</span></div>
-                    <div class="activities-item__info">
-                      <div class="activities-item__place">{{place.name}}</div>
-                      <div class="activities-item__date">{{getDay(day)}}, начало {{start}}</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="activities-item__corner" v-if="!image" >
-                  <svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g filter="url(#filter0_d)">
-                      <path d="M15.7722 11.7722L24.988 2.32C29.3715 -2.17586 37 0.927558 37 7.2067V26C37 29.866 33.866 33 30 33H11.2067C4.92756 33 1.82413 25.3715 6.32 20.988L15.7722 11.7722Z" :fill="item.borderColor" />
-                    </g>
-                    <defs>
-                      <filter id="filter0_d" x="0.193359" y="0.192627" width="40.8074" height="40.8074" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-                        <feOffset dy="4"/>
-                        <feGaussianBlur stdDeviation="2"/>
-                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
-                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
-                      </filter>
-                    </defs>
-                  </svg>
-
-                </div>
-              </div>
+        <div class="map--wrapper">
+          <div class="map__tabs">
+            <div class="map-tab map-tab--thin">
+              <a href="#enter1" @click="activeStage = 1">Вход 1</a>
             </div>
-          </masonry>
-        </div>
+            <div class="map-tab map-tab--thin">
+              <a href="#enter2" @click="activeStage = 1">Вход 2</a>
+            </div>
+            <div class="map-tab">
+              <a href="#stage1" @click="activeStage = 1" :class="{_active : activeStage === 1}">1 этаж</a>
+            </div>
+            <div class="map-tab" >
+              <a href="#stage2" @click="activeStage = 2" :class="{_active : activeStage === 2}">2 этаж</a>
+            </div>
+            <div class="map-tab" >
+              <a href="#stage3" @click="activeStage = 3" :class="{_active : activeStage === 3}">3 этаж</a></div>
+            <div class="map-tab map-tab--info" >
+              <a href="" @click.prevent>
+                <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M41.4995 20.9998C41.4995 32.3215 32.3215 41.4995 20.9998 41.4995C9.67806 41.4995 0.5 32.3215 0.5 20.9998C0.5 9.67805 9.67806 0.5 20.9998 0.5C32.3215 0.5 41.4995 9.67805 41.4995 20.9998Z" stroke="white"/>
+                  <path d="M20.6634 32.0048H16.5908L20.0267 16.507H24.0993L20.6634 32.0048ZM22.6457 14.8372C22.021 14.8372 21.5044 14.633 21.0839 14.2245C20.6634 13.816 20.4592 13.3235 20.4592 12.7468C20.4592 11.9059 20.7475 11.2449 21.3122 10.7404C21.8768 10.2358 22.5015 9.98364 23.1863 9.98364C23.823 9.98364 24.3636 10.1879 24.7721 10.5964C25.1805 11.0048 25.3968 11.4974 25.3968 12.074C25.3968 12.915 25.1085 13.5756 24.5318 14.0802C23.9672 14.5848 23.3304 14.8372 22.6457 14.8372Z" fill="white"/>
+                </svg>
+              </a>
+              <div class="map-tooltip">
+                <ul class="map-tooltip__list">
+                  <li class="map-tooltip__item">
+                    <img class="map-tooltip__icon" src="/activity/info-food.svg" alt=""/>
+                    <div class="map-tooltip__text">Кафе</div>
+                  </li>
+                  <li class="map-tooltip__item">
+                    <img class="map-tooltip__icon" src="/activity/info-medic.svg" alt=""/>
+                    <div class="map-tooltip__text">Медпункт</div>
+                  </li>
+                  <li class="map-tooltip__item">
+                    <img class="map-tooltip__icon" src="/activity/info-cash.svg" alt=""/>
+                    <div class="map-tooltip__text">Банкомат</div>
+                  </li>
+                  <li class="map-tooltip__item">
+                    <img class="map-tooltip__icon" src="/activity/info-info.svg" alt=""/>
+                    <div class="map-tooltip__text">Информация</div>
+                  </li>
+                  <li class="map-tooltip__item">
+                    <img class="map-tooltip__icon" src="/activity/info-wc.svg" alt=""/>
+                    <div class="map-tooltip__text">Туалет</div>
+                  </li>
+                  <li class="map-tooltip__item">
+                    <img class="map-tooltip__icon" src="/activity/info-fire.svg" alt=""/>
+                    <div class="map-tooltip__text">Эвакуация</div>
+                  </li>
 
+                </ul>
+              </div>
+
+
+            </div>
+
+          </div>
+          <div class="map-stage--wrapper">
+            <div class="map-stage" v-show="activeStage === 1">
+              <div class="map-image">
+                <div id="enter1"></div>
+                <div id="enter2"></div>
+                <div id="stage1"></div>
+                <img src="/activity/map-1flor.svg" alt="">
+              </div>
+              <div class="map__list--wrapper" :class="{_active: openStageList}">
+                <div class="map-title">Что где на карте</div>
+                <ul class="map__list">
+                  <li class="map__item" v-for="item in places" :key="item.id">
+                    <span class="zone-id">{{ item.id }} </span> &mdash; {{ item.name }}
+                  </li>
+                </ul>
+                <button class="close-list" @click="openStageList = !openStageList">Свернуть</button>
+              </div>
+
+            </div>
+            <div class="map-stage" v-show="activeStage === 2">
+              <div class="map-image">
+                <div id="stage2"></div>
+                <img src="/activity/map-2flor.svg" alt="">
+              </div>
+              <div class="map__list--wrapper" :class="{_active: openStageList}">
+                <div class="map-title">Что где на карте</div>
+                <ul class="map__list">
+                  <li class="map__item" v-for="item in places" :key="item.id">
+                    <span class="zone-id">{{ item.id }}  </span> &mdash; {{ item.name }}
+                  </li>
+                </ul>
+                <button class="close-list" @click="openStageList = !openStageList">Свернуть</button>
+              </div>
+
+            </div>
+            <div class="map-stage" v-show="activeStage === 3">
+              <div class="map-image">
+                <div id="stage3"></div>
+                <img src="/activity/map-2flor.svg" alt="">
+              </div>
+              <div class="map__list--wrapper" :class="{_active: openStageList}">
+                <div class="map-title">Что где на карте</div>
+                <ul class="map__list" >
+                  <li class="map__item" v-for="item in places" :key="item.id">
+                    <span class="zone-id">{{ item.id }} </span> &mdash; {{ item.name }}
+                  </li>
+                </ul>
+                <button class="close-list" @click="openStageList = !openStageList">Свернуть</button>
+              </div>
+
+            </div>
+            <button class="btn btn-stage btn--blue" @click="openStageList = !openStageList">Что где на карте</button>
+          </div>
+
+
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-export default {
-  scrollToTop: true,
-  async asyncData({ $axios }) {
-    const activities = (await $axios.get(
-      '/api/get_activities'
-    )).data;
-    const places = activities.map(({place})=>({
-      id: place.id,
-      name: place.name
-    }))
-    return { activities, places};
-  },
-  name: 'Activities',
-  data() {
-    return {
-      activeTable: 1,
-      days: [1, 2],
-      openStageList: false,
-      activeStage: 1,
-      activeDay: 1,
-      activePlaceId: 1,
-    };
-  },
-  methods: {
-    getDay(day) {
-      let dayStr = "";
-      switch (day) {
-        case 1:
-          dayStr = "7 августа"
-          break;
-      case 2:
-          dayStr = "8 августа"
-          break;
-      case 3:
-          dayStr = "7 и 8 августа"
-          break;
-      }
-      return dayStr
+  export default {
+    scrollToTop: true,
+    async asyncData({ $axios }) {
+      const activities = (await $axios.get(
+        '/api/get_activities'
+      )).data;
+      const places = activities.map(({place})=>({
+        id: place.id,
+        name: place.name
+      }))
+      return { activities, places};
     },
-  }
-};
+    head() {
+      return {
+        bodyAttrs: {
+          class: this.openStageList ? '_fixed' : ''
+        }
+      }
+    },
+    name: 'Map',
+    data() {
+      return {
+        activeTable: 3,
+        days: [1, 2],
+        openStageList: false,
+        activeStage: 1,
+        activeDay: 1,
+        activePlaceId: 1,
+      };
+    },
+    methods: {
+      getDay(day) {
+        let dayStr = "";
+        switch (day) {
+          case 1:
+            dayStr = "7 августа"
+            break;
+          case 2:
+            dayStr = "8 августа"
+            break;
+          case 3:
+            dayStr = "7 и 8 августа"
+            break;
+        }
+        return dayStr
+      },
+
+    }
+  };
 </script>
