@@ -8,7 +8,7 @@
   top: 0
   right: 0
   height: 80px
-  z-index: 100
+  z-index: 400
   .container
     max-width: 100%
     padding: 0 90px
@@ -33,7 +33,7 @@
     position: fixed
     width: 100%
     background: linear-gradient(90.2deg, #015ACA 0%, #2BB5FF 5.95%, #188DE7 38.72%, #117DDE 71.37%, #015BCA 100.1%)
-    z-index: 100
+    z-index: 400
     & .header-logo
       & .logo_w
         display: block
@@ -83,8 +83,10 @@
         position: relative
         &:nth-child(1)
           display: none
-        &.navItemActive
+        &:nth-child(6)
+          display: none
 
+        &.navItemActive
           &::after
             position: absolute
             content: ''
@@ -186,7 +188,7 @@
 @media screen and (max-width: 1300px)
   .header-logo
     flex: 0 0 130px
-@media screen and (max-width: 1024px)
+@media screen and (max-width: 1200px)
   .header
     padding: 18px 0 15px
     height: auto
@@ -213,7 +215,7 @@
     &-logo
       flex-grow: 0
       display: inline
-      z-index: 2
+      z-index: 402
       img
         max-width: 80px
     &-nav
@@ -232,7 +234,7 @@
       background: url(/bg-nav.png)
       color: #ffffff
       padding: 80px 20px 0
-      z-index: 1
+      z-index: 400
       overflow-y: auto
       ul
         display: flex
@@ -277,4 +279,4 @@
           +h5-bold
   .hamburger
     display: block
-    z-index: 2
+    z-index: 402

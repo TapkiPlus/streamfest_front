@@ -96,6 +96,7 @@
     &__name
       max-width: 340px
       margin: 0 auto
+      color: $color-text
       height: 65px
       transition: font-weight .25s ease
       +h7
@@ -127,7 +128,13 @@
         position: fixed
         top: auto
         bottom: 158px
+        z-index: 300
       @media only screen and (max-width: 767px)
+        width: 55px
+      @media only screen and (max-width: 340px)
+        bottom: 50px
+      @media only screen and (max-height: 540px) and (orientation: landscape)
+        bottom: 0
         width: 55px
     &-tab
 
@@ -158,12 +165,18 @@
               fill: #ffffff
         @media only screen and (max-width: 767px)
           font-size: 12px
-          height: 55pxF
+          height: 55px
 
       @media only screen and (max-width: 767px)
         margin-bottom: 10px
         &--thin a
           height: 30px
+      @media only screen and (max-height: 540px) and (orientation: landscape)
+        &:not(:last-child)
+          margin-bottom: 12px
+          a
+            height: 30px
+            font-size: 12px
       &--info
         position: relative
         a
@@ -221,12 +234,13 @@
     &-image
       position: relative
       margin: 35px 50px 0
-      #enter1
+      #enter1, #stage1, #stage2, #stage3
         position: absolute
         top: -150px
       #enter2
         position: absolute
-        bottom: 0
+        bottom: 100vh
+
       @media only screen and (max-width: 767px)
         margin-right: auto
         margin-left: auto
@@ -433,6 +447,8 @@
     left: 0
     box-shadow: none
     max-width: 100%
+    width: 100%
+    margin-right: 0
     height: 100%
     z-index: 20000
     opacity: 0
@@ -611,7 +627,10 @@
       color: $color-blue
       font-size: 16px
     @media only screen and (max-width: 1024px)
+      display: none
 
+      &:nth-child(-n + 4)
+        display: flex
       &-icon
         z-index: 2
         margin-right: 0
@@ -666,6 +685,7 @@
         .timetable-item__star-name
           visibility: visible
           opacity: 1
+
   @media only screen and (max-width: 768px)
     flex-direction: column
     padding: 20px 15px
@@ -701,6 +721,8 @@
           transform: translateX(-50%)
           transition: opacity .25s ease
           visibility: hidden
+          @media only screen and (max-width: 1024px)
+             display: none
 
     &-name
       position: absolute
@@ -721,6 +743,8 @@
       opacity: 0
       visibility: hidden
       transition: opacity .25s ease
+      @media only screen and (max-width: 1024px)
+        display: none
     &:hover
       .timetable-item__star-icon
         border-color: #2AB2FB
@@ -730,6 +754,7 @@
       .timetable-item__star-name
         visibility: visible
         opacity: 1
+
 
 .close-list
   display: none
