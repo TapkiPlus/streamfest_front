@@ -517,6 +517,7 @@
               >
                 Купить билет на 2 дня
               </button>
+              <UnpayButton :day="days_qty" />
             </div>
           </div>
         </div>
@@ -592,6 +593,7 @@
                     >
                       Купить билет на 2 дня
                     </button>
+                    <UnpayButton :day="days_qty" />
                   </div>
                 </div>
               </swiper-slide>
@@ -1286,43 +1288,32 @@
             <img src="/partners/mirf.png" loading="lazy"/>
           </a>
         </div>
-        <div class="partners-btn">
-          <button @click="openPartnersModal" class="btn btn--red btn--big">
-            Хочу стать партнером
-          </button>
-        </div>
+       <PartnersModalButton/>
       </div>
       <div class="side-parts">
         <img src="/side-parts_5.png" loading="lazy"/>
         <img src="/side-parts_6.png" loading="lazy"/>
       </div>
     </section>
-    <div v-if="partnersIframe" class="partners-modal">
-      <button @click="closePartnersModal" class="partners-modal__close">
-        ✖
-      </button>
-      <iframe
-        class="partners-modal__iframe"
-        src="https://docs.google.com/forms/d/e/1FAIpQLSeMR_dy_vI2fTg89_Qf8ssprOwOFiwIaPRdzIrm9-MPr8yUdA/viewform?embedded=true"
-        loading="lazy"
-        frameborder="0"
-        marginheight="0"
-        marginwidth="0"
-        >Loading…</iframe
-      >
-    </div>
+    <PartnersModal/>
   </div>
 </template>
 
 <script>
 import StreamerCard from "@/components/StreamerCard";
 import StreamersSwiper from "@/components/StreamersSwiper";
+import UnpayButton from "@/components/UnpayButton"
 import Subscribe from "@/components/Subscribe";
+import PartnersModal from "@/components/PartnersModal/"
+import PartnersModalButton from "@/components/PartnersModal/Button"
 export default {
   components: {
     StreamerCard,
     StreamersSwiper,
-    Subscribe
+    UnpayButton,
+    Subscribe,
+    PartnersModal,
+    PartnersModalButton
   },
   data() {
     return {
@@ -1426,7 +1417,6 @@ export default {
           }
         }
       },
-      partnersIframe: false
     };
   },
   computed: {
@@ -1482,14 +1472,6 @@ export default {
         });
       }
     },
-    openPartnersModal() {
-      document.querySelector("body").style.overflow = "hidden";
-      this.partnersIframe = true;
-    },
-    closePartnersModal() {
-      this.partnersIframe = false;
-      document.querySelector("body").style.overflow = "visible";
-    }
   }
 };
 </script>
