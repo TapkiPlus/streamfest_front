@@ -217,25 +217,10 @@
       },
       calcWith() {
         let starsLists = this.$refs[`starList`]
-        console.log(starsLists)
-        console.log(this.$refs.timetableContent)
         let timetableContent = setTimeout(this.$refs.timetableContent.clientWidth, 100 )
-        console.log(timetableContent)
         starsLists.forEach(starList => {
           if(starList.clientWidth >= (timetableContent )) {
             starList.classList.add("short")
-            let maxWidth = window.screen.width - 40
-            let starsArray = starList.children
-            let stars = (maxWidth / starsArray.length)
-            let starsPosition = 0
-            // if(starList.clientWidth > maxWidth ) {
-            //   console.log(starsPosition)
-            //   for( let i = 0; i < starsArray.length; i++) {
-            //     starsArray[i].style.position = 'absolute'
-            //     starsArray[i].style.transform = `translateX(${starsPosition}px)`
-            //     starsPosition = starsPosition + stars
-            //   }
-            // }
           } else {
             starList.classList.remove("short")
           }
