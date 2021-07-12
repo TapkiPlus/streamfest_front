@@ -180,7 +180,7 @@
       const places = activities.map(({place})=>({
         id: place.id,
         name: place.name
-      }))
+      })).filter((v,i,a)=> a.findIndex(t=>(t.id === v.id))===i)
       return { activities, places};
     },
     name: 'Timetable',
