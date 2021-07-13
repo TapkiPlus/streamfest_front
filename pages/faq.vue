@@ -81,7 +81,7 @@
               href="/how-to"
               class="link"
               target="_blank"
-            rel="noopener noreferrers"
+            rel="noopener noreferrer"
               >Стать участником</a
             >, и напишите
             <a

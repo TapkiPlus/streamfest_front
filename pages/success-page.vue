@@ -7,7 +7,7 @@
         <p>
           Поздравляем, вы идете на Стримфест!<br />
           Ждем вас 7–8 августа в Технопарке «Сколково», <br />
-          <a href="/contact" target="_blank" rel="noopener noreferrers"
+          <a href="/contact" target="_blank" rel="noopener noreferrer"
             >вот схема проезда.</a
           >
         </p>
