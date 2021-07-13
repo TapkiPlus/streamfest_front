@@ -517,7 +517,6 @@
               >
                 Купить билет на 2 дня
               </button>
-              <UnpayButton :day="days_qty" />
             </div>
           </div>
         </div>
@@ -593,7 +592,6 @@
                     >
                       Купить билет на 2 дня
                     </button>
-                    <UnpayButton :day="days_qty" />
                   </div>
                 </div>
               </swiper-slide>
@@ -1302,7 +1300,6 @@
 <script>
 import StreamerCard from "@/components/StreamerCard";
 import StreamersSwiper from "@/components/StreamersSwiper";
-import UnpayButton from "@/components/UnpayButton"
 import Subscribe from "@/components/Subscribe";
 import PartnersModal from "@/components/PartnersModal/"
 import PartnersModalButton from "@/components/PartnersModal/Button"
@@ -1310,7 +1307,6 @@ export default {
   components: {
     StreamerCard,
     StreamersSwiper,
-    UnpayButton,
     Subscribe,
     PartnersModal,
     PartnersModalButton
