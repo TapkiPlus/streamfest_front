@@ -110,7 +110,7 @@
                       <img class="activities-item__icon" :src="icon" alt="" loading="lazy"/>
                       <span>{{title}}</span>
                     </div>
-                    <div class="activities-item__descr">{{description}}</div>
+                    <div class="activities-item__descr" v-html="description"></div>
 
                   </div>
                   <div class="activities-item__footer">
