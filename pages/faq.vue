@@ -5,12 +5,305 @@
       <img src="/FAQ.png" alt="" loading="lazy" />
     </div>
     <div class="container">
-
-      <div class="section-header">ВОПРОСЫ И ОТВЕТЫ</div>
+      <div class="faq__header section-header">ВОПРОСЫ И ОТВЕТЫ</div>
+      <p class="section-header">
+        ПРО ФОРМАТ COVID-FREE И КОРОНАВИРУСНЫЕ ПРАВИЛА
+      </p>
       <div class="faq-items">
         <button
           @click="toggleAccordion(1)"
           :class="{ 'faq-item-active': accordionIds.includes(1) }"
+          class="faq-item"
+        >
+          <svg class="faq-icon" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.3304 9.67198L16.4195 0.617977C16.2556 0.109311 15.6756 -0.0566894 15.3072 0.300644L12.6853 2.84598C11.7143 2.07398 8.12269 2.07398 7.15173 2.84598L4.52979 0.300644C4.1614 -0.0566894 3.58076 0.109311 3.41753 0.617977L0.506566 9.67198C-0.0889176 11.5246 0.672373 13.59 2.29173 14.4233C4.33753 15.476 6.92399 15.9673 9.91882 15.9673C12.913 15.9673 15.4995 15.476 17.5453 14.4233C19.1646 13.59 19.9259 11.5246 19.3304 9.67198Z" fill="#0060CF"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.3304 9.67198L16.4195 0.617977C16.2556 0.109311 15.6756 -0.0566894 15.3072 0.300644L12.6853 2.84598C11.7143 2.07398 8.12269 2.07398 7.15173 2.84598L4.52979 0.300644C4.1614 -0.0566894 3.58076 0.109311 3.41753 0.617977L0.506566 9.67198C-0.0889176 11.5246 0.672373 13.59 2.29173 14.4233C4.33753 15.476 6.92399 15.9673 9.91882 15.9673C12.913 15.9673 15.4995 15.476 17.5453 14.4233C19.1646 13.59 19.9259 11.5246 19.3304 9.67198Z" fill="#C4C4C4"/>
+          </svg>
+          Что такое COVID-free и почему Стримфест проходит в таком формате?
+          <svg class="faq-plus" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="14" y="5" width="2" height="20" rx="1" fill="#BAC8CF"/>
+            <rect x="25" y="14" width="2" height="20" rx="1" transform="rotate(90 25 14)" fill="#BAC8CF"/>
+          </svg>
+        </button>
+        <div
+          :class="{ visible: accordionIds.includes(1) }"
+          class="faq-item__inner"
+        >
+          <p>
+            Режим COVID-free — это вход по QR-коду, как сейчас в кафе и ресторанах. Такой формат делает фестиваль безопасным: можно не бояться подцепить коронавирус. Похоже, это новая норма для всех массовых мероприятий — согласно <a
+              href="https://www.mos.ru/authority/documents/doc/46665220/"
+              class="link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >п. 23 указа Мэра Москвы</a
+            > от 22 июня 2021 г. №35-УМ.
+          </p>
+          <p>Стримфест проходит в формате COVID-free, потому что он позволяет делать фестиваль безопасно и «как раньше»: без ограничений, без масок, перчаток и страха, зато с обнимашками, фудкортами и ресторанами.</p>
+        </div>
+        <button
+          @click="toggleAccordion(2)"
+          :class="{ 'faq-item-active': accordionIds.includes(2) }"
+          class="faq-item"
+        >
+          <svg class="faq-icon" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.3304 9.67198L16.4195 0.617977C16.2556 0.109311 15.6756 -0.0566894 15.3072 0.300644L12.6853 2.84598C11.7143 2.07398 8.12269 2.07398 7.15173 2.84598L4.52979 0.300644C4.1614 -0.0566894 3.58076 0.109311 3.41753 0.617977L0.506566 9.67198C-0.0889176 11.5246 0.672373 13.59 2.29173 14.4233C4.33753 15.476 6.92399 15.9673 9.91882 15.9673C12.913 15.9673 15.4995 15.476 17.5453 14.4233C19.1646 13.59 19.9259 11.5246 19.3304 9.67198Z" fill="#0060CF"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.3304 9.67198L16.4195 0.617977C16.2556 0.109311 15.6756 -0.0566894 15.3072 0.300644L12.6853 2.84598C11.7143 2.07398 8.12269 2.07398 7.15173 2.84598L4.52979 0.300644C4.1614 -0.0566894 3.58076 0.109311 3.41753 0.617977L0.506566 9.67198C-0.0889176 11.5246 0.672373 13.59 2.29173 14.4233C4.33753 15.476 6.92399 15.9673 9.91882 15.9673C12.913 15.9673 15.4995 15.476 17.5453 14.4233C19.1646 13.59 19.9259 11.5246 19.3304 9.67198Z" fill="#C4C4C4"/>
+          </svg>
+          Что значит и кому выдается QR-код?
+          <svg class="faq-plus" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="14" y="5" width="2" height="20" rx="1" fill="#BAC8CF"/>
+            <rect x="25" y="14" width="2" height="20" rx="1" transform="rotate(90 25 14)" fill="#BAC8CF"/>
+          </svg>
+        </button>
+        <div
+          :class="{ visible: accordionIds.includes(2) }"
+          class="faq-item__inner"
+        >
+          <p>
+            QR-код подтверждает, что человек не является носителями злосчастного вируса, и выдается в трех случаях:
+          </p>
+          <p>
+            • тем, кто в последние 3 дня получил отрицательный результат ПЦР-теста в лаборатории, подключенной к службе emias.info;<br>
+            • привитым от COVID-19 в России;<br>
+            • переболевшим коронавирусом в последние 180 дней.
+          </p>
+        </div>
+        <button
+          @click="toggleAccordion(3)"
+          :class="{ 'faq-item-active': accordionIds.includes(3) }"
+          class="faq-item"
+        >
+          <svg class="faq-icon" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.3304 9.67198L16.4195 0.617977C16.2556 0.109311 15.6756 -0.0566894 15.3072 0.300644L12.6853 2.84598C11.7143 2.07398 8.12269 2.07398 7.15173 2.84598L4.52979 0.300644C4.1614 -0.0566894 3.58076 0.109311 3.41753 0.617977L0.506566 9.67198C-0.0889176 11.5246 0.672373 13.59 2.29173 14.4233C4.33753 15.476 6.92399 15.9673 9.91882 15.9673C12.913 15.9673 15.4995 15.476 17.5453 14.4233C19.1646 13.59 19.9259 11.5246 19.3304 9.67198Z" fill="#0060CF"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.3304 9.67198L16.4195 0.617977C16.2556 0.109311 15.6756 -0.0566894 15.3072 0.300644L12.6853 2.84598C11.7143 2.07398 8.12269 2.07398 7.15173 2.84598L4.52979 0.300644C4.1614 -0.0566894 3.58076 0.109311 3.41753 0.617977L0.506566 9.67198C-0.0889176 11.5246 0.672373 13.59 2.29173 14.4233C4.33753 15.476 6.92399 15.9673 9.91882 15.9673C12.913 15.9673 15.4995 15.476 17.5453 14.4233C19.1646 13.59 19.9259 11.5246 19.3304 9.67198Z" fill="#C4C4C4"/>
+          </svg>
+          Как получить QR-код?
+          <svg class="faq-plus" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="14" y="5" width="2" height="20" rx="1" fill="#BAC8CF"/>
+            <rect x="25" y="14" width="2" height="20" rx="1" transform="rotate(90 25 14)" fill="#BAC8CF"/>
+          </svg>
+        </button>
+        <div
+          :class="{ visible: accordionIds.includes(3) }"
+          class="faq-item__inner"
+        >
+          <p>
+            QR-код можно получить в электронной медицинской карте, на mos.ru, на emias.info и на портале «Госуслуги. Стоп коронавирус». Сейчас система работает хорошо, QR-код выдается автоматически:
+          </p>
+          <p>
+            <b>— Если вы сдали ПЦР-тест</b> в организации, подключенной <a
+              href="https://mosgorzdrav.ru/covid-test"
+              class="link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >к системе ЕМИАС</a
+            >. QR-код на основе теста действует 72 часа, поэтому сдавать ПЦР-тест нужно в четверг, 5 августа.
+          </p>
+          <p>Если вам пришел результат теста, но не пришел QR-код, позвоните в лабораторию или поликлинику, где вы сдавали тест, сверьте свои паспортные данные и попросите заново отправить их в систему ЕМИАС.
+</p>
+<p><b>— Если вы сделали привив— Если вы сделали прививку.</b> QR-код выдается после полной вакцинации. Это значит, что первый укол прививки «Спутник V» и «Эпиваккорона» нужно сделать не позднее 15 июля, «Ковивака» — не позднее 23 июля, а «Спутника Лайт» — не позднее 4 августа.</p>
+        <p>Если вы привились, а QR-кода все нет, то самый простой способ получить его — сходить в поликлинику, где вы прививались или к которой относитесь. Они тут же напечатают ваш QR-код прямо на ресепшене.</p>
+        <p><b>— Если вы переболели в последние 180 дней.</b> QR-код выдается тем, кто болел «официально» — то есть обращался к врачу, сдавал мазок и числится в региональном или федеральном реестре переболевших. По справке об антителах QR-код получить нельзя.</p>
+        <p>Если вы переболели, а QR-кода все нет, то самый простой способ получить его — сходить в поликлинику, к которой относитесь. Они тут же напечатают ваш QR-код прямо на ресепшене. 
+</p>
+<p>Еще больше информации о QR-кодам — <a
+              href="https://www.m24.ru/news/gorod/24062021/170967"
+              class="link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >в FAQ Оперативного штаба Москвы</a
+            >.</p>
+        </div>
+        <button
+          @click="toggleAccordion(4)"
+          :class="{ 'faq-item-active': accordionIds.includes(4) }"
+          class="faq-item"
+        >
+          <svg class="faq-icon" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.3304 9.67198L16.4195 0.617977C16.2556 0.109311 15.6756 -0.0566894 15.3072 0.300644L12.6853 2.84598C11.7143 2.07398 8.12269 2.07398 7.15173 2.84598L4.52979 0.300644C4.1614 -0.0566894 3.58076 0.109311 3.41753 0.617977L0.506566 9.67198C-0.0889176 11.5246 0.672373 13.59 2.29173 14.4233C4.33753 15.476 6.92399 15.9673 9.91882 15.9673C12.913 15.9673 15.4995 15.476 17.5453 14.4233C19.1646 13.59 19.9259 11.5246 19.3304 9.67198Z" fill="#0060CF"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.3304 9.67198L16.4195 0.617977C16.2556 0.109311 15.6756 -0.0566894 15.3072 0.300644L12.6853 2.84598C11.7143 2.07398 8.12269 2.07398 7.15173 2.84598L4.52979 0.300644C4.1614 -0.0566894 3.58076 0.109311 3.41753 0.617977L0.506566 9.67198C-0.0889176 11.5246 0.672373 13.59 2.29173 14.4233C4.33753 15.476 6.92399 15.9673 9.91882 15.9673C12.913 15.9673 15.4995 15.476 17.5453 14.4233C19.1646 13.59 19.9259 11.5246 19.3304 9.67198Z" fill="#C4C4C4"/>
+          </svg>
+          Можно ли пройти по негативному ПЦР-тесту (не QR-коду, а именно тесту), справке о наличии антител, результату анализа на антитела, бумажному сертификату о вакцинации, сдать ПЦР-тест на месте и т.п.?
+          <svg class="faq-plus" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="14" y="5" width="2" height="20" rx="1" fill="#BAC8CF"/>
+            <rect x="25" y="14" width="2" height="20" rx="1" transform="rotate(90 25 14)" fill="#BAC8CF"/>
+          </svg>
+        </button>
+        <div
+          :class="{ visible: accordionIds.includes(4) }"
+          class="faq-item__inner"
+        >
+          <p>
+            К сожалению, нет. Вход — только по QR-коду. По состоянию на 9 июля 2021 года Правительство Москвы запрещает принимать любые другие документы — даже те, по которым выдается сам QR-код. Основание — п. 23 указа Мэра Москвы от 22 июня 2021 г. №35-УМ. Но если у режима COVID-free случатся послабления, мы тут же напишем!
+          </p>
+        </div>
+        <button
+          @click="toggleAccordion(5)"
+          :class="{ 'faq-item-active': accordionIds.includes(5) }"
+          class="faq-item"
+        >
+          <svg class="faq-icon" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.3304 9.67198L16.4195 0.617977C16.2556 0.109311 15.6756 -0.0566894 15.3072 0.300644L12.6853 2.84598C11.7143 2.07398 8.12269 2.07398 7.15173 2.84598L4.52979 0.300644C4.1614 -0.0566894 3.58076 0.109311 3.41753 0.617977L0.506566 9.67198C-0.0889176 11.5246 0.672373 13.59 2.29173 14.4233C4.33753 15.476 6.92399 15.9673 9.91882 15.9673C12.913 15.9673 15.4995 15.476 17.5453 14.4233C19.1646 13.59 19.9259 11.5246 19.3304 9.67198Z" fill="#0060CF"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.3304 9.67198L16.4195 0.617977C16.2556 0.109311 15.6756 -0.0566894 15.3072 0.300644L12.6853 2.84598C11.7143 2.07398 8.12269 2.07398 7.15173 2.84598L4.52979 0.300644C4.1614 -0.0566894 3.58076 0.109311 3.41753 0.617977L0.506566 9.67198C-0.0889176 11.5246 0.672373 13.59 2.29173 14.4233C4.33753 15.476 6.92399 15.9673 9.91882 15.9673C12.913 15.9673 15.4995 15.476 17.5453 14.4233C19.1646 13.59 19.9259 11.5246 19.3304 9.67198Z" fill="#C4C4C4"/>
+          </svg>
+          Что будет, если я приду на фестиваль без QR-кода?
+          <svg class="faq-plus" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="14" y="5" width="2" height="20" rx="1" fill="#BAC8CF"/>
+            <rect x="25" y="14" width="2" height="20" rx="1" transform="rotate(90 25 14)" fill="#BAC8CF"/>
+          </svg>
+        </button>
+        <div
+          :class="{ visible: accordionIds.includes(5) }"
+          class="faq-item__inner"
+        >
+          <p>
+            К сожалению, мы не сможем вас пропустить :( Это запрещает п. 23 указа Мэра Москвы от 22 июня 2021 г. №35-УМ. 
+          </p>
+          <p>
+            Но есть и хорошие новости! Если вы не погасите билет 7 или 8 августа 2021, то вы сможете пройти по нему на Стримфест 2022. Билет продолжит действовать, просто станет невозвратным. Никаких дополнительных действий предпринимать не нужно.
+          </p>
+        </div>
+        <button
+          @click="toggleAccordion(6)"
+          :class="{ 'faq-item-active': accordionIds.includes(6) }"
+          class="faq-item"
+        >
+          <svg class="faq-icon" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.3304 9.67198L16.4195 0.617977C16.2556 0.109311 15.6756 -0.0566894 15.3072 0.300644L12.6853 2.84598C11.7143 2.07398 8.12269 2.07398 7.15173 2.84598L4.52979 0.300644C4.1614 -0.0566894 3.58076 0.109311 3.41753 0.617977L0.506566 9.67198C-0.0889176 11.5246 0.672373 13.59 2.29173 14.4233C4.33753 15.476 6.92399 15.9673 9.91882 15.9673C12.913 15.9673 15.4995 15.476 17.5453 14.4233C19.1646 13.59 19.9259 11.5246 19.3304 9.67198Z" fill="#0060CF"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.3304 9.67198L16.4195 0.617977C16.2556 0.109311 15.6756 -0.0566894 15.3072 0.300644L12.6853 2.84598C11.7143 2.07398 8.12269 2.07398 7.15173 2.84598L4.52979 0.300644C4.1614 -0.0566894 3.58076 0.109311 3.41753 0.617977L0.506566 9.67198C-0.0889176 11.5246 0.672373 13.59 2.29173 14.4233C4.33753 15.476 6.92399 15.9673 9.91882 15.9673C12.913 15.9673 15.4995 15.476 17.5453 14.4233C19.1646 13.59 19.9259 11.5246 19.3304 9.67198Z" fill="#C4C4C4"/>
+          </svg>
+          Где и когда делать ПЦР тест, чтобы получить QR-код до фестиваля?
+          <svg class="faq-plus" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="14" y="5" width="2" height="20" rx="1" fill="#BAC8CF"/>
+            <rect x="25" y="14" width="2" height="20" rx="1" transform="rotate(90 25 14)" fill="#BAC8CF"/>
+          </svg>
+        </button>
+        <div
+          :class="{ visible: accordionIds.includes(6) }"
+          class="faq-item__inner"
+        >
+          <p>
+            В четверг, 5 августа, вам нужно сдать ПЦР-тест в организации, подключенной <a
+              href="https://mosgorzdrav.ru/covid-test"
+              class="link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >к системе ЕМИАС</a
+            > — тогда результаты теста автоматически и максимально быстро попадут в систему и превратятся в QR-код.
+          </p>
+          <p>
+            Если вы не из Москвы или не из России, вам нужно получить QR-код на сайте <a
+              href="https://immune.mos.ru"
+              class="link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://immune.mos.ru</a
+            > — мы проверяли, это просто и быстро.
+          </p>
+        </div>
+        <button
+          @click="toggleAccordion(7)"
+          :class="{ 'faq-item-active': accordionIds.includes(7) }"
+          class="faq-item"
+        >
+          <svg  class="faq-icon" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.3304 9.67198L16.4195 0.617977C16.2556 0.109311 15.6756 -0.0566894 15.3072 0.300644L12.6853 2.84598C11.7143 2.07398 8.12269 2.07398 7.15173 2.84598L4.52979 0.300644C4.1614 -0.0566894 3.58076 0.109311 3.41753 0.617977L0.506566 9.67198C-0.0889176 11.5246 0.672373 13.59 2.29173 14.4233C4.33753 15.476 6.92399 15.9673 9.91882 15.9673C12.913 15.9673 15.4995 15.476 17.5453 14.4233C19.1646 13.59 19.9259 11.5246 19.3304 9.67198Z" fill="#0060CF"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.3304 9.67198L16.4195 0.617977C16.2556 0.109311 15.6756 -0.0566894 15.3072 0.300644L12.6853 2.84598C11.7143 2.07398 8.12269 2.07398 7.15173 2.84598L4.52979 0.300644C4.1614 -0.0566894 3.58076 0.109311 3.41753 0.617977L0.506566 9.67198C-0.0889176 11.5246 0.672373 13.59 2.29173 14.4233C4.33753 15.476 6.92399 15.9673 9.91882 15.9673C12.913 15.9673 15.4995 15.476 17.5453 14.4233C19.1646 13.59 19.9259 11.5246 19.3304 9.67198Z" fill="#C4C4C4"/>
+          </svg>
+          Я еду на Стримфест из другой страны. Как мне получить QR-код?
+          <svg class="faq-plus" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="14" y="5" width="2" height="20" rx="1" fill="#BAC8CF"/>
+            <rect x="25" y="14" width="2" height="20" rx="1" transform="rotate(90 25 14)" fill="#BAC8CF"/>
+          </svg>
+        </button>
+        <div
+          :class="{ visible: accordionIds.includes(7) }"
+          class="faq-item__inner"
+        >
+          <p>
+            Вам нужно прилететь в Россию и сдать ПЦР-тест в четверг, 5 августа, в организации, подключенной <a
+              href="https://mosgorzdrav.ru/covid-test"
+              class="link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >к системе ЕМИАС</a
+            > — тогда результаты теста автоматически попадут в систему, создающую QR-коды.
+          </p>
+          <p>
+            Заказывая ПЦР-тест, обязательно скажите, что он нужен вам для QR-кода, и проверьте, что у вас из паспорта правильно переписали ФИО, дату рождения и паспортные данные. 
+          </p>
+          <p>Когда вы получите результаты ПЦР-теста, зайдите на сайт <a
+              href="https://immune.mos.ru"
+              class="link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://immune.mos.ru</a
+            > и заполните там ФИО, дату рождения, паспортные данные и номер телефона. Номер обязательно должен быть российским — в формате +7 9хх ххх-хх-хх (это может быть телефон знакомого, на него всего лишь придет смс-код). Номер патента на работу в РФ заполнять не обязательно!</p>
+        <p>Подождите 10-15 секунд, пока система обработает запрос, найдет ваш ПЦР-тест и создаст QR-код. Если вам пришел результат теста, но система не создает QR-код, позвоните в лабораторию, где вы сдавали тест, сверьте свои данные и попросите заново отправить их в систему ЕМИАС.
+</p>
+        </div>
+        <button
+          @click="toggleAccordion(8)"
+          :class="{ 'faq-item-active': accordionIds.includes(8) }"
+          class="faq-item"
+        >
+          <svg class="faq-icon" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.3304 9.67198L16.4195 0.617977C16.2556 0.109311 15.6756 -0.0566894 15.3072 0.300644L12.6853 2.84598C11.7143 2.07398 8.12269 2.07398 7.15173 2.84598L4.52979 0.300644C4.1614 -0.0566894 3.58076 0.109311 3.41753 0.617977L0.506566 9.67198C-0.0889176 11.5246 0.672373 13.59 2.29173 14.4233C4.33753 15.476 6.92399 15.9673 9.91882 15.9673C12.913 15.9673 15.4995 15.476 17.5453 14.4233C19.1646 13.59 19.9259 11.5246 19.3304 9.67198Z" fill="#0060CF"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.3304 9.67198L16.4195 0.617977C16.2556 0.109311 15.6756 -0.0566894 15.3072 0.300644L12.6853 2.84598C11.7143 2.07398 8.12269 2.07398 7.15173 2.84598L4.52979 0.300644C4.1614 -0.0566894 3.58076 0.109311 3.41753 0.617977L0.506566 9.67198C-0.0889176 11.5246 0.672373 13.59 2.29173 14.4233C4.33753 15.476 6.92399 15.9673 9.91882 15.9673C12.913 15.9673 15.4995 15.476 17.5453 14.4233C19.1646 13.59 19.9259 11.5246 19.3304 9.67198Z" fill="#C4C4C4"/>
+          </svg>
+          Мне меньше 18 лет, нужно ли мне получать QR-код?
+          <svg class="faq-plus" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="14" y="5" width="2" height="20" rx="1" fill="#BAC8CF"/>
+            <rect x="25" y="14" width="2" height="20" rx="1" transform="rotate(90 25 14)" fill="#BAC8CF"/>
+          </svg>
+        </button>
+        <div
+          :class="{ visible: accordionIds.includes(8) }"
+          class="faq-item__inner"
+        >
+          <p>
+            Нет, вам не нужен QR-код — но обязательно нужно быть в присутствии сопровождающего старше 18 лет, у которого будет QR-код.
+          </p>
+
+          <p>
+            Также на Стримфесте есть возрастные ограничения: подростки 14-16 лет должны находиться на фестивале в постоянном сопровождении любого лица старше 18 лет; дети 8-13 лет на фестиваль не допускаются в соответствии с требованиями площадки; 
+          </p>
+
+          <p>
+            Дети до 8 лет должны находиться на фестивале в постоянном сопровождении родственников или опекунов.
+          </p>
+        </div>
+        <button
+          @click="toggleAccordion(9)"
+          :class="{ 'faq-item-active': accordionIds.includes(9) }"
+          class="faq-item"
+        >
+          <svg class="faq-icon" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.3304 9.67198L16.4195 0.617977C16.2556 0.109311 15.6756 -0.0566894 15.3072 0.300644L12.6853 2.84598C11.7143 2.07398 8.12269 2.07398 7.15173 2.84598L4.52979 0.300644C4.1614 -0.0566894 3.58076 0.109311 3.41753 0.617977L0.506566 9.67198C-0.0889176 11.5246 0.672373 13.59 2.29173 14.4233C4.33753 15.476 6.92399 15.9673 9.91882 15.9673C12.913 15.9673 15.4995 15.476 17.5453 14.4233C19.1646 13.59 19.9259 11.5246 19.3304 9.67198Z" fill="#0060CF"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.3304 9.67198L16.4195 0.617977C16.2556 0.109311 15.6756 -0.0566894 15.3072 0.300644L12.6853 2.84598C11.7143 2.07398 8.12269 2.07398 7.15173 2.84598L4.52979 0.300644C4.1614 -0.0566894 3.58076 0.109311 3.41753 0.617977L0.506566 9.67198C-0.0889176 11.5246 0.672373 13.59 2.29173 14.4233C4.33753 15.476 6.92399 15.9673 9.91882 15.9673C12.913 15.9673 15.4995 15.476 17.5453 14.4233C19.1646 13.59 19.9259 11.5246 19.3304 9.67198Z" fill="#C4C4C4"/>
+          </svg>
+          Что будет, если я куплю билет, а потом заболею коронавирусом или ПЦР-тест будет положительным?
+          <svg class="faq-plus" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="14" y="5" width="2" height="20" rx="1" fill="#BAC8CF"/>
+            <rect x="25" y="14" width="2" height="20" rx="1" transform="rotate(90 25 14)" fill="#BAC8CF"/>
+          </svg>
+        </button>
+        <div
+          :class="{ visible: accordionIds.includes(9) }"
+          class="faq-item__inner"
+        >
+          <p>
+            Если вы не погасите билет 7 или 8 августа 2021, то вы сможете пройти по нему на Стримфест 2022. Билет продолжит действовать, просто станет невозвратным. Никаких дополнительных действий предпринимать не нужно.
+          </p>
+        </div>
+      </div>
+      <p class="section-header">
+        ОБЩИЕ ВОПРОСЫ ПРО ФЕСТИВАЛЬ
+      </p>
+      <div class="faq-items">
+        <button
+          @click="toggleAccordion(10)"
+          :class="{ 'faq-item-active': accordionIds.includes(10) }"
           class="faq-item"
         >
           <svg class="faq-icon" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -24,7 +317,7 @@
           </svg>
         </button>
         <div
-          :class="{ visible: accordionIds.includes(1) }"
+          :class="{ visible: accordionIds.includes(10) }"
           class="faq-item__inner"
         >
           <p>
@@ -57,8 +350,8 @@
           </p>
         </div>
         <button
-          @click="toggleAccordion(2)"
-          :class="{ 'faq-item-active': accordionIds.includes(2) }"
+          @click="toggleAccordion(11)"
+          :class="{ 'faq-item-active': accordionIds.includes(11) }"
           class="faq-item"
         >
           <svg class="faq-icon" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -72,7 +365,7 @@
           </svg>
         </button>
         <div
-          :class="{ visible: accordionIds.includes(2) }"
+          :class="{ visible: accordionIds.includes(11) }"
           class="faq-item__inner"
         >
           <p>
@@ -98,8 +391,8 @@
           </p>
         </div>
         <button
-          @click="toggleAccordion(3)"
-          :class="{ 'faq-item-active': accordionIds.includes(3) }"
+          @click="toggleAccordion(12)"
+          :class="{ 'faq-item-active': accordionIds.includes(12) }"
           class="faq-item"
         >
           <svg class="faq-icon" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -114,7 +407,7 @@
           </svg>
         </button>
         <div
-          :class="{ visible: accordionIds.includes(3) }"
+          :class="{ visible: accordionIds.includes(12) }"
           class="faq-item__inner"
         >
           <p>
@@ -144,8 +437,8 @@
           </p>
         </div>
         <button
-          @click="toggleAccordion(4)"
-          :class="{ 'faq-item-active': accordionIds.includes(4) }"
+          @click="toggleAccordion(13)"
+          :class="{ 'faq-item-active': accordionIds.includes(13) }"
           class="faq-item"
         >
           <svg class="faq-icon" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -159,7 +452,7 @@
           </svg>
         </button>
         <div
-          :class="{ visible: accordionIds.includes(4) }"
+          :class="{ visible: accordionIds.includes(13) }"
           class="faq-item__inner"
         >
           <p>
@@ -202,8 +495,8 @@
           </p>
         </div>
         <button
-          @click="toggleAccordion(5)"
-          :class="{ 'faq-item-active': accordionIds.includes(5) }"
+          @click="toggleAccordion(14)"
+          :class="{ 'faq-item-active': accordionIds.includes(14) }"
           class="faq-item"
         >
           <svg class="faq-icon" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -217,7 +510,7 @@
           </svg>
         </button>
         <div
-          :class="{ visible: accordionIds.includes(5) }"
+          :class="{ visible: accordionIds.includes(14) }"
           class="faq-item__inner"
         >
           <p>
@@ -251,8 +544,8 @@
           </p>
         </div>
         <button
-          @click="toggleAccordion(6)"
-          :class="{ 'faq-item-active': accordionIds.includes(6) }"
+          @click="toggleAccordion(15)"
+          :class="{ 'faq-item-active': accordionIds.includes(15) }"
           class="faq-item"
         >
           <svg class="faq-icon" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -266,7 +559,7 @@
           </svg>
         </button>
         <div
-          :class="{ visible: accordionIds.includes(6) }"
+          :class="{ visible: accordionIds.includes(15) }"
           class="faq-item__inner"
         >
           <p>
@@ -282,8 +575,8 @@
           </p>
         </div>
         <button
-          @click="toggleAccordion(7)"
-          :class="{ 'faq-item-active': accordionIds.includes(7) }"
+          @click="toggleAccordion(16)"
+          :class="{ 'faq-item-active': accordionIds.includes(16) }"
           class="faq-item"
         >
           <svg  class="faq-icon" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -297,7 +590,7 @@
           </svg>
         </button>
         <div
-          :class="{ visible: accordionIds.includes(7) }"
+          :class="{ visible: accordionIds.includes(16) }"
           class="faq-item__inner"
         >
           <p>
@@ -316,8 +609,8 @@
           </p>
         </div>
         <button
-          @click="toggleAccordion(8)"
-          :class="{ 'faq-item-active': accordionIds.includes(8) }"
+          @click="toggleAccordion(17)"
+          :class="{ 'faq-item-active': accordionIds.includes(17) }"
           class="faq-item"
         >
           <svg class="faq-icon" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -331,7 +624,7 @@
           </svg>
         </button>
         <div
-          :class="{ visible: accordionIds.includes(8) }"
+          :class="{ visible: accordionIds.includes(17) }"
           class="faq-item__inner"
         >
           <p>
@@ -351,8 +644,8 @@
           </p>
         </div>
         <button
-          @click="toggleAccordion(9)"
-          :class="{ 'faq-item-active': accordionIds.includes(9) }"
+          @click="toggleAccordion(18)"
+          :class="{ 'faq-item-active': accordionIds.includes(18) }"
           class="faq-item"
         >
           <svg class="faq-icon" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -367,7 +660,7 @@
           </svg>
         </button>
         <div
-          :class="{ visible: accordionIds.includes(9) }"
+          :class="{ visible: accordionIds.includes(18) }"
           class="faq-item__inner"
         >
           <p>
@@ -378,8 +671,8 @@
           </p>
         </div>
         <button
-          @click="toggleAccordion(10)"
-          :class="{ 'faq-item-active': accordionIds.includes(10) }"
+          @click="toggleAccordion(19)"
+          :class="{ 'faq-item-active': accordionIds.includes(19) }"
           class="faq-item"
         >
           <svg class="faq-icon" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -393,7 +686,7 @@
           </svg>
         </button>
         <div
-          :class="{ visible: accordionIds.includes(10) }"
+          :class="{ visible: accordionIds.includes(19) }"
           class="faq-item__inner"
         >
           <p>
@@ -410,8 +703,8 @@
           </p>
         </div>
         <button
-          @click="toggleAccordion(11)"
-          :class="{ 'faq-item-active': accordionIds.includes(11) }"
+          @click="toggleAccordion(20)"
+          :class="{ 'faq-item-active': accordionIds.includes(20) }"
           class="faq-item"
         >
           <svg class="faq-icon" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -425,7 +718,7 @@
           </svg>
         </button>
         <div
-          :class="{ visible: accordionIds.includes(11) }"
+          :class="{ visible: accordionIds.includes(20) }"
           class="faq-item__inner"
         >
           <p>
@@ -434,8 +727,8 @@
           </p>
         </div>
         <button
-          @click="toggleAccordion(12)"
-          :class="{ 'faq-item-active': accordionIds.includes(12) }"
+          @click="toggleAccordion(21)"
+          :class="{ 'faq-item-active': accordionIds.includes(21) }"
           class="faq-item"
         >
           <svg class="faq-icon" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -449,7 +742,7 @@
           </svg>
         </button>
         <div
-          :class="{ visible: accordionIds.includes(12) }"
+          :class="{ visible: accordionIds.includes(21) }"
           class="faq-item__inner"
         >
           <p>
