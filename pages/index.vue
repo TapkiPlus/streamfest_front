@@ -502,6 +502,9 @@
               </p>
               <ul v-if="days_qty === 1" class="tickets-item__list">
                 <li class="tickets-item__list--item checked">
+                Безопасно в формате COVID-free
+                </li>
+                <li class="tickets-item__list--item checked">
                   Хайп, веселье, конкурсы
                 </li>
                 <li class="tickets-item__list--item checked">
@@ -516,6 +519,9 @@
                 <li class="tickets-item__list--item ">Два дня праздника</li>
               </ul>
               <ul v-else class="tickets-item__list">
+                <li class="tickets-item__list--item checked">
+                Безопасно в формате COVID-free
+                </li>
                 <li class="tickets-item__list--item checked">
                   Хайп, веселье, конкурсы
                 </li>
@@ -578,6 +584,9 @@
               </p>
                     <ul v-if="days_qty === 1" class="tickets-item__list">
                       <li class="tickets-item__list--item checked">
+                Безопасно в формате COVID-free
+                </li>
+                      <li class="tickets-item__list--item checked">
                         Хайп, веселье, конкурсы
                       </li>
                       <li class="tickets-item__list--item checked">
@@ -594,6 +603,9 @@
                       </li>
                     </ul>
                     <ul v-else class="tickets-item__list">
+                      <li class="tickets-item__list--item checked">
+                Безопасно в формате COVID-free
+                </li>
                       <li class="tickets-item__list--item checked">
                         Хайп, веселье, конкурсы
                       </li>
