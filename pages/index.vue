@@ -3,6 +3,7 @@
     <section class="offer">
       <video class="offer-video" :src="mainVideoSrc" loop autoplay muted />
       <div class="container offer-wrapper">
+        <img class="offer__covid" src="/covid/covid_free_zone_badge.svg" alt="" loading="lazy" />
         <h3 class="offer__title">СТРИМФЕСТ 2021</h3>
         <p class="offer__subtitle">Главный фестиваль стримеров!</p>
         <p class="offer__subtitle subtitle-last">
@@ -17,6 +18,42 @@
         >
           Купить билет
         </nuxt-link>
+      </div>
+    </section>
+    <section class="covid">
+      <div class="container">
+        <h3 class="section-header mb-20">
+          БЕЗОПАСНЫЙ COVID-FREE ФЕСТИВАЛЬ
+        </h3>
+        <p class="covid__subheader section-subheader">
+          Стримфест 2021 пройдет в режиме COVID-free — безопасно и «как раньше»: без&nbsp;масок,&nbsp;перчаток&nbsp;и&nbsp;дистанцирования — согласно п. 23 указа Мэра Москвы от 22 июня 2021 г. №35-УМ. Вход по QR-коду, который легко получить!
+        </p>
+        <p class="covid__subtitle">
+          Как получить QR-код для прохода на фестиваль
+        </p>
+        <div class="covid__items">
+          <div class="covid__item">
+            <img src="/covid/shield.svg" alt="" loading="lazy">
+            <p class="covid__item-subtitle covid__subtitle">Сделать прививку</p>
+            <p>любой вакциной в России</p>
+          </div>
+          <div class="covid__item">
+            <img src="/covid/planshet.svg" alt="" loading="lazy">
+            <p class="covid__item-subtitle covid__subtitle">Сдать ПЦР-тест</p>
+            <p>за 1 день до входа на фестиваль</p>
+          </div>
+          <div class="covid__item">
+            <img src="/covid/stop.svg" alt="" loading="lazy">
+            <p class="covid__item-subtitle covid__subtitle">Переболеть COVID-19</p>
+            <p>в предыдущие 180 дней</p>
+          </div>
+        </div>
+        <div class="covid__btn">
+          <img class="btn--icon" src="/covid/QR.svg" alt="" loading="lazy"/>
+          <nuxt-link class="btn btn-w-icon btn--blue" to="/faq"
+            >БОЛЬШЕ О QR-КОДАХ
+          </nuxt-link>
+        </div>
       </div>
     </section>
     <section class="video-block">
