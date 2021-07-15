@@ -29,7 +29,7 @@
           Стримфест 2021 пройдет в режиме COVID-free — безопасно и «как раньше»: без&nbsp;масок,&nbsp;перчаток&nbsp;и&nbsp;дистанцирования — согласно п. 23 указа Мэра Москвы от 22 июня 2021 г. №35-УМ. Вход по QR-коду, который легко получить!
         </p>
         <p class="covid__subtitle">
-          Как получить QR-код для прохода на фестиваль
+          Способы получить QR-код для входа на фестиваль
         </p>
         <div class="covid__items">
           <div class="covid__item">
@@ -127,7 +127,7 @@
           </div>
         </div>
         <div class="video-buttons">
-          <a class="video-button btn-disable btn btn--blue">
+          <nuxt-link class="video-button btn btn--blue" to="/activities">
             <svg
               class="btn--icon"
               width="54"
@@ -231,8 +231,7 @@
               </defs>
             </svg>
 
-            И другие активности</a
-          >
+            И другие активности</nuxt-link>
           <a class="video-button btn-disable btn btn--blue">
             <svg
               class="btn--icon"
@@ -503,6 +502,9 @@
               </p>
               <ul v-if="days_qty === 1" class="tickets-item__list">
                 <li class="tickets-item__list--item checked">
+                Безопасно в формате COVID-free
+                </li>
+                <li class="tickets-item__list--item checked">
                   Хайп, веселье, конкурсы
                 </li>
                 <li class="tickets-item__list--item checked">
@@ -517,6 +519,9 @@
                 <li class="tickets-item__list--item ">Два дня праздника</li>
               </ul>
               <ul v-else class="tickets-item__list">
+                <li class="tickets-item__list--item checked">
+                Безопасно в формате COVID-free
+                </li>
                 <li class="tickets-item__list--item checked">
                   Хайп, веселье, конкурсы
                 </li>
@@ -579,6 +584,9 @@
               </p>
                     <ul v-if="days_qty === 1" class="tickets-item__list">
                       <li class="tickets-item__list--item checked">
+                Безопасно в формате COVID-free
+                </li>
+                      <li class="tickets-item__list--item checked">
                         Хайп, веселье, конкурсы
                       </li>
                       <li class="tickets-item__list--item checked">
@@ -595,6 +603,9 @@
                       </li>
                     </ul>
                     <ul v-else class="tickets-item__list">
+                      <li class="tickets-item__list--item checked">
+                Безопасно в формате COVID-free
+                </li>
                       <li class="tickets-item__list--item checked">
                         Хайп, веселье, конкурсы
                       </li>
@@ -1174,25 +1185,18 @@
             <img src="/partners/fan.png" loading="lazy"/>
           </a>
           <a
-            href="https://reyden-x.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/reyden-x.png" loading="lazy"/>
-          </a>
-           <a
-            href="https://synergy.ru"
+            href="https://synergycybersport.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <img src="/partners/synergy.png" loading="lazy"/>
           </a>
           <a
-            href="https://podari-zhizn.ru/main"
+            href="https://reyden-x.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/podari_jizn.png" loading="lazy"/>
+            <img src="/partners/reyden-x.png" loading="lazy"/>
           </a>
            <a
             href="https://schoolskills.ru/"
@@ -1201,9 +1205,16 @@
           >
             <img src="/partners/school_skills.png" loading="lazy"/>
           </a>
+          <a
+            href="https://podari-zhizn.ru/main"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/podari_jizn.png" loading="lazy"/>
+          </a>
         </div>
-        <h3 class="section-header">ТЕХНИЧЕСКАЯ ПОДДЕРЖКА</h3>
-        <div class="partners-img tematic">
+        <h3 class="section-header">ТЕХНИЧЕСКАЯ ПОДДЕРЖКА</h3> 
+        <div class="partners-img technical tematic">
           <a
             href="https://www.bluemics.ru/"
             target="_blank"
@@ -1241,13 +1252,6 @@
           >
             <img src="/partners/dell.png" loading="lazy"/>
           </a>
-           <a
-            href="https://en-us.sennheiser.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/sennheiser.png" loading="lazy"/>
-          </a>
           <a
             href="https://www.dmitrylive.com/"
             target="_blank"
@@ -1255,9 +1259,16 @@
           >
             <img src="/partners/dmitry_live.png" loading="lazy"/>
           </a>
+           <a
+            href="https://en-us.sennheiser.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/sennheiser.png" loading="lazy"/>
+          </a>
         </div>
         <h3 class="section-header">ИНФОРМАЦИОННАЯ ПОДДЕРЖКА</h3>
-        <div class="partners-img tematic information">
+        <div class="partners-img technical tematic information">
           <a
             href="https://www.igromania.ru/"
             target="_blank"
@@ -1273,11 +1284,11 @@
             <img src="/partners/moskva24.svg" loading="lazy"/>
           </a>
           <a
-            href="https://daily.afisha.ru/"
+            href="https://2x2tv.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/afisha.png" loading="lazy"/>
+            <img src="/partners/2х2.png" loading="lazy"/>
           </a>
           <a
             href="https://www.cybersport.ru/"
