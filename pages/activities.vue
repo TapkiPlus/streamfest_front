@@ -158,12 +158,23 @@ export default {
   async asyncData({ $axios }) {
     const activities = (await $axios.get(
       '/api/get_activities'
-    )).data;
-    const places = activities.map(({place})=>({
-      id: place.id,
-      name: place.name
-    }))
-    return { activities, places};
+    )).data.map((activity) => {
+      !activity.place && (activity.place = {
+          id: null,
+          name: "Весь фестиваль"
+        } )
+      return activity
+    });
+    // const places = activities.map(({place})=>(
+      //  place ? {
+      //     id: place.id,
+      //     name: place.name
+      //   } : {
+      //     id: null,
+      //     name: "Весь фестиваль"
+      //   } 
+    // ))
+    return { activities};
   },
   name: 'Activities',
   data() {
@@ -173,7 +184,7 @@ export default {
       openStageList: false,
       activeStage: 1,
       activeDay: 1,
-      activePlaceId: 1,
+      activePlaceId: null,
     };
   },
   methods: {

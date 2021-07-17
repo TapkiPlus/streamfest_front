@@ -84,8 +84,8 @@ export default {
   },
   axios: {
     // baseURL: "http://sf.tagobar.ru"
-    // baseURL: "http://localhost:8000"
-    baseURL: "https://streamfest.ru"
+    baseURL: "http://localhost:8000"
+    // baseURL: "https://streamfest.ru"
   },
   build: {
     transpile: [/^element-ui/],

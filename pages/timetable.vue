@@ -130,7 +130,7 @@
             <button class="close-list" @click="openStageList = !openStageList">Свернуть</button>
           </div>
           <div class="timetable-list">
-            <div class="timetable-item" :style="{'border-color': border}" data-date="" data-place="" v-for="{id, icon, start, end, title, description, streamers, border} in activities.filter(({day, place}) => (day === activeDay || day === 3) && place.id === activePlaceId)" :key="id">
+            <div class="timetable-item" :style="{'border-color': border}" data-date="" data-place="" v-for="{id, icon, start, end, title, description, streamers, border} in placesList" :key="id">
               <div class="timetable-item__icon">
                 <img :src="icon" alt="" loading="lazy">
               </div>
@@ -177,11 +177,16 @@
       const activities = (await $axios.get(
         '/api/get_activities'
       )).data;
-      const places = activities.map(({place})=>({
-        id: place.id,
-        name: place.name
-      })).filter((v,i,a)=> a.findIndex(t=>(t.id === v.id))===i)
-      return { activities, places};
+      const places = activities.map(({ place })=>(
+        place ? {
+          id: place.id,
+          name: place.name
+        } : {
+          id: null,
+          name: "Весь фестиваль"
+        } 
+      )).filter((v,i,a)=> a.findIndex(t=>(t.id === v.id && t.name === v.name ))===i)
+      return { activities, places };
     },
     name: 'Timetable',
     data() {
@@ -191,10 +196,14 @@
         openStageList: false,
         activeStage: 1,
         activeDay: 1,
-        activePlaceId: 11,
+        activePlaceId: null,
       };
     },
-
+computed: {
+  placesList() {
+  return this.activities.filter(({day, place}) => (day === this.activeDay || day === 3) && ((place ? place.id : null) === this.activePlaceId))
+}
+},
     mounted() {
       this.calcWith()
     },
