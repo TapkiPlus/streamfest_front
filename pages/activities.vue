@@ -165,7 +165,6 @@ export default {
         } )
       return activity
     });
-    console.log(activities);
     // const places = activities.map(({place})=>(
       //  place ? {
       //     id: place.id,
