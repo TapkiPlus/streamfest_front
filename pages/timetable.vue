@@ -196,8 +196,6 @@
     },
 
     mounted() {
-      // window.addEventListener('resize', this.calcWith)
-     // this.calcWith()
     },
 
     methods: {
@@ -216,24 +214,6 @@
         }
         return dayStr
       },
-      // calcWith() {
-      //   let starsLists = this.$refs.starList
-      //   console.log(starsLists)
-      //   let timetableContent = setTimeout(this.$refs.timetableContent.clientWidth, 100 )
-      //   starsLists.forEach(starList => {
-      //     if(starList.clientWidth >= (timetableContent )) {
-      //       starList.classList.add("short")
-      //     } else {
-      //       starList.classList.remove("short")
-      //     }
-      //   })
-      // },
-      // updateWidth(id) {
-      //
-      //   this.openStageList = false
-      //   setTimeout(this.calcWith, 100)
-      //
-      // }
     }
   };
 </script>
