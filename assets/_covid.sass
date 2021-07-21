@@ -1,0 +1,39 @@
+.covid
+  text-align: center
+  padding-bottom: 0
+  &__subheader 
+    max-width: 970px
+    margin-bottom: 45px
+  &__subtitle
+    font-size: 22px
+    font-weight: bold
+  &__items
+    display: flex
+    justify-content: center
+    flex-wrap: wrap
+    align-items: flex-end
+    grid-gap: 30px 68px
+    margin-top: 65px
+  &__item
+    width: max-content
+    display: flex
+    flex-direction: column
+    align-items: center
+    &-subtitle
+      margin: 15px 0 7px
+  &__btn
+     position: relative
+     margin-top: 93px
+     .btn
+        margin: 0 auto
+        &--icon
+         z-index: 1
+
+@media screen and (max-width: 576px)
+    .covid
+        &__subheader
+            margin-bottom: 30px
+        &__items
+            margin-top: 30px
+        &__btn
+          margin-top: 60px

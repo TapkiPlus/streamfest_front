@@ -16,7 +16,7 @@
             @click="saveData({ clickedTechAssistance: true })"
             href="https://vk.com/streamfest"
             target="_blank"
-            rel="noopener noreferrers"
+            rel="noopener noreferrer"
             >личку ВК</a
           >
           или на почту

@@ -46,11 +46,11 @@
     &__item
       flex: 1 1 314px
       text-align: center
-      cursor: pointer
       position: relative
       background-color: #fff
       a
         text-decoration: none
+      opacity: .5
       &:not(:last-child)
         &:after
           content: ''
@@ -65,6 +65,8 @@
           @media only screen and (max-width: 992px)
             display: none
       &._active
+        opacity: 1
+        cursor: pointer
         .activities-tabs__name
           color: $color-blue
           font-weight: 700
