@@ -122,7 +122,7 @@
                 class="place__item"
                 :class="{_active: activePlaceId === id}"
                 :data-place="id"
-                @click="updateWidth(id)"
+                @click="activePlaceId = id"
               >
                 <div class="place__item-radio"></div>{{name}}
               </li>
@@ -138,10 +138,10 @@
                 <div class="timetable-item__body">
                   <div class="timetable-item__time"><span>{{start}}</span>&#8211;<span>{{end}}</span></div>
                   <div class="timetable-item__title">{{title}}</div>
-                  <div class="timetable-item__descr">{{description}}</div>
+                  <div class="timetable-item__descr" v-html="description"></div>
                 </div>
                 <div class="timetable-item__footer" v-if="streamers.length">
-                  <div class="timetable-item__stars" ref="starList">
+                  <div class="timetable-item__stars short" ref="starList">
                     <nuxt-link v-for="{id, nickNameSlug, photo, name} in streamers" :key="id"  :to="`/${nickNameSlug}`" class="timetable-item__star">
                       <div class="timetable-item__star-icon--wrapper">
                         <div class="timetable-item__star-icon">
@@ -205,7 +205,6 @@ computed: {
 }
 },
     mounted() {
-      this.calcWith()
     },
 
     methods: {
@@ -224,23 +223,6 @@ computed: {
         }
         return dayStr
       },
-      calcWith() {
-        let starsLists = this.$refs[`starList`]
-        let timetableContent = setTimeout(this.$refs.timetableContent.clientWidth, 100 )
-        starsLists.forEach(starList => {
-          if(starList.clientWidth >= (timetableContent )) {
-            starList.classList.add("short")
-          } else {
-            starList.classList.remove("short")
-          }
-        })
-      },
-      updateWidth(id) {
-        this.activePlaceId = id
-        this.openStageList = false
-        setTimeout(this.calcWith, 100)
-
-      }
     }
   };
 </script>
