@@ -99,8 +99,8 @@
             :cols="{default: 2, 767: 1}"
             :gutter="{default: '60px', 1024: '30px' }"
           >
-            <div v-for="{id, image, icon, title, description, place, day, start} in activities" :key="id">
-              <div class="activities-item">
+            <div v-for="{id, border_color, image, icon, title, description, place, day, start} in activities" :key="id">
+              <div ref="activities" class="activities-item" :style="{'border-color': border_color}">
                 <div class="activities-item__img" v-if="image">
                   <img :src="image" alt="" loading="lazy">
                 </div>
@@ -158,12 +158,23 @@ export default {
   async asyncData({ $axios }) {
     const activities = (await $axios.get(
       '/api/get_activities'
-    )).data;
-    const places = activities.map(({place})=>({
-      id: place.id,
-      name: place.name
-    }))
-    return { activities, places};
+    )).data.map((activity) => {
+      !activity.place && (activity.place = {
+          id: null,
+          name: "Весь фестиваль"
+        } )
+      return activity
+    });
+    // const places = activities.map(({place})=>(
+      //  place ? {
+      //     id: place.id,
+      //     name: place.name
+      //   } : {
+      //     id: null,
+      //     name: "Весь фестиваль"
+      //   } 
+    // ))
+    return { activities};
   },
   name: 'Activities',
   data() {
@@ -173,8 +184,15 @@ export default {
       openStageList: false,
       activeStage: 1,
       activeDay: 1,
-      activePlaceId: 1,
+      activePlaceId: null,
     };
+  },
+  mounted() {
+    for (const activity of this.$refs.activities) {
+      for (const link of activity.querySelectorAll('a')) {
+        link.classList.add('link')
+      }
+    }
   },
   methods: {
     getDay(day) {
