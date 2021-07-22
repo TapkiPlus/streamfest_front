@@ -50,6 +50,9 @@ export default {
       },
       {
         src: 'https://vk.com/js/api/openapi.js?168'
+      },
+      {
+        innerHTML: `!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?169",t.onload=function(){VK.Retargeting.Init("VK-RTRG-934249-hze71"),VK.Retargeting.Hit()},document.head.appendChild(t)}();`
       }
     ],
     noscript: [
@@ -61,7 +64,10 @@ export default {
         innerHTML: `<div><img src="https://mc.yandex.ru/watch/38023235" style="position:absolute; left:-9999px;" alt="" /></div>`,
         body: true
       },
-
+      {
+        innerHTML: `<img src="https://vk.com/rtrg?p=VK-RTRG-934249-hze71" style="position:fixed; left:-999px;" alt=""/>`,
+        body: true
+      }
     ],
      __dangerouslyDisableSanitizers: ['script','noscript']
   },
