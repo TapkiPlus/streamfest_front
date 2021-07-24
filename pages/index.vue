@@ -543,14 +543,16 @@
               <p class="tickets-item__price">
                 <span>{{ price }} ₽</span>
               </p>
-              <button
-                v-if="days_qty === 1"
-                @click="addItem(id)"
-                class="btn btn-ticket btn--red"
-                id="homeTicketOne"
-              >
-                Купить билет на 1 день
-              </button>
+              <template v-if="days_qty === 1">
+                <button
+                  @click="addItem(id)"
+                  class="btn btn-ticket btn--red"
+                  id="homeTicketOne"
+                >
+                  Купить билет на 1 день
+                </button>
+                <UnpayButton/>
+              </template>
               <button
                 v-else
                 @click="addItem(id)"
@@ -627,13 +629,15 @@
                     <p class="tickets-item__price">
                       <span>{{ price }} ₽</span>
                     </p>
-                    <button
-                      v-if="days_qty === 1"
-                      class="btn btn--red btn-ticket"
-                      id="homeTicketOne"
-                    >
-                      Купить билет на 1 день
-                    </button>
+                    <template v-if="days_qty === 1">
+                      <button
+                        class="btn btn--red btn-ticket"
+                        id="homeTicketOne"
+                      >
+                        Купить билет на 1 день
+                      </button>
+                      <UnpayButton />
+                    </template>
                     <button v-else
                     class="btn btn--red btn-ticket"
                     id="homeTicketTwo"
@@ -1319,6 +1323,7 @@
 <script>
 import StreamerCard from "@/components/StreamerCard";
 import StreamersSwiper from "@/components/StreamersSwiper";
+import UnpayButton from "@/components/UnpayButton"
 import Subscribe from "@/components/Subscribe";
 import PartnersModal from "@/components/PartnersModal/"
 import PartnersModalButton from "@/components/PartnersModal/Button"
@@ -1326,6 +1331,7 @@ export default {
   components: {
     StreamerCard,
     StreamersSwiper,
+    UnpayButton,
     Subscribe,
     PartnersModal,
     PartnersModalButton

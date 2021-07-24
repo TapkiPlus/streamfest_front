@@ -1,9 +1,8 @@
 <template>
-    <div class="unpay-button" :class="{'unpay-button--long': day === 1}">
+    <div class="unpay-button">
         <script src="https://unpay.club/external/button.js" async
-                  :data-event_id="day"
-                  data-width="211px"
-                  :data-text="day === 1 ? 'Получить билет бесплатно от Альфа Банка' : 'Получить скидку - 1300р от Альфа Банка'"
+                  data-event_id="5"
+                  data-text="Билет со скидкой 100%"
                   data-color="#fff"
                   data-background="transparent"
                   data-border="none"
@@ -17,12 +16,6 @@
 
 <script>
 export default {
-    name: 'UnpayButton',
-    props: {
-        day: {
-            type: Number,
-            required: true
-        }
-    }
+  name: 'UnpayButton',
 }
 </script>
