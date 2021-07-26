@@ -37,6 +37,10 @@
       &:before
         position: absolute
         content: url("/cats/cat_ticket_1.svg")
+    &:first-child
+      padding-bottom: 20px
+      .tickets-item__price
+        margin-bottom: 12px
     @media screen and (min-width: 1025px)
       &:hover
         transform: scale(1.05)
