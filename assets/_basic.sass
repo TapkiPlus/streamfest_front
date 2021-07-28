@@ -420,7 +420,7 @@ textarea
   display: none
 
 .unpay-button
-  font-size: inherit !important
+  font-size: 15px !important
   margin-top: 15px
   &:hover 
     animation: rainbow 6s infinite linear
@@ -572,8 +572,12 @@ textarea
           +h5
         sup
           color: red
+
+@media screen and (max-width: 730px)
   .unpay-button
+    font-size: 10px !important
     margin-top: 12px
+    
 @media screen and (max-width: 610px)
   body
     font-size: 16px
