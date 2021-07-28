@@ -420,11 +420,14 @@ textarea
   display: none
 
 .unpay-button
-  text-align: center
-  margin-top: 7px
-  button:hover
-    opacity: 1 !important
-    text-decoration: underline
+  font-size: inherit !important
+  margin-top: 15px
+  &:hover 
+    animation: rainbow 6s infinite linear
+  button
+    font-weight: inherit
+    &:hover
+      opacity: 1 !important
 
 @media screen and (max-width: 1440px)
   .offer__covid
@@ -552,8 +555,6 @@ textarea
       max-width: 100%
       margin-top: 15px
       padding: 0
-  .unpay-button--long
-      width: 217px
   .input
     border: 1px solid #0D6DD8
     border-radius: 5px
@@ -571,6 +572,8 @@ textarea
           +h5
         sup
           color: red
+  .unpay-button
+    margin-top: 12px
 @media screen and (max-width: 610px)
   body
     font-size: 16px
