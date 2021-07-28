@@ -88,7 +88,7 @@
             s6 - master classes
           -->
           <div class="video-item">
-            <img src="/cats/s_1.svg" loading="lazy"/> 
+            <img src="/cats/s_1.svg" loading="lazy"/>
             <div class="video-item__title">Встречи со звездами</div>
             <p>
               Топы всех платформ: Twitch.tv, YouTube, TikTok, WASD, Goodgame, VK
