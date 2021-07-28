@@ -2,7 +2,7 @@
     <div class="unpay-button btn btn--yellow">
         <script src="https://unpay.club/external/button.js" async
                   data-event_id="5"
-                  data-text="🔥 ПОЛУЧИ БИЛЕТ СО СКИДКОЙ 100%"
+                  data-text="100% СКИДКА С НОВОЙ КАРТОЙ АЛЬФА-БАНКА"
                   data-color="inherit"
                   data-background="transparent"
                   data-border="none"
