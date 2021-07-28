@@ -79,8 +79,16 @@
           ></iframe>
         </div>
         <div class="video-wrapper">
+          <!-- 
+            s1 - meet streamers
+            s2 - show matches
+            s3 - cosplay
+            s4 - game zones and quiz
+            s5 - tabletops
+            s6 - master classes
+          -->
           <div class="video-item">
-            <img src="/cats/s_1.svg" loading="lazy"/>
+            <img src="/cats/s_1.svg" loading="lazy"/> 
             <div class="video-item__title">Встречи со звездами</div>
             <p>
               Топы всех платформ: Twitch.tv, YouTube, TikTok, WASD, Goodgame, VK
@@ -88,14 +96,14 @@
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_2.svg" loading="lazy"/>
+            <img src="/cats/s_4.svg" loading="lazy"/>
             <div class="video-item__title">Игровые зоны и конкурсы</div>
             <p>
               Развлечения по полной: видеоигры, роботы, танцы, фотозоны и призы.
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_3.svg" loading="lazy"/>
+            <img src="/cats/s_2.svg" loading="lazy"/>
             <div class="video-item__title">Турниры и шоу-матчи</div>
             <p>
               MOBA, шутеры и батл рояли — участвуй сам и смотри, как жарят
@@ -103,14 +111,14 @@
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_4.svg" loading="lazy"/>
+            <img src="/cats/s_5.svg" loading="lazy"/>
             <div class="video-item__title">Настолки и застолья</div>
             <p>
               Тащи друзей в партию или в кафешки, там всё вкусно и по карману.
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_5.svg" loading="lazy"/>
+            <img src="/cats/s_3.svg" loading="lazy"/>
             <div class="video-item__title">Дефиле косплееров</div>
             <p>
               Самый демократичный конкурс фанатского костюма — портал
