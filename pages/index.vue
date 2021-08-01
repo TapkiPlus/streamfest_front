@@ -1451,7 +1451,7 @@ export default {
   computed: {
     lastDay() {
       let days = Math.floor(
-        (new Date("Aug 7, 2021 11:00:00").getTime() - new Date().getTime()) /
+        (new Date("Aug 8, 2021 11:00:00").getTime() - new Date().getTime()) /
           86400000
       ).toString();
       const lastNum = days.substr(-1);
