@@ -1152,13 +1152,6 @@
             <img src="/partners/logitech.png" loading="lazy"/>
           </a>
           <a
-            href="https://zen.yandex.ru/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/yandex_dzen.png" loading="lazy"/>
-          </a>
-          <a
             href="https://www.amd.com/ru"
             target="_blank"
             rel="noopener noreferrer"

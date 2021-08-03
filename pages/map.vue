@@ -219,10 +219,15 @@
       const activities = (await $axios.get(
         '/api/get_activities'
       )).data;
-      const places = activities.map(({place})=>({
-        id: place.id,
-        name: place.name
-      }))
+      const places = activities.map(({ place })=>(
+        place ? {
+          id: place.id,
+          name: place.name
+        } : {
+          id: null,
+          name: "Весь фестиваль"
+        } 
+      )).filter((v,i,a)=> a.findIndex(t=>(t.id === v.id && t.name === v.name ))===i)
       return { activities, places};
     },
     head() {
