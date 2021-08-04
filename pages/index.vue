@@ -1152,13 +1152,6 @@
             <img src="/partners/logitech.png" loading="lazy"/>
           </a>
           <a
-            href="https://zen.yandex.ru/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/yandex_dzen.png" loading="lazy"/>
-          </a>
-          <a
             href="https://www.amd.com/ru"
             target="_blank"
             rel="noopener noreferrer"
@@ -1315,6 +1308,13 @@
             rel="noopener noreferrer"
           >
             <img src="/partners/mirf.png" loading="lazy"/>
+          </a>
+          <a
+            href="http://www.mirtv.ru/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/mir24_tv.png" loading="lazy"/>
           </a>
         </div>
        <PartnersModalButton/>

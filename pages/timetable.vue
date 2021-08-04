@@ -117,10 +117,10 @@
             </ul>
             <ul class="place__list">
               <li
-                v-for="{id, name} in places"
-                :key="id"
+                v-for="{id, name}, index in places"
+                :key="index"
                 class="place__item"
-                :class="{_active: activePlaceId === id}"
+                :class="{_active: id === _activePlaceId}"
                 :data-place="id"
                 @click="activePlaceId = id"
               >
@@ -130,26 +130,25 @@
             <button class="close-list" @click="openStageList = !openStageList">Свернуть</button>
           </div>
           <div class="timetable-list">
-            <div class="timetable-item" :style="{'border-color': border}" data-date="" data-place="" v-for="{id, icon, start, end, title, description, streamers, border} in placesList" :key="id">
+            <div v-for="{id, border, icon, start, end, description, streamers} in placesList.timetable" :key="id"  :style="{'border-color': border}"  class="timetable-item">
               <div class="timetable-item__icon">
                 <img :src="icon" alt="" loading="lazy">
               </div>
               <div class="timetable-item__content" ref="timetableContent">
                 <div class="timetable-item__body">
-                  <div class="timetable-item__time"><span>{{start}}</span>&#8211;<span>{{end}}</span></div>
-                  <div class="timetable-item__title">{{title}}</div>
+                  <div class="timetable-item__time"><span>{{start.substr(0, 5)}}</span>&#8211;<span>{{end.substr(0, 5)}}</span></div>
+                  <div class="timetable-item__title">{{ placesList.name || "Весь фестиваль" }}</div>
                   <div class="timetable-item__descr" v-html="description"></div>
                 </div>
-                <div class="timetable-item__footer" v-if="streamers.length">
+                <div v-if="streamers.length" class="timetable-item__footer">
                   <div class="timetable-item__stars short" ref="starList">
-                    <nuxt-link v-for="{id, nickNameSlug, photo, name} in streamers" :key="id"  :to="`/${nickNameSlug}`" class="timetable-item__star">
+                    <nuxt-link v-for="streamer in streamers" :key="streamer.id"  :to="`/${streamer.nickNameSlug}`" class="timetable-item__star">
                       <div class="timetable-item__star-icon--wrapper">
                         <div class="timetable-item__star-icon">
-                          <img :src="photo" :alt="name">
+                          <img :src="streamer.photo" :alt="streamer.name">
                         </div>
                       </div>
-
-                      <div class="timetable-item__star-name">{{name}}</div>
+                      <div class="timetable-item__star-name">{{streamer.name}}</div>
                     </nuxt-link>
                   </div>
                 </div>
@@ -174,19 +173,8 @@
     },
     scrollToTop: true,
     async asyncData({ $axios }) {
-      const activities = (await $axios.get(
-        '/api/get_activities'
-      )).data;
-      const places = activities.map(({ place })=>(
-        place ? {
-          id: place.id,
-          name: place.name
-        } : {
-          id: null,
-          name: "Весь фестиваль"
-        } 
-      )).filter((v,i,a)=> a.findIndex(t=>(t.id === v.id && t.name === v.name ))===i)
-      return { activities, places };
+      const places = (await $axios.get( '/api/get_places' )).data;
+      return { places };
     },
     name: 'Timetable',
     data() {
@@ -200,13 +188,18 @@
       };
     },
 computed: {
+  _activePlaceId() {
+    return this.activePlaceId === null ? this.places[0].id : this.activePlaceId
+  },
   placesList() {
-  return this.activities.filter(({day, place}) => (day === this.activeDay || day === 3) && ((place ? place.id : null) === this.activePlaceId))
-}
-},
-    mounted() {
-    },
+    const places = {...this.places.find(({id}) => 
+       id === this._activePlaceId
+      )}
+      places.timetable = places.timetable.filter(({day}) => (day === this.activeDay || day === 3))
 
+      return places
+    }
+  },
     methods: {
       getDay(day) {
         let dayStr = "";

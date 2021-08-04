@@ -162,8 +162,8 @@
               <div class="map__list--wrapper" :class="{_active: openStageList}">
                 <div class="map-title">Что где на карте</div>
                 <ul class="map__list">
-                  <li class="map__item" v-for="item in places" :key="item.id">
-                    <span class="zone-id">{{ item.id }} </span> &mdash; {{ item.name }}
+                  <li class="map__item" v-for="{id, name} in places" :key="id">
+                    <span class="zone-id">{{ number }} </span> &mdash; {{ name || "Весь фестиваль" }}
                   </li>
                 </ul>
                 <button class="close-list" @click="openStageList = !openStageList">Свернуть</button>
@@ -178,8 +178,8 @@
               <div class="map__list--wrapper" :class="{_active: openStageList}">
                 <div class="map-title">Что где на карте</div>
                 <ul class="map__list">
-                  <li class="map__item" v-for="item in places" :key="item.id">
-                    <span class="zone-id">{{ item.id }}  </span> &mdash; {{ item.name }}
+                  <li class="map__item" v-for="{id, name} in places" :key="id">
+                    <span class="zone-id">{{ number }}  </span> &mdash; {{ name || "Весь фестиваль" }}
                   </li>
                 </ul>
                 <button class="close-list" @click="openStageList = !openStageList">Свернуть</button>
@@ -194,8 +194,8 @@
               <div class="map__list--wrapper" :class="{_active: openStageList}">
                 <div class="map-title">Что где на карте</div>
                 <ul class="map__list" >
-                  <li class="map__item" v-for="item in places" :key="item.id">
-                    <span class="zone-id">{{ item.id }} </span> &mdash; {{ item.name }}
+                  <li class="map__item" v-for="{id, name} in places" :key="id">
+                    <span class="zone-id">{{ number }} </span> &mdash; {{ name || "Весь фестиваль" }}
                   </li>
                 </ul>
                 <button class="close-list" @click="openStageList = !openStageList">Свернуть</button>
@@ -216,14 +216,8 @@
   export default {
     scrollToTop: true,
     async asyncData({ $axios }) {
-      const activities = (await $axios.get(
-        '/api/get_activities'
-      )).data;
-      const places = activities.map(({place})=>({
-        id: place.id,
-        name: place.name
-      }))
-      return { activities, places};
+      const places = (await $axios.get( '/api/get_places' )).data;
+      return { places };
     },
     head() {
       return {
@@ -236,30 +230,9 @@
     data() {
       return {
         activeTable: 3,
-        days: [1, 2],
         openStageList: false,
         activeStage: 1,
-        activeDay: 1,
-        activePlaceId: 1,
       };
     },
-    methods: {
-      getDay(day) {
-        let dayStr = "";
-        switch (day) {
-          case 1:
-            dayStr = "7 августа"
-            break;
-          case 2:
-            dayStr = "8 августа"
-            break;
-          case 3:
-            dayStr = "7 и 8 августа"
-            break;
-        }
-        return dayStr
-      },
-
-    }
   };
 </script>
