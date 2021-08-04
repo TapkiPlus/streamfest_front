@@ -1309,6 +1309,13 @@
           >
             <img src="/partners/mirf.png" loading="lazy"/>
           </a>
+          <a
+            href="http://www.mirtv.ru/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/mir24_tv.png" loading="lazy"/>
+          </a>
         </div>
        <PartnersModalButton/>
       </div>
