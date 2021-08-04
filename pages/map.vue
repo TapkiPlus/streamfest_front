@@ -216,11 +216,8 @@
   export default {
     scrollToTop: true,
     async asyncData({ $axios }) {
-      const places = (await $axios.get(
-        '/api/get_places'
-      )).data.filter((v,i,a)=> a.findIndex(t=>(t.id === v.id && t.name === v.name ))===i)
-
-      return { places};
+      const places = (await $axios.get( '/api/get_places' )).data;
+      return { places };
     },
     head() {
       return {
