@@ -130,7 +130,7 @@
             <button class="close-list" @click="openStageList = !openStageList">Свернуть</button>
           </div>
           <div class="timetable-list">
-            <div v-for="{id, border, icon, start, end, description, streamers} in placesList.timetable" :key="id"  :style="{'border-color': border}"  class="timetable-item">
+            <div v-for="{id, icon, start, end, description, streamers} in placesList.timetable" :key="id" class="timetable-item">
               <div class="timetable-item__icon">
                 <img :src="icon" alt="" loading="lazy">
               </div>

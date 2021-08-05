@@ -1217,6 +1217,13 @@
           >
             <img src="/partners/podari_jizn.png" loading="lazy"/>
           </a>
+          <a
+            href="https://www.trust.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/trust.png" loading="lazy"/>
+          </a>
         </div>
         <h3 class="section-header">ТЕХНИЧЕСКАЯ ПОДДЕРЖКА</h3> 
         <div class="partners-img technical tematic">
