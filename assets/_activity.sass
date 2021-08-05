@@ -418,8 +418,8 @@
 .timetable
   display: flex
   position: relative
-  margin: 0 auto
-  width: fit-content
+  justify-content: center
+  
   @media only screen and (max-width: 1024px)
     flex-direction: column
   .btn-stage
@@ -552,6 +552,7 @@
   @media only screen and (max-width: 1440px)
     font-size: 18px
 .timetable-list
+  width: 100%
   max-width: 1200px
 
 .timetable-item
@@ -630,7 +631,7 @@
       margin-right: 5px
       img
         height: 40px
-        max-width: 40px
+        width: 40px
         object-fit: cover
         object-position: center
     &-name
