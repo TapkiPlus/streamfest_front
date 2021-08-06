@@ -310,7 +310,7 @@
                 <ul class="map__list">
                   <li
                     class="map__item"
-                    v-for="{ id, name } in places"
+                    v-for="{ id, number, name } in places"
                     :key="id"
                   >
                     <span class="zone-id">{{ number }} </span> &mdash;
