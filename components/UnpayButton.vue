@@ -2,7 +2,7 @@
     <div class="unpay-button btn btn--yellow">
         <script src="https://unpay.club/external/button.js" async
                   data-event_id="6"
-                  data-text="Получи кэшбек 1250 ₽ от Альфа-Банка!"
+                  data-text="Открой карту и получи 1250р кэшбэком"
                   data-color="inherit"
                   data-background="transparent"
                   data-border="none"
