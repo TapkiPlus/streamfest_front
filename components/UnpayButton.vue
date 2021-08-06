@@ -1,8 +1,8 @@
 <template>
     <div class="unpay-button btn btn--yellow">
         <script src="https://unpay.club/external/button.js" async
-                  data-event_id="5"
-                  data-text="100% СКИДКА С НОВОЙ КАРТОЙ АЛЬФА-БАНКА"
+                  data-event_id="6"
+                  data-text="Получи кэшбек 1250 ₽ от Альфа-Банка!"
                   data-color="inherit"
                   data-background="transparent"
                   data-border="none"
