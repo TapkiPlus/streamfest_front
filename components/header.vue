@@ -69,15 +69,6 @@
             </svg>
             корзина
           </nuxt-link>
-          <nuxt-link
-            v-show="!cartTotalCount"
-            @click.native="handleScroll"
-            class="btn btn--yellow header__button"
-            to="/#tickets"
-          >
-            <div class="btn-bg"></div>
-              Купить билет
-          </nuxt-link>
         </div>
       </div>
     </div>
