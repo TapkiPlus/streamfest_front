@@ -34,6 +34,11 @@
   .container
     max-width: 1300px
     padding: 0 23px
+
+  a
+    color: $color-blue
+    text-decoration: underline
+
   &-tabs
     display: flex
     max-width: 1161px
@@ -41,9 +46,10 @@
     &__item
       flex: 1 1 314px
       text-align: center
-      cursor: pointer
       position: relative
       background-color: #fff
+      a
+        text-decoration: none
       &:not(:last-child)
         &:after
           content: ''
@@ -58,6 +64,8 @@
           @media only screen and (max-width: 992px)
             display: none
       &._active
+        opacity: 1
+        cursor: pointer
         .activities-tabs__name
           color: $color-blue
           font-weight: 700
@@ -137,7 +145,6 @@
         bottom: 0
         width: 55px
     &-tab
-
       margin-bottom: 25px
       a
         display: flex
@@ -149,6 +156,7 @@
         -moz-border-radius: 3px
         border-radius: 3px
         height: 60px
+        text-decoration: none
         background: #ffffff
         transition: color .25s ease, box-shadow .25s ease, background .25s ease
         color: $color-text
@@ -281,8 +289,10 @@
           left: 0
           right: 0
           bottom: 0
-          padding: 27px 15px 22px
+          padding: 27px 15px 0
           z-index: 20000
+          display: flex
+          flex-direction: column
           background-color: #fff
           opacity: 0
           transform: translateY(110%)
@@ -294,7 +304,8 @@
         border-top: 1px solid $gray
         border-bottom: 1px solid $gray
         padding-top: 8px
-        height: calc(100vh - 146px)
+        max-height: calc(100vh - 146px)
+        flex: 1
         overflow-y: auto
 
 
@@ -406,8 +417,8 @@
 .timetable
   display: flex
   position: relative
-  margin: 0 auto
-  width: fit-content
+  justify-content: center
+  
   @media only screen and (max-width: 1024px)
     flex-direction: column
   .btn-stage
@@ -454,6 +465,9 @@
     opacity: 0
     transform: translateY(110%)
     transition: opacity .35s ease, transform .35s ease
+    display: flex
+    flex-direction: column
+    padding: 25px 30px 0 15px
     &._active
       opacity: 1
       transform: translateY(0)
@@ -493,13 +507,9 @@
     border-top: 1px solid $gray
     border-bottom: 1px solid $gray
     padding-bottom: 15px
-    height: calc(100vh - 177px)
     overflow-y: auto
     max-height: 80vh
-
-  @media only screen and (max-width: 767px)
-    height: calc(100vh - 167px)
-
+    flex: 1
 
 .place__item
   margin-top: 15px
@@ -541,6 +551,7 @@
   @media only screen and (max-width: 1440px)
     font-size: 18px
 .timetable-list
+  width: 100%
   max-width: 1200px
 
 .timetable-item
@@ -619,7 +630,7 @@
       margin-right: 5px
       img
         height: 40px
-        max-width: 40px
+        width: 40px
         object-fit: cover
         object-position: center
     &-name

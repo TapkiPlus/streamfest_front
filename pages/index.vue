@@ -3,6 +3,7 @@
     <section class="offer">
       <video class="offer-video" :src="mainVideoSrc" loop autoplay muted />
       <div class="container offer-wrapper">
+        <img class="offer__covid" src="/covid/covid_free_zone_badge.svg" alt="" loading="lazy" />
         <h3 class="offer__title">СТРИМФЕСТ 2021</h3>
         <p class="offer__subtitle">Главный фестиваль стримеров!</p>
         <p class="offer__subtitle subtitle-last">
@@ -17,6 +18,42 @@
         >
           Купить билет
         </nuxt-link>
+      </div>
+    </section>
+    <section class="covid">
+      <div class="container">
+        <h3 class="section-header mb-20">
+          БЕЗОПАСНЫЙ COVID-FREE ФЕСТИВАЛЬ
+        </h3>
+        <p class="covid__subheader section-subheader">
+          Стримфест 2021 пройдет в режиме COVID-free — безопасно и «как раньше»: без&nbsp;масок,&nbsp;перчаток&nbsp;и&nbsp;дистанцирования — согласно п. 23 указа Мэра Москвы от 22 июня 2021 г. №35-УМ. Вход по QR-коду, который легко получить!
+        </p>
+        <p class="covid__subtitle">
+          Способы получить QR-код для входа на фестиваль
+        </p>
+        <div class="covid__items">
+          <div class="covid__item">
+            <img src="/covid/shield.svg" alt="" loading="lazy">
+            <p class="covid__item-subtitle covid__subtitle">Сделать прививку</p>
+            <p>любой вакциной в России</p>
+          </div>
+          <div class="covid__item">
+            <img src="/covid/planshet.svg" alt="" loading="lazy">
+            <p class="covid__item-subtitle covid__subtitle">Сдать ПЦР-тест</p>
+            <p>за 1 день до входа на фестиваль</p>
+          </div>
+          <div class="covid__item">
+            <img src="/covid/stop.svg" alt="" loading="lazy">
+            <p class="covid__item-subtitle covid__subtitle">Переболеть COVID-19</p>
+            <p>в предыдущие 180 дней</p>
+          </div>
+        </div>
+        <div class="covid__btn">
+          <img class="btn--icon" src="/covid/QR.svg" alt="" loading="lazy"/>
+          <nuxt-link class="btn btn-w-icon btn--blue" to="/faq"
+            >БОЛЬШЕ О QR-КОДАХ
+          </nuxt-link>
+        </div>
       </div>
     </section>
     <section class="video-block">
@@ -42,6 +79,14 @@
           ></iframe>
         </div>
         <div class="video-wrapper">
+          <!-- 
+            s1 - meet streamers
+            s2 - show matches
+            s3 - cosplay
+            s4 - game zones and quiz
+            s5 - tabletops
+            s6 - master classes
+          -->
           <div class="video-item">
             <img src="/cats/s_1.svg" loading="lazy"/>
             <div class="video-item__title">Встречи со звездами</div>
@@ -51,14 +96,14 @@
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_2.svg" loading="lazy"/>
+            <img src="/cats/s_4.svg" loading="lazy"/>
             <div class="video-item__title">Игровые зоны и конкурсы</div>
             <p>
               Развлечения по полной: видеоигры, роботы, танцы, фотозоны и призы.
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_3.svg" loading="lazy"/>
+            <img src="/cats/s_2.svg" loading="lazy"/>
             <div class="video-item__title">Турниры и шоу-матчи</div>
             <p>
               MOBA, шутеры и батл рояли — участвуй сам и смотри, как жарят
@@ -66,14 +111,14 @@
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_4.svg" loading="lazy"/>
+            <img src="/cats/s_5.svg" loading="lazy"/>
             <div class="video-item__title">Настолки и застолья</div>
             <p>
               Тащи друзей в партию или в кафешки, там всё вкусно и по карману.
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_5.svg" loading="lazy"/>
+            <img src="/cats/s_3.svg" loading="lazy"/>
             <div class="video-item__title">Дефиле косплееров</div>
             <p>
               Самый демократичный конкурс фанатского костюма — портал
@@ -90,7 +135,7 @@
           </div>
         </div>
         <div class="video-buttons">
-          <a class="video-button btn-disable btn btn--blue">
+          <nuxt-link class="video-button btn btn--blue" to="/activities">
             <svg
               class="btn--icon"
               width="54"
@@ -194,9 +239,8 @@
               </defs>
             </svg>
 
-            И другие активности</a
-          >
-          <a class="video-button btn-disable btn btn--blue">
+            И другие активности</nuxt-link>
+          <nuxt-link class="video-button btn btn--blue" to="/map">
             <svg
               class="btn--icon"
               width="53"
@@ -303,97 +347,7 @@
                 </filter>
               </defs>
             </svg>
-            Карта фестиваля</a
-          >
-          <a class="video-button btn-disable btn btn--blue">
-            <svg
-              class="btn--icon"
-              width="53"
-              height="53"
-              viewBox="0 0 53 53"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g filter="url(#filter0_d)">
-                <path
-                  d="M41.2796 42.7119L45.0108 42.7118C45.4753 42.7133 45.9176 42.513 46.2229 42.1629C46.5282 41.8128 46.6664 41.3474 46.6018 40.8874L42.0423 9.15253L41.2796 42.7119Z"
-                  fill="#F29C1F"
-                />
-                <path
-                  d="M39.7542 3.8136H4.66949C3.40578 3.8136 2.38135 4.83803 2.38135 6.10173V42.7119C2.38135 43.9756 3.40578 45 4.66949 45H39.7542C41.0179 45 42.0424 43.9756 42.0424 42.7119V6.10173C42.0424 4.83803 41.0179 3.8136 39.7542 3.8136Z"
-                  fill="#F0C419"
-                />
-                <path
-                  d="M38.9915 8.38986V12.9661H5.43221V8.38986C5.43472 7.54844 6.11621 6.86695 6.95764 6.86444H37.4661C38.3075 6.86695 38.989 7.54844 38.9915 8.38986Z"
-                  fill="#E64C3C"
-                />
-                <path
-                  d="M38.9915 12.9661V35.9771C38.9914 36.3836 38.8294 36.7733 38.5415 37.0602L34.1026 41.4992C33.8156 41.7871 33.426 41.949 33.0195 41.9492H6.95764C6.11621 41.9467 5.43472 41.2652 5.43221 40.4238V12.9661H38.9915Z"
-                  fill="#ECF0F1"
-                />
-                <path
-                  d="M16.1102 33.5594C18.6365 33.5568 20.6839 31.5094 20.6864 28.9831V22.8814C20.6864 20.354 18.6376 18.3051 16.1102 18.3051C13.5827 18.3051 11.5339 20.354 11.5339 22.8814V28.9831C11.5364 31.5094 13.5838 33.5568 16.1102 33.5594ZM13.0593 22.8814C13.0593 21.1964 14.4252 19.8305 16.1102 19.8305C17.7951 19.8305 19.161 21.1964 19.161 22.8814V28.9831C19.161 30.668 17.7951 32.0339 16.1102 32.0339C14.4252 32.0339 13.0593 30.668 13.0593 28.9831V22.8814Z"
-                  fill="#547580"
-                />
-                <path
-                  d="M24.5 32.0339C24.0788 32.0339 23.7373 32.3754 23.7373 32.7966C23.7373 33.2179 24.0788 33.5593 24.5 33.5593H30.6017C31.0229 33.5593 31.3644 33.2179 31.3644 32.7966C31.3644 32.3754 31.0229 32.0339 30.6017 32.0339H28.3135V19.0678C28.3135 18.7594 28.1277 18.4813 27.8427 18.3633C27.5577 18.2453 27.2297 18.3105 27.0116 18.5286L23.9608 21.5794C23.6717 21.8787 23.6758 22.3544 23.97 22.6486C24.2642 22.9428 24.74 22.9469 25.0392 22.6579L26.7881 20.909V32.0339H24.5Z"
-                  fill="#547580"
-                />
-                <path
-                  d="M30.6017 35.8475H13.0593C12.6381 35.8475 12.2966 36.189 12.2966 36.6102C12.2966 37.0314 12.6381 37.3729 13.0593 37.3729H30.6017C31.0229 37.3729 31.3644 37.0314 31.3644 36.6102C31.3644 36.189 31.0229 35.8475 30.6017 35.8475Z"
-                  fill="#35495E"
-                />
-                <path
-                  d="M38.8542 36.6102C38.7778 36.7777 38.6718 36.9301 38.5415 37.0602L34.1025 41.4992C33.9724 41.6295 33.82 41.7354 33.6525 41.8119V38.1356C33.655 37.2942 34.3365 36.6127 35.1779 36.6102H38.8542Z"
-                  fill="#D1D4D1"
-                />
-                <path
-                  d="M20.4271 3.81357H18.833C18.0707 2.06681 16.1358 1.15106 14.3016 1.66893C12.4675 2.18681 11.2972 3.97928 11.561 5.86682C11.8248 7.75435 13.4416 9.15734 15.3475 9.15255C15.7687 9.15255 16.1102 9.49403 16.1102 9.91527C16.1102 10.3365 15.7687 10.678 15.3475 10.678C12.6319 10.6783 10.3487 8.6402 10.042 5.94203C9.73528 3.24385 11.5028 0.745288 14.1491 0.136092C16.7954 -0.473103 19.4775 1.00117 20.3814 3.56188C20.4119 3.64226 20.4274 3.72758 20.4271 3.81357Z"
-                  fill="#95A5A5"
-                />
-                <path
-                  d="M34.9186 3.81357H33.3246C32.5622 2.06681 30.6273 1.15106 28.7932 1.66893C26.959 2.18681 25.7888 3.97928 26.0525 5.86682C26.3163 7.75435 27.9331 9.15734 29.839 9.15255C30.2602 9.15255 30.6017 9.49403 30.6017 9.91527C30.6017 10.3365 30.2602 10.678 29.839 10.678C27.1234 10.6783 24.8402 8.6402 24.5335 5.94203C24.2268 3.24385 25.9943 0.745288 28.6406 0.136092C31.287 -0.473103 33.969 1.00117 34.8729 3.56188C34.9034 3.64226 34.919 3.72758 34.9186 3.81357Z"
-                  fill="#95A5A5"
-                />
-              </g>
-              <defs>
-                <filter
-                  id="filter0_d"
-                  x="0"
-                  y="-0.000793457"
-                  width="53"
-                  height="53.0008"
-                  filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
-                >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feColorMatrix
-                    in="SourceAlpha"
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                  />
-                  <feOffset dx="2" dy="4" />
-                  <feGaussianBlur stdDeviation="2" />
-                  <feColorMatrix
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in2="BackgroundImageFix"
-                    result="effect1_dropShadow"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in="SourceGraphic"
-                    in2="effect1_dropShadow"
-                    result="shape"
-                  />
-                </filter>
-              </defs>
-            </svg>
-            Расписание</a
-          >
+            Карта фестиваля</nuxt-link>
         </div>
       </div>
       <div class="side-parts">
@@ -466,6 +420,9 @@
               </p>
               <ul v-if="days_qty === 1" class="tickets-item__list">
                 <li class="tickets-item__list--item checked">
+                Безопасно в формате COVID-free
+                </li>
+                <li class="tickets-item__list--item checked">
                   Хайп, веселье, конкурсы
                 </li>
                 <li class="tickets-item__list--item checked">
@@ -480,6 +437,9 @@
                 <li class="tickets-item__list--item ">Два дня праздника</li>
               </ul>
               <ul v-else class="tickets-item__list">
+                <li class="tickets-item__list--item checked">
+                Безопасно в формате COVID-free
+                </li>
                 <li class="tickets-item__list--item checked">
                   Хайп, веселье, конкурсы
                 </li>
@@ -501,14 +461,14 @@
               <p class="tickets-item__price">
                 <span>{{ price }} ₽</span>
               </p>
-              <button
+                <button
                 v-if="days_qty === 1"
-                @click="addItem(id)"
-                class="btn btn-ticket btn--red"
-                id="homeTicketOne"
-              >
-                Купить билет на 1 день
-              </button>
+                  @click="addItem(id)"
+                  class="btn btn-ticket btn--red"
+                  id="homeTicketOne"
+                >
+                  Купить билет на 1 день
+                </button>
               <button
                 v-else
                 @click="addItem(id)"
@@ -517,7 +477,7 @@
               >
                 Купить билет на 2 дня
               </button>
-              <UnpayButton :day="days_qty" />
+              <UnpayButton />
             </div>
           </div>
         </div>
@@ -543,6 +503,9 @@
               </p>
                     <ul v-if="days_qty === 1" class="tickets-item__list">
                       <li class="tickets-item__list--item checked">
+                Безопасно в формате COVID-free
+                </li>
+                      <li class="tickets-item__list--item checked">
                         Хайп, веселье, конкурсы
                       </li>
                       <li class="tickets-item__list--item checked">
@@ -559,6 +522,9 @@
                       </li>
                     </ul>
                     <ul v-else class="tickets-item__list">
+                      <li class="tickets-item__list--item checked">
+                Безопасно в формате COVID-free
+                </li>
                       <li class="tickets-item__list--item checked">
                         Хайп, веселье, конкурсы
                       </li>
@@ -580,20 +546,20 @@
                     <p class="tickets-item__price">
                       <span>{{ price }} ₽</span>
                     </p>
-                    <button
+                      <button
                       v-if="days_qty === 1"
-                      class="btn btn--red btn-ticket"
-                      id="homeTicketOne"
-                    >
-                      Купить билет на 1 день
-                    </button>
+                        class="btn btn--red btn-ticket"
+                        id="homeTicketOne"
+                      >
+                        Купить билет на 1 день
+                      </button>
                     <button v-else
                     class="btn btn--red btn-ticket"
                     id="homeTicketTwo"
                     >
                       Купить билет на 2 дня
                     </button>
-                    <UnpayButton :day="days_qty" />
+                    <UnpayButton />
                   </div>
                 </div>
               </swiper-slide>
@@ -800,7 +766,7 @@
             href="https://vk.com/streamfest"
             class="btn btn-w-icon btn--blue"
             target="_blank"
-            rel="noopener noreferrers"
+            rel="noopener noreferrer"
           >
               Больше фото
           </a>
@@ -1094,93 +1060,58 @@
             <img src="/partners/logitech.png" loading="lazy"/>
           </a>
           <a
-            href="https://zen.yandex.ru/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/yandex_dzen.png" loading="lazy"/>
-          </a>
-          <a
-            href="https://skillbox.ru/course/profession-stream-bloger/?utm_source=pr&utm_medium=pr&utm_campaign=all_all_pr_pr_all_all_all_StreamFest_skillbox"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/skillbox.png" loading="lazy"/>
-          </a>
-          <a
-            href="https://vk.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/vk.png" loading="lazy"/>
-          </a>
-          <a
-            href="http://red-square.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/red-square.png" loading="lazy"/>
-          </a>
-          <a
             href="https://www.amd.com/ru"
             target="_blank"
             rel="noopener noreferrer"
           >
             <img src="/partners/amd.png" loading="lazy"/>
           </a>
-          <a
-            href="https://donate.qiwi.com/"
+           <a
+            href="https://www.faceit.com/en"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/qiwi.png" loading="lazy"/>
-          </a>
-          <a
-            href="https://ru.siberianhealth.com/ru/shop/catalog/category/406/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/cyberbuild.png" loading="lazy"/>
+            <img src="/partners/faceit.png" loading="lazy"/>
           </a>
           <a
             href="https://goodgame.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/gg.png" loading="lazy"/>
-          </a>
-          <a
-            href="https://flick.redbull.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/redbull.png" loading="lazy"/>
-          </a>
-          <a
-            href="https://www.teamgroupinc.com/ru/products/t-force"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/teamgroup.png" loading="lazy"/>
+            <img src="/partners/goodgame.png" loading="lazy"/>
           </a>
         </div>
         <h3 class="section-header">ПАРТНЕРЫ ТЕМАТИЧЕСКИХ&nbsp;ЗОН</h3>
         <div class="partners-img tematic">
-          <a
-            href="https://restream.io"
+            <a
+            href="https://wasd.tv"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/restream.png" loading="lazy"/>
+            <img src="/partners/wasd.png" loading="lazy"/>
           </a>
-          <a
-            href="https://www.uniconf.ru/about/news/2018/7027/"
+           <a
+            href="https://fantv.ru"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/mega-drive.png" loading="lazy"/>
+            <img src="/partners/fan.png" loading="lazy"/>
           </a>
           <a
+            href="https://synergycybersport.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/synergy.png" loading="lazy"/>
+          </a>
+          <a
+            href="https://reyden-x.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/reyden-x.png" loading="lazy"/>
+          </a>
+           <a
             href="https://schoolskills.ru/"
             target="_blank"
             rel="noopener noreferrer"
@@ -1195,24 +1126,24 @@
             <img src="/partners/podari_jizn.png" loading="lazy"/>
           </a>
           <a
-            href="https://store.avermedia.com/ru"
+            href="https://www.trust.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/avermedia.png" loading="lazy"/>
+            <img src="/partners/trust.png" loading="lazy"/>
           </a>
         </div>
-        <h3 class="section-header">ТЕХНИЧЕСКАЯ ПОДДЕРЖКА</h3>
-        <div class="partners-img tematic">
-          <a href="https://warp.wtf/" target="_blank" rel="noopener noreferrer">
-            <img src="/partners/warp.png" loading="lazy"/>
-          </a>
+        <h3 class="section-header">ТЕХНИЧЕСКАЯ ПОДДЕРЖКА</h3> 
+        <div class="partners-img technical tematic">
           <a
-            href="https://www.razerzone.ru/"
+            href="https://www.bluemics.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/razer.png" loading="lazy"/>
+            <img src="/partners/blue.png" loading="lazy"/>
+          </a>
+          <a href="https://warp.wtf/" target="_blank" rel="noopener noreferrer">
+            <img src="/partners/warp.png" loading="lazy"/>
           </a>
           <a
             href="https://hyperpc.ru/"
@@ -1221,26 +1152,11 @@
           >
             <img src="/partners/hyper.png" loading="lazy"/>
           </a>
-          <a
-            href="https://www.bluemics.ru/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/blue.png" loading="lazy"/>
+          <a href="https://www.darkproject.org/" target="_blank" rel="noopener noreferrer">
+            <img src="/partners/dark_project.png" loading="lazy"/>
           </a>
-          <a
-            href="https://www.wd.com/ru-ru/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/western_digital.png" loading="lazy"/>
-          </a>
-          <a
-            href="https://www.dmitrylive.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/dmitry_live.png" loading="lazy"/>
+          <a href="https://flick.redbull.com/" target="_blank" rel="noopener noreferrer">
+            <img src="/partners/redbull.png" loading="lazy"/>
           </a>
           <a
             href="https://streamscharts.com/"
@@ -1249,9 +1165,30 @@
           >
             <img src="/partners/stream-charts.png" loading="lazy"/>
           </a>
+          <a
+            href="https://www.dell.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/dell.png" loading="lazy"/>
+          </a>
+          <a
+            href="https://www.dmitrylive.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/dmitry_live.png" loading="lazy"/>
+          </a>
+           <a
+            href="https://en-us.sennheiser.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/sennheiser.png" loading="lazy"/>
+          </a>
         </div>
         <h3 class="section-header">ИНФОРМАЦИОННАЯ ПОДДЕРЖКА</h3>
-        <div class="partners-img tematic information">
+        <div class="partners-img technical tematic information">
           <a
             href="https://www.igromania.ru/"
             target="_blank"
@@ -1267,11 +1204,11 @@
             <img src="/partners/moskva24.svg" loading="lazy"/>
           </a>
           <a
-            href="https://daily.afisha.ru/"
+            href="https://2x2tv.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/afisha.png" loading="lazy"/>
+            <img src="/partners/2х2.png" loading="lazy"/>
           </a>
           <a
             href="https://www.cybersport.ru/"
@@ -1286,6 +1223,13 @@
             rel="noopener noreferrer"
           >
             <img src="/partners/mirf.png" loading="lazy"/>
+          </a>
+          <a
+            href="http://www.mirtv.ru/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/mir24_tv.png" loading="lazy"/>
           </a>
         </div>
        <PartnersModalButton/>
@@ -1422,7 +1366,7 @@ export default {
   computed: {
     lastDay() {
       let days = Math.floor(
-        (new Date("Aug 7, 2021 11:00:00").getTime() - new Date().getTime()) /
+        (new Date("Aug 8, 2021 11:00:00").getTime() - new Date().getTime()) /
           86400000
       ).toString();
       const lastNum = days.substr(-1);

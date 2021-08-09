@@ -52,9 +52,11 @@
     color: #0D6DD8
     margin-left: 5px
   .faq-icon
+    min-width: 20px
     margin-right: 25px
 
   .faq-plus
+    min-width: 30px
     position: absolute
     right: 0
     rect:first-child
@@ -152,7 +154,9 @@
     &-plus
       display: none
     &-items
-      margin-bottom: 0
+      margin-bottom: 35px
+      &:last-of-type
+        margin-bottom: 0
     &-item
       +h5-bold
       position: relative

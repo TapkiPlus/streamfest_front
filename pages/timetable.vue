@@ -117,12 +117,12 @@
             </ul>
             <ul class="place__list">
               <li
-                v-for="{id, name} in places"
-                :key="id"
+                v-for="{id, name}, index in places"
+                :key="index"
                 class="place__item"
-                :class="{_active: activePlaceId === id}"
+                :class="{_active: id === _activePlaceId}"
                 :data-place="id"
-                @click="updateWidth(id)"
+                @click="activePlaceId = id"
               >
                 <div class="place__item-radio"></div>{{name}}
               </li>
@@ -130,26 +130,25 @@
             <button class="close-list" @click="openStageList = !openStageList">Свернуть</button>
           </div>
           <div class="timetable-list">
-            <div class="timetable-item" :style="{'border-color': border}" data-date="" data-place="" v-for="{id, icon, start, end, title, description, streamers, border} in activities.filter(({day, place}) => (day === activeDay || day === 3) && place.id === activePlaceId)" :key="id">
+            <div v-for="{id, icon, start, end, description, streamers} in placesList.timetable" :key="id" class="timetable-item">
               <div class="timetable-item__icon">
                 <img :src="icon" alt="" loading="lazy">
               </div>
               <div class="timetable-item__content" ref="timetableContent">
                 <div class="timetable-item__body">
-                  <div class="timetable-item__time"><span>{{start}}</span>&#8211;<span>{{end}}</span></div>
-                  <div class="timetable-item__title">{{title}}</div>
-                  <div class="timetable-item__descr">{{description}}</div>
+                  <div class="timetable-item__time"><span>{{start.substr(0, 5)}}</span>&#8211;<span>{{end.substr(0, 5)}}</span></div>
+                  <div class="timetable-item__title">{{ placesList.name || "Весь фестиваль" }}</div>
+                  <div class="timetable-item__descr" v-html="description"></div>
                 </div>
-                <div class="timetable-item__footer" v-if="streamers.length">
-                  <div class="timetable-item__stars" ref="starList">
-                    <nuxt-link v-for="{id, nickNameSlug, photo, name} in streamers" :key="id"  :to="`/${nickNameSlug}`" class="timetable-item__star">
+                <div v-if="streamers.length" class="timetable-item__footer">
+                  <div class="timetable-item__stars short" ref="starList">
+                    <nuxt-link v-for="streamer in streamers" :key="streamer.id"  :to="`/${streamer.nickNameSlug}`" class="timetable-item__star">
                       <div class="timetable-item__star-icon--wrapper">
                         <div class="timetable-item__star-icon">
-                          <img :src="photo" :alt="name">
+                          <img :src="streamer.photo" :alt="streamer.name">
                         </div>
                       </div>
-
-                      <div class="timetable-item__star-name">{{name}}</div>
+                      <div class="timetable-item__star-name">{{streamer.name}}</div>
                     </nuxt-link>
                   </div>
                 </div>
@@ -174,14 +173,8 @@
     },
     scrollToTop: true,
     async asyncData({ $axios }) {
-      const activities = (await $axios.get(
-        '/api/get_activities'
-      )).data;
-      const places = activities.map(({place})=>({
-        id: place.id,
-        name: place.name
-      })).filter((v,i,a)=> a.findIndex(t=>(t.id === v.id))===i)
-      return { activities, places};
+      const places = (await $axios.get( '/api/get_places' )).data;
+      return { places };
     },
     name: 'Timetable',
     data() {
@@ -191,14 +184,22 @@
         openStageList: false,
         activeStage: 1,
         activeDay: 1,
-        activePlaceId: 11,
+        activePlaceId: null,
       };
     },
+computed: {
+  _activePlaceId() {
+    return this.activePlaceId === null ? this.places[0].id : this.activePlaceId
+  },
+  placesList() {
+    const places = {...this.places.find(({id}) => 
+       id === this._activePlaceId
+      )}
+      places.timetable = places.timetable.filter(({day}) => (day === this.activeDay || day === 3))
 
-    mounted() {
-      this.calcWith()
-    },
-
+      return places
+    }
+  },
     methods: {
       getDay(day) {
         let dayStr = "";
@@ -215,23 +216,6 @@
         }
         return dayStr
       },
-      calcWith() {
-        let starsLists = this.$refs[`starList`]
-        let timetableContent = setTimeout(this.$refs.timetableContent.clientWidth, 100 )
-        starsLists.forEach(starList => {
-          if(starList.clientWidth >= (timetableContent )) {
-            starList.classList.add("short")
-          } else {
-            starList.classList.remove("short")
-          }
-        })
-      },
-      updateWidth(id) {
-        this.activePlaceId = id
-        this.openStageList = false
-        setTimeout(this.calcWith, 100)
-
-      }
     }
   };
 </script>
