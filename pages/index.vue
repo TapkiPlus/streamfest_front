@@ -9,6 +9,7 @@
         <p class="offer__subtitle subtitle-last">
           7–8 августа<br />Москва, Сколково
         </p>
+        <p class="offer__22px">До новых встреч!</p>
       </div>
     </section>
     <section class="covid">
