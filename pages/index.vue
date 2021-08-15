@@ -950,6 +950,13 @@
           >
             <img src="/partners/trust.png" loading="lazy"/>
           </a>
+           <a
+            href="https://brixogroup.com/nibk"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/NiBK.png" loading="lazy"/>
+          </a>
         </div>
         <h3 class="section-header">ТЕХНИЧЕСКАЯ ПОДДЕРЖКА</h3> 
         <div class="partners-img technical tematic">
@@ -1043,6 +1050,7 @@
             <img src="/partners/mirf.png" loading="lazy"/>
           </a>
           <a
+          class="partners-mir"
             href="http://www.mirtv.ru/"
             target="_blank"
             rel="noopener noreferrer"
