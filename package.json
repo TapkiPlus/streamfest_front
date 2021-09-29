@@ -12,7 +12,7 @@
     "@nuxtjs/auth": "^4.9.1",
     "@nuxtjs/axios": "^5.12.5",
     "@nuxtjs/robots": "^2.5.0",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "core-js": "^3.8.2",
     "element-ui": "^2.15.0",
     "maz-ui": "^2.3.7",
