@@ -9,8 +9,7 @@
         <p class="offer__subtitle subtitle-last">
           7–8 августа<br />Москва, Сколково
         </p>
-        <p class="offer__22px">до фестиваля</p>
-        <p class="offer__36px">{{ lastDay }}</p>
+        <p class="offer__22px">До новых встреч!</p>
         <nuxt-link
           @click.native="handleScroll"
           class="btn header__button btn--big btn--yellow"
@@ -79,7 +78,7 @@
           ></iframe>
         </div>
         <div class="video-wrapper">
-          <!-- 
+          <!--
             s1 - meet streamers
             s2 - show matches
             s3 - cosplay
@@ -1133,7 +1132,7 @@
             <img src="/partners/trust.png" loading="lazy"/>
           </a>
         </div>
-        <h3 class="section-header">ТЕХНИЧЕСКАЯ ПОДДЕРЖКА</h3> 
+        <h3 class="section-header">ТЕХНИЧЕСКАЯ ПОДДЕРЖКА</h3>
         <div class="partners-img technical tematic">
           <a
             href="https://www.bluemics.ru/"
