@@ -1,17 +1,6 @@
 <template>
     <div class="unpay-button btn btn--yellow">
-        <script src="https://unpay.club/external/button.js" async
-                  data-event_id="6"
-                  data-text="Открой карту и получи 1250р кэшбэком"
-                  data-color="inherit"
-                  data-background="transparent"
-                  data-border="none"
-                  data-border_radius="inherit"
-                  data-padding="0"
-                  data-font_family="inherit"
-                  data-font_size="inherit"
-                  data-font_style="inherit">
-              </script>
+        <a href="https://unpay.club/offers?id=6">Открой карту и получи 1250р кэшбэк</a>
     </div>
 </template>
 
