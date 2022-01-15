@@ -11,11 +11,29 @@
           <p>
             Российская аудитория стримов растет в два раза быстрее мировой — на
             20% в год. Стримфест — это точка входа в новую реальность.<br />Ждем
-            вас 7–8 августа в Технопарке Сколково!
+            вас 25-26 июня в Технопарке Сколково!
           </p>
           <div class="footer-top-social">
             <a
               href="https://vk.com/streamfest"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 36 36"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M35.6791 25.8387C35.5824 25.681 34.9838 24.4146 32.1036 21.8118C29.0884 19.0863 29.4934 19.5289 33.1252 14.8162C35.3371 11.9461 36.2214 10.1933 35.9446 9.44401C35.6814 8.72977 34.0545 8.91819 34.0545 8.91819L28.6451 8.94886C28.6451 8.94886 28.2446 8.89628 27.9453 9.06936C27.655 9.24025 27.4683 9.63462 27.4683 9.63462C27.4683 9.63462 26.611 11.8562 25.4679 13.7448C23.0579 17.7301 22.0926 17.9404 21.6988 17.6929C20.783 17.1166 21.0125 15.3749 21.0125 14.1392C21.0125 10.2766 21.6133 8.66623 19.8402 8.24995C19.2507 8.11192 18.8186 8.0199 17.3133 8.00457C15.3826 7.98485 13.7468 8.01114 12.8219 8.45152C12.2054 8.7451 11.7306 9.40019 12.0209 9.43744C12.3787 9.48345 13.1887 9.64996 13.6185 10.2196C14.1743 10.9536 14.154 12.6055 14.154 12.6055C14.154 12.6055 14.4736 17.1517 13.4092 17.717C12.6779 18.1048 11.6766 17.3138 9.5277 13.6966C8.42737 11.8453 7.59481 9.79675 7.59481 9.79675C7.59481 9.79675 7.43505 9.41553 7.14928 9.21177C6.80275 8.9642 6.31672 8.88532 6.31672 8.88532L1.17284 8.91599C1.17284 8.91599 0.401032 8.9379 0.117511 9.26435C-0.134508 9.55575 0.0972595 10.1561 0.0972595 10.1561C0.0972595 10.1561 4.12506 19.3295 8.68389 23.9545C12.8669 28.194 17.6148 27.9157 17.6148 27.9157H19.766C19.766 27.9157 20.4163 27.8456 20.747 27.4973C21.053 27.1774 21.0418 26.5771 21.0418 26.5771C21.0418 26.5771 20.999 23.7661 22.3401 23.352C23.661 22.9445 25.3576 26.0688 27.1555 27.2716C28.5146 28.1808 29.5474 27.9815 29.5474 27.9815L34.356 27.9157C34.356 27.9157 36.8717 27.7646 35.6791 25.8387Z"
+                  fill="white"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://discord.gg/uCrQmBntZP"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -118,24 +136,6 @@
                 />
               </svg>
             </a>
-            <a
-              href="https://twitter.com/streamfest_ru"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <svg
-                width="36"
-                height="36"
-                viewBox="0 0 36 36"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M34 8.078C32.81 8.6 31.542 8.946 30.22 9.114C31.58 8.302 32.618 7.026 33.106 5.488C31.838 6.244 30.438 6.778 28.946 7.076C27.742 5.794 26.026 5 24.154 5C20.522 5 17.598 7.948 17.598 11.562C17.598 12.082 17.642 12.582 17.75 13.058C12.296 12.792 7.47 10.178 4.228 6.196C3.662 7.178 3.33 8.302 3.33 9.512C3.33 11.784 4.5 13.798 6.244 14.964C5.19 14.944 4.156 14.638 3.28 14.156C3.28 14.176 3.28 14.202 3.28 14.228C3.28 17.416 5.554 20.064 8.536 20.674C8.002 20.82 7.42 20.89 6.816 20.89C6.396 20.89 5.972 20.866 5.574 20.778C6.424 23.376 8.836 25.286 11.704 25.348C9.472 27.094 6.638 28.146 3.57 28.146C3.032 28.146 2.516 28.122 2 28.056C4.906 29.93 8.35 31 12.064 31C24.136 31 30.736 21 30.736 12.332C30.736 12.042 30.726 11.762 30.712 11.484C32.014 10.56 33.108 9.406 34 8.078Z"
-                  fill="white"
-                />
-              </svg>
-            </a>
           </div>
         </div>
         <div class="footer-top-right">
@@ -148,7 +148,7 @@
 
     <div class="footer-bottom">
       <div class="container footer-bottom-wrapper">
-        <p>© 2015 – 2021, Стримфест</p>
+        <p>© 2015 – 2022, Стримфест</p>
         <a class="footer-cat mobile-hidden" @click="scrollToTop">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -176,7 +176,7 @@
       to="/cart"
     >
       <div class="cart-fix__counter"></div>
-      <img src="/cart-small.svg" alt="cart-icon" loading="lazy"/>
+      <img src="/cart-small.svg" alt="cart-icon" loading="lazy" />
     </nuxt-link>
     <div v-show="isWidgetVisible" id="vk_community_messages"></div>
   </footer>
@@ -187,8 +187,8 @@ import { mapState } from "vuex";
 export default {
   data() {
     return {
-      isWidgetVisible: false
-    }
+      isWidgetVisible: false,
+    };
   },
   computed: {
     ...mapState("cart", ["data"]),
@@ -202,29 +202,29 @@ export default {
     },
   },
   mounted() {
-      VK.Widgets.CommunityMessages("vk_community_messages", 122887579, {
-        disableExpandChatSound: "1",
-        disableButtonTooltip: "1"
-      });
-      VK.Widgets.Group(
-        "vk_groups",
-        { mode: 3, width: "auto", no_cover: 1 },
-        122887579
-      );
+    VK.Widgets.CommunityMessages("vk_community_messages", 122887579, {
+      disableExpandChatSound: "1",
+      disableButtonTooltip: "1",
+    });
+    VK.Widgets.Group(
+      "vk_groups",
+      { mode: 3, width: "auto", no_cover: 1 },
+      122887579
+    );
     this.checkRoutePath();
   },
-   watch: {
-    "$route.path": function() {
+  watch: {
+    "$route.path": function () {
       this.checkRoutePath();
-    }
+    },
   },
   methods: {
     checkRoutePath() {
-      this.isWidgetVisible = !['/cart', '/checkout'].includes(this.$route.path)
+      this.isWidgetVisible = !["/cart", "/checkout"].includes(this.$route.path);
     },
     scrollToTop() {
       window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    },
   },
 };
 </script>

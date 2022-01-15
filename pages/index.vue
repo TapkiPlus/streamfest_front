@@ -3,13 +3,11 @@
     <section class="offer">
       <video class="offer-video" :src="mainVideoSrc" loop autoplay muted />
       <div class="container offer-wrapper">
-        <img class="offer__covid" src="/covid/covid_free_zone_badge.svg" alt="" loading="lazy" />
-        <h3 class="offer__title">СТРИМФЕСТ 2021</h3>
+        <h3 class="offer__title">СТРИМФЕСТ 2022</h3>
         <p class="offer__subtitle">Главный фестиваль стримеров!</p>
         <p class="offer__subtitle subtitle-last">
-          7–8 августа<br />Москва, Сколково
+          25–26 июня<br />Москва, Сколково
         </p>
-        <p class="offer__22px">До новых встреч!</p>
         <nuxt-link
           @click.native="handleScroll"
           class="btn header__button btn--big btn--yellow"
@@ -17,42 +15,6 @@
         >
           Купить билет
         </nuxt-link>
-      </div>
-    </section>
-    <section class="covid">
-      <div class="container">
-        <h3 class="section-header mb-20">
-          БЕЗОПАСНЫЙ COVID-FREE ФЕСТИВАЛЬ
-        </h3>
-        <p class="covid__subheader section-subheader">
-          Стримфест 2021 пройдет в режиме COVID-free — безопасно и «как раньше»: без&nbsp;масок,&nbsp;перчаток&nbsp;и&nbsp;дистанцирования — согласно п. 23 указа Мэра Москвы от 22 июня 2021 г. №35-УМ. Вход по QR-коду, который легко получить!
-        </p>
-        <p class="covid__subtitle">
-          Способы получить QR-код для входа на фестиваль
-        </p>
-        <div class="covid__items">
-          <div class="covid__item">
-            <img src="/covid/shield.svg" alt="" loading="lazy">
-            <p class="covid__item-subtitle covid__subtitle">Сделать прививку</p>
-            <p>любой вакциной в России</p>
-          </div>
-          <div class="covid__item">
-            <img src="/covid/planshet.svg" alt="" loading="lazy">
-            <p class="covid__item-subtitle covid__subtitle">Сдать ПЦР-тест</p>
-            <p>за 1 день до входа на фестиваль</p>
-          </div>
-          <div class="covid__item">
-            <img src="/covid/stop.svg" alt="" loading="lazy">
-            <p class="covid__item-subtitle covid__subtitle">Переболеть COVID-19</p>
-            <p>в предыдущие 180 дней</p>
-          </div>
-        </div>
-        <div class="covid__btn">
-          <img class="btn--icon" src="/covid/QR.svg" alt="" loading="lazy"/>
-          <nuxt-link class="btn btn-w-icon btn--blue" to="/faq"
-            >БОЛЬШЕ О QR-КОДАХ
-          </nuxt-link>
-        </div>
       </div>
     </section>
     <section class="video-block">
@@ -67,11 +29,17 @@
           Живое общение, море развлечений, мастер-классы&nbsp;— без сомнения,
           лучшие выходные года!
         </p>
-        <div style="padding:56.25% 0 0 0;position:relative;">
+        <div style="padding: 56.25% 0 0 0; position: relative">
           <iframe
             src="https://player.vimeo.com/video/530958754?title=0&byline=0&portrait=0"
             loading="lazy"
-            style="position:absolute;top:0;left:0;width:100%;height:100%;"
+            style="
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+            "
             frameborder="0"
             allow="autoplay; fullscreen; picture-in-picture"
             allowfullscreen
@@ -87,7 +55,7 @@
             s6 - master classes
           -->
           <div class="video-item">
-            <img src="/cats/s_1.svg" loading="lazy"/>
+            <img src="/cats/s_1.svg" loading="lazy" />
             <div class="video-item__title">Встречи со звездами</div>
             <p>
               Топы всех платформ: Twitch.tv, YouTube, TikTok, WASD, Goodgame, VK
@@ -95,14 +63,14 @@
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_4.svg" loading="lazy"/>
+            <img src="/cats/s_4.svg" loading="lazy" />
             <div class="video-item__title">Игровые зоны и конкурсы</div>
             <p>
               Развлечения по полной: видеоигры, роботы, танцы, фотозоны и призы.
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_2.svg" loading="lazy"/>
+            <img src="/cats/s_2.svg" loading="lazy" />
             <div class="video-item__title">Турниры и шоу-матчи</div>
             <p>
               MOBA, шутеры и батл рояли — участвуй сам и смотри, как жарят
@@ -110,14 +78,14 @@
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_5.svg" loading="lazy"/>
+            <img src="/cats/s_5.svg" loading="lazy" />
             <div class="video-item__title">Настолки и застолья</div>
             <p>
               Тащи друзей в партию или в кафешки, там всё вкусно и по карману.
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_3.svg" loading="lazy"/>
+            <img src="/cats/s_3.svg" loading="lazy" />
             <div class="video-item__title">Дефиле косплееров</div>
             <p>
               Самый демократичный конкурс фанатского костюма — портал
@@ -125,7 +93,7 @@
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_6.svg" loading="lazy"/>
+            <img src="/cats/s_6.svg" loading="lazy" />
             <div class="video-item__title">Лекции и мастер-классы</div>
             <p>
               Два дня интенсива: прокачаем скиллы, научим зарабатывать на
@@ -238,115 +206,117 @@
               </defs>
             </svg>
 
-            И другие активности</nuxt-link>
-          <nuxt-link class="video-button btn btn--blue" to="/map">
-            <svg
-              class="btn--icon"
-              width="53"
-              height="51"
-              viewBox="0 0 53 51"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g filter="url(#filter0_d)">
-                <path
-                  d="M46.9895 41.8083L43.4542 22.3308C43.4189 22.1363 43.2984 21.9679 43.1256 21.8719L34.2273 16.9227C34.1118 16.8584 33.9824 16.8328 33.8552 16.8427L35.4741 37.7262L35.4198 37.7505L46.069 42.528C46.1557 42.5667 46.2478 42.5859 46.3395 42.5859C46.4846 42.5859 46.6284 42.5382 46.7466 42.4456C46.9398 42.2948 47.0332 42.0494 46.9895 41.8083Z"
-                  fill="#44C868"
+            И другие активности</nuxt-link
+          >
+          <!--nuxt-link class="video-button btn btn--blue" to="/map"-->
+          <svg
+            class="btn--icon"
+            width="53"
+            height="51"
+            viewBox="0 0 53 51"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g filter="url(#filter0_d)">
+              <path
+                d="M46.9895 41.8083L43.4542 22.3308C43.4189 22.1363 43.2984 21.9679 43.1256 21.8719L34.2273 16.9227C34.1118 16.8584 33.9824 16.8328 33.8552 16.8427L35.4741 37.7262L35.4198 37.7505L46.069 42.528C46.1557 42.5667 46.2478 42.5859 46.3395 42.5859C46.4846 42.5859 46.6284 42.5382 46.7466 42.4456C46.9398 42.2948 47.0332 42.0494 46.9895 41.8083Z"
+                fill="#44C868"
+              />
+              <path
+                d="M24.5001 21.6541L15.3994 16.9141C15.2903 16.8572 15.1694 16.834 15.0503 16.842C15.0819 16.8401 15.1136 16.8402 15.1451 16.8427L13.5262 37.7262L24.2296 42.5281C24.316 42.5667 24.4082 42.586 24.5001 42.586V21.6541Z"
+                fill="#44C868"
+              />
+              <path
+                d="M15.1449 16.8427C15.0178 16.8329 14.8883 16.8585 14.7728 16.9227L5.87449 21.8719C5.7017 21.9679 5.58111 22.1362 5.54587 22.3307L2.01064 41.8083C1.96687 42.0493 2.06038 42.2947 2.25348 42.4457C2.37187 42.5382 2.51557 42.586 2.66059 42.586C2.75226 42.586 2.84446 42.5669 2.93103 42.528L13.5222 37.7766L15.1449 16.8427Z"
+                fill="#4CE166"
+              />
+              <path
+                d="M33.8551 16.8423C33.7675 16.8491 33.6809 16.8723 33.6007 16.9142L24.5 21.6541V42.586C24.5 42.586 24.5 42.586 24.5001 42.586C24.592 42.586 24.6843 42.5669 24.7706 42.5281L35.474 37.7263L33.8551 16.8423Z"
+                fill="#4CE166"
+              />
+              <path
+                d="M4.47451 28.2335L3.75636 32.1902L14.3906 26.5735L14.6375 23.3884L14.6785 22.8602L4.47451 28.2335Z"
+                fill="#FFDB56"
+              />
+              <path
+                d="M14.4863 25.3384L14.3906 26.5735L3.75632 32.1902L2.01064 41.8084C1.96687 42.0494 2.06038 42.2948 2.25348 42.4458C2.37187 42.5383 2.51557 42.586 2.66059 42.586C2.75226 42.586 2.84446 42.567 2.93103 42.5281L13.5222 37.7767L14.4863 25.3384Z"
+                fill="#A8EEFC"
+              />
+              <path
+                d="M24.5027 24.265L14.6784 22.8602L14.3906 26.5735L24.5001 41.9262V36.3436L18.4675 26.8445L24.5027 27.5663V24.265Z"
+                fill="#FFBB24"
+              />
+              <path
+                d="M42.425 21.4824L38.1504 19.1049L34.1038 20.0504L34.1544 20.7039L34.3542 23.2821L42.425 21.4824Z"
+                fill="#FFBB24"
+              />
+              <path
+                d="M34.7131 27.9119L34.3299 22.9682L34.1038 20.0503L24.5027 24.2648V27.5662L30.7742 24.8389L34.7131 27.9119Z"
+                fill="#FFDB56"
+              />
+              <path
+                d="M46.9894 41.8084L46.1015 36.9159L34.3543 23.2822L34.7132 27.9121L46.7604 42.4335C46.9436 42.2817 47.0321 42.0433 46.9894 41.8084Z"
+                fill="#FFBB24"
+              />
+              <path
+                d="M24.5424 2.41388C19.4479 2.41388 15.3033 6.55512 15.3033 11.6454C15.3033 14.7942 16.7982 18.1748 19.7467 21.6933C21.9122 24.2775 24.0483 25.9396 24.1382 26.0091C24.2572 26.1012 24.3998 26.1471 24.5424 26.1471C24.685 26.1471 24.8276 26.1012 24.9467 26.0091C25.0365 25.9396 27.1727 24.2775 29.3382 21.6933C32.2867 18.1748 33.7816 14.7943 33.7816 11.6454C33.7814 6.55512 29.6368 2.41388 24.5424 2.41388ZM27.9639 11.6453C27.9639 13.5334 26.432 15.0641 24.5424 15.0641C22.6527 15.0641 21.1208 13.5335 21.1208 11.6453C21.1208 9.75716 22.6527 8.22654 24.5424 8.22654C26.432 8.22654 27.9639 9.75724 27.9639 11.6453Z"
+                fill="#FF4A4A"
+              />
+              <path
+                d="M24.5423 2.41388C24.1386 2.41388 23.7408 2.44007 23.3506 2.49052C27.8843 3.07649 31.3981 6.95854 31.3981 11.6454C31.3981 14.7942 29.9031 18.1748 26.9547 21.6933C25.562 23.3551 24.1826 24.6347 23.3507 25.3556C23.8125 25.7557 24.1062 25.9843 24.1382 26.0091C24.2572 26.1012 24.3998 26.1471 24.5424 26.1471C24.685 26.1471 24.8276 26.1012 24.9466 26.0091C25.0364 25.9396 27.1726 24.2775 29.3382 21.6933C32.2866 18.1748 33.7816 14.7943 33.7816 11.6454C33.7814 6.55512 29.6367 2.41388 24.5423 2.41388Z"
+                fill="#E7343F"
+              />
+              <path
+                d="M24.7706 42.5281L28.7507 40.7425L24.5001 36.3434V42.586C24.5001 42.586 24.5001 42.586 24.5001 42.586C24.592 42.586 24.6842 42.5669 24.7706 42.5281Z"
+                fill="#FFDB56"
+              />
+              <path
+                d="M43.454 22.3307C43.4188 22.1363 43.2982 21.9679 43.1254 21.8719L42.4249 21.4822L34.3542 23.282L46.1013 36.9157L43.454 22.3307Z"
+                fill="#1EA4E9"
+              />
+              <path
+                d="M24.4999 42.5859C24.5 42.5859 24.5 42.5859 24.4999 42.5859V41.926L14.3906 26.5734L13.526 37.7263L24.2294 42.5281C24.3158 42.5669 24.408 42.5859 24.4999 42.5859Z"
+                fill="#1EA4E9"
+              />
+            </g>
+            <defs>
+              <filter
+                id="filter0_d"
+                x="0"
+                y="0"
+                width="53.0001"
+                height="53"
+                filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB"
+              >
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
                 />
-                <path
-                  d="M24.5001 21.6541L15.3994 16.9141C15.2903 16.8572 15.1694 16.834 15.0503 16.842C15.0819 16.8401 15.1136 16.8402 15.1451 16.8427L13.5262 37.7262L24.2296 42.5281C24.316 42.5667 24.4082 42.586 24.5001 42.586V21.6541Z"
-                  fill="#44C868"
+                <feOffset dx="2" dy="4" />
+                <feGaussianBlur stdDeviation="2" />
+                <feColorMatrix
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
                 />
-                <path
-                  d="M15.1449 16.8427C15.0178 16.8329 14.8883 16.8585 14.7728 16.9227L5.87449 21.8719C5.7017 21.9679 5.58111 22.1362 5.54587 22.3307L2.01064 41.8083C1.96687 42.0493 2.06038 42.2947 2.25348 42.4457C2.37187 42.5382 2.51557 42.586 2.66059 42.586C2.75226 42.586 2.84446 42.5669 2.93103 42.528L13.5222 37.7766L15.1449 16.8427Z"
-                  fill="#4CE166"
+                <feBlend
+                  mode="normal"
+                  in2="BackgroundImageFix"
+                  result="effect1_dropShadow"
                 />
-                <path
-                  d="M33.8551 16.8423C33.7675 16.8491 33.6809 16.8723 33.6007 16.9142L24.5 21.6541V42.586C24.5 42.586 24.5 42.586 24.5001 42.586C24.592 42.586 24.6843 42.5669 24.7706 42.5281L35.474 37.7263L33.8551 16.8423Z"
-                  fill="#4CE166"
+                <feBlend
+                  mode="normal"
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow"
+                  result="shape"
                 />
-                <path
-                  d="M4.47451 28.2335L3.75636 32.1902L14.3906 26.5735L14.6375 23.3884L14.6785 22.8602L4.47451 28.2335Z"
-                  fill="#FFDB56"
-                />
-                <path
-                  d="M14.4863 25.3384L14.3906 26.5735L3.75632 32.1902L2.01064 41.8084C1.96687 42.0494 2.06038 42.2948 2.25348 42.4458C2.37187 42.5383 2.51557 42.586 2.66059 42.586C2.75226 42.586 2.84446 42.567 2.93103 42.5281L13.5222 37.7767L14.4863 25.3384Z"
-                  fill="#A8EEFC"
-                />
-                <path
-                  d="M24.5027 24.265L14.6784 22.8602L14.3906 26.5735L24.5001 41.9262V36.3436L18.4675 26.8445L24.5027 27.5663V24.265Z"
-                  fill="#FFBB24"
-                />
-                <path
-                  d="M42.425 21.4824L38.1504 19.1049L34.1038 20.0504L34.1544 20.7039L34.3542 23.2821L42.425 21.4824Z"
-                  fill="#FFBB24"
-                />
-                <path
-                  d="M34.7131 27.9119L34.3299 22.9682L34.1038 20.0503L24.5027 24.2648V27.5662L30.7742 24.8389L34.7131 27.9119Z"
-                  fill="#FFDB56"
-                />
-                <path
-                  d="M46.9894 41.8084L46.1015 36.9159L34.3543 23.2822L34.7132 27.9121L46.7604 42.4335C46.9436 42.2817 47.0321 42.0433 46.9894 41.8084Z"
-                  fill="#FFBB24"
-                />
-                <path
-                  d="M24.5424 2.41388C19.4479 2.41388 15.3033 6.55512 15.3033 11.6454C15.3033 14.7942 16.7982 18.1748 19.7467 21.6933C21.9122 24.2775 24.0483 25.9396 24.1382 26.0091C24.2572 26.1012 24.3998 26.1471 24.5424 26.1471C24.685 26.1471 24.8276 26.1012 24.9467 26.0091C25.0365 25.9396 27.1727 24.2775 29.3382 21.6933C32.2867 18.1748 33.7816 14.7943 33.7816 11.6454C33.7814 6.55512 29.6368 2.41388 24.5424 2.41388ZM27.9639 11.6453C27.9639 13.5334 26.432 15.0641 24.5424 15.0641C22.6527 15.0641 21.1208 13.5335 21.1208 11.6453C21.1208 9.75716 22.6527 8.22654 24.5424 8.22654C26.432 8.22654 27.9639 9.75724 27.9639 11.6453Z"
-                  fill="#FF4A4A"
-                />
-                <path
-                  d="M24.5423 2.41388C24.1386 2.41388 23.7408 2.44007 23.3506 2.49052C27.8843 3.07649 31.3981 6.95854 31.3981 11.6454C31.3981 14.7942 29.9031 18.1748 26.9547 21.6933C25.562 23.3551 24.1826 24.6347 23.3507 25.3556C23.8125 25.7557 24.1062 25.9843 24.1382 26.0091C24.2572 26.1012 24.3998 26.1471 24.5424 26.1471C24.685 26.1471 24.8276 26.1012 24.9466 26.0091C25.0364 25.9396 27.1726 24.2775 29.3382 21.6933C32.2866 18.1748 33.7816 14.7943 33.7816 11.6454C33.7814 6.55512 29.6367 2.41388 24.5423 2.41388Z"
-                  fill="#E7343F"
-                />
-                <path
-                  d="M24.7706 42.5281L28.7507 40.7425L24.5001 36.3434V42.586C24.5001 42.586 24.5001 42.586 24.5001 42.586C24.592 42.586 24.6842 42.5669 24.7706 42.5281Z"
-                  fill="#FFDB56"
-                />
-                <path
-                  d="M43.454 22.3307C43.4188 22.1363 43.2982 21.9679 43.1254 21.8719L42.4249 21.4822L34.3542 23.282L46.1013 36.9157L43.454 22.3307Z"
-                  fill="#1EA4E9"
-                />
-                <path
-                  d="M24.4999 42.5859C24.5 42.5859 24.5 42.5859 24.4999 42.5859V41.926L14.3906 26.5734L13.526 37.7263L24.2294 42.5281C24.3158 42.5669 24.408 42.5859 24.4999 42.5859Z"
-                  fill="#1EA4E9"
-                />
-              </g>
-              <defs>
-                <filter
-                  id="filter0_d"
-                  x="0"
-                  y="0"
-                  width="53.0001"
-                  height="53"
-                  filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
-                >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feColorMatrix
-                    in="SourceAlpha"
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                  />
-                  <feOffset dx="2" dy="4" />
-                  <feGaussianBlur stdDeviation="2" />
-                  <feColorMatrix
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in2="BackgroundImageFix"
-                    result="effect1_dropShadow"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in="SourceGraphic"
-                    in2="effect1_dropShadow"
-                    result="shape"
-                  />
-                </filter>
-              </defs>
-            </svg>
-            Карта фестиваля</nuxt-link>
+              </filter>
+            </defs>
+          </svg>
+          Карта фестиваля<!--/nuxt-link
+          -->
         </div>
       </div>
       <div class="side-parts">
@@ -378,7 +348,7 @@
     </div>
     <section class="streamers">
       <div class="container">
-        <h3 class="section-header">ОЧЕНЬ ПРОСТО ПОВСТРЕЧАТЬ</h3>
+        <h3 class="section-header">УЧАСТНИКИ СТРИМФЕСТА 2021</h3>
         <div class="streamers-wrapper">
           <StreamerCard
             v-for="{ id, photo, name, nickNameSlug, nickName } in streamers"
@@ -391,18 +361,16 @@
         </div>
         <StreamersSwiper :streamers="streamers" />
         <div class="streamers-btn">
-          <img class="btn--icon" src="/smile.png" loading="lazy"/>
+          <img class="btn--icon" src="/smile.png" loading="lazy" />
           <nuxt-link class="btn btn-w-icon btn--blue" to="/stars"
-            >КТО ТОЛЬКО НЕ ПРИДЕТ
+            >А ВОТ КТО ЕЩЕ БЫЛ
           </nuxt-link>
         </div>
       </div>
     </section>
     <section class="tickets">
       <div id="tickets"></div>
-      <h3 class="section-header">
-        ЦЕНЫ ВЫРАСТУТ&nbsp;— БЕРИ БИЛЕТ СЕЙЧАС!
-      </h3>
+      <h3 class="section-header">ЦЕНЫ ВЫРАСТУТ&nbsp;— БЕРИ БИЛЕТ СЕЙЧАС!</h3>
       <div class="tickets-wrapper">
         <div class="tickets-desktop">
           <div
@@ -419,7 +387,7 @@
               </p>
               <ul v-if="days_qty === 1" class="tickets-item__list">
                 <li class="tickets-item__list--item checked">
-                Безопасно в формате COVID-free
+                  Безопасно в формате COVID-free
                 </li>
                 <li class="tickets-item__list--item checked">
                   Хайп, веселье, конкурсы
@@ -427,17 +395,17 @@
                 <li class="tickets-item__list--item checked">
                   Все стенды и развлечения
                 </li>
-                <li class="tickets-item__list--item ">
+                <li class="tickets-item__list--item">
                   Все стримеры и подкастеры
                 </li>
-                <li class="tickets-item__list--item ">
+                <li class="tickets-item__list--item">
                   Все лекции и мастер-классы
                 </li>
-                <li class="tickets-item__list--item ">Два дня праздника</li>
+                <li class="tickets-item__list--item">Два дня праздника</li>
               </ul>
               <ul v-else class="tickets-item__list">
                 <li class="tickets-item__list--item checked">
-                Безопасно в формате COVID-free
+                  Безопасно в формате COVID-free
                 </li>
                 <li class="tickets-item__list--item checked">
                   Хайп, веселье, конкурсы
@@ -460,14 +428,14 @@
               <p class="tickets-item__price">
                 <span>{{ price }} ₽</span>
               </p>
-                <button
+              <button
                 v-if="days_qty === 1"
-                  @click="addItem(id)"
-                  class="btn btn-ticket btn--red"
-                  id="homeTicketOne"
-                >
-                  Купить билет на 1 день
-                </button>
+                @click="addItem(id)"
+                class="btn btn-ticket btn--red"
+                id="homeTicketOne"
+              >
+                Купить билет на 1 день
+              </button>
               <button
                 v-else
                 @click="addItem(id)"
@@ -495,35 +463,35 @@
                 <div class="tickets-item">
                   <div class="tickets-item__wrapper">
                     <p v-if="days_qty === 1" class="tickets-item__days">
-                Билет на один день 7&nbsp;или&nbsp;8&nbsp;августа
-              </p>
-              <p v-else class="tickets-item__days">
-                Билет на оба дня 7&nbsp;и&nbsp;8&nbsp;августа
-              </p>
+                      Билет на один день 7&nbsp;или&nbsp;8&nbsp;августа
+                    </p>
+                    <p v-else class="tickets-item__days">
+                      Билет на оба дня 7&nbsp;и&nbsp;8&nbsp;августа
+                    </p>
                     <ul v-if="days_qty === 1" class="tickets-item__list">
                       <li class="tickets-item__list--item checked">
-                Безопасно в формате COVID-free
-                </li>
+                        Безопасно в формате COVID-free
+                      </li>
                       <li class="tickets-item__list--item checked">
                         Хайп, веселье, конкурсы
                       </li>
                       <li class="tickets-item__list--item checked">
                         Все стенды и развлечения
                       </li>
-                      <li class="tickets-item__list--item ">
+                      <li class="tickets-item__list--item">
                         Все стримеры и подкастеры
                       </li>
-                      <li class="tickets-item__list--item ">
+                      <li class="tickets-item__list--item">
                         Все лекции и мастер-классы
                       </li>
-                      <li class="tickets-item__list--item ">
+                      <li class="tickets-item__list--item">
                         Два дня праздника
                       </li>
                     </ul>
                     <ul v-else class="tickets-item__list">
                       <li class="tickets-item__list--item checked">
-                Безопасно в формате COVID-free
-                </li>
+                        Безопасно в формате COVID-free
+                      </li>
                       <li class="tickets-item__list--item checked">
                         Хайп, веселье, конкурсы
                       </li>
@@ -545,16 +513,17 @@
                     <p class="tickets-item__price">
                       <span>{{ price }} ₽</span>
                     </p>
-                      <button
+                    <button
                       v-if="days_qty === 1"
-                        class="btn btn--red btn-ticket"
-                        id="homeTicketOne"
-                      >
-                        Купить билет на 1 день
-                      </button>
-                    <button v-else
-                    class="btn btn--red btn-ticket"
-                    id="homeTicketTwo"
+                      class="btn btn--red btn-ticket"
+                      id="homeTicketOne"
+                    >
+                      Купить билет на 1 день
+                    </button>
+                    <button
+                      v-else
+                      class="btn btn--red btn-ticket"
+                      id="homeTicketTwo"
                     >
                       Купить билет на 2 дня
                     </button>
@@ -574,16 +543,24 @@
     </section>
     <section class="how-it-was">
       <div class="container">
-        <h3 class="section-header">КАК ЭТО БЫЛО В 2019</h3>
+        <h3 class="section-header">КАК ЭТО БЫЛО В 2021</h3>
         <p class="section-subheader">
-          Два дня в Сколково, 170 топовых стримеров, 7000 посетителей и больше 2
-          млн зрителей онлайн — это было легендарно!
+          Во-первых — это было! Стримфест был первым и единственным игровым
+          офлайн-фестивалем в 2020 и 2021 году. За два дня в Сколково мы собрали
+          200 топовых стримеров, тысячи посетителей и больше 3 млн зрителей —
+          это было уникально!
         </p>
-        <div style="padding:56.25% 0 0 0;position:relative;">
+        <div style="padding: 56.25% 0 0 0; position: relative">
           <iframe
             src="https://player.vimeo.com/video/348364566?title=0&byline=0&portrait=0"
             loading="lazy"
-            style="position:absolute;top:0;left:0;width:100%;height:100%;"
+            style="
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+            "
             frameborder="0"
             allow="autoplay; fullscreen; picture-in-picture"
             allowfullscreen
@@ -767,7 +744,7 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-              Больше фото
+            Больше фото
           </a>
         </div>
       </div>
@@ -813,7 +790,7 @@
                     <p class="feedback-item__who">Видеоблогер</p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/2_s.jpg" loading="lazy"/>
+                    <img src="/reviews/2_s.jpg" loading="lazy" />
                   </div>
                 </div>
               </swiper-slide>
@@ -827,12 +804,10 @@
                       на&nbsp;глазах&nbsp;&mdash; это потрясающе.
                     </p>
                     <p class="feedback-item__from">Павел Пивоваров</p>
-                    <p class="feedback-item__who">
-                      Подкастер
-                    </p>
+                    <p class="feedback-item__who">Подкастер</p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/3_s.jpg" loading="lazy"/>
+                    <img src="/reviews/3_s.jpg" loading="lazy" />
                   </div>
                 </div>
               </swiper-slide>
@@ -846,12 +821,10 @@
                       впервые, но&nbsp;нам безумно понравилось.
                     </p>
                     <p class="feedback-item__from">Людмила Морозова</p>
-                    <p class="feedback-item__who">
-                      Посетитель
-                    </p>
+                    <p class="feedback-item__who">Посетитель</p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/4_s.jpg" loading="lazy"/>
+                    <img src="/reviews/4_s.jpg" loading="lazy" />
                   </div>
                 </div>
               </swiper-slide>
@@ -865,12 +838,10 @@
                       Это нужно пережить.
                     </p>
                     <p class="feedback-item__from">Дмитрий dayzru Нардов</p>
-                    <p class="feedback-item__who">
-                      Стример
-                    </p>
+                    <p class="feedback-item__who">Стример</p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/5_s.jpg" loading="lazy"/>
+                    <img src="/reviews/5_s.jpg" loading="lazy" />
                   </div>
                 </div>
               </swiper-slide>
@@ -885,12 +856,10 @@
                       что тут говорить!
                     </p>
                     <p class="feedback-item__from">Евгений Мелёхин</p>
-                    <p class="feedback-item__who">
-                      Посетитель
-                    </p>
+                    <p class="feedback-item__who">Посетитель</p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/6_s.jpg" loading="lazy"/>
+                    <img src="/reviews/6_s.jpg" loading="lazy" />
                   </div>
                 </div>
               </swiper-slide>
@@ -904,12 +873,10 @@
                       ВАААМ!<br /><br />
                     </p>
                     <p class="feedback-item__from">Лилия Lily_Mint Аюпова</p>
-                    <p class="feedback-item__who">
-                      Стример
-                    </p>
+                    <p class="feedback-item__who">Стример</p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/7_s.jpg" loading="lazy"/>
+                    <img src="/reviews/7_s.jpg" loading="lazy" />
                   </div>
                 </div>
               </swiper-slide>
@@ -925,12 +892,10 @@
                     <p class="feedback-item__from">
                       Алексей Stery_RJV Рыженков
                     </p>
-                    <p class="feedback-item__who">
-                      Стример
-                    </p>
+                    <p class="feedback-item__who">Стример</p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/8_s.jpg" loading="lazy"/>
+                    <img src="/reviews/8_s.jpg" loading="lazy" />
                   </div>
                 </div>
               </swiper-slide>
@@ -973,24 +938,22 @@
     </section>
     <section class="awards">
       <div class="container">
-        <h3 class="section-header">STREAMFEST AWARDS</h3>
+        <h3 class="section-header">STREAMFEST AWARDS 2021</h3>
         <p class="section-subheader">
           Яркое эфирное шоу, где популярные стримеры, эксперты&nbsp;рынка
           и&nbsp;журналисты&nbsp;развлекательных медиа&nbsp;выбрали лучших из
-          лучших в 13&nbsp;номинациях.
+          лучших в 19&nbsp;номинациях.
           <a
-            class=" btn btn--awards"
-            href="https://streamscharts.com/streamfestawards2020"
+            class="btn btn--awards"
+            href="https://streamscharts.com/streamfestawards2021"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div class="letters">
-              Как&nbsp;это&nbsp;было
-            </div></a
+            <div class="letters">Как&nbsp;это&nbsp;было</div></a
           >
         </p>
         <div class="awards-img">
-          <img src="/awards.png" loading="lazy"/>
+          <img src="/awards.png" loading="lazy" />
         </div>
       </div>
     </section>
@@ -1032,21 +995,21 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/mvideo.png" loading="lazy"/>
+            <img src="/partners/mvideo.png" loading="lazy" />
           </a>
           <a
             href="https://www.lg.com/ru/ergo-monitors"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/lg.png" loading="lazy"/>
+            <img src="/partners/lg.png" loading="lazy" />
           </a>
           <a
             href="https://www.bigo.tv/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/bigo-live.png" loading="lazy"/>
+            <img src="/partners/bigo-live.png" loading="lazy" />
           </a>
         </div>
         <h3 class="section-header">ОФИЦИАЛЬНЫЕ ПАРТНЕРЫ</h3>
@@ -1056,87 +1019,79 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/logitech.png" loading="lazy"/>
+            <img src="/partners/logitech.png" loading="lazy" />
           </a>
           <a
             href="https://www.amd.com/ru"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/amd.png" loading="lazy"/>
+            <img src="/partners/amd.png" loading="lazy" />
           </a>
-           <a
+          <a
             href="https://www.faceit.com/en"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/faceit.png" loading="lazy"/>
+            <img src="/partners/faceit.png" loading="lazy" />
           </a>
           <a
             href="https://goodgame.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/goodgame.png" loading="lazy"/>
+            <img src="/partners/goodgame.png" loading="lazy" />
           </a>
         </div>
         <h3 class="section-header">ПАРТНЕРЫ ТЕМАТИЧЕСКИХ&nbsp;ЗОН</h3>
         <div class="partners-img tematic">
-            <a
-            href="https://wasd.tv"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/wasd.png" loading="lazy"/>
+          <a href="https://wasd.tv" target="_blank" rel="noopener noreferrer">
+            <img src="/partners/wasd.png" loading="lazy" />
           </a>
-           <a
-            href="https://fantv.ru"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/fan.png" loading="lazy"/>
+          <a href="https://fantv.ru" target="_blank" rel="noopener noreferrer">
+            <img src="/partners/fan.png" loading="lazy" />
           </a>
           <a
             href="https://synergycybersport.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/synergy.png" loading="lazy"/>
+            <img src="/partners/synergy.png" loading="lazy" />
           </a>
           <a
             href="https://reyden-x.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/reyden-x.png" loading="lazy"/>
+            <img src="/partners/reyden-x.png" loading="lazy" />
           </a>
-           <a
+          <a
             href="https://schoolskills.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/school_skills.png" loading="lazy"/>
+            <img src="/partners/school_skills.png" loading="lazy" />
           </a>
           <a
             href="https://podari-zhizn.ru/main"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/podari_jizn.png" loading="lazy"/>
+            <img src="/partners/podari_jizn.png" loading="lazy" />
           </a>
           <a
             href="https://www.trust.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/trust.png" loading="lazy"/>
+            <img src="/partners/trust.png" loading="lazy" />
           </a>
-           <a
+          <a
             href="https://brixogroup.com/nibk"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/NiBK.png" loading="lazy"/>
+            <img src="/partners/NiBK.png" loading="lazy" />
           </a>
         </div>
         <h3 class="section-header">ТЕХНИЧЕСКАЯ ПОДДЕРЖКА</h3>
@@ -1146,51 +1101,59 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/blue.png" loading="lazy"/>
+            <img src="/partners/blue.png" loading="lazy" />
           </a>
           <a href="https://warp.wtf/" target="_blank" rel="noopener noreferrer">
-            <img src="/partners/warp.png" loading="lazy"/>
+            <img src="/partners/warp.png" loading="lazy" />
           </a>
           <a
             href="https://hyperpc.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/hyper.png" loading="lazy"/>
+            <img src="/partners/hyper.png" loading="lazy" />
           </a>
-          <a href="https://www.darkproject.org/" target="_blank" rel="noopener noreferrer">
-            <img src="/partners/dark_project.png" loading="lazy"/>
+          <a
+            href="https://www.darkproject.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/dark_project.png" loading="lazy" />
           </a>
-          <a href="https://flick.redbull.com/" target="_blank" rel="noopener noreferrer">
-            <img src="/partners/redbull.png" loading="lazy"/>
+          <a
+            href="https://flick.redbull.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/redbull.png" loading="lazy" />
           </a>
           <a
             href="https://streamscharts.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/stream-charts.png" loading="lazy"/>
+            <img src="/partners/stream-charts.png" loading="lazy" />
           </a>
           <a
             href="https://www.dell.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/dell.png" loading="lazy"/>
+            <img src="/partners/dell.png" loading="lazy" />
           </a>
           <a
             href="https://www.dmitrylive.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/dmitry_live.png" loading="lazy"/>
+            <img src="/partners/dmitry_live.png" loading="lazy" />
           </a>
-           <a
+          <a
             href="https://en-us.sennheiser.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/sennheiser.png" loading="lazy"/>
+            <img src="/partners/sennheiser.png" loading="lazy" />
           </a>
         </div>
         <h3 class="section-header">ИНФОРМАЦИОННАЯ ПОДДЕРЖКА</h3>
@@ -1200,63 +1163,59 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/mania.png" loading="lazy"/>
+            <img src="/partners/mania.png" loading="lazy" />
           </a>
           <a
             href="https://tv.m24.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/moskva24.svg" loading="lazy"/>
+            <img src="/partners/moskva24.svg" loading="lazy" />
           </a>
-          <a
-            href="https://2x2tv.ru/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/2х2.png" loading="lazy"/>
+          <a href="https://2x2tv.ru/" target="_blank" rel="noopener noreferrer">
+            <img src="/partners/2х2.png" loading="lazy" />
           </a>
           <a
             href="https://www.cybersport.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/cybersport.png" loading="lazy"/>
+            <img src="/partners/cybersport.png" loading="lazy" />
           </a>
           <a
             href="https://www.mirf.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/mirf.png" loading="lazy"/>
+            <img src="/partners/mirf.png" loading="lazy" />
           </a>
           <a
-          class="partners-mir"
+            class="partners-mir"
             href="http://www.mirtv.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/mir24_tv.png" loading="lazy"/>
+            <img src="/partners/mir24_tv.png" loading="lazy" />
           </a>
         </div>
-       <PartnersModalButton/>
+        <PartnersModalButton />
       </div>
       <div class="side-parts">
-        <img src="/side-parts_5.png" loading="lazy"/>
-        <img src="/side-parts_6.png" loading="lazy"/>
+        <img src="/side-parts_5.png" loading="lazy" />
+        <img src="/side-parts_6.png" loading="lazy" />
       </div>
     </section>
-    <PartnersModal/>
+    <PartnersModal />
   </div>
 </template>
 
 <script>
 import StreamerCard from "@/components/StreamerCard";
 import StreamersSwiper from "@/components/StreamersSwiper";
-import UnpayButton from "@/components/UnpayButton"
+import UnpayButton from "@/components/UnpayButton";
 import Subscribe from "@/components/Subscribe";
-import PartnersModal from "@/components/PartnersModal/"
-import PartnersModalButton from "@/components/PartnersModal/Button"
+import PartnersModal from "@/components/PartnersModal/";
+import PartnersModalButton from "@/components/PartnersModal/Button";
 export default {
   components: {
     StreamerCard,
@@ -1264,11 +1223,11 @@ export default {
     UnpayButton,
     Subscribe,
     PartnersModal,
-    PartnersModalButton
+    PartnersModalButton,
   },
   data() {
     return {
-      mainVideoSrc: '',
+      mainVideoSrc: "",
       streamers: [],
       tickets: [],
       ticketsOptions: {
@@ -1277,85 +1236,85 @@ export default {
         loop: true,
         autoplay: {
           delay: 8000,
-          disableOnInteraction: false
+          disableOnInteraction: false,
         },
         pagination: {
           el: ".tickets-pagination",
-          clickable: true
+          clickable: true,
         },
         breakpoints: {
           0: {
-            slidesPerView: 1
+            slidesPerView: 1,
           },
           375: {
-            slidesPerView: 1.1
+            slidesPerView: 1.1,
           },
           510: {
-            slidesPerView: 1.4
-          }
-        }
+            slidesPerView: 1.4,
+          },
+        },
       },
       silentbox: [
         {
           src: "/home_gall/1.jpg",
-          thumbnail: "/home_gall/1_s.png"
+          thumbnail: "/home_gall/1_s.png",
         },
         {
           src: "/home_gall/2.jpg",
-          thumbnail: "/home_gall/2_s.png"
+          thumbnail: "/home_gall/2_s.png",
         },
         {
           src: "/home_gall/4.jpg",
-          thumbnail: "/home_gall/4_s.png"
+          thumbnail: "/home_gall/4_s.png",
         },
         {
           src: "/home_gall/3.jpg",
-          thumbnail: "/home_gall/3_s.png"
+          thumbnail: "/home_gall/3_s.png",
         },
         {
           src: "/home_gall/5.jpg",
-          thumbnail: "/home_gall/5_s.png"
+          thumbnail: "/home_gall/5_s.png",
         },
         {
           src: "/home_gall/6.jpg",
-          thumbnail: "/home_gall/6_s.png"
-        }
+          thumbnail: "/home_gall/6_s.png",
+        },
       ],
       feedbacksOptions: {
         autoHeight: true,
         loop: true,
         autoplay: {
           delay: 8000,
-          disableOnInteraction: false
+          disableOnInteraction: false,
         },
 
         navigation: {
           nextEl: ".feedbacks-button-next",
-          prevEl: ".feedbacks-button-prev"
+          prevEl: ".feedbacks-button-prev",
         },
         breakpoints: {
           0: {
             slidesPerView: 1,
-            spaceBetween: 20
+            spaceBetween: 20,
           },
           350: {
-            slidesPerView: 1.1
+            slidesPerView: 1.1,
           },
           410: {
-            slidesPerView: 1.2
+            slidesPerView: 1.2,
           },
           560: {
-            slidesPerView: 1.7
+            slidesPerView: 1.7,
           },
           650: {
-            slidesPerView: 2
+            slidesPerView: 2,
           },
           700: {
-            slidesPerView: 2.1
+            slidesPerView: 2.1,
           },
           768: {
             slidesPerView: 2.3,
-            spaceBetween: 20
+            spaceBetween: 20,
           },
 
           1024: {
@@ -1363,10 +1322,10 @@ export default {
             spaceBetween: 20,
             pagination: {
               el: ".feedbacks-pagination",
-              clickable: true
-            }
-          }
-        }
+              clickable: true,
+            },
+          },
+        },
       },
     };
   },
@@ -1381,22 +1340,23 @@ export default {
       else if (["2", "3", "4"].includes(lastNum)) days += " дня";
       else days += " дней";
       return days;
-    }
+    },
   },
   async mounted() {
     this.$router.currentRoute.hash === "#tickets" && this.handleScroll();
-    this.mainVideoSrc = '/videos/home.mp4'
+    this.mainVideoSrc = "/videos/home.mp4";
     const script = document.createElement("script");
     script.src = "https://player.vimeo.com/api/player.js";
     document.body.appendChild(script);
-    this.streamers = (await this.$axios.get("/api/get_streamers?at_home=show"))
-      .data
+    this.streamers = (
+      await this.$axios.get("/api/get_streamers?at_home=show")
+    ).data;
     this.tickets = (await this.$axios.get("/api/get_ticket_types")).data;
   },
   methods: {
     async addItem(t_id) {
       await this.$store.dispatch("cart/addItem", {
-        t_id
+        t_id,
       });
       const { $router } = this;
       this.$notify({
@@ -1406,7 +1366,7 @@ export default {
         customClass: "c-pointer",
         onClick() {
           $router.push("cart");
-        }
+        },
       });
     },
     ticketsSwiperClick(e) {
@@ -1419,10 +1379,10 @@ export default {
       const anchor = document.querySelector(`#tickets`);
       if (anchor) {
         window.scrollTo({
-          top: anchor.getBoundingClientRect().top + window.pageYOffset
+          top: anchor.getBoundingClientRect().top + window.pageYOffset,
         });
       }
     },
-  }
+  },
 };
 </script>
