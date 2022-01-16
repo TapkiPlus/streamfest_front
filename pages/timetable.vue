@@ -92,7 +92,7 @@
     <div class="container-wide">
       <div class="activities-tabs__content">
         <p class="tab-description">
-          Стримфест проходит 7 и 8 августа с 11:00 до 19:00.  Смотри тут расписание фестивальных сцен, партнерских стендов и лектория!
+          Стримфест проходит 25 и 26 июня с 11:00 до 19:00.  Смотри тут расписание фестивальных сцен, партнерских стендов и лектория!
           Ищешь
           <router-link
             to="/stars"
@@ -205,13 +205,13 @@ computed: {
         let dayStr = "";
         switch (day) {
           case 1:
-            dayStr = "7 августа"
+            dayStr = "25 июня"
             break;
           case 2:
-            dayStr = "8 августа"
+            dayStr = "26 июня"
             break;
           case 3:
-            dayStr = "7 и 8 августа"
+            dayStr = "25 и 26 июня"
             break;
         }
         return dayStr

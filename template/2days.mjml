@@ -1,8 +1,8 @@
 <mjml>
   <mj-head>
-    <mj-title>Это ваш билет на Стримфест 2021. Сохраните или распечатайте QR-код из этого письма!</mj-title>
+    <mj-title>Это ваш билет на Стримфест 2022. Сохраните или распечатайте QR-код из этого письма!</mj-title>
     <mj-preview>
-      Это ваш билет на Стримфест 2021. Сохраните или распечатайте QR-код из этого письма!
+      Это ваш билет на Стримфест 2022. Сохраните или распечатайте QR-код из этого письма!
     </mj-preview>
     <mj-style>
       body {
@@ -168,7 +168,7 @@
       <mj-column padding="0">
         <mj-text color="#333333" font-size="18px" font-family="Open Sans" line-height="27px" css-class="intro" padding="0">
           <p><b>Пятый международный фестиваль стрим-культуры Стримфест</b></br> Технопарк «Сколково», Москва</p>
-          <p>Приходите <b>7–8 августа</b> — будет здорово! <br/>
+          <p>Приходите <b>25–26 июня</b> — будет здорово! <br/>
             <a href="https://streamfest.ru/activities" css-class="link">Активности</a>, <a href="https://streamfest.ru/timetable" css-class="link">расписание</a>, <a href="https://streamfest.ru/stars" css-class="link">участники</a> и <a href="https://streamfest.ru/faq" css-class="link">ответы на вопросы</a>. 
           </p>
         </mj-text>

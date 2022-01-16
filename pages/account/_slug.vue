@@ -66,13 +66,13 @@
                 <div class="table__cell" v-if="type === 1">
                   <img class="ticket-icon" src="/oneday-star.svg" loading="lazy"/>
                   <div class="ticket-info">
-                    Билет на Стримфест 2021 на 1 день от {{stats.streamer.nickName}}
+                    Билет на Стримфест 2022 на 1 день от {{stats.streamer.nickName}}
                   </div>
                 </div>
                 <div class="table__cell" v-else>
                   <img class="ticket-icon" src="/twoday-star.svg" loading="lazy"/>
                   <div class="ticket-info">
-                    Билет на Стримфест 2021 на 2 дня от {{stats.streamer.nickName}}
+                    Билет на Стримфест 2022 на 2 дня от {{stats.streamer.nickName}}
                   </div>
                 </div>
                 <div class="table__cell">{{qty}}</div>
@@ -156,7 +156,7 @@
 		  return {
         stats: {},
         periodInputChecked: false,
-        datePickerModel: [new Date(2021, 0, 1), new Date()],
+        datePickerModel: [new Date(2022, 0, 1), new Date()],
       }
     },
     created() {

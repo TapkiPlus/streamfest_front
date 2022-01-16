@@ -110,10 +110,10 @@
           </nuxt-link>
         </li>
         <li
-          class="activities-tabs__item"
+          class="activities-tabs__item btn-disable"
           :class="{ _active: activeTable === 3 }"
         >
-          <nuxt-link to="/map">
+          <div>
             <svg
               viewBox="0 0 72 72"
               fill="none"
@@ -181,7 +181,7 @@
               />
             </svg>
             <div class="activities-tabs__name">Карта фестиваля</div>
-          </nuxt-link>
+          </div>
         </li>
       </ul>
     </div>
@@ -365,13 +365,13 @@ export default {
       let dayStr = "";
       switch (day) {
         case 1:
-          dayStr = "7 августа";
+          dayStr = "25 июня";
           break;
         case 2:
-          dayStr = "8 августа";
+          dayStr = "26 июня";
           break;
         case 3:
-          dayStr = "7 и 8 августа";
+          dayStr = "25 и 26 июня";
           break;
       }
       return dayStr;

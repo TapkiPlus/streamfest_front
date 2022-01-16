@@ -1786,7 +1786,7 @@ import PartnersModalButton from "@/components/PartnersModal/Button"
     data() {
 		  return {
         activeYear: 2,
-		    years: ["2017", "2018", "2019", "2020", "2021", "2022"],
+		    years: ["2017", "2018", "2019", "2020", "2022", "2022"],
         yearsOptions: {
           spaceBetween: 0,
           slidesPerView: 3,
