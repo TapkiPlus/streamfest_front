@@ -208,7 +208,7 @@
 
             И другие активности</nuxt-link
           >
-                  <div class="video-button btn btn--blue btn-disable">
+          <div class="video-button btn btn--blue btn-disable">
             <svg
               class="btn--icon"
               width="53"
@@ -315,7 +315,8 @@
                 </filter>
               </defs>
             </svg>
-            Карта фестиваля</div>
+            Карта фестиваля
+          </div>
         </div>
       </div>
       <div class="side-parts">
@@ -1222,7 +1223,7 @@ export default {
     UnpayButton,
     Subscribe,
     PartnersModal,
-    PartnersModalButton,
+    PartnersModalButton
   },
   data() {
     return {
@@ -1235,85 +1236,85 @@ export default {
         loop: true,
         autoplay: {
           delay: 8000,
-          disableOnInteraction: false,
+          disableOnInteraction: false
         },
         pagination: {
           el: ".tickets-pagination",
-          clickable: true,
+          clickable: true
         },
         breakpoints: {
           0: {
-            slidesPerView: 1,
+            slidesPerView: 1
           },
           375: {
-            slidesPerView: 1.1,
+            slidesPerView: 1.1
           },
           510: {
-            slidesPerView: 1.4,
-          },
-        },
+            slidesPerView: 1.4
+          }
+        }
       },
       silentbox: [
         {
           src: "/home_gall/1.jpg",
-          thumbnail: "/home_gall/1_s.png",
+          thumbnail: "/home_gall/1_s.png"
         },
         {
           src: "/home_gall/2.png",
-          thumbnail: "/home_gall/2_s.png",
+          thumbnail: "/home_gall/2_s.png"
         },
         {
           src: "/home_gall/4.jpg",
-          thumbnail: "/home_gall/4_s.png",
+          thumbnail: "/home_gall/4_s.png"
         },
         {
           src: "/home_gall/3.jpg",
-          thumbnail: "/home_gall/3_s.png",
+          thumbnail: "/home_gall/3_s.png"
         },
         {
           src: "/home_gall/5.png",
-          thumbnail: "/home_gall/5_s.png",
+          thumbnail: "/home_gall/5_s.png"
         },
         {
           src: "/home_gall/6.jpg",
-          thumbnail: "/home_gall/6_s.png",
-        },
+          thumbnail: "/home_gall/6_s.png"
+        }
       ],
       feedbacksOptions: {
         autoHeight: true,
         loop: true,
         autoplay: {
           delay: 8000,
-          disableOnInteraction: false,
+          disableOnInteraction: false
         },
 
         navigation: {
           nextEl: ".feedbacks-button-next",
-          prevEl: ".feedbacks-button-prev",
+          prevEl: ".feedbacks-button-prev"
         },
         breakpoints: {
           0: {
             slidesPerView: 1,
-            spaceBetween: 20,
+            spaceBetween: 20
           },
           350: {
-            slidesPerView: 1.1,
+            slidesPerView: 1.1
           },
           410: {
-            slidesPerView: 1.2,
+            slidesPerView: 1.2
           },
           560: {
-            slidesPerView: 1.7,
+            slidesPerView: 1.7
           },
           650: {
-            slidesPerView: 2,
+            slidesPerView: 2
           },
           700: {
-            slidesPerView: 2.1,
+            slidesPerView: 2.1
           },
           768: {
             slidesPerView: 2.3,
-            spaceBetween: 20,
+            spaceBetween: 20
           },
 
           1024: {
@@ -1321,17 +1322,17 @@ export default {
             spaceBetween: 20,
             pagination: {
               el: ".feedbacks-pagination",
-              clickable: true,
-            },
-          },
-        },
-      },
+              clickable: true
+            }
+          }
+        }
+      }
     };
   },
   computed: {
     lastDay() {
       let days = Math.floor(
-        (new Date("Aug 8, 2022 11:00:00").getTime() - new Date().getTime()) /
+        (new Date("June 25, 2022 11:00:00").getTime() - new Date().getTime()) /
           86400000
       ).toString();
       const lastNum = days.substr(-1);
@@ -1339,7 +1340,7 @@ export default {
       else if (["2", "3", "4"].includes(lastNum)) days += " дня";
       else days += " дней";
       return days;
-    },
+    }
   },
   async mounted() {
     this.$router.currentRoute.hash === "#tickets" && this.handleScroll();
@@ -1355,7 +1356,7 @@ export default {
   methods: {
     async addItem(t_id) {
       await this.$store.dispatch("cart/addItem", {
-        t_id,
+        t_id
       });
       const { $router } = this;
       this.$notify({
@@ -1365,7 +1366,7 @@ export default {
         customClass: "c-pointer",
         onClick() {
           $router.push("cart");
-        },
+        }
       });
     },
     ticketsSwiperClick(e) {
@@ -1378,10 +1379,10 @@ export default {
       const anchor = document.querySelector(`#tickets`);
       if (anchor) {
         window.scrollTo({
-          top: anchor.getBoundingClientRect().top + window.pageYOffset,
+          top: anchor.getBoundingClientRect().top + window.pageYOffset
         });
       }
-    },
-  },
+    }
+  }
 };
 </script>
