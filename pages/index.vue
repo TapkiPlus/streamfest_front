@@ -1197,6 +1197,20 @@
           >
             <img src="/partners/mir24_tv.png" loading="lazy" />
           </a>
+          <a
+            href="https://streaminside.ru/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/streaminside_pc.png" loading="lazy" />
+          </a>
+          <a
+            href="https://www.mskagency.ru/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/AGN_Moscow_pc.png" loading="lazy" />
+          </a>
         </div>
         <PartnersModalButton />
       </div>
