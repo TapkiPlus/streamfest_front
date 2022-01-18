@@ -11,7 +11,7 @@
           <p>
             Российская аудитория стримов растет в два раза быстрее мировой — на
             20% в год. Стримфест — это точка входа в новую реальность.<br />Ждем
-            вас 7–8 августа в Технопарке Сколково!
+            вас 25-26 июня в Технопарке Сколково!
           </p>
           <div class="footer-top-social">
             <a
@@ -31,6 +31,13 @@
                   fill="white"
                 />
               </svg>
+            </a>
+            <a
+              href="https://discord.gg/uCrQmBntZP"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="/diskord_logo_w.svg" />
             </a>
             <a
               href="https://www.tiktok.com/@streamfest"
@@ -118,24 +125,6 @@
                 />
               </svg>
             </a>
-            <a
-              href="https://twitter.com/streamfest_ru"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <svg
-                width="36"
-                height="36"
-                viewBox="0 0 36 36"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M34 8.078C32.81 8.6 31.542 8.946 30.22 9.114C31.58 8.302 32.618 7.026 33.106 5.488C31.838 6.244 30.438 6.778 28.946 7.076C27.742 5.794 26.026 5 24.154 5C20.522 5 17.598 7.948 17.598 11.562C17.598 12.082 17.642 12.582 17.75 13.058C12.296 12.792 7.47 10.178 4.228 6.196C3.662 7.178 3.33 8.302 3.33 9.512C3.33 11.784 4.5 13.798 6.244 14.964C5.19 14.944 4.156 14.638 3.28 14.156C3.28 14.176 3.28 14.202 3.28 14.228C3.28 17.416 5.554 20.064 8.536 20.674C8.002 20.82 7.42 20.89 6.816 20.89C6.396 20.89 5.972 20.866 5.574 20.778C6.424 23.376 8.836 25.286 11.704 25.348C9.472 27.094 6.638 28.146 3.57 28.146C3.032 28.146 2.516 28.122 2 28.056C4.906 29.93 8.35 31 12.064 31C24.136 31 30.736 21 30.736 12.332C30.736 12.042 30.726 11.762 30.712 11.484C32.014 10.56 33.108 9.406 34 8.078Z"
-                  fill="white"
-                />
-              </svg>
-            </a>
           </div>
         </div>
         <div class="footer-top-right">
@@ -148,7 +137,7 @@
 
     <div class="footer-bottom">
       <div class="container footer-bottom-wrapper">
-        <p>© 2015 – 2021, Стримфест</p>
+        <p>© 2015 – 2022, Стримфест</p>
         <a class="footer-cat mobile-hidden" @click="scrollToTop">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -176,7 +165,7 @@
       to="/cart"
     >
       <div class="cart-fix__counter"></div>
-      <img src="/cart-small.svg" alt="cart-icon" loading="lazy"/>
+      <img src="/cart-small.svg" alt="cart-icon" loading="lazy" />
     </nuxt-link>
     <div v-show="isWidgetVisible" id="vk_community_messages"></div>
   </footer>
@@ -188,7 +177,7 @@ export default {
   data() {
     return {
       isWidgetVisible: false
-    }
+    };
   },
   computed: {
     ...mapState("cart", ["data"]),
@@ -199,32 +188,32 @@ export default {
             0
           )
         : 0;
-    },
+    }
   },
   mounted() {
-      VK.Widgets.CommunityMessages("vk_community_messages", 122887579, {
-        disableExpandChatSound: "1",
-        disableButtonTooltip: "1"
-      });
-      VK.Widgets.Group(
-        "vk_groups",
-        { mode: 3, width: "auto", no_cover: 1 },
-        122887579
-      );
+    VK.Widgets.CommunityMessages("vk_community_messages", 122887579, {
+      disableExpandChatSound: "1",
+      disableButtonTooltip: "1"
+    });
+    VK.Widgets.Group(
+      "vk_groups",
+      { mode: 3, width: "auto", no_cover: 1 },
+      122887579
+    );
     this.checkRoutePath();
   },
-   watch: {
+  watch: {
     "$route.path": function() {
       this.checkRoutePath();
     }
   },
   methods: {
     checkRoutePath() {
-      this.isWidgetVisible = !['/cart', '/checkout'].includes(this.$route.path)
+      this.isWidgetVisible = !["/cart", "/checkout"].includes(this.$route.path);
     },
     scrollToTop() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
-  },
+  }
 };
 </script>

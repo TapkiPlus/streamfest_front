@@ -1,14 +1,23 @@
 <template>
   <section class="streamers">
     <div class="container">
-      <h3 class="section-header">ВСТРЕТИМСЯ В РЕАЛЕ</h3>
+      <h3 class="section-header">УЧАСТНИКИ СТРИМФЕСТА 2021</h3>
       <div class="section-subheader">
         <p>
-          Дай пять, возьми автограф, задай вопрос, угости вкусняшкой, брось челлендж — приходи с друзьями!
+          Дай пять, возьми автограф, задай вопрос, угости вкусняшкой, брось
+          челлендж — приходи с друзьями!
         </p>
-        <p>Заглядывай сюда почаще, список участников пополняется каждый день!</p>
-        <p><b>ВНИМАНИЕ! Стримфест проходит в безопасном формате COVID-free.</b></p>
-        <p>Для входа нужны билет, QR-код и паспорт, подробности в <nuxt-link class="link" to="/faq">FAQ</nuxt-link>.</p>
+        <p>
+          <b>
+            На этой странице представлены все участники прошлого праздника
+            стрим-культуры.
+          </b>
+        </p>
+        <p>
+          Заглядывай сюда почаще, вскоре мы начнем объявлять участников
+          Стримфеста 2022. Жди сюрпризов! Хочешь участвовать?
+          <nuxt-link class="link" to="/how-to">Узнай как!</nuxt-link>
+        </p>
       </div>
     </div>
     <div class="separator star">
@@ -37,7 +46,7 @@
       <div class="streamers-wrapper">
         <StreamerCard
           v-for="streamer in streamers"
-          :key="streamer.id" 
+          :key="streamer.id"
           :image="streamer.photo"
           :name="streamer.name"
           :name_slug="streamer.nickNameSlug"
@@ -46,7 +55,7 @@
       </div>
       <StreamersSwiper :streamers="streamers" />
       <div class="streamers-btn">
-        <img src="/active.svg" alt="" class="btn--icon" loading="lazy"/>
+        <img src="/active.svg" alt="" class="btn--icon" loading="lazy" />
         <a
           href="/how-to"
           class="btn btn-w-icon btn--blue"
@@ -67,16 +76,17 @@ export default {
   scrollToTop: true,
   components: {
     StreamerCard,
-    StreamersSwiper
+    StreamersSwiper,
   },
   data() {
     return {
-      streamers: []
-    }
+      streamers: [],
+    };
   },
   async mounted() {
-   this.streamers = (await this.$axios.get(`/api/get_streamers?at_home=not_show`))
-      .data;
-  }
+    this.streamers = (
+      await this.$axios.get(`/api/get_streamers?at_home=not_show`)
+    ).data;
+  },
 };
 </script>

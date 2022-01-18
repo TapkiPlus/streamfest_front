@@ -3,13 +3,11 @@
     <section class="offer">
       <video class="offer-video" :src="mainVideoSrc" loop autoplay muted />
       <div class="container offer-wrapper">
-        <img class="offer__covid" src="/covid/covid_free_zone_badge.svg" alt="" loading="lazy" />
-        <h3 class="offer__title">СТРИМФЕСТ 2021</h3>
+        <h3 class="offer__title">СТРИМФЕСТ 2022</h3>
         <p class="offer__subtitle">Главный фестиваль стримеров!</p>
         <p class="offer__subtitle subtitle-last">
-          7–8 августа<br />Москва, Сколково
+          25–26 июня<br />Москва, Сколково
         </p>
-        <p class="offer__22px">До новых встреч!</p>
         <nuxt-link
           @click.native="handleScroll"
           class="btn header__button btn--big btn--yellow"
@@ -17,42 +15,6 @@
         >
           Купить билет
         </nuxt-link>
-      </div>
-    </section>
-    <section class="covid">
-      <div class="container">
-        <h3 class="section-header mb-20">
-          БЕЗОПАСНЫЙ COVID-FREE ФЕСТИВАЛЬ
-        </h3>
-        <p class="covid__subheader section-subheader">
-          Стримфест 2021 пройдет в режиме COVID-free — безопасно и «как раньше»: без&nbsp;масок,&nbsp;перчаток&nbsp;и&nbsp;дистанцирования — согласно п. 23 указа Мэра Москвы от 22 июня 2021 г. №35-УМ. Вход по QR-коду, который легко получить!
-        </p>
-        <p class="covid__subtitle">
-          Способы получить QR-код для входа на фестиваль
-        </p>
-        <div class="covid__items">
-          <div class="covid__item">
-            <img src="/covid/shield.svg" alt="" loading="lazy">
-            <p class="covid__item-subtitle covid__subtitle">Сделать прививку</p>
-            <p>любой вакциной в России</p>
-          </div>
-          <div class="covid__item">
-            <img src="/covid/planshet.svg" alt="" loading="lazy">
-            <p class="covid__item-subtitle covid__subtitle">Сдать ПЦР-тест</p>
-            <p>за 1 день до входа на фестиваль</p>
-          </div>
-          <div class="covid__item">
-            <img src="/covid/stop.svg" alt="" loading="lazy">
-            <p class="covid__item-subtitle covid__subtitle">Переболеть COVID-19</p>
-            <p>в предыдущие 180 дней</p>
-          </div>
-        </div>
-        <div class="covid__btn">
-          <img class="btn--icon" src="/covid/QR.svg" alt="" loading="lazy"/>
-          <nuxt-link class="btn btn-w-icon btn--blue" to="/faq"
-            >БОЛЬШЕ О QR-КОДАХ
-          </nuxt-link>
-        </div>
       </div>
     </section>
     <section class="video-block">
@@ -67,11 +29,17 @@
           Живое общение, море развлечений, мастер-классы&nbsp;— без сомнения,
           лучшие выходные года!
         </p>
-        <div style="padding:56.25% 0 0 0;position:relative;">
+        <div style="padding: 56.25% 0 0 0; position: relative">
           <iframe
             src="https://player.vimeo.com/video/530958754?title=0&byline=0&portrait=0"
             loading="lazy"
-            style="position:absolute;top:0;left:0;width:100%;height:100%;"
+            style="
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+            "
             frameborder="0"
             allow="autoplay; fullscreen; picture-in-picture"
             allowfullscreen
@@ -87,7 +55,7 @@
             s6 - master classes
           -->
           <div class="video-item">
-            <img src="/cats/s_1.svg" loading="lazy"/>
+            <img src="/cats/s_1.svg" loading="lazy" />
             <div class="video-item__title">Встречи со звездами</div>
             <p>
               Топы всех платформ: Twitch.tv, YouTube, TikTok, WASD, Goodgame, VK
@@ -95,14 +63,14 @@
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_4.svg" loading="lazy"/>
+            <img src="/cats/s_4.svg" loading="lazy" />
             <div class="video-item__title">Игровые зоны и конкурсы</div>
             <p>
               Развлечения по полной: видеоигры, роботы, танцы, фотозоны и призы.
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_2.svg" loading="lazy"/>
+            <img src="/cats/s_2.svg" loading="lazy" />
             <div class="video-item__title">Турниры и шоу-матчи</div>
             <p>
               MOBA, шутеры и батл рояли — участвуй сам и смотри, как жарят
@@ -110,14 +78,14 @@
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_5.svg" loading="lazy"/>
+            <img src="/cats/s_5.svg" loading="lazy" />
             <div class="video-item__title">Настолки и застолья</div>
             <p>
               Тащи друзей в партию или в кафешки, там всё вкусно и по карману.
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_3.svg" loading="lazy"/>
+            <img src="/cats/s_3.svg" loading="lazy" />
             <div class="video-item__title">Дефиле косплееров</div>
             <p>
               Самый демократичный конкурс фанатского костюма — портал
@@ -125,7 +93,7 @@
             </p>
           </div>
           <div class="video-item">
-            <img src="/cats/s_6.svg" loading="lazy"/>
+            <img src="/cats/s_6.svg" loading="lazy" />
             <div class="video-item__title">Лекции и мастер-классы</div>
             <p>
               Два дня интенсива: прокачаем скиллы, научим зарабатывать на
@@ -238,8 +206,9 @@
               </defs>
             </svg>
 
-            И другие активности</nuxt-link>
-          <nuxt-link class="video-button btn btn--blue" to="/map">
+            И другие активности</nuxt-link
+          >
+          <div class="video-button btn btn--blue btn-disable">
             <svg
               class="btn--icon"
               width="53"
@@ -346,7 +315,8 @@
                 </filter>
               </defs>
             </svg>
-            Карта фестиваля</nuxt-link>
+            Карта фестиваля
+          </div>
         </div>
       </div>
       <div class="side-parts">
@@ -378,7 +348,7 @@
     </div>
     <section class="streamers">
       <div class="container">
-        <h3 class="section-header">ОЧЕНЬ ПРОСТО ПОВСТРЕЧАТЬ</h3>
+        <h3 class="section-header">УЧАСТНИКИ СТРИМФЕСТА 2022</h3>
         <div class="streamers-wrapper">
           <StreamerCard
             v-for="{ id, photo, name, nickNameSlug, nickName } in streamers"
@@ -391,18 +361,16 @@
         </div>
         <StreamersSwiper :streamers="streamers" />
         <div class="streamers-btn">
-          <img class="btn--icon" src="/smile.png" loading="lazy"/>
+          <img class="btn--icon" src="/smile.png" loading="lazy" />
           <nuxt-link class="btn btn-w-icon btn--blue" to="/stars"
-            >КТО ТОЛЬКО НЕ ПРИДЕТ
+            >А ВОТ КТО ЕЩЕ БЫЛ
           </nuxt-link>
         </div>
       </div>
     </section>
     <section class="tickets">
       <div id="tickets"></div>
-      <h3 class="section-header">
-        ЦЕНЫ ВЫРАСТУТ&nbsp;— БЕРИ БИЛЕТ СЕЙЧАС!
-      </h3>
+      <h3 class="section-header">ЦЕНЫ ВЫРАСТУТ&nbsp;— БЕРИ БИЛЕТ СЕЙЧАС!</h3>
       <div class="tickets-wrapper">
         <div class="tickets-desktop">
           <div
@@ -412,14 +380,14 @@
           >
             <div class="tickets-item__wrapper">
               <p v-if="days_qty === 1" class="tickets-item__days">
-                Билет на один день 7&nbsp;или&nbsp;8&nbsp;августа
+                Билет на один день 25&nbsp;или&nbsp;26&nbsp;июня
               </p>
               <p v-else class="tickets-item__days">
-                Билет на оба дня 7&nbsp;и&nbsp;8&nbsp;августа
+                Билет на оба дня 25&nbsp;и&nbsp;26&nbsp;июня
               </p>
               <ul v-if="days_qty === 1" class="tickets-item__list">
                 <li class="tickets-item__list--item checked">
-                Безопасно в формате COVID-free
+                  Безопасно в формате COVID-free
                 </li>
                 <li class="tickets-item__list--item checked">
                   Хайп, веселье, конкурсы
@@ -427,17 +395,17 @@
                 <li class="tickets-item__list--item checked">
                   Все стенды и развлечения
                 </li>
-                <li class="tickets-item__list--item ">
+                <li class="tickets-item__list--item">
                   Все стримеры и подкастеры
                 </li>
-                <li class="tickets-item__list--item ">
+                <li class="tickets-item__list--item">
                   Все лекции и мастер-классы
                 </li>
-                <li class="tickets-item__list--item ">Два дня праздника</li>
+                <li class="tickets-item__list--item">Два дня праздника</li>
               </ul>
               <ul v-else class="tickets-item__list">
                 <li class="tickets-item__list--item checked">
-                Безопасно в формате COVID-free
+                  Безопасно в формате COVID-free
                 </li>
                 <li class="tickets-item__list--item checked">
                   Хайп, веселье, конкурсы
@@ -460,14 +428,14 @@
               <p class="tickets-item__price">
                 <span>{{ price }} ₽</span>
               </p>
-                <button
+              <button
                 v-if="days_qty === 1"
-                  @click="addItem(id)"
-                  class="btn btn-ticket btn--red"
-                  id="homeTicketOne"
-                >
-                  Купить билет на 1 день
-                </button>
+                @click="addItem(id)"
+                class="btn btn-ticket btn--red"
+                id="homeTicketOne"
+              >
+                Купить билет на 1 день
+              </button>
               <button
                 v-else
                 @click="addItem(id)"
@@ -495,35 +463,35 @@
                 <div class="tickets-item">
                   <div class="tickets-item__wrapper">
                     <p v-if="days_qty === 1" class="tickets-item__days">
-                Билет на один день 7&nbsp;или&nbsp;8&nbsp;августа
-              </p>
-              <p v-else class="tickets-item__days">
-                Билет на оба дня 7&nbsp;и&nbsp;8&nbsp;августа
-              </p>
+                      Билет на один день 25&nbsp;или&nbsp;26&nbsp;июня
+                    </p>
+                    <p v-else class="tickets-item__days">
+                      Билет на оба дня 25&nbsp;и&nbsp;26&nbsp;июня
+                    </p>
                     <ul v-if="days_qty === 1" class="tickets-item__list">
                       <li class="tickets-item__list--item checked">
-                Безопасно в формате COVID-free
-                </li>
+                        Безопасно в формате COVID-free
+                      </li>
                       <li class="tickets-item__list--item checked">
                         Хайп, веселье, конкурсы
                       </li>
                       <li class="tickets-item__list--item checked">
                         Все стенды и развлечения
                       </li>
-                      <li class="tickets-item__list--item ">
+                      <li class="tickets-item__list--item">
                         Все стримеры и подкастеры
                       </li>
-                      <li class="tickets-item__list--item ">
+                      <li class="tickets-item__list--item">
                         Все лекции и мастер-классы
                       </li>
-                      <li class="tickets-item__list--item ">
+                      <li class="tickets-item__list--item">
                         Два дня праздника
                       </li>
                     </ul>
                     <ul v-else class="tickets-item__list">
                       <li class="tickets-item__list--item checked">
-                Безопасно в формате COVID-free
-                </li>
+                        Безопасно в формате COVID-free
+                      </li>
                       <li class="tickets-item__list--item checked">
                         Хайп, веселье, конкурсы
                       </li>
@@ -545,16 +513,17 @@
                     <p class="tickets-item__price">
                       <span>{{ price }} ₽</span>
                     </p>
-                      <button
+                    <button
                       v-if="days_qty === 1"
-                        class="btn btn--red btn-ticket"
-                        id="homeTicketOne"
-                      >
-                        Купить билет на 1 день
-                      </button>
-                    <button v-else
-                    class="btn btn--red btn-ticket"
-                    id="homeTicketTwo"
+                      class="btn btn--red btn-ticket"
+                      id="homeTicketOne"
+                    >
+                      Купить билет на 1 день
+                    </button>
+                    <button
+                      v-else
+                      class="btn btn--red btn-ticket"
+                      id="homeTicketTwo"
                     >
                       Купить билет на 2 дня
                     </button>
@@ -574,16 +543,24 @@
     </section>
     <section class="how-it-was">
       <div class="container">
-        <h3 class="section-header">КАК ЭТО БЫЛО В 2019</h3>
+        <h3 class="section-header">КАК ЭТО БЫЛО В 2022</h3>
         <p class="section-subheader">
-          Два дня в Сколково, 170 топовых стримеров, 7000 посетителей и больше 2
-          млн зрителей онлайн — это было легендарно!
+          Во-первых — это было! Стримфест был первым и единственным игровым
+          офлайн-фестивалем в 2020 и 2021 году. За два дня в Сколково мы собрали
+          200 топовых стримеров, тысячи посетителей и больше 3 млн зрителей —
+          это было уникально!
         </p>
-        <div style="padding:56.25% 0 0 0;position:relative;">
+        <div style="padding: 56.25% 0 0 0; position: relative">
           <iframe
             src="https://player.vimeo.com/video/348364566?title=0&byline=0&portrait=0"
             loading="lazy"
-            style="position:absolute;top:0;left:0;width:100%;height:100%;"
+            style="
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+            "
             frameborder="0"
             allow="autoplay; fullscreen; picture-in-picture"
             allowfullscreen
@@ -767,7 +744,7 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-              Больше фото
+            Больше фото
           </a>
         </div>
       </div>
@@ -813,7 +790,7 @@
                     <p class="feedback-item__who">Видеоблогер</p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/2_s.jpg" loading="lazy"/>
+                    <img src="/reviews/2_s.jpg" loading="lazy" />
                   </div>
                 </div>
               </swiper-slide>
@@ -827,12 +804,10 @@
                       на&nbsp;глазах&nbsp;&mdash; это потрясающе.
                     </p>
                     <p class="feedback-item__from">Павел Пивоваров</p>
-                    <p class="feedback-item__who">
-                      Подкастер
-                    </p>
+                    <p class="feedback-item__who">Подкастер</p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/3_s.jpg" loading="lazy"/>
+                    <img src="/reviews/3_s.jpg" loading="lazy" />
                   </div>
                 </div>
               </swiper-slide>
@@ -846,12 +821,10 @@
                       впервые, но&nbsp;нам безумно понравилось.
                     </p>
                     <p class="feedback-item__from">Людмила Морозова</p>
-                    <p class="feedback-item__who">
-                      Посетитель
-                    </p>
+                    <p class="feedback-item__who">Посетитель</p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/4_s.jpg" loading="lazy"/>
+                    <img src="/reviews/4_s.jpg" loading="lazy" />
                   </div>
                 </div>
               </swiper-slide>
@@ -865,12 +838,10 @@
                       Это нужно пережить.
                     </p>
                     <p class="feedback-item__from">Дмитрий dayzru Нардов</p>
-                    <p class="feedback-item__who">
-                      Стример
-                    </p>
+                    <p class="feedback-item__who">Стример</p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/5_s.jpg" loading="lazy"/>
+                    <img src="/reviews/5_s.jpg" loading="lazy" />
                   </div>
                 </div>
               </swiper-slide>
@@ -885,12 +856,10 @@
                       что тут говорить!
                     </p>
                     <p class="feedback-item__from">Евгений Мелёхин</p>
-                    <p class="feedback-item__who">
-                      Посетитель
-                    </p>
+                    <p class="feedback-item__who">Посетитель</p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/6_s.jpg" loading="lazy"/>
+                    <img src="/reviews/6_s.jpg" loading="lazy" />
                   </div>
                 </div>
               </swiper-slide>
@@ -904,12 +873,10 @@
                       ВАААМ!<br /><br />
                     </p>
                     <p class="feedback-item__from">Лилия Lily_Mint Аюпова</p>
-                    <p class="feedback-item__who">
-                      Стример
-                    </p>
+                    <p class="feedback-item__who">Стример</p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/7_s.jpg" loading="lazy"/>
+                    <img src="/reviews/7_s.jpg" loading="lazy" />
                   </div>
                 </div>
               </swiper-slide>
@@ -925,12 +892,10 @@
                     <p class="feedback-item__from">
                       Алексей Stery_RJV Рыженков
                     </p>
-                    <p class="feedback-item__who">
-                      Стример
-                    </p>
+                    <p class="feedback-item__who">Стример</p>
                   </div>
                   <div class="feedback-item__image">
-                    <img src="/reviews/8_s.jpg" loading="lazy"/>
+                    <img src="/reviews/8_s.jpg" loading="lazy" />
                   </div>
                 </div>
               </swiper-slide>
@@ -973,24 +938,22 @@
     </section>
     <section class="awards">
       <div class="container">
-        <h3 class="section-header">STREAMFEST AWARDS</h3>
+        <h3 class="section-header">STREAMFEST AWARDS 2021</h3>
         <p class="section-subheader">
           Яркое эфирное шоу, где популярные стримеры, эксперты&nbsp;рынка
           и&nbsp;журналисты&nbsp;развлекательных медиа&nbsp;выбрали лучших из
-          лучших в 13&nbsp;номинациях.
+          лучших в 19&nbsp;номинациях.
           <a
-            class=" btn btn--awards"
-            href="https://streamscharts.com/streamfestawards2020"
+            class="btn btn--awards"
+            href="https://streamscharts.com/streamfestawards2021"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div class="letters">
-              Как&nbsp;это&nbsp;было
-            </div></a
+            <div class="letters">Как&nbsp;это&nbsp;было</div></a
           >
         </p>
         <div class="awards-img">
-          <img src="/awards.png" loading="lazy"/>
+          <img src="/awards.png" loading="lazy" />
         </div>
       </div>
     </section>
@@ -1032,21 +995,21 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/mvideo.png" loading="lazy"/>
+            <img src="/partners/mvideo.png" loading="lazy" />
           </a>
           <a
             href="https://www.lg.com/ru/ergo-monitors"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/lg.png" loading="lazy"/>
+            <img src="/partners/lg.png" loading="lazy" />
           </a>
           <a
             href="https://www.bigo.tv/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/bigo-live.png" loading="lazy"/>
+            <img src="/partners/bigo-live.png" loading="lazy" />
           </a>
         </div>
         <h3 class="section-header">ОФИЦИАЛЬНЫЕ ПАРТНЕРЫ</h3>
@@ -1056,80 +1019,79 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/logitech.png" loading="lazy"/>
+            <img src="/partners/logitech.png" loading="lazy" />
           </a>
           <a
             href="https://www.amd.com/ru"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/amd.png" loading="lazy"/>
+            <img src="/partners/amd.png" loading="lazy" />
           </a>
-           <a
+          <a
             href="https://www.faceit.com/en"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/faceit.png" loading="lazy"/>
+            <img src="/partners/faceit.png" loading="lazy" />
           </a>
           <a
             href="https://goodgame.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/goodgame.png" loading="lazy"/>
+            <img src="/partners/goodgame.png" loading="lazy" />
           </a>
         </div>
         <h3 class="section-header">ПАРТНЕРЫ ТЕМАТИЧЕСКИХ&nbsp;ЗОН</h3>
         <div class="partners-img tematic">
-            <a
-            href="https://wasd.tv"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/wasd.png" loading="lazy"/>
+          <a href="https://wasd.tv" target="_blank" rel="noopener noreferrer">
+            <img src="/partners/wasd.png" loading="lazy" />
           </a>
-           <a
-            href="https://fantv.ru"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/fan.png" loading="lazy"/>
+          <a href="https://fantv.ru" target="_blank" rel="noopener noreferrer">
+            <img src="/partners/fan.png" loading="lazy" />
           </a>
           <a
             href="https://synergycybersport.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/synergy.png" loading="lazy"/>
+            <img src="/partners/synergy.png" loading="lazy" />
           </a>
           <a
             href="https://reyden-x.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/reyden-x.png" loading="lazy"/>
+            <img src="/partners/reyden-x.png" loading="lazy" />
           </a>
-           <a
+          <a
             href="https://schoolskills.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/school_skills.png" loading="lazy"/>
+            <img src="/partners/school_skills.png" loading="lazy" />
           </a>
           <a
             href="https://podari-zhizn.ru/main"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/podari_jizn.png" loading="lazy"/>
+            <img src="/partners/podari_jizn.png" loading="lazy" />
           </a>
           <a
             href="https://www.trust.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/trust.png" loading="lazy"/>
+            <img src="/partners/trust.png" loading="lazy" />
+          </a>
+          <a
+            href="https://brixogroup.com/nibk"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/NiBK.png" loading="lazy" />
           </a>
         </div>
         <h3 class="section-header">ТЕХНИЧЕСКАЯ ПОДДЕРЖКА</h3>
@@ -1139,51 +1101,59 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/blue.png" loading="lazy"/>
+            <img src="/partners/blue.png" loading="lazy" />
           </a>
           <a href="https://warp.wtf/" target="_blank" rel="noopener noreferrer">
-            <img src="/partners/warp.png" loading="lazy"/>
+            <img src="/partners/warp.png" loading="lazy" />
           </a>
           <a
             href="https://hyperpc.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/hyper.png" loading="lazy"/>
+            <img src="/partners/hyper.png" loading="lazy" />
           </a>
-          <a href="https://www.darkproject.org/" target="_blank" rel="noopener noreferrer">
-            <img src="/partners/dark_project.png" loading="lazy"/>
+          <a
+            href="https://www.darkproject.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/dark_project.png" loading="lazy" />
           </a>
-          <a href="https://flick.redbull.com/" target="_blank" rel="noopener noreferrer">
-            <img src="/partners/redbull.png" loading="lazy"/>
+          <a
+            href="https://flick.redbull.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/redbull.png" loading="lazy" />
           </a>
           <a
             href="https://streamscharts.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/stream-charts.png" loading="lazy"/>
+            <img src="/partners/stream-charts.png" loading="lazy" />
           </a>
           <a
             href="https://www.dell.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/dell.png" loading="lazy"/>
+            <img src="/partners/dell.png" loading="lazy" />
           </a>
           <a
             href="https://www.dmitrylive.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/dmitry_live.png" loading="lazy"/>
+            <img src="/partners/dmitry_live.png" loading="lazy" />
           </a>
-           <a
+          <a
             href="https://en-us.sennheiser.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/sennheiser.png" loading="lazy"/>
+            <img src="/partners/sennheiser.png" loading="lazy" />
           </a>
         </div>
         <h3 class="section-header">ИНФОРМАЦИОННАЯ ПОДДЕРЖКА</h3>
@@ -1193,62 +1163,73 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/mania.png" loading="lazy"/>
+            <img src="/partners/mania.png" loading="lazy" />
           </a>
           <a
             href="https://tv.m24.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/moskva24.svg" loading="lazy"/>
+            <img src="/partners/moskva24.svg" loading="lazy" />
           </a>
-          <a
-            href="https://2x2tv.ru/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/partners/2х2.png" loading="lazy"/>
+          <a href="https://2x2tv.ru/" target="_blank" rel="noopener noreferrer">
+            <img src="/partners/2х2.png" loading="lazy" />
           </a>
           <a
             href="https://www.cybersport.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/cybersport.png" loading="lazy"/>
+            <img src="/partners/cybersport.png" loading="lazy" />
           </a>
           <a
             href="https://www.mirf.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/mirf.png" loading="lazy"/>
+            <img src="/partners/mirf.png" loading="lazy" />
           </a>
           <a
+            class="partners-mir"
             href="http://www.mirtv.ru/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/partners/mir24_tv.png" loading="lazy"/>
+            <img src="/partners/mir24_tv.png" loading="lazy" />
+          </a>
+          <a
+            href="https://streaminside.ru/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/streaminside_pc.png" loading="lazy" />
+          </a>
+          <a
+            href="https://www.mskagency.ru/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/partners/AGN_Moscow_pc.png" loading="lazy" />
           </a>
         </div>
-       <PartnersModalButton/>
+        <PartnersModalButton />
       </div>
       <div class="side-parts">
-        <img src="/side-parts_5.png" loading="lazy"/>
-        <img src="/side-parts_6.png" loading="lazy"/>
+        <img src="/side-parts_5.png" loading="lazy" />
+        <img src="/side-parts_6.png" loading="lazy" />
       </div>
     </section>
-    <PartnersModal/>
+    <PartnersModal />
   </div>
 </template>
 
 <script>
 import StreamerCard from "@/components/StreamerCard";
 import StreamersSwiper from "@/components/StreamersSwiper";
-import UnpayButton from "@/components/UnpayButton"
+import UnpayButton from "@/components/UnpayButton";
 import Subscribe from "@/components/Subscribe";
-import PartnersModal from "@/components/PartnersModal/"
-import PartnersModalButton from "@/components/PartnersModal/Button"
+import PartnersModal from "@/components/PartnersModal/";
+import PartnersModalButton from "@/components/PartnersModal/Button";
 export default {
   components: {
     StreamerCard,
@@ -1260,7 +1241,7 @@ export default {
   },
   data() {
     return {
-      mainVideoSrc: '',
+      mainVideoSrc: "",
       streamers: [],
       tickets: [],
       ticketsOptions: {
@@ -1293,7 +1274,7 @@ export default {
           thumbnail: "/home_gall/1_s.png"
         },
         {
-          src: "/home_gall/2.jpg",
+          src: "/home_gall/2.png",
           thumbnail: "/home_gall/2_s.png"
         },
         {
@@ -1305,7 +1286,7 @@ export default {
           thumbnail: "/home_gall/3_s.png"
         },
         {
-          src: "/home_gall/5.jpg",
+          src: "/home_gall/5.png",
           thumbnail: "/home_gall/5_s.png"
         },
         {
@@ -1359,13 +1340,13 @@ export default {
             }
           }
         }
-      },
+      }
     };
   },
   computed: {
     lastDay() {
       let days = Math.floor(
-        (new Date("Aug 8, 2021 11:00:00").getTime() - new Date().getTime()) /
+        (new Date("June 25, 2022 11:00:00").getTime() - new Date().getTime()) /
           86400000
       ).toString();
       const lastNum = days.substr(-1);
@@ -1377,12 +1358,13 @@ export default {
   },
   async mounted() {
     this.$router.currentRoute.hash === "#tickets" && this.handleScroll();
-    this.mainVideoSrc = '/videos/home.mp4'
+    this.mainVideoSrc = "/videos/home.mp4";
     const script = document.createElement("script");
     script.src = "https://player.vimeo.com/api/player.js";
     document.body.appendChild(script);
-    this.streamers = (await this.$axios.get("/api/get_streamers?at_home=show"))
-      .data
+    this.streamers = (
+      await this.$axios.get("/api/get_streamers?at_home=show")
+    ).data;
     this.tickets = (await this.$axios.get("/api/get_ticket_types")).data;
   },
   methods: {
@@ -1414,7 +1396,7 @@ export default {
           top: anchor.getBoundingClientRect().top + window.pageYOffset
         });
       }
-    },
+    }
   }
 };
 </script>
