@@ -28,7 +28,10 @@ export default {
         property: "og:image",
         content: "/og_img.png"
       },
-      {name:"facebook-domain-verification", content:"gdwwtt8fj1li8w6tqr2maceqf2dim2"}
+      {
+        name: "facebook-domain-verification",
+        content: "gdwwtt8fj1li8w6tqr2maceqf2dim2"
+      }
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.png" },
@@ -40,16 +43,29 @@ export default {
     ],
     script: [
       {
-        innerHTML: `dataLayer = []`,
+        innerHTML: `dataLayer = []`
       },
       {
-        innerHTML: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NQT6H22')`,
+        innerHTML: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NQT6H22')`
       },
       {
         innerHTML: `(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");ym(38023235, "init", {trustedDomains: ["streamfest.ru"],clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true,trackHash:true});`
       },
       {
-        src: 'https://vk.com/js/api/openapi.js?168'
+        src: "https://vk.com/js/api/openapi.js?168"
+      },
+      {
+        src: "https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"
+      },
+      {
+        src:
+          "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"
+      },
+      {
+        src: "https://embed.twitch.tv/embed/v1.js"
+      },
+      {
+        src: "https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"
       },
       {
         innerHTML: `!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?169",t.onload=function(){VK.Retargeting.Init("VK-RTRG-934249-hze71"),VK.Retargeting.Hit()},document.head.appendChild(t)}();`
@@ -69,7 +85,7 @@ export default {
         body: true
       }
     ],
-     __dangerouslyDisableSanitizers: ['script','noscript']
+    __dangerouslyDisableSanitizers: ["script", "noscript"]
   },
   css: ["element-ui/lib/theme-chalk/index.css", "@/assets/main.sass"],
   plugins: [
@@ -83,10 +99,10 @@ export default {
   ],
   components: true,
   buildModules: [],
-  modules: [ "@nuxtjs/axios", "@nuxtjs/auth", "@nuxtjs/robots"],
+  modules: ["@nuxtjs/axios", "@nuxtjs/auth", "@nuxtjs/robots"],
   robots: {
-    UserAgent: '*',
-    Disallow: '/account/',
+    UserAgent: "*",
+    Disallow: "/account/"
   },
   axios: {
     // baseURL: "http://sf.tagobar.ru"
