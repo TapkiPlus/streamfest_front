@@ -1,8 +1,8 @@
 <template>
   <div>
-    <Header v-if="$route.name !== 'account-slug'"/>
+    <Header v-if="!['account-slug', 'spasibodoctor'].includes($route.name)" />
     <Nuxt />
-    <Footer />
+    <Footer v-if="$route.name !== 'spasibodoctor'" />
   </div>
 </template>
 
@@ -14,6 +14,6 @@ export default {
   components: {
     Header,
     Footer
-  },
+  }
 };
 </script>
