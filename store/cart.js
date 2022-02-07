@@ -14,23 +14,33 @@ export default {
     }
   },
   actions: {
-    async fetchCart({ commit }) {
-      commit("SET_LOADING", true);
+    async fetchCart() {
       const session_id = this.$auth.$storage.getCookie("session_id");
-      session_id &&
-        commit(
-          "SET_DATA",
-          (await this.$axios.get(`/api/get_cart?session_id=${session_id}`)).data
-        );
+
+      if (!session_id) return {};
+
+      const { data } = await this.$axios.get(
+        `/api/get_cart?session_id=${session_id}`
+      );
+
+      return data;
+    },
+    async getCart({ commit, dispatch }) {
+      commit("SET_LOADING", true);
+
+      const session_id = this.$auth.$storage.getCookie("session_id");
+
+      if (session_id) commit("SET_DATA", await dispatch("fetchCart"));
+
       commit("SET_LOADING", false);
     },
     async addItem({ commit }, { t_id, s_id = 0 }) {
-     const { data } = await this.$axios.post("/api/add_item", {
+      const { data } = await this.$axios.post("/api/add_item", {
         session_id: this.$auth.$storage.getCookie("session_id"),
         item_id: t_id,
         streamer_id: s_id
       });
-      commit("SET_DATA", data)
+      commit("SET_DATA", data);
     },
     async changeQuantity({ commit }, { t_id, increase }) {
       const { data } = await this.$axios.post(
@@ -40,14 +50,14 @@ export default {
           item_id: t_id
         }
       );
-      commit("SET_DATA", data)
+      commit("SET_DATA", data);
     },
     async deleteItem({ commit }, item_id) {
       const { data } = await this.$axios.post("/api/delete_item", {
         session_id: this.$auth.$storage.getCookie("session_id"),
         item_id
       });
-      commit("SET_DATA", data)
+      commit("SET_DATA", data);
     }
   },
   getters: {
