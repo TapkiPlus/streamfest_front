@@ -12,35 +12,42 @@
           >
         </p>
         <p>
-          <b>ВАЖНО! Стримфест проходит в формате COVID-free.</b> Это безопасно! Для входа вам нужны билет, QR-код и паспорт. Билеты на фестиваль проверяются только после <a class="link" href="/faq" target="_blank" rel="noopener noreferrer">проверки QR-кода</a>.
+          <b>ВАЖНО! Стримфест проходит в формате COVID-free.</b> Это безопасно!
+          Для входа вам нужны билет, QR-код и паспорт. Билеты на фестиваль
+          проверяются только после
+          <a class="link" href="/faq" target="_blank" rel="noopener noreferrer"
+            >проверки QR-кода</a
+          >.
         </p>
         <p>
-          Скоро вам на почту придет два письма: одно с чеком, другое — с билетом в виде QR-кода (не путать с COVID-free QR-кодом, который вы получаете сами). Распечатайте письмо с билетом или сохраните его на телефоне.
+          Скоро вам на почту придет два письма: одно с чеком, другое — с билетом
+          в виде QR-кода (не путать с COVID-free QR-кодом, который вы получаете
+          сами). Распечатайте письмо с билетом или сохраните его на телефоне.
         </p>
         <p>
           Если письма не пришли, напишите на
           <a href="mailto:tickets@streamfest.ru">tickets@streamfest.ru</a>,
-          указав ваш <br /><b>номер заказа: №<span id="orderId">{{ $route.query.pg_order_id }}</span><span v-show="false" id="orderAmount">{{amount}}</span>.</b>
+          указав ваш <br /><b
+            >номер заказа: №<span id="orderId">{{
+              $route.query.pg_order_id
+            }}</span
+            ><span v-show="false" id="orderAmount">{{
+              data.total_price && data.total_price.toLocaleString()
+            }}</span
+            >.</b
+          >
         </p>
-        <nuxt-link to="/" class="btn"
-          >На главную</nuxt-link
-        >
+        <nuxt-link to="/" class="btn">На главную</nuxt-link>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   scrollToTop: true,
-  async asyncData({ $axios, query }){
-    try {
-      const {data} = await $axios.get(`/api/get_order?id=${query.pg_order_id }`)
-      return {amount: data.amount}
-    } catch (e) {
-      return {amount: null}
-    }
-  },
+  computed: mapState("cart", ["data"]),
   mounted() {
     this.$store.dispatch("cart/fetchCart");
   }
