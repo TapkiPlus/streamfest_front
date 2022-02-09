@@ -7,7 +7,7 @@ export default {
     host: "localhost"
   },
   env: {
-    img_url: "https://streamfest.ru"
+    img_url: process.env.BACKEND_EXTERNAL_URL
   },
   loading: {
     color: "rgba(255,255,255,0.8)"
@@ -105,9 +105,7 @@ export default {
     Disallow: "/account/"
   },
   axios: {
-    // baseURL: "http://sf.tagobar.ru"
-    // baseURL: "http://localhost:8000"
-    baseURL: "https://streamfest.ru"
+    baseURL: process.env.BACKEND_EXTERNAL_URL
   },
   build: {
     transpile: [/^element-ui/],
