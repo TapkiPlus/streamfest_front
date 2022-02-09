@@ -32,7 +32,7 @@
               $route.query.pg_order_id
             }}</span
             ><span v-show="false" id="orderAmount">{{
-              data.total_price && data.total_price.toLocaleString()
+              orderAmount === null ? null : orderAmount.toLocaleString()
             }}</span
             >.</b
           >
@@ -44,12 +44,19 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
 export default {
   scrollToTop: true,
-  computed: mapState("cart", ["data"]),
-  mounted() {
-    this.$store.dispatch("cart/fetchCart");
+  data() {
+    return {
+      orderAmount: null
+    };
+  },
+  async mounted() {
+    this.$store.commit("cart/SET_DATA", {});
+
+    const cart = await this.$store.dispatch("cart/fetchCart");
+
+    this.orderAmount = cart.total_price;
   }
 };
 </script>
