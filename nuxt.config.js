@@ -4,7 +4,7 @@ export default {
     host: "localhost"
   },
   env: {
-    img_url: process.env.BACKEND_EXTERNAL_URL
+    img_url: process.env.TARGET_HOSTNAME
   },
   loading: {
     color: "rgba(255,255,255,0.8)"
@@ -102,7 +102,7 @@ export default {
     Disallow: "/account/"
   },
   axios: {
-    baseURL: process.env.BACKEND_EXTERNAL_URL
+    baseURL: process.env.TARGET_HOSTNAME
   },
   build: {
     transpile: [/^element-ui/],
