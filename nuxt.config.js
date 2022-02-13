@@ -1,13 +1,10 @@
-import serveStatic from "serve-static";
 export default {
-  // Global page headers: https://go.nuxtjs.dev/config-head
-  // target: "static",
   server: {
     port: 3000,
     host: "localhost"
   },
   env: {
-    img_url: "https://streamfest.ru"
+    img_url: process.env.TARGET_HOSTNAME
   },
   loading: {
     color: "rgba(255,255,255,0.8)"
@@ -105,9 +102,7 @@ export default {
     Disallow: "/account/"
   },
   axios: {
-    // baseURL: "http://sf.tagobar.ru"
-    // baseURL: "http://localhost:8000"
-    baseURL: "https://streamfest.ru"
+    baseURL: process.env.TARGET_HOSTNAME
   },
   build: {
     transpile: [/^element-ui/],
