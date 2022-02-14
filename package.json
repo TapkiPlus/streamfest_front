@@ -24,9 +24,8 @@
     "vue2-datepicker": "^3.9.0"
   },
   "devDependencies": {
-    "@nuxt/image": "^0.6.1",
     "babel-plugin-component": "^1.1.1",
-    "node-sass": "^5.0.0",
+    "node-sass": "6.0",
     "sass-loader": "^10.0.5",
     "vue-masonry-css": "^1.0.3"
   }
