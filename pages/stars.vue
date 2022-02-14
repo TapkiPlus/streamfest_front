@@ -74,19 +74,16 @@ import StreamerCard from "@/components/StreamerCard";
 import StreamersSwiper from "@/components/StreamersSwiper";
 export default {
   scrollToTop: true,
-  components: {
-    StreamerCard,
-    StreamersSwiper,
-  },
-  data() {
+  async asyncData({ $axios }) {
+    const streamers = await $axios.get(`/api/get_streamers?at_home=not_show`);
+
     return {
-      streamers: [],
+      streamers: streamers.data
     };
   },
-  async mounted() {
-    this.streamers = (
-      await this.$axios.get(`/api/get_streamers?at_home=not_show`)
-    ).data;
-  },
+  components: {
+    StreamerCard,
+    StreamersSwiper
+  }
 };
 </script>
