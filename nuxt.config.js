@@ -96,7 +96,7 @@ export default {
   ],
   components: true,
   buildModules: [],
-  modules: ["@nuxtjs/axios", "@nuxtjs/auth", "@nuxtjs/robots"],
+  modules: ["@nuxtjs/axios", "@nuxtjs/auth", "@nuxt/image", "@nuxtjs/robots"],
   robots: {
     UserAgent: "*",
     Disallow: "/account/"
