@@ -577,6 +577,18 @@ export default {
     };
   },
   mounted() {
+    const firstLink = document.createElement("link");
+    firstLink.rel = "stylesheet";
+    firstLink.href =
+      "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css";
+    document.head.appendChild(firstLink);
+
+    const secondLink = document.createElement("link");
+    secondLink.rel = "stylesheet";
+    secondLink.href =
+      "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css";
+    document.head.appendChild(secondLink);
+
     new Twitch.Embed("twitch-embed", {
       width: 400,
       height: 460,

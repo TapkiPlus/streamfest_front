@@ -189,9 +189,9 @@
       <div class="activities-tabs__content">
         <p class="tab-description">
           Смотри, что покажу! Самые интересные места и события
-          <b>Стримфеста 2021</b>, которые просто нельзя было пропустить. Как
-          только будет сформирована (еще более грандиозная!) программа
-          Стримфеста 2022, мы обновим эту страницу.
+          <b>Стримфеста 2021</b>, которые просто нельзя было пропустить.
+          Демозоны, анонсы, челленджи, шоу-матчи, технологии, весь фарш и
+          вау-косплей — в 2022-м будет еще круче, скоро расскажем!
         </p>
         <div class="activities-grid">
           <masonry
@@ -208,7 +208,7 @@
                 description,
                 place,
                 day,
-                start,
+                start
               } in activities"
               :key="id"
             >
@@ -322,11 +322,11 @@ export default {
   scrollToTop: true,
   async asyncData({ $axios }) {
     const activities = (await $axios.get("/api/get_activities")).data.map(
-      (activity) => {
+      activity => {
         !activity.place &&
           (activity.place = {
             id: null,
-            name: "Весь фестиваль",
+            name: "Весь фестиваль"
           });
         return activity;
       }
@@ -350,13 +350,15 @@ export default {
       openStageList: false,
       activeStage: 1,
       activeDay: 1,
-      activePlaceId: null,
+      activePlaceId: null
     };
   },
   mounted() {
-    for (const activity of this.$refs.activities) {
-      for (const link of activity.querySelectorAll("a")) {
-        link.classList.add("link");
+    if (this.$refs.activities?.length) {
+      for (const activity of this.$refs.activities) {
+        for (const link of activity.querySelectorAll("a")) {
+          link.classList.add("link");
+        }
       }
     }
   },
@@ -375,7 +377,7 @@ export default {
           break;
       }
       return dayStr;
-    },
-  },
+    }
+  }
 };
 </script>
