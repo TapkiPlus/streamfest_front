@@ -37,6 +37,7 @@ button
     outline: none
 
 .container
+  width: 100%
   max-width: 1260px
   margin: 0 auto
   padding: 0 30px
@@ -102,7 +103,6 @@ textarea, input
     outline: none
   &:active
     outline: none
-
 
 ._fixed
   overflow: hidden
@@ -170,7 +170,6 @@ textarea
     background: linear-gradient(90deg, #35A3FF 0%, #0D6DD8 68.1%, #33A0FD 100%)
     width: 100%
 
-
   &.gamepad
     svg
       path
@@ -181,7 +180,6 @@ textarea
       fill: transparent
       &:last-child
         fill: #ffffff
-
 
 .maz-input__toggle-btn
   display: none !important
@@ -225,9 +223,6 @@ textarea
       span
         animation: move .5s linear var(--d)
 
-
-
-
   &--yellow
     background: linear-gradient(270deg, #FFB400 0%, #FAFF00 50.29%, #FFB400 100%)
     color: $color-text
@@ -266,7 +261,6 @@ textarea
     svg
       margin-left: 10px
 
-
   &.btn-disable
     background: transparent
     border: 1px solid #BAC8CF
@@ -279,7 +273,6 @@ textarea
 @keyframes move
   40%
     transform: translateY(var(--move))
-
 
 .btn--icon
   display: inline
@@ -308,7 +301,7 @@ textarea
     + .separator
       margin: 0
     .section-header
-     margin-bottom: 25px
+      margin-bottom: 25px
   &-item
     text-align: center
     &:nth-child(4)
@@ -336,7 +329,7 @@ textarea
       filter: none
       .btn--icon
         g
-          filter: none
+        filter: none
         path
           fill: $gray
 .feedbacks, .tickets
@@ -353,7 +346,7 @@ textarea
       &-next
         right: 0
         &::after
-         content: url(/arrow_r.svg) !important
+          content: url(/arrow_r.svg) !important
       &-prev
         left: 0
         &::after
@@ -419,7 +412,7 @@ textarea
 .unpay-button
   font-size: 15px !important
   margin-top: 15px
-  &:hover 
+  &:hover
     animation: rainbow 6s infinite linear
   button
     font-weight: inherit
@@ -456,7 +449,6 @@ textarea
   .feedbacks__slider-wrap
     width: 100%
 
-
 @media screen and (max-width: 768px)
   .desktop-hidden
     display: block
@@ -490,7 +482,7 @@ textarea
       background: $gray
     svg
       defs
-        display: none
+      display: none
       path
         fill: $gray
     &.gamepad
@@ -529,7 +521,6 @@ textarea
       flex-direction: column
       overflow: visible
       background: transparent
-
 
     input
       padding: 10px 20px
@@ -571,7 +562,7 @@ textarea
   .unpay-button
     font-size: 12px !important
     margin-top: 12px
-    
+
 @media screen and (max-width: 610px)
   body
     font-size: 16px
@@ -631,7 +622,7 @@ textarea
       width: 38px
   .feedbacks
     &__slider-wrap
-    padding-left: 20px
+      padding-left: 20px
     .swiper-slide
       min-width: auto
       padding: 0

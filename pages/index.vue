@@ -348,7 +348,7 @@
     </div>
     <section class="streamers">
       <div class="container">
-        <h3 class="section-header">УЧАСТНИКИ СТРИМФЕСТА 2022</h3>
+        <h3 class="section-header">УЧАСТНИКИ СТРИМФЕСТА 2021</h3>
         <div class="streamers-wrapper">
           <StreamerCard
             v-for="{ id, photo, name, nickNameSlug, nickName } in streamers"
@@ -368,7 +368,7 @@
         </div>
       </div>
     </section>
-    <section class="tickets">
+    <!-- <section class="tickets">
       <div id="tickets"></div>
       <h3 class="section-header">ЦЕНЫ ВЫРАСТУТ&nbsp;— БЕРИ БИЛЕТ СЕЙЧАС!</h3>
       <div class="tickets-wrapper">
@@ -540,10 +540,10 @@
         </div>
       </div>
       <Subscribe />
-    </section>
+    </section> -->
     <section class="how-it-was">
       <div class="container">
-        <h3 class="section-header">КАК ЭТО БЫЛО В 2022</h3>
+        <h3 class="section-header">КАК ЭТО БЫЛО В 2021</h3>
         <p class="section-subheader">
           Во-первых — это было! Стримфест был первым и единственным игровым
           офлайн-фестивалем в 2020 и 2021 году. За два дня в Сколково мы собрали
@@ -552,7 +552,7 @@
         </p>
         <div style="padding: 56.25% 0 0 0; position: relative">
           <iframe
-            src="https://player.vimeo.com/video/348364566?title=0&byline=0&portrait=0"
+            src="https://player.vimeo.com/video/676613778?title=0&byline=0&portrait=0"
             loading="lazy"
             style="
               position: absolute;
@@ -1191,7 +1191,7 @@
           </a>
           <a
             class="partners-mir"
-            href="http://www.mirtv.ru/"
+            href="https://mir24.tv"
             target="_blank"
             rel="noopener noreferrer"
           >

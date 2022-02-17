@@ -31,12 +31,14 @@
       height: auto !important
     .faq-item__inner
       padding-left: 50px
+      strong
+        color: inherit
 .faq-items
   margin-bottom: 50px
 .faq-item
   background: transparent
   cursor: pointer
-  padding: 30px 10px 30px 0
+  padding: 30px 0
   width: 100%
   border: none
   line-height: 1.5
@@ -57,8 +59,7 @@
 
   .faq-plus
     min-width: 30px
-    position: absolute
-    right: 0
+    margin-left: auto
     rect:first-child
       transition: all 0.2s ease
       transform-origin: center
@@ -73,6 +74,7 @@
 
   &__inner
     padding-left: 45px
+    padding-right: 45px
     max-height: 0
     overflow: hidden
     transition: max-height 0.2s ease-out
@@ -86,6 +88,8 @@
       color: red
     span
       color: $color-blue
+    a span
+      color: $color-blue !important
     ul
       li
         position: relative
@@ -121,7 +125,9 @@
 
   .btn--vk
     display: none
-
+.faq-question
+  flex-grow: 1
+  margin-right: 15px
 @media screen and (max-width: 900px)
   .faq
     &-item
@@ -159,6 +165,7 @@
       +h5-bold
       position: relative
       padding-left: 40px
+      padding-right: 10px
       display: block
       img
         min-width: 19px
@@ -180,6 +187,7 @@
         display: none
       &__inner
         padding-left: 40px
+        padding-right: 0
         p
           margin-bottom: 15px
           +h6
@@ -194,6 +202,8 @@
           +h4
           justify-content: center
           margin-bottom: 0
+    &-question
+      margin-right: 0
     .btn--vk
       display: flex
     .subscribe

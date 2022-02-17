@@ -15,7 +15,9 @@
             class="faq-item"
           >
             <img class="faq-icon" :src="item.icon" />
-            {{ item.question }}
+            <div class="faq-question">
+              {{ item.question }}
+            </div>
             <svg
               class="faq-plus"
               width="30"

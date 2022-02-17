@@ -42,7 +42,7 @@
           <div class="streamer-text__block" v-html="streamer.about"></div>
           <div class="streamer-text__block" v-html="streamer.streaming"></div>
         </div>
-        <div v-if="streamer.sells" class="streamer-bottom">
+        <!-- <div v-if="streamer.sells" class="streamer-bottom">
           <div class="streamer-bottom__buttons">
             <button
               v-for="{ id, days_qty } in tickets"
@@ -68,7 +68,7 @@
           <p class="streamer-bottom__text">
             Покупая билет от участника, ты его поддерживаешь.<br>Часть стоимости билета идет участнику.<br><b>ВНИМАНИЕ! Стримфест проходит в безопасном формате COVID-free.</b><br> Для входа нужны билет, QR-код и паспорт, подробности в <nuxt-link class="link" to="/faq">FAQ</nuxt-link>.
           </p>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>

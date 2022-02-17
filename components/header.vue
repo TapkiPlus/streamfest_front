@@ -88,7 +88,7 @@
             </svg>
             корзина
           </nuxt-link>
-          <nuxt-link
+          <!-- <nuxt-link
             v-show="!cartTotalCount"
             @click.native="handleScroll"
             class="btn btn--yellow header__button"
@@ -96,7 +96,7 @@
           >
             <div class="btn-bg"></div>
             Купить билет
-          </nuxt-link>
+          </nuxt-link> -->
         </div>
       </div>
     </div>

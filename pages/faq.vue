@@ -5,7 +5,6 @@
       <img src="/FAQ.png" alt="" loading="lazy" />
     </div>
     <div class="container">
-      <p class="section-header">ОБЩИЕ ВОПРОСЫ ПРО ФЕСТИВАЛЬ</p>
       <div class="faq-items">
         <template v-for="item in faq.filter(item => item.category === 1)">
           <button
@@ -35,7 +34,9 @@
                 fill="#C4C4C4"
               />
             </svg>
-            {{ item.question }}
+            <div class="faq-question">
+              {{ item.question }}
+            </div>
             <svg
               class="faq-plus"
               width="30"
