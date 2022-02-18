@@ -6,7 +6,7 @@
     </div>
     <div class="container">
       <div class="faq-items">
-        <template v-for="item in faq.filter(item => item.category === 1)">
+        <template v-for="item in faq.filter((item) => item.category === 1)">
           <button
             :key="item.id"
             @click="toggleAccordion(item.id)"
@@ -34,9 +34,7 @@
                 fill="#C4C4C4"
               />
             </svg>
-            <div class="faq-question">
-              {{ item.question }}
-            </div>
+            <div class="faq-question" v-html="item.question"></div>
             <svg
               class="faq-plus"
               width="30"
@@ -115,20 +113,20 @@ export default {
     return { faq };
   },
   components: {
-    Subscribe
+    Subscribe,
   },
   scrollToTop: true,
   data() {
     return {
-      accordionIds: []
+      accordionIds: [],
     };
   },
   methods: {
     toggleAccordion(id) {
       this.accordionIds = this.accordionIds.includes(id)
-        ? this.accordionIds.filter(_id => _id != id)
+        ? this.accordionIds.filter((_id) => _id != id)
         : [...this.accordionIds, id];
-    }
-  }
+    },
+  },
 };
 </script>

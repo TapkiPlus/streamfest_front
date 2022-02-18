@@ -1,6 +1,6 @@
 <template>
   <section class="faq faq--how-to">
-    <div class="pattern-bg "></div>
+    <div class="pattern-bg"></div>
     <div class="faq-banner">
       <img src="/SU.png" alt="" loading="lazy" />
     </div>
@@ -15,9 +15,7 @@
             class="faq-item"
           >
             <img class="faq-icon" :src="item.icon" />
-            <div class="faq-question">
-              {{ item.question }}
-            </div>
+            <div class="faq-question" v-html="item.question"></div>
             <svg
               class="faq-plus"
               width="30"
@@ -94,25 +92,25 @@ export default {
     return { faq };
   },
   components: {
-    Subscribe
+    Subscribe,
   },
   scrollToTop: true,
   data() {
     return {
-      accordionIds: []
+      accordionIds: [],
     };
   },
   mounted() {
     this.accordionIds = this.faq
-      .filter(item => item.expanded)
-      .map(item => item.id);
+      .filter((item) => item.expanded)
+      .map((item) => item.id);
   },
   methods: {
     toggleAccordion(id) {
       this.accordionIds = this.accordionIds.includes(id)
-        ? this.accordionIds.filter(_id => _id != id)
+        ? this.accordionIds.filter((_id) => _id != id)
         : [...this.accordionIds, id];
-    }
-  }
+    },
+  },
 };
 </script>
