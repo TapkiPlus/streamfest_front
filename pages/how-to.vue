@@ -2,7 +2,7 @@
   <section class="faq faq--how-to">
     <div class="pattern-bg"></div>
     <div class="faq-banner">
-      <img src="/SU.png" alt="" loading="lazy" />
+      <img src="/SU.png" alt="" />
     </div>
     <div class="container">
       <div class="section-header">КАК СТАТЬ УЧАСТНИКОМ СТРИМФЕСТА 2022</div>
@@ -92,25 +92,25 @@ export default {
     return { faq };
   },
   components: {
-    Subscribe,
+    Subscribe
   },
   scrollToTop: true,
   data() {
     return {
-      accordionIds: [],
+      accordionIds: []
     };
   },
   mounted() {
     this.accordionIds = this.faq
-      .filter((item) => item.expanded)
-      .map((item) => item.id);
+      .filter(item => item.expanded)
+      .map(item => item.id);
   },
   methods: {
     toggleAccordion(id) {
       this.accordionIds = this.accordionIds.includes(id)
-        ? this.accordionIds.filter((_id) => _id != id)
+        ? this.accordionIds.filter(_id => _id != id)
         : [...this.accordionIds, id];
-    },
-  },
+    }
+  }
 };
 </script>
