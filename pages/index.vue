@@ -8,13 +8,13 @@
         <p class="offer__subtitle subtitle-last">
           25–26 июня<br />Москва, Сколково
         </p>
-        <nuxt-link
+        <!-- <nuxt-link
           @click.native="handleScroll"
           class="btn header__button btn--big btn--yellow"
           to="#tickets"
         >
           Купить билет
-        </nuxt-link>
+        </nuxt-link> -->
       </div>
     </section>
     <section class="video-block">
