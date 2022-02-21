@@ -367,13 +367,13 @@ export default {
       let dayStr = "";
       switch (day) {
         case 1:
-          dayStr = "25 июня";
+          dayStr = "Первый день";
           break;
         case 2:
-          dayStr = "26 июня";
+          dayStr = "Второй день";
           break;
         case 3:
-          dayStr = "25 и 26 июня";
+          dayStr = "Оба дня";
           break;
       }
       return dayStr;
