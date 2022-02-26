@@ -198,42 +198,29 @@
             :cols="{ default: 2, 767: 1 }"
             :gutter="{ default: '60px', 1024: '30px' }"
           >
-            <div
-              v-for="{
-                id,
-                border_color,
-                image,
-                icon,
-                title,
-                description,
-                place,
-                day,
-                start,
-              } in activities"
-              :key="id"
-            >
+            <div v-for="activity in activities" :key="activity.id">
               <div
                 ref="activities"
                 class="activities-item"
-                :style="{ 'border-color': border_color }"
+                :style="{ 'border-color': activity.border_color }"
               >
-                <div class="activities-item__img" v-if="image">
-                  <img :src="image" alt="" loading="lazy" />
+                <div class="activities-item__img" v-if="activity.image">
+                  <img :src="activity.image" alt="" loading="lazy" />
                 </div>
                 <div class="activities-item__content">
                   <div class="activities-item__body">
                     <div class="activities-item__title">
                       <img
                         class="activities-item__icon"
-                        :src="icon"
+                        :src="activity.icon"
                         alt=""
                         loading="lazy"
                       />
-                      <span>{{ title }}</span>
+                      <span>{{ activity.title }}</span>
                     </div>
                     <div
                       class="activities-item__descr"
-                      v-html="description"
+                      v-html="activity.description"
                     ></div>
                   </div>
                   <div class="activities-item__footer">
@@ -244,17 +231,22 @@
                         alt=""
                         loading="lazy"
                       />
-                      <span>{{ place.id }}</span>
+                      <span>{{ activity.place.id }}</span>
                     </div>
                     <div class="activities-item__info">
-                      <div class="activities-item__place">{{ place.name }}</div>
-                      <div class="activities-item__date">
-                        {{ getDay(day) }}, начало {{ start }}
+                      <div class="activities-item__place">
+                        {{ activity.place.name }}
+                      </div>
+                      <div
+                        v-if="![undefined, null].includes(activity.day)"
+                        class="activities-item__date"
+                      >
+                        {{ getDay(activity.day) }}, начало {{ activity.start }}
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="activities-item__corner" v-if="!image">
+                <div class="activities-item__corner" v-if="!activity.image">
                   <svg
                     width="41"
                     height="41"
@@ -265,7 +257,7 @@
                     <g filter="url(#filter0_d)">
                       <path
                         d="M15.7722 11.7722L24.988 2.32C29.3715 -2.17586 37 0.927558 37 7.2067V26C37 29.866 33.866 33 30 33H11.2067C4.92756 33 1.82413 25.3715 6.32 20.988L15.7722 11.7722Z"
-                        :fill="item.borderColor"
+                        :fill="activity.border_color"
                       />
                     </g>
                     <defs>
@@ -322,11 +314,11 @@ export default {
   scrollToTop: true,
   async asyncData({ $axios }) {
     const activities = (await $axios.get("/api/get_activities")).data.map(
-      (activity) => {
+      activity => {
         !activity.place &&
           (activity.place = {
             id: null,
-            name: "Весь фестиваль",
+            name: "Весь фестиваль"
           });
         return activity;
       }
@@ -350,7 +342,7 @@ export default {
       openStageList: false,
       activeStage: 1,
       activeDay: 1,
-      activePlaceId: null,
+      activePlaceId: null
     };
   },
   mounted() {
@@ -377,7 +369,7 @@ export default {
           break;
       }
       return dayStr;
-    },
-  },
+    }
+  }
 };
 </script>
