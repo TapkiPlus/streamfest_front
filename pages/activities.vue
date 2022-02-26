@@ -238,7 +238,7 @@
                         {{ activity.place.name }}
                       </div>
                       <div
-                        v-if="![undefined, null].includes(activity.day)"
+                        v-if="![undefined, null, 4].includes(activity.day)"
                         class="activities-item__date"
                       >
                         {{ getDay(activity.day) }}, начало {{ activity.start }}
@@ -314,11 +314,11 @@ export default {
   scrollToTop: true,
   async asyncData({ $axios }) {
     const activities = (await $axios.get("/api/get_activities")).data.map(
-      activity => {
+      (activity) => {
         !activity.place &&
           (activity.place = {
             id: null,
-            name: "Весь фестиваль"
+            name: "Весь фестиваль",
           });
         return activity;
       }
@@ -342,7 +342,7 @@ export default {
       openStageList: false,
       activeStage: 1,
       activeDay: 1,
-      activePlaceId: null
+      activePlaceId: null,
     };
   },
   mounted() {
@@ -369,7 +369,7 @@ export default {
           break;
       }
       return dayStr;
-    }
-  }
+    },
+  },
 };
 </script>
