@@ -10,8 +10,8 @@
           </p>
           <p>
             Российская аудитория стримов растет в два раза быстрее мировой — на
-            20% в год. Стримфест — это точка входа в новую реальность.<br />Ждем
-            вас 25-26 июня в Технопарке Сколково!
+            20% в год. Стримфест — это точка входа в новую реальность.<br />До
+            новых встреч на празднике живого общения!
           </p>
           <div class="footer-top-social">
             <a
@@ -176,7 +176,7 @@ import { mapState } from "vuex";
 export default {
   data() {
     return {
-      isWidgetVisible: false
+      isWidgetVisible: false,
     };
   },
   computed: {
@@ -188,12 +188,12 @@ export default {
             0
           )
         : 0;
-    }
+    },
   },
   mounted() {
     VK.Widgets.CommunityMessages("vk_community_messages", 122887579, {
       disableExpandChatSound: "1",
-      disableButtonTooltip: "1"
+      disableButtonTooltip: "1",
     });
     VK.Widgets.Group(
       "vk_groups",
@@ -203,9 +203,9 @@ export default {
     this.checkRoutePath();
   },
   watch: {
-    "$route.path": function() {
+    "$route.path": function () {
       this.checkRoutePath();
-    }
+    },
   },
   methods: {
     checkRoutePath() {
@@ -213,7 +213,7 @@ export default {
     },
     scrollToTop() {
       window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  }
+    },
+  },
 };
 </script>
