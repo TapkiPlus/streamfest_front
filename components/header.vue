@@ -7,7 +7,7 @@
       isHomePage && scrollPosition > 150 ? 'header-sticky' : '',
       !isHomePage && !isAccountPage ? 'header-bg' : '',
       isInfoPage ? 'header-info' : '',
-      isAccountPage ? 'header-account' : ''
+      isAccountPage ? 'header-account' : '',
     ]"
   >
     <div class="container">
@@ -48,7 +48,7 @@
                   ? nav_item.star
                     ? 'navItemActive with-star'
                     : 'navItemActive'
-                  : ''
+                  : '',
               ]"
             >
               <nuxt-link :to="nav_item.url">{{ nav_item.name }} </nuxt-link>
@@ -122,15 +122,16 @@ export default {
         { id: 4, name: "FAQ", url: "/faq", star: false },
         { id: 5, name: "Стать участником", url: "/how-to", star: false },
         { id: 6, name: "О фестивале", url: "/about", star: false },
-        { id: 7, name: "Как добраться", url: "/contact", star: false }
+        { id: 7, name: "Как добраться", url: "/contact", star: false },
+        { id: 8, name: "Конференция", url: "/confPage", star: false },
       ],
-      hamburgerActive: false
+      hamburgerActive: false,
     };
   },
   watch: {
-    "$route.path": function() {
+    "$route.path": function () {
       this.checkRoutePath();
-    }
+    },
   },
   computed: {
     ...mapState("cart", ["data"]),
@@ -141,7 +142,7 @@ export default {
             0
           )
         : 0;
-    }
+    },
   },
   beforeMount() {
     !this.$auth.$storage.getCookie("session_id") &&
@@ -167,7 +168,7 @@ export default {
         const anchor = document.querySelector(`#tickets`);
         if (anchor) {
           window.scrollTo({
-            top: anchor.getBoundingClientRect().top + window.pageYOffset
+            top: anchor.getBoundingClientRect().top + window.pageYOffset,
           });
         }
       }
@@ -176,12 +177,12 @@ export default {
       this.scrollPosition = window.scrollY;
     },
     uuidv4() {
-      return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, c => {
+      return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
         const r = (Math.random() * 16) | 0;
         return (c === "x" ? r : (r & 0x3) | 0x8).toString(16);
       });
-    }
-  }
+    },
+  },
 };
 </script>
 

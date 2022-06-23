@@ -232,28 +232,28 @@ export default {
       (a, b) => a.ordering_number - b.ordering_number
     );
 
-    const generalFaq = faq.filter(item => item.category === 1);
-    const covidFaq = faq.filter(item => item.category === 2);
-    const organizingFaq = faq.filter(item => item.category === 3);
+    const generalFaq = faq.filter((item) => item.category === 1);
+    const covidFaq = faq.filter((item) => item.category === 2);
+    const organizingFaq = faq.filter((item) => item.category === 3);
 
     return { generalFaq, covidFaq, organizingFaq };
   },
   components: {
     Support,
-    Subscribe
+    Subscribe,
   },
   scrollToTop: true,
   data() {
     return {
-      accordionIds: []
+      accordionIds: [],
     };
   },
   methods: {
     toggleAccordion(id) {
       this.accordionIds = this.accordionIds.includes(id)
-        ? this.accordionIds.filter(_id => _id != id)
+        ? this.accordionIds.filter((_id) => _id != id)
         : [...this.accordionIds, id];
-    }
-  }
+    },
+  },
 };
 </script>
